@@ -1,0 +1,64 @@
+@media (min-width: 200px) {
+  #mobile {
+    display: none;
+  }
+  #desktop {
+    display: block;
+  }
+}
+@media (max-width: 200px) {
+  #mobile {
+    display: block;
+  }
+  #desktop {
+    display: none;
+  }
+}
+
+body {font-family: "Lato", sans-serif;}
+
+#menu {
+  display: flex;
+}
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 20%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 16px;
+  text-align: center;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+#inicio {background-color:red;}
+#inmuebles {background-color:green;}
+#misdocumentos {background-color:blue;
+  background-image: url("pen-1743189_1921.jpg");
+  position: center;
+  background-size: contain;
+   background-repeat: no-repeat;
+  width: 100%;}
+#alertaasesor {background-color:orange;}
+#asesorpersonal {background-image: url("pen-1743189_1921.jpg");
+                  position: center;
+                  background-size: contain;
+                   background-repeat: no-repeat;
+                  width: 100%;}
