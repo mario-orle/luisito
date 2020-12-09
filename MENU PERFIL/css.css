@@ -67,8 +67,12 @@ body {font-family: "Calibri";
 
 }
 .icono {
-  width: 10px;
-  height: 10px;
+  background-image: url("casa.png");
+  padding-left: 20px;
+  background-position: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+
 }
 #inicio p {
   padding: 5px 20px;
