@@ -4,8 +4,8 @@
   }
   #desktop {
     display: block;
-    height: 100%;
-    min-height: 100%;
+    min-height: 98vh;
+    position: relative;
   }
 }
 @media (max-width: 200px) {
@@ -237,23 +237,6 @@ body {font-family:"Roboto";
   margin: 1px;
 }
 .footer {
-
-  height:24px; // Replace with the height your footer should be
-  width: 100%; // Don't change
-  background-image: none;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-position: 0% 0%;
-  position: fixed;
-  bottom: 0pt;
-  left: 0pt;
-
+position: absolute;
+bottom: 0;
 }   
-
-.footer_contents {
-
-  height:24px; // Replace with the height your footer should be
-  width: 1000px; // Visible width of footer
-  margin:auto;
-
-}
