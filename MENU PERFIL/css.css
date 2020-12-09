@@ -81,7 +81,7 @@ body {font-family:"Roboto";
 #inicio p {
   padding: 5px 20px;
 }
-#inicio h1 {
+#inicio h2 {
   padding: 0px 20px; 
 }
 #inmuebles {
@@ -231,4 +231,13 @@ body {font-family:"Roboto";
   text-align: center;
   border-radius: 10%;
   margin: 1px;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
 }
