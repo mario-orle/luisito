@@ -39,7 +39,10 @@ body {font-family: "Calibri";
 }
 
 .tablink:hover {
-  background-color: red;
+  background: grey;
+  background: -moz-linear-gradient(top, ORANGE 0%, #a7794d 48%, #9e401b 100%);
+  background: -webkit-linear-gradient(top, ORANGE 0%, #a7794d 48%, #9e401b 100%);
+  background: linear-gradient(to bottom, ORANGE 0%, #a7794d 48%, #9e401b 100%);
 }
 
 /* Style the tab content */
