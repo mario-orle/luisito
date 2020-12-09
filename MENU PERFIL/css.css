@@ -47,8 +47,8 @@ body {font-family: "Calibri";
 .tabcontent {
   color: white;
   display: none;
-  padding: 14px;
-  text-align: right;
+  padding: 14px 0px ;
+ 
 }
 
 .tabcontent.active {
@@ -58,28 +58,31 @@ body {font-family: "Calibri";
 #inicio {
   background-color: #1C6EA4;
   background-image: url("logo.png");
-  background: flex;
-  background-size: contain;
+  background-size: 340px;
   background-repeat: no-repeat;
-  width: 100%;}
+  width: 100%;
+  background-position: 15px 10px;
+  text-align: right;
+}
 #inmuebles {background-image: url("inmuebles.jpg");
-  background: flex;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
+  text-align: right;
 }
 #mis-documentos {background-image: url("pen-1743189_1921.jpg");
-  background: flex;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;}
+  width: 100%;
+  text-align: right;
+}
 #alerta-asesor {background-image: url("asesor\ personal.jpg");
-  background: flex;
   background-size: cover;
   background-repeat: no-repeat;
-  width: 100%;}
+  width: 100%;
+  text-align: right;
+}
 #asesor-personal {background-image: url("alerta\ sesor.jpg");
-                  background: flex;
                   background-size: cover;
                   background-repeat: no-repeat;
                   width: 100%;}
@@ -100,8 +103,8 @@ body {font-family: "Calibri";
 }
 
 .main {
-  height: 120px;
-  width:13%;
+  height: 240px;
+  width:30%;
   background-color: white;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   border-radius: 5%;
@@ -109,8 +112,8 @@ body {font-family: "Calibri";
  }
 
 .main2 {
-  height:240px;
-  width:30%;
+  height:120px;
+  width:13%;
   background-color: white;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   border-radius: 5%;
@@ -137,7 +140,7 @@ body {font-family: "Calibri";
 .container-grafica-chat{
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   width: 100%;
   margin-top: 10px;
 }
@@ -194,11 +197,11 @@ body {font-family: "Calibri";
   margin-top: 10px;
 }
 .chat{
-  height: 120px;
+  height: 200px;
   width:25%;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   border-radius: 5%;
-  margin: 50px;
+  margin:12px;
 }
 .chat .textchat {
   font-size: 12px;
