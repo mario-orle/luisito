@@ -47,7 +47,8 @@ body {font-family: "Calibri";
 .tabcontent {
   color: white;
   display: none;
-  padding: 14px 0px ;
+  padding: 14px 0px;
+ 
  
 }
 
@@ -63,13 +64,26 @@ body {font-family: "Calibri";
   width: 100%;
   background-position: 15px 10px;
   text-align: right;
+
 }
-#inmuebles {background-image: url("inmuebles.jpg");
+.icono {
+  width: 10px;
+  height: 10px;
+}
+#inicio p {
+  padding: 5px 20px;
+}
+#inicio h1 {
+  padding: 0px 20px; 
+}
+#inmuebles {
+  background-image: url("inmuebles.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   text-align: right;
 }
+
 #mis-documentos {background-image: url("pen-1743189_1921.jpg");
   background-size: cover;
   background-repeat: no-repeat;
