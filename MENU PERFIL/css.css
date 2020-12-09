@@ -66,24 +66,29 @@ body {font-family: "Lato", sans-serif;
 
                   /* para abajo cssde las cajas */
 
+
+
+
+.main-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
 .main {
   height: 120px;
   width: 200px;
-  position: fixed;
-  top: 215px;
-  left: 30px;
   background-color: white;
   padding-top: 50px;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   border-radius: 5%;
   font-family: "calibri";
-}
+ }
+
     .main2 {
       height: 20%;
       width: 212px;
-      position: fixed;
-      top: 215px;
-      left: 264px;
       background-color: rgb(255, 255, 255);
       padding-top: 50px;
       box-shadow: -3px 6px 5px 0px rgba(0,0,0,0.77);
@@ -94,9 +99,6 @@ body {font-family: "Lato", sans-serif;
     .main3 {
       height: 22%;
       width: 216px;
-      position: fixed;
-      top: 208px;
-      left: 508px;
       background-color: white;
       padding-top: 50px;
       box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.77);
@@ -108,9 +110,6 @@ body {font-family: "Lato", sans-serif;
     .main4 {
       height: 21%;
       width: 200px;
-      position: fixed;
-      top: 209px;
-      left: 774px;
       background-color: rgb(255, 255, 255);
       padding-top: 50px;
       box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.77);
@@ -121,60 +120,58 @@ body {font-family: "Lato", sans-serif;
     .grafica{
         height: 29%;
         width: 500px;
-        position: fixed;
-        top: 395px;
-        left: 705px;
         background-color: rgb(224, 224, 224);
         padding-top: 50px;
         box-shadow: -3px 6px 5px 0px rgba(0,0,0,0.77);
         border: black;
         font-family: "calibri";
         border-radius: 5%;
-}
-.grafica .textgraf{
+      }
+    .grafica .textgraf{
+            font-size: 12px;
+            font-family: "calibri";
+            position: relative;
+            top: -41px;
+            right: -22px;
+    }
+    .main .text{
+      font-size: 22px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      position: relative;
+      top: -33px;
+      right: 0;
+      left: 0px;
+      background-color: white;
+      border-radius: 10%;
+      margin: 1px;
+        
+    }
+    .main2 .text2{
         font-size: 12px;
-        font-family: "calibri";
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
         position: relative;
-        top: -41px;
-        right: -22px;
-}
-.main .text{
-  font-size: 22px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  position: relative;
-  top: -33px;
-  right: 0;
-  left: 0px;
-  background-color: white;
-  border-radius: 10%;
-  margin: 1px;
-    
-}
-.main2 .text2{
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    position: relative;
-    top: -50px;
-    right: 0;
-    left: 0;
-}
-.main3 .text3{
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    position: relative;
-    top: -50px;
-    right: 0;
-    left: 0;
-}
-.main4 .text4{
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    position: relative;
-    top: -50px;
-    right: 0;
-    left: 0;
-}
+        top: -50px;
+        right: 0;
+        left: 0;
+    }
+    .main3 .text3{
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        position: relative;
+        top: -50px;
+        right: 0;
+        left: 0;
+    }
+    .main4 .text4{
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        position: relative;
+        top: -50px;
+        right: 0;
+        left: 0;
+    }
+  }
