@@ -379,12 +379,6 @@ footer {
   left: 234px;
  }
 
-.slider .textslider{
-  text-align: center;
-  border-radius: 10%;
-  margin: 1px;
-  }
-        
  
 .cargar-imagenes{
   height: 140px;
@@ -402,9 +396,6 @@ footer {
    border-radius: 10%;
    margin: 1px;
   }
-
-
-
 
 
 
@@ -456,8 +447,7 @@ footer {
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
+  color:black;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
