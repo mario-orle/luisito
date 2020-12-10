@@ -115,7 +115,7 @@ body {font-family:"Roboto";
 
 
 
- /* para abajo cssde las cajas */
+ /* contenedores pagina inicio */
 
 
 
@@ -243,7 +243,21 @@ footer {
   height: 75px;
   text-align: center;
 }
+
+
+/* pagina inmuebles */
+
+
+
+
+
+
+
 /* menu lateral  paginas restantes */
+
+
+
+
 
 #cssmenu > ul {
   list-style: none;
@@ -381,12 +395,12 @@ footer {
 
  
 .cargar-imagenes{
-  height: 140px;
-  width: 32%;
+  height: 150px;
+  width: 33%;
   background-color: white;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   border-radius: 2%;
-  margin: 40px;
+  margin: 42px;
   position: absolute;
   top: 140px;
   left: 888px;
@@ -404,7 +418,7 @@ footer {
   /* slider fotografia pagina imagen */
 
 
-  * {box-sizing:border-box}
+
 
 /* Slideshow container */
 .slideshow-container {
@@ -446,10 +460,10 @@ footer {
 }
 
 /* Caption text */
-.text {
+
+.slidertext{
   color:black;
   padding: 8px 12px;
-  position: absolute;
   bottom: 8px;
   width: 100%;
   text-align: center;
