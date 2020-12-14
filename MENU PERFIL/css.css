@@ -548,13 +548,15 @@ footer {
   outline: none;
   cursor: pointer;
   font-size: 18px;
-  width: 25%;
+  width: 32%;
   height: auto;
   text-decoration: none;
-  left: 800px;
-  position: fixed;
+  left: 890px;
+  position: relative;
   border-radius: 5px;
-  bottom: 283px;
-  padding: 25px;
- text-align: center;
+  bottom: 218px;
+  padding: 6px 12px 20px 12px;
+  text-align: center;
 
+
+}
