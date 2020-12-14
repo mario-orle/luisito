@@ -312,7 +312,7 @@ body {
 }
 
 }
-.footer {
+.footer_contents {
   position: absolute;
   background-color:#1C6EA4;
   width: 100%;
@@ -321,6 +321,7 @@ body {
   bottom: 0;
   position: absolute;
   margin:0 0 0 0;
+  z-index: 100;
 }
 .footer_contents{
   margin: 10px;
@@ -461,7 +462,7 @@ body {
 
 
 
- /* Pagina cargar inmubles */
+ /* Pagina SUBIR INMUEBLES */
 
 
 
@@ -479,12 +480,12 @@ body {
   font-size: 18px;
   width: 44%;
   text-decoration: none;
-  top: 212px;
+  top: 350px;
   left: 133px;
   position: relative;
   border-radius: 5px;
   
-    }
+}
 .cargar-imagenes .text{
    text-align: center;
    border-radius: 10%;
@@ -507,13 +508,13 @@ body {
   outline: none;
   cursor: pointer;
   font-size: 18px;
-  width: 32%;
+  width: 75%;
   height: auto;
   text-decoration: none;
   left: 212px;
   position: relative;
   border-radius: 5px;
-  bottom: 203px;
+  bottom: 150px;
   padding: 6px 12px 20px 12px;
   text-align: center;
 }
@@ -521,4 +522,77 @@ body {
 .Descripción{
   width: 32%;
   height: auto;
+}
+
+
+
+/* Pagina Inmuebles */
+
+.preimagen-casa {
+  height: 250px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  border-radius: 5%;
+  position: absolute;
+  left: 200px;
+  top: 180PX;
+}
+.text-preimagen{
+  font-size: 12px;
+  text-align: left;
+  position: absolute;
+  top: 120px;
+  left: 19px;
+}
+.preimagen-casa2 {
+  height: 250px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  border-radius: 5%;
+  position: absolute;
+  left: 500px;
+  top: 180PX;
+}
+.text-preimagen2{
+  font-size: 12px;
+  text-align: left;
+  position: absolute;
+  top: 120px;
+  left: 19px;
+}
+.preimagen-casa3 {
+  height: 250px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  border-radius: 5%;
+  position: absolute;
+  right: 340px;
+  top: 180PX;
+}
+.text-preimagen3{
+  font-size: 12px;
+  text-align: left;
+  position: absolute;
+  top: 120px;
+  left: 19px;
+}
+.preimagen-casa4 {
+  height: 250px;
+  width: 20%;
+  background-color: white;
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  border-radius: 5%;
+  position: absolute;
+  right: 40px;
+  top: 180PX;
+}
+.text-preimagen4{
+  font-size: 12px;
+  text-align: left;
+  position: absolute;
+  top: 120px;
+  left: 19px;
 }
