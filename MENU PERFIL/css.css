@@ -462,11 +462,13 @@ body {
 
 
 
- /* Pagina SUBIR INMUEBLES */
+ /* Pagina CARGAR INMUEBLES */
 
 
 
-
+#cargar-imagenes{
+  display: flex;
+}
 .cargar-imagenes{
   background: grey;
   background: -moz-linear-gradient(top, #1C6EA4 0%, #4d83a7 48%, #144E75 100%);
@@ -476,24 +478,29 @@ body {
   color: white;
   outline: none;
   cursor: pointer;
-  padding: 1px;
+  padding: 5px;
   font-size: 18px;
-  width: 44%;
+  width: 30%;
   text-decoration: none;
-  top: 350px;
-  left: 133px;
-  position: relative;
+  top: 220px;
+  right:180px;
+  position: absolute;
   border-radius: 5px;
   
 }
 .cargar-imagenes .text{
-   text-align: center;
+   text-align: left;
    border-radius: 10%;
    margin: 1px;
    padding: 10px;
 
   }
 
+.descripción-inmueble-m2{
+  text-align: center;
+  padding: 10px;
+}
+}
 #descripción-inmueble{
   display: flex;
 }
@@ -507,23 +514,21 @@ body {
   color: white;
   outline: none;
   cursor: pointer;
-  font-size: 18px;
-  width: 75%;
+  font-size: 13px;
+  width: 33%;
   height: auto;
   text-decoration: none;
   left: 212px;
-  position: relative;
+  position: absolute;
   border-radius: 5px;
-  bottom: 150px;
+  bottom: 143px;
   padding: 6px 12px 20px 12px;
   text-align: center;
 }
 
 .Descripción{
-  width: 32%;
-  height: auto;
+  ;
 }
-
 
 
 /* Pagina Inmuebles */
