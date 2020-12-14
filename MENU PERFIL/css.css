@@ -557,6 +557,9 @@ footer {
   bottom: 218px;
   padding: 6px 12px 20px 12px;
   text-align: center;
+}
 
-
+.Descripción{
+  width: 32%;
+  height: auto;
 }

@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css.css">
     <script src="slider.js"></script>
-    <title>Document</title>
+    <title>Inmuebles</title>
 </head>
 <body>
   <body id="desktop">
@@ -42,7 +42,7 @@
   
   <div id='cssmenu'>
     <ul>
-       <li><a href='imagenes.html'><span>Imagenes</span></a></li>
+       <li><a href='cargar-inmueble.html'><span>Cargar inmueble</span></a></li>
        <li class='active has-sub'><a href='#'><span>INmuebles</span></a>
           <ul>
              <li class='has-sub'><a href='alquiler.html'><span>Alquiler</span></a>
@@ -107,26 +107,36 @@
   
   
   <div class="descripción-inmueble">
-    <h2>Descripción inmueble</h2>
-      <input type="text" placeholder="tipo de Inmueble">
-      <input type="text" placeholder="Estado">
-      <input type="text" placeholder="referencia">
-      <h4>Localización</h4> 
-      <input type="text" placeholder="Pais">
-      <input type="text" placeholder="Provincia">
-      <input type="text" placeholder="Municipio">
-      <input type="text" placeholder="Población">
-      <input type="text" placeholder="Direccion">
-      <br>
-      <input type="text" placeholder="Codigo postal">
-      <input type="text" placeholder="Numero">
-      <input type="text" placeholder="Escalera">
-      <input type="text" placeholder="Escalera">
-      <input type="text" placeholder="Escalera">
-
-      <p><textarea>Escribe descripción</textarea></p>
-    <input type="checkbox"> Estoy de acuerdo con los <a href="#Terminos-condiciones"> Terminos y condiciones</a>
-       
+    <form>
+      <h2>Descripción inmueble</h2>
+        <input type="text" placeholder="tipo de Inmueble">
+        <input type="text" placeholder="Estado">
+        <input type="text" placeholder="referencia">
+        <input type="text" placeholder="Pais">
+        <input type="text" placeholder="Provincia">
+        <input type="text" placeholder="Municipio">
+        <input type="text" placeholder="Tipo de via">
+        <input type="text" placeholder="Direccion">
+        <input type="text" placeholder="Codigo postal">
+        <input type="text" placeholder="Numero">
+        <input type="text" placeholder="Puerta">
+        <input type="text" placeholder="Escalera">
+        <input type="text" placeholder="M2 Construidos">
+        <input type="text" placeholder="M2 Útiles">
+        
+        <select>
+          <optgroup label="Contrato>"></optgroup>
+          <option value="Alquiler">Alquiler</option>
+          <option value="Venta">Venta</option>
+          </optgroup>
+      </select>
+      <div class="Descripción">
+          <p><textarea>Escribe descripción</textarea></p>
+      </div>
+        <input type="checkbox"> Estoy de acuerdo con los <a href="#Terminos-condiciones"> Terminos y Condiciones</a>
+        <button type="submit"  value="Submit">Enviar</button>
+      
+    </form>   
   </div>
 </body>
 <footer>
