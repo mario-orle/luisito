@@ -6,7 +6,7 @@
   left: 0px;
   width: 100%;
   height: 100px;
-  background-color: #434b4d;
+  background-color:#437184;
   display: flex;
   justify-content: space-between;
   z-index: 100;
@@ -15,7 +15,7 @@
 body {
   font-family:"Roboto";
   margin: auto;
-  background:whitesmoke;
+  background:aliceblue;
   
 }
 .logo{
@@ -35,28 +35,54 @@ body {
 .usuario{
   width: 60px;
   height: 60px;
-  background-color: #fabada;
+  background-color:transparent;
   background-size: contain;
   background-position: center; 
   background-repeat: no-repeat;
   margin-top: 15px;
   margin-bottom: 10px;
   margin-right: 10px;
-  margin-left: 10px;
-  border-radius: 100%;
+  margin-left: 0px;
+
 }
 .alertas{
-  width: 60px;
+  width: 30px;
   height: 60px;
-  background-color: #fabada;
+  background-color:transparent;
   background-size: contain;
   background-position: center; 
   background-repeat: no-repeat;
-  margin-top: 15px;
+  margin-top: 32px;
   margin-bottom: 10px;
   margin-right: 10px;
-  margin-left: 20px;
-  border-radius: 100%;
+  margin-left: 0px;
+
+}
+.asesor{
+  width: 30px;
+  height: 60px;
+  background-color:transparent;
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+
+}
+.mensages{
+  width: 30px;
+  height: 60px;
+  background-color:transparent;
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+
 }
 
 
@@ -67,7 +93,7 @@ body {
   position: fixed;
   top: 100px;
   left: 0;
-  background-color: #434b4d;
+  background-color: #437184;
   overflow-x: hidden;
   padding-top: 20px;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
@@ -158,48 +184,7 @@ body {
 
 
 
-
-.tablink {
-  background: grey;
-  background: -moz-linear-gradient(top, #1C6EA4 0%, #4d83a7 48%, #144E75 100%);
-  background: -webkit-linear-gradient(top, #1C6EA4 0%, #2388CB 48%, #144E75 100%);
-  background: linear-gradient(to bottom, #173a52 0%, #2388CB 48%, #144E75 100%);
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 4px 50px;
-  font-size: 18px;
-  width: 100%;
-  text-decoration: none;
-  text-align: center;
-}
-
-.tablink:hover {
-  background: grey;
-  background: -moz-linear-gradient(top, ORANGE 0%, #a7794d 48%, #9e401b 100%);
-  background: -webkit-linear-gradient(top, ORANGE 0%, #a7794d 48%, #9e401b 100%);
-  background: linear-gradient(to bottom, ORANGE 0%, #a7794d 48%, #9e401b 100%);
-}
-
-/* Style the tab content */
-
-.tabcontent {
-  color: white;
-  display: none;
-  padding: 30px 0px;
- 
- 
-}
-
-.tabcontent.active {
-  display: block;
-}
-
-
-
- /* contenedores pagina inicio */
+ /*pagina inicio */
 
 
 
@@ -300,11 +285,12 @@ body {
   height: 322px;
   width: 44%;
   background-color: white;
-  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  box-shadow: 0 4px 8px 0 black;;
   border-radius: 2%;
   margin: 0px;
   top: 180px;
   left: 37px;
+
  }
 
 
@@ -379,9 +365,78 @@ body {
     border-radius: 10%;
     margin: 1px;
 }
+/* PAGINA PERFIL */
+.main-perfil{
+  margin-top: 65px;
+  margin-left: 200px;
+  font-size: 20px;
+  padding: 20px;
+background-color: orange;
+}
+.row {  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  -ms-flex: 30%; /* IE10 */
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+  .navbar a {
+    float: none;
+    width: 100%;
+  }
+}
+
+
+
+
+
 
 
 /* Pagina  Inmuebles */
+
+
+
 .card-wrapper{
   width: 24%;
   margin-top: 30px;
@@ -389,10 +444,11 @@ body {
   
 }
 .card {
-  box-shadow: 0 4px 8px 0 rgb(255, 153, 0);
-  transition: 0.3s;
+  box-shadow: 0 4px 8px 0 black;
   width: 100%;
   font-size: 14px;
+  background-color:#434b4d;
+  color:aliceblue ;
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -400,45 +456,118 @@ body {
 
 .container {
   padding: 2px 16px;
-  width: 50%;
-  margin-top: 30px;
+  width: 90%;
+  
 }
+.editar-tirar{
+  display: flex;
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+
+}
+.editar-tirar-doc {
+  display: flex;
+  width: 200px;
+
+}
+.estilo {
+  width: 20px;
+  height: 55px;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+
+
+
+
+
 /* Pagina gestionar Inmuebles */
+
+
+
+
+
+
+
 
 #cargar-imagenes{
   display: flex;
 }
 .cargar-imagenes{
-  background: grey;
-  background: -moz-linear-gradient(top, #1C6EA4 0%, #4d83a7 48%, #144E75 100%);
-  background: -webkit-linear-gradient(top, #1C6EA4 0%, #2388CB 48%, #144E75 100%);
-  background: linear-gradient(to bottom, #173a52 0%, #2388CB 48%, #144E75 100%);
-  border: none;
-  color: white;
-  outline: none;
-  cursor: pointer;
-  padding: 5px;
-  font-size: 18px;
-  width: 30%;
-  text-decoration: none;
-  border-radius: 5px;
+  border: 10px solid #437184;
+  background: white;
+  height: 100px;
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5%;
   
 }
 .cargar-imagenes .text{
-   text-align: left;
-   border-radius: 10%;
-   margin: 1px;
+  
+  
+   margin-top: 15px;
    padding: 10px;
 
   }
 
+  .enviar {
+    text-align: center;
+    margin-top: 5px;
+  }
+  .cargar-imagenes {
+    margin-top: 30px;
+    padding: 5px;
+    height: 420px;
+    width: 600px;
+ }
+  
+  .cargar-imagenes input[type=file]{
+    display: none;
+  }
+  .cargar-imagenes label {
+    text-decoration: none;
+    padding:5px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #437184;
+    border-radius: 6px;
+    border: 2px solid grey;
+  }
+  .file-list{
+    display: flex;
+    width: 10%;
+    margin-left: 80%;
+    padding: 5px;
+  }
+  .boton_personalizado{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #437184;
+    border-radius: 6px;
+    border: 2px solid grey;
+  }
+/* formulario pagina inmuebles */
+
 
 .descripcion-inmueble{
 
-  
-  background: -moz-linear-gradient(top, orange 0%, white 48%, grey 100%);
-  background: -webkit-linear-gradient(top, orange 0%,whitesmoke 48%, grey 100%);
-  background: linear-gradient(to bottom, orange 0%,whitesmoke 48%,black 100%);
+
+  background: -moz-linear-gradient(top,  #437184 0%,rgb(204, 204, 204) 48%,#437184 100%);
+  background: -webkit-linear-gradient(top,  #437184 0%,rgb(204, 204, 204) 48%,#437184 100%);
+  background: linear-gradient(to bottom, #437184 0%,rgb(204, 204, 204) 48%,#437184 100%);
   border: none;
   color: white;
   outline: none;
@@ -480,22 +609,4 @@ margin: 5px;
 padding: 5px;
 width: calc(100% - 20px);
 height: 200px;
-}
-.enviar {
-  text-align: center;
-  margin-top: 5px;
-}
-.cargar-imagenes {
-  margin-top: 5px;
-  padding: 5px;
-  height: 100px;
-  width: 3;
-}
-
-.cargar-imagenes input[type=file]{
-  display: none;
-}
-.cargar-imagenes label {
-  width: 150px;
-  background-color: #cebada;
 }
