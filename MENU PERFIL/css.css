@@ -467,11 +467,11 @@ background-color: orange;
 
 }
 .editar-tirar-doc {
-  
-  
-
+  display: flex;
+  align-content: space-between;
 }
 .estilo {
+  
 }
 .estilo-doc {
 
