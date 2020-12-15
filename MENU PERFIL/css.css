@@ -467,21 +467,14 @@ background-color: orange;
 
 }
 .editar-tirar-doc {
-  display: flex;
-  width: 200px;
+  
+  
 
 }
 .estilo {
-  width: 20px;
-  height: 55px;
-  background-color: transparent;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin-top: 0px;
-  margin-bottom: 10px;
-  margin-right: 10px;
-  margin-left: 0px;
+}
+.estilo-doc {
+
 }
 
 
