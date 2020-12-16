@@ -6,66 +6,101 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css.css">
-    <title>Document</title>
+    <title>Perfil</title>
 </head>
 <body>
   <div id="desktop">
     <div class="header">
       <div class="logo"> </div>
-
+  
       <div class="right">
-        <div class="usuario"></div>
-        <div class="alertas"></div>
-      </div>
-      
-      
-    </div>
-    <div class="menu">
-      <a href="index.html">INICIO</a>
-      <a href="#servicios">SERVICIOS</a>
-      <a href="perfil.html">PERFIL</a>
-      <a href="alerta-asesor.html">ASESOR</a>
-
-      <button class="dropdown-btn">DOCUMENTOS
-        <i class="fa fa-caret-down"></i>
-      </button>
-      <div class="dropdown-container">
-        <a href="inmuebles.html">Inmuebles</a>
-        <a href="mis-documentos.html">Documentación</a>
-        <a href="cargar-inmueble.html">Gestionar inmuebles</a>
-      </div>
-    </div>
-    <div class="main-perfil">
-      <div class="row">
-        <div class="side">
-          <h2>Perfil</h2>
-          <div class="fakeimg" style="height:100px;">
-            <img src="logo.png" style="width:100%">
-          </div>
-          <p>familia humilde y trabajadora</p>
-          <h3>MIS INMUEBLES</h3>
-          <div class="fakeimg" style="height:100px;">
-            <img src="logo.png" style="width:100%">
-          </div><br>
-          <div class="fakeimg" style="height:100px;">
-            <img src="logo.png" style="width:100%">
-          </div><br>
-          <div class="fakeimg" style="height:100px;">
-            <img src="logo.png" style="width:100%">
-          </div>
+        <div class="asesor">
+          <img src="asesoramiento.png" style="width:100%">
         </div>
-        <div class="main-perfil">
-          <h2>ESTADO INMUEBLES</h2>
-          <h5>ULTIMA VISITA 5 DICIEMBRE 2020</h5>
-          <div class="fakeimg" style="height:200px;">
-            <img src="logo.png" style="width:100%">
-          </div>
-          <p>DETALLES ASESOR</p>
-          <p>deberiamos mejorar la presencia del inmueble, mejorar la actitud pro-activa hacia la venta</p>
-          <br>
-          </div>
+        <div class="mensages">
+          <img src="email.png" style="width:100%">
+        </div>
+        <div class="alertas">
+          <img src="advertencia.png" style="width:100%">
+        </div>
+        <div class="usuario">
+          <img src="perfil.png" style="width:100%">
+        </div>
+      
       </div>
-    </div>
+        
+        
+      </div>
+      <div class="menu">
+        <a href="index.html">INICIO</a>
+        <a href="#servicios">SERVICIOS</a>
+        <a href="perfil.html">PERFIL</a>
+        <a href="alerta-asesor.html">ASESOR</a>
+  
+        <button class="dropdown-btn">DOCUMENTOS
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-container">
+          <a href="inmuebles.html">Inmuebles</a>
+          <a href="mis-documentos.html">Documentación</a>
+          <a href="cargar-inmueble.html">Gestionar inmuebles</a>
+        </div>
+      </div>
+
+      <div class="perfil">
+        <div class="img-perfil">
+           <img src="perfil.png" alt="icono">
+        </div>
+        <div class="text-perfil">
+              <div class="descripcion-usuario">
+                <form>
+                  <h1>PERFIL</h1>
+                  <div class="primera-linea linea-formulario">
+                    <input type="text" placeholder="Nombre">
+                    <input type="text" placeholder="1 Apellido">
+                    <input type="text" placeholder="2 apellido">
+                  </div>
+                  <div class="segunda-linea linea-formulario">
+                    <input type="text" placeholder="Pais">
+                    <input type="text" placeholder="Provincia">
+                    <input type="text" placeholder="Municipio">
+                  </div>
+                  <div class="tercera-linea linea-formulario">
+                    <input type="text" placeholder="Tipo de via">
+                    <input type="text" placeholder="Direccion">
+                    <input type="text" placeholder="Codigo postal">
+                  </div>
+                  <div class="cuarta-linea linea-formulario">
+                    <input type="text" placeholder="Numero">
+                    <input type="text" placeholder="Puerta">
+                    <input type="text" placeholder="Escalera">
+                  </div>
+                  <div class="quinta-linea linea-formulario">
+                    <div class="left">
+                      <input type="text" placeholder="M2 Construidos">
+                      <input type="text" placeholder="M2 Útiles">
+                    </div>
+                    <div class="right">
+                      <select>
+                        <optgroup label="tipo"></optgroup>
+                        <option value="DNI">DNI</option>
+                        <option value="NIE">NIE</option>
+                        </optgroup>
+                      </select> 
+                    </div>
+                  <div class="enviar">
+                    <div class="terminos-condiciones">
+                      <input type="checkbox"> Estoy de acuerdo con los <a href="#Terminos-condiciones"> Terminos y Condiciones</a>
+                    </div>
+                    <button type="submit" value="Submit">Enviar</button>
+                  </div>
+                  
+                </div>
+                 
+                </form>
+          </form>
+        </div>
+      </div>
     <script src="menu.js"></script>
 </body>
 </html>
