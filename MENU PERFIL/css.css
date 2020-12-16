@@ -611,7 +611,6 @@ height: 200px;
 
 .perfil{
   display: flex;
-  align-content: space-between;
   width: 100%;
 }
 .img-perfil{
@@ -623,6 +622,12 @@ height: 200px;
 .text-perfil{
   width: 10px;
   height: 10px;
+}
+.form-perfil{
+  width: 550px;
+  height: 370px;
+  margin-top: 180px;
+  margin-left: 250px;
 }
 
 .descripcion-usuario{
