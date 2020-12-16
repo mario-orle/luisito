@@ -468,6 +468,7 @@ background-color: orange;
 .editar-tirar-doc {
  display: flex;
  align-content: space-between;
+ height: 25%;
 }
 .estilo {
   width: 10px;
@@ -497,25 +498,24 @@ background-color: orange;
 
 
 
-#cargar-imagenes{
-  display: flex;
-}
 .cargar-imagenes{
-  border: 10px solid #437184;
-  background: white;
-  height: 100px;
-  width: 200px;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 5%;
+   display: flex;
+    border: 10px solid #437184;
+    border-top-width: 10px;
+    background: white;
+    height: 430px;
+    width: 72%;
+    margin-left: 10px;
+    border-radius: 1%;
+    margin-top: 10px;
+    border-top-width: 30px;
+    border-bottom-width: 30px;
   
 }
 .cargar-imagenes .text{
-  
-  
    margin-top: 15px;
    padding: 10px;
-
+   height: 30px;
   }
 
  
@@ -556,7 +556,7 @@ background-color: orange;
 
 
 .descripcion-inmueble{
-  
+  display: flex;
     color: black;
     font-size: 13px;
     border: 10px solid #437184;
@@ -569,7 +569,12 @@ background-color: orange;
     margin-top: 10px;
     border-top-width: 30px;
     border-bottom-width: 30px;
-  
+}
+.img-desc-inmueble{
+  width:25%;
+  margin-top: 95px;
+  margin-left: 30px;
+
 }
 .linea-formulario {
   display: flex;
@@ -646,7 +651,7 @@ height: 200px;
   border-top-width: 50px;
   border-bottom-width: 50px;
 }
-.linea-formulario {
+.linea-formulario-perfil {
   display: flex;
   justify-content: left;
 }
@@ -656,7 +661,7 @@ height: 200px;
   margin-top: 5px;
 }
 
-.linea-formulario input, .linea-formulario select, .enviar button {
+.descripcion-inmueble input, .descripcion-inmueble select, .descripcion-inmueble button {
   width: 172px;
   margin: 5px;
   padding: 5px;
