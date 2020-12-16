@@ -612,26 +612,29 @@ height: 200px;
 .perfil{
   display: flex;
   align-content: space-between;
+  width: 100%;
 }
 .img-perfil{
   width: 10px;
+  height: 100px;
+  margin-top: 50px;
+ 
+}
+.text-perfil{
+  width: 10px;
   height: 10px;
-  padding: 6px 12px 20px 12px;
-  margin-top: 200px;
-  margin-left: 200px;
 }
 
 .descripcion-usuario{
-color: white;
-font-size: 13px;
-height: auto;
-padding: 6px 12px 20px 12px;
-border: 10px solid #437184;
-background: white;
-height: 328px;
-width: 511px;
-margin-left: 380px;
-border-radius: 2%;
+  color: white;
+  font-size: 13px;
+  border: 10px solid #437184;
+  background: white;
+  height: 631px;
+  width: 1050px;
+  margin-left: 230px;
+  border-radius: 2%;
+  margin-top: 130px;
 }
 .linea-formulario {
   display: flex;
