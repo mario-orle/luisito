@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="inmuebles.css">
   <link rel="stylesheet" href="css.css">
   <title>Inmuebles</title>
 </head>
@@ -51,19 +53,26 @@
 
    
     <div class="menu">
-      <a href="index.html">INICIO</a>
-      <a href="#servicios">SERVICIOS</a>
-      <a href="perfil.html">PERFIL</a>
-      <a href="alerta-asesor.html">ASESOR</a>
-
-      <button class="dropdown-btn">DOCUMENTOS
-        <i class="fa fa-caret-down"></i>
+      <h2>PORTAL PROPIETARIO</h2>
+      <span>OPCIONES GENERALES</span>
+      <hr>
+      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="servicios" href="#servicios"><i class="fas fa-briefcase"></i>SERVICIOS</a>
+      <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
+      <hr />
+      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
+      <hr />
+      
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+        
       </button>
       <div class="dropdown-container">
-        <a href="inmuebles.html">Inmuebles</a>
-        <a href="mis-documentos.html">Documentación</a>
-        <a href="cargar-inmueble.html">Gestionar inmuebles</a>
+        <a id="inmuebles" href="inmuebles.html">Inmuebles</a>
+        <a id ="documentacion" href="mis-documentos.html">Documentación</a>
+        <a id="gestionar-inmuebles" href="cargar-inmueble.html">Gestionar inmuebles</a>
       </div>
+      <hr />
     </div>
     <div class="main">
     <div class="main-up-inmuebles">
