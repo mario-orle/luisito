@@ -88,6 +88,7 @@ body {
 
 /* Fixed sidenav, full height */
 .menu {
+  padding: 20px;
   height: calc(100% - 100px);
   width: 200px;
   position: fixed;
@@ -101,7 +102,7 @@ body {
 
 /* Style the sidenav links and the dropdown button */
 .menu a, .dropdown-btn {
-  padding: 6px 8px 6px 16px;
+  padding: 6px 8px 6px 30px;
   text-decoration: none;
   font-size: 16px;
   color: white;
@@ -118,11 +119,87 @@ body {
 .menu a:hover, .dropdown-btn:hover {
   color: orange;
 }
+.menu #inicio {
+  position: relative;
+}
+.menu #inicio::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  background-image: url(eco-home.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+
+
+}
+.menu #servicios {
+  position: relative;
+}
+.menu #servicios::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-image: url(eco-home.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.menu #perfil {
+  position: relative;
+}
+.menu #perfil::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-image: url(eco-home.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.menu #asesor {
+  position: relative;
+}
+.menu #asesor::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-image: url(eco-home.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+}
+
+.menu #gestiones {
+  position: relative;
+}
+.menu #gestiones::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-image: url(eco-home.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: '';
+}
+
 
 /* Main content */
 .main {
   margin-top: 100px;
-  margin-left: 200px;
+  margin-left: 245px;
   font-size: 20px;
   padding: 20px;
 
@@ -564,7 +641,7 @@ background-color: orange;
     background: white;
     height: 430px;
     width: 72%;
-    margin-left: 10px;
+    margin-left: 45px;
     border-radius: 1%;
     margin-top: 10px;
     border-top-width: 30px;
