@@ -1,3 +1,14 @@
+body {
+  font-family:"Roboto";
+  margin: auto;
+  background:white solid;
+  
+
+}
+h2{
+ color:white;
+ text-align: center; 
+}
 .descripcion-inmueble{
     display: flex;
       color: black;

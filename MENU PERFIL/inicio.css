@@ -2,7 +2,7 @@
 .slideshow-container {
     max-width: 1000px;
     position: relative;
-    margin: 17px;
+    margin: 15px;
   }
   
   /* Hide the images by default */
@@ -16,8 +16,8 @@
     position: absolute;
     top: 50%;
     width: auto;
-    margin-top: -22px;
-    padding: 16px;
+    margin-top: 0px;
+    padding: 10px;
     color: white;
     font-weight: bold;
     font-size: 18px;
@@ -59,8 +59,8 @@
   /* The dots/bullets/indicators */
   .dot {
     cursor: pointer;
-    height: 15px;
-    width: 15px;
+    height: 10px;
+    width: 10px;
     margin: 0 2px;
     background-color: #bbb;
     border-radius: 50%;
@@ -88,6 +88,10 @@
   @keyframes fade {
     from {opacity: .4}
     to {opacity: 1}
+  }
+
+  h2{
+    color: black
   }
   
   .slider {
@@ -214,6 +218,7 @@
     width: 100%;
     
   }
+
   
   /* Footer */
   .footer {

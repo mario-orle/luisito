@@ -1,23 +1,33 @@
-
 /* PAGINA DE INICIO */
+
+
 .header{
   position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100px;
-  background-color:#437184;
+  background-color:#1c1c1c;
   display: flex;
   justify-content: space-between;
   z-index: 100;
-  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  box-shadow: 0px 2px 7px 1px #ff8000;
 }
 body {
   font-family:"Roboto";
   margin: auto;
-  background:aliceblue;
+  background:white solid;
   
+
 }
+h2{
+ color:white;
+ text-align: center; 
+}
+span{
+  color:white;
+}
+
 .logo{
   width: 200px;
   height: 75px;
@@ -94,14 +104,14 @@ body {
   position: fixed;
   top: 100px;
   left: 0;
-  background-color: #437184;
+  background-color: #8a9597;
   overflow-x: hidden;
   padding-top: 20px;
   box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
 }
 
 /* Style the sidenav links and the dropdown button */
-.menu a, .dropdown-btn {
+.menu a, .dropdown-btn, span {
   padding: 6px 8px 6px 8px;
   text-decoration: none;
   font-size: 16px;

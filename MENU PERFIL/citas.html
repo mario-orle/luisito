@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="citas.css">
+  
+  <title>Document</title>
+</head>
+
+
+<body>
+    <div id="desktop">
+        <div class="header"><div class="logo"> </div>
+    
+          <div class="right">
+            <div class="asesor">
+              <img src="asesoramiento.png" style="width:100%">
+            </div>
+            <div class="mensages">
+              <img src="email.png" style="width:100%">
+            </div>
+            <div class="alertas">
+              <img src="advertencia.png" style="width:100%">
+            </div>
+            <div class="usuario">
+              <img src="perfil.png" style="width:100%">
+            </div>
+          
+          </div>
+          
+          
+        </div>
+        <div class="menu">
+          <h2>PORTAL PROPIETARIO</h2>
+          <hr/>
+          <span>Opciones generales</span>
+          <hr>
+          <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+          <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
+          <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
+          <hr />
+          <a id="" href="#gestion citas"><i class="fas fa-calendar-alt"></i>CITAS</a>
+          <hr />
+          <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
+          <hr />
+          
+          
+          <button id="gestiones" class="dropdown-btn">
+            <i class="fa fa-tasks"></i> GESTIONES
+            
+          </button>
+          <div class="dropdown-container">
+            <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
+            <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+            <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES9</a>
+          </div>
+          <hr />
+        </div>
+
+    <div class="main">
+        <div class="month">      
+          <ul>
+            <li class="prev">&#10094;</li>
+            <li class="next">&#10095;</li>
+            <li>
+              diciembre<br>
+            </li>
+          </ul>
+        </div>
+        
+        <ul class="weekdays">
+          <li>L</li>
+          <li>M</li>
+          <li>X</li>
+          <li>J</li>
+          <li>V</li>
+          <li>S</li>
+          <li>D</li>
+        </ul>
+        
+        <ul class="days">  
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li><span class="active">10</span></li>
+          <li>11</li>
+          <li>12</li>
+          <li>13</li>
+          <li>14</li>
+          <li>15</li>
+          <li>16</li>
+          <li>17</li>
+          <li>18</li>
+          <li>19</li>
+          <li>20</li>
+          <li>21</li>
+          <li>22</li>
+          <li>23</li>
+          <li>24</li>
+          <li>25</li>
+          <li>26</li>
+          <li>27</li>
+          <li>28</li>
+          <li>29</li>
+          <li>30</li>
+          <li>31</li>
+        </ul>
+
+        <div class="nota-simple">
+            <div class="text-nota-simple">
+              <h2>NOTA SIMPLE</h2>
+              <ul>
+                <li>Le facilitamos un sistema facil,rapido y comodo para poder obtener su nota simple de su hogar</li>
+              </ul>
+            </div>
+          
+          <div class="certificado">
+            <div class="text-certificado">
+              <h2>CERTIFICADO ENERGETICO</h2>
+              <ul>
+                <li>Le facilitamos un sistema facil, rapido y comodo para poder obtener el certificado energertico de su hogar </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+
+ 
+
+
+  <div id="mobile">
+    <div id="inicio" class="tabcontent active">
+      <h1>INICIO</h1>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="inmuebles" class="tabcontent">
+      <h1>INMUEBLES</h1>
+      <p>Paris is the capital of France.</p>
+    </div>
+
+    <div id="misdocumentos" class="tabcontent">
+      <h1>DOCUMENTOS</h1>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="alertaasesor" class="tabcontent">
+      <h1>ALERTA ASESOR</h1>
+      <p>Oslo is the capital of Norway.</p>
+    </div>
+
+    <div id="asesorpersonal" class="tabcontent">
+      <h1>ASESOR PERSONAL</h1>
+      <p>Oslo is the capital of Norway.</p>
+    </div>
+
+    <div id="menu">
+      <a href="index.html" class="tablink">Inicio</a>
+      <a href="inmuebles.html" class="tablink">Inmuebles</a>
+      <a href="mis-documentos.html" class="tablink">Mis Documentos</a>
+      <a href="alerta-asesor.html" class="tablink">Alerta Asesor</a>
+      <a href="asesor-personal.html" class="tablink">Asesor Personal</a>
+    </div>
+<script src="menu.js"></script>
+</body>
+
+</html>
