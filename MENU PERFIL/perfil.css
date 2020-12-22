@@ -1,6 +1,7 @@
 .perfil{
   display: flex;
   width: 100%;
+  box-shadow: 0 4px 8px 0 black;
 }
 .img-perfil{
   width: 150px;
@@ -26,6 +27,7 @@
     height: 400px;
     width: 70%;
     border-radius: 1%;
+    box-shadow: 0 4px 8px 0 black;
 }
 .linea-formulario-perfil {
   display: flex;

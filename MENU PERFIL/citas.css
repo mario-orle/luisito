@@ -70,12 +70,12 @@ body{
   color: white;
 }
 .main-calendar{
-  box-shadow: 0 4px 8px 0 black;;
+  box-shadow: 0 4px 8px 0 black;
 }
 .main-citas{
   display: flex;
   flex-wrap: wrap;
-  box-shadow: 0 4px 8px 0 black;;
+  box-shadow: 0 4px 8px 0 black;
   margin-top: 20px;
 }
 .main-citas a{

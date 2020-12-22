@@ -9,6 +9,7 @@
   flex: 20%;
   background-color:#8a9597;
   padding: 20px;
+  box-shadow: 0 4px 8px 0 black;
 }
 
 
@@ -20,7 +21,8 @@
 
 
 .fakeimg {
-   width: 95%;
+ 
+  width: 95%;
   padding: 10px;
 
 }
