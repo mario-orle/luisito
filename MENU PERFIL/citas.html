@@ -10,60 +10,65 @@
   <link rel="stylesheet" href="css.css">
   <link rel="stylesheet" href="citas.css">
   
-  <title>Document</title>
+  <title>CITAS</title>
 </head>
 
 
 <body>
-    <div id="desktop">
-        <div class="header"><div class="logo"> </div>
-    
-          <div class="right">
-            <div class="asesor">
-              <img src="asesoramiento.png" style="width:100%">
-            </div>
-            <div class="mensages">
-              <img src="email.png" style="width:100%">
-            </div>
-            <div class="alertas">
-              <img src="advertencia.png" style="width:100%">
-            </div>
-            <div class="usuario">
-              <img src="perfil.png" style="width:100%">
-            </div>
-          
-          </div>
-          
-          
+  <div id="desktop">
+    <div class="header">
+
+
+
+      <div class="logo"> </div>
+
+      <div class="right">
+        <div class="asesor">
+          <img src="asesoramiento.png" style="width:100%">
         </div>
-        <div class="menu">
-          <h2>PORTAL PROPIETARIO</h2>
-          <hr/>
-          <span>Opciones generales</span>
-          <hr>
-          <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
-          <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
-          <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
-          <hr />
-          <a id="" href="#gestion citas"><i class="fas fa-calendar-alt"></i>CITAS</a>
-          <hr />
-          <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
-          <hr />
-          
-          
-          <button id="gestiones" class="dropdown-btn">
-            <i class="fa fa-tasks"></i> GESTIONES
-            
-          </button>
-          <div class="dropdown-container">
-            <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
-            <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
-            <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES9</a>
-          </div>
-          <hr />
+        <div class="mensages">
+          <img src="email.png" style="width:100%">
         </div>
+        <div class="alertas">
+          <img src="advertencia.png" style="width:100%">
+        </div>
+        <div class="usuario">
+          <img src="perfil.png" style="width:100%">
+        </div>
+      
+      </div>
+      
+      
+    </div>
+    <div class="menu">
+      <h2>PORTAL PROPIETARIO</h2>
+      <hr/>
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
+      <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
+      <hr />
+      <a id="" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+      <hr />
+      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
+      <hr />
+      
+      
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+        
+      </button>
+      <div class="dropdown-container">
+        <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
+        <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+        <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES</a>
+      </div>
+      <hr />
+    </div>
 
     <div class="main">
+      <div class="main-calendar">
         <div class="month">      
           <ul>
             <li class="prev">&#10094;</li>
@@ -117,63 +122,84 @@
           <li>30</li>
           <li>31</li>
         </ul>
-
-        <div class="nota-simple">
-            <div class="text-nota-simple">
-              <h2>NOTA SIMPLE</h2>
+      </div>
+    <div class="main-citas">
+        <div class="citas-programadas">
+            <div class="text-programadas">
+              <h2>CITAS PROGRAMADAS</h2>
+              <hr/>
               <ul>
-                <li>Le facilitamos un sistema facil,rapido y comodo para poder obtener su nota simple de su hogar</li>
+                <li><a>15/FEBRERO 14:30</a>  MARIA Y CARLOS</li>
+                <li><a>1/JUNIO 16:30</a>  ALBERTO</li>
+                <li><a>26/MARZO 20:00</a>  JOSELUIS</li>
               </ul>
-            </div>
-          
-          <div class="certificado">
-            <div class="text-certificado">
-              <h2>CERTIFICADO ENERGETICO</h2>
-              <ul>
-                <li>Le facilitamos un sistema facil, rapido y comodo para poder obtener el certificado energertico de su hogar </li>
-              </ul>
+              <hr/>
             </div>
           </div>
-        </div>
+          
+          <div class="citas-anuladas">
+            <div class="text-anuladas">
+              <h2>CITAS ANULADAS</h2>
+              <hr/>
+              <ul>
+                <li><a>7/ENERO</a> Problemas personales del cliente</li>
+                <li><a>3/FEBRERO</a> Cambio de opinión del cliente</li>
+                <li><a>7/FEBRERO</a> Problemas de gestion de citas con el cliente</li>
+              </ul>
+              <hr/>
+            </div>
+          </div>
+          <div class="citas-realizadas">
+            <div class="text-realizadas">
+              <h2>CITAS REALIZADAS</h2>
+              <hr/>
+              <ul>
+                <li><a>15/FEBRERO</a> Posible comprador</li>
+                <li><a>20/MARZO</a> No le gustaron ciertas caracteristicas</li>
+                <li><a>20/ABRIL</a> Propuesta de compra </li>
+              </ul>
+              <hr/>
+            </div>
+          </div>
+        
+      </div>
+      <div class="main-gestion-citas">
+        <div class="gestion-citas">
+          <div class="text-gestion-citas">
+            <h2>GESTION DE CITAS</h2>
+            <hr/>
+            <button id="modificar-citas" class="dropdown-btn">
+              <i class="fas fa-exchange-alt"></i> MODIFICAR CITA
+            </button>
+            <div class="dropdown-container">
+              <a id="modificar-cita" href="inmuebles.html">MODIFICAR CITA</a>
+            </div>
+            <button id="anular-citas" class="dropdown-btn">
+              <i class="fas fa-window-close"></i> ANULAR CITA
+            </button>
+            <div class="dropdown-container">
+              <a id ="anular-cita" href="mis-documentos.html">ANULAR CITA</a>
+            </div>
+            <button id="crear-cita" class="dropdown-btn">
+              <i class="fas fa-plus-square"></i> CREAR CITA
+            </button>
+            <div class="dropdown-container">
+              <a id="crear-cita" href="cargar-inmueble.html">GESTIONAR CITAS</a>
+            </div>
+            <hr />
+
+            </div> 
+          </div>
+      </div>
+
     </div>
 
 
 
  
-
+   
 
   <div id="mobile">
-    <div id="inicio" class="tabcontent active">
-      <h1>INICIO</h1>
-      <p>London is the capital city of England.</p>
-    </div>
-
-    <div id="inmuebles" class="tabcontent">
-      <h1>INMUEBLES</h1>
-      <p>Paris is the capital of France.</p>
-    </div>
-
-    <div id="misdocumentos" class="tabcontent">
-      <h1>DOCUMENTOS</h1>
-      <p>Tokyo is the capital of Japan.</p>
-    </div>
-
-    <div id="alertaasesor" class="tabcontent">
-      <h1>ALERTA ASESOR</h1>
-      <p>Oslo is the capital of Norway.</p>
-    </div>
-
-    <div id="asesorpersonal" class="tabcontent">
-      <h1>ASESOR PERSONAL</h1>
-      <p>Oslo is the capital of Norway.</p>
-    </div>
-
-    <div id="menu">
-      <a href="index.html" class="tablink">Inicio</a>
-      <a href="inmuebles.html" class="tablink">Inmuebles</a>
-      <a href="mis-documentos.html" class="tablink">Mis Documentos</a>
-      <a href="alerta-asesor.html" class="tablink">Alerta Asesor</a>
-      <a href="asesor-personal.html" class="tablink">Asesor Personal</a>
     </div>
 <script src="menu.js"></script>
 </body>

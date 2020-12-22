@@ -1,54 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="alerta-asesor.css">
+  
+  <title>ASESOR</title>
 </head>
+
 <body>
-  <div id="inicio" class="tabcontent active">
-    <h2><span class="icono"></span>ALERTA ASESOR</h2>
-  </div>
+  <div id="desktop">
+    <div class="header">
+      <div class="logo"> </div>
 
-  <div id="inmuebles" class="tabcontent">
-    <h2>INMUEBLES</h2>
-    <p>Paris is the capital of France.</p> 
-  </div>
-
-  <div id="misdocumentos" class="tabcontent">
-    <h2>DOCUMENTOS</h2>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
-
-  <div id="alertaasesor" class="tabcontent">
-    <h2>ALERTA ASESOR</h2>
-    <p>Oslo is the capital of Norway.</p>
-  </div>
-
-  <div id="perfil" class="tabcontent">
-      <h2>ASESOR PERSONAL</h2>
-      <p>Oslo is the capital of Norway.</p>
-  </div>
-  
-    <div id="menu">
-      <a href="index.html" class="tablink">Inicio</a>
-      <a href="inmuebles.html" class="tablink">Inmuebles</a>
-      <a href="mis-documentos.html" class="tablink">Mis Documentos</a>
-      <a href="alerta-asesor.html" class="tablink">Alerta Asesor</a>
-      <a href="perfil.html" class="tablink">Perfil</a>
-    </div>
-
-    <footer>
-
-      <div class="footer_contents">
-        <h2>Pie de pagina</h2>
+      <div class="right">
+        <div class="asesor">
+          <img src="asesoramiento.png" style="width:100%">
+        </div>
+        <div class="mensages">
+          <img src="email.png" style="width:100%">
+        </div>
+        <div class="alertas">
+          <img src="advertencia.png" style="width:100%">
+        </div>
+        <div class="usuario">
+          <img src="perfil.png" style="width:100%">
+        </div>
+      
       </div>
-  
-  </footer>
-
+      
+      
+    </div>
+    <div class="menu">
+      <h2>PORTAL PROPIETARIO</h2>
+      <hr/>
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
+      <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
+      <hr />
+      <a id="" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+      <hr />
+      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
+      <hr />
+      
+      
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+        
+      </button>
+      <div class="dropdown-container">
+        <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
+        <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+        <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES</a>
+      </div>
+      <hr />
+    </div>
 
 <div id="mobile">
   <div id="inicio" class="tabcontent">
@@ -83,7 +96,9 @@
     <a href="alerta-asesor.html" class="tablink">Alerta Asesor</a>
     <a href="asesor-personal.html" class="tablink">Asesor Personal</a>
   </div>
+  <script src="menu.js"></script>
 </div>
+
 
 </body>
 </html>
