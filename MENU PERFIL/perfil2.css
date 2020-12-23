@@ -6,10 +6,11 @@
 
 
 .side {
-  flex: 20%;
+  flex: 10%;
   background-color:#8a9597;
   padding: 20px;
   box-shadow: 0 4px 8px 0 black;
+  height: 100%;
 }
 
 
@@ -20,11 +21,11 @@
 }
 
 
-.fakeimg {
+.fakeimg-perfil {
+ margin-top:45px;
+ margin-left:45px;
+ margin-bottom: 45px;
  
-  width: 95%;
-  padding: 10px;
-
 }
 
 
