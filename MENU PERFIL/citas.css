@@ -12,7 +12,7 @@ hr {
 
 .gestor-citas {
     display: flex;
-    height: 425px;
+    height: 345px;
 }
 
 .main-gestiones-calendar {
@@ -82,7 +82,6 @@ td.mid {
     box-shadow: 0 4px 8px 0 black;
     color: black;
     font-size: 13px;
-    border: 10px solid #437184;
     background: white;
     width: 90%;
     border-radius: 1%;
@@ -95,6 +94,9 @@ td.mid {
     margin-left: 25px;
 }
 
+#foo .datepicker-mai{
+  
+}
 #foo .datepicker-picker {
     width: 100%;
     box-shadow: 0 4px 8px 0 black;
@@ -106,14 +108,15 @@ td.mid {
 
 #foo .datepicker-grid {
     width: 100%;
+    height: 280px;
 }
 
 #foo .datepicker-cell {
-    background-color: #8a9597;
+    background-color:transparent;
 }
 
 #foo .datepicker-cell.selected {
-    background-color: #aca;
+    background-color: orange;
 }
 
 #foo span.datepicker-cell.day.next {
@@ -125,11 +128,18 @@ td.mid {
 }
 
 #foo .days-of-week {
-    background-color: black;
+    background-color: #437184;
     width: 100%;
 }
 
 #foo .datepicker-view .days .datepicker-cell,
 .datepicker-view .dow {
-    flex-basis: 11.286%;
+    flex-basis: 13.286%;
+}
+#foo .datepicker-header .datepicker-controls .button {
+    border-color: grey;
+    font-weight: 700;
+}
+#foo  span{
+    color:black;
 }
