@@ -7,6 +7,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
   <link rel="stylesheet" href="css.css">
   <link rel="stylesheet" href="citas.css">
   
@@ -69,69 +71,16 @@
 
     <div class="main">
       <div class="main-calendar">
-        <div class="month">      
-          <ul>
-            <li class="prev">&#10094;</li>
-            <li class="next">&#10095;</li>
-            <li>
-              diciembre<br>
-            </li>
-          </ul>
-        </div>
         
-        <ul class="weekdays">
-          <li>L</li>
-          <li>M</li>
-          <li>X</li>
-          <li>J</li>
-          <li>V</li>
-          <li>S</li>
-          <li>D</li>
-        </ul>
-        
-        <ul class="days">  
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li><span class="active">10</span></li>
-          <li>11</li>
-          <li>12</li>
-          <li>13</li>
-          <li>14</li>
-          <li>15</li>
-          <li>16</li>
-          <li>17</li>
-          <li>18</li>
-          <li>19</li>
-          <li>20</li>
-          <li>21</li>
-          <li>22</li>
-          <li>23</li>
-          <li>24</li>
-          <li>25</li>
-          <li>26</li>
-          <li>27</li>
-          <li>28</li>
-          <li>29</li>
-          <li>30</li>
-          <li>31</li>
-        </ul>
+      <div id="foo" >
       </div>
+    </div>
     <div class="main-citas">
         <div class="citas-programadas">
             <div class="text-programadas">
               <h2>CITAS PROGRAMADAS</h2>
               <hr/>
-              <ul>
-                <li><a>15/FEBRERO 14:30</a>  MARIA Y CARLOS</li>
-                <li><a>1/JUNIO 16:30</a>  ALBERTO</li>
-                <li><a>26/MARZO 20:00</a>  JOSELUIS</li>
+              <ul id="citas-programadas">
               </ul>
               <hr/>
             </div>
@@ -201,6 +150,8 @@
   <div id="mobile">
     </div>
 <script src="menu.js"></script>
+<script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+<script src="citas.js"></script>
 </body>
 
 </html>
