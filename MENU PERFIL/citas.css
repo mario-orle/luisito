@@ -1,20 +1,13 @@
 ul {
     list-style-type: none;
 }
-
-body {
+h2{
     font-family: "roboto";
 }
-
-hr {
-    width: 60%;
-}
-
 .gestor-citas {
     display: flex;
-    height: 345px;
+    height: 545px;
 }
-
 .main-gestiones-calendar {
     width: 50%;
     margin-left: 25px;
@@ -41,8 +34,9 @@ hr {
 }
 
 .text-programadas {
-    font-size: 12px;
-    margin-left: 25px;
+    font-size: 14px;
+    margin-left: 10px;
+    font-family: "roboto";
 }
 
 .citas-anuladas {
@@ -59,21 +53,9 @@ hr {
 }
 
 .text-anuladas {
-    font-size: 12px;
-    border-radius: 10%;
-    margin-left: 25px;
-}
-
-td.mid {
-    vertical-align: middle;
-}
-
-.mid-center a {
-    color: orange;
-}
-
-.mid-center a span {
-    color: green;
+    font-size: 14px;
+    margin-left:18px;
+    font-family: "roboto";
 }
 
 .citas-realizadas {
@@ -83,15 +65,35 @@ td.mid {
     color: black;
     font-size: 13px;
     background: white;
-    width: 90%;
+    width: 100%;
     border-radius: 1%;
     box-shadow: 0 4px 8px 0 black;
 }
-
+.scroller{
+    overflow: auto;
+    width: 100%;
+  }
 .text-realizadas {
-    font-size: 12px;
-    border-radius: 10%;
-    margin-left: 25px;
+    font-size: 14px;
+    font-family: "roboto";
+    margin-left: 18px;
+}
+
+td.mid {
+    vertical-align: middle;
+}
+.mid-center{
+    display: flex;
+    width: 100%;
+    height: 75px;
+    overflow: auto;
+}
+.mid-center a {
+    color: orange;
+}
+
+.mid-center a span {
+    color: green;
 }
 
 #foo .datepicker-mai{
@@ -104,6 +106,7 @@ td.mid {
 
 #foo .datepicker-picker span {
     border-radius: 0;
+   
 }
 
 #foo .datepicker-grid {
