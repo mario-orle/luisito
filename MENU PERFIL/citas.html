@@ -2,156 +2,141 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
-  <link rel="stylesheet" href="css.css">
-  <link rel="stylesheet" href="citas.css">
-  
-  <title>CITAS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="citas.css">
+
+    <title>CITAS</title>
 </head>
 
 
 <body>
-  <div id="desktop">
-    <div class="header">
+    <div id="desktop">
+        <div class="header">
+            <div class="logo"> </div>
+            <div class="right">
+                <div class="asesor">
+                    <img src="asesoramiento.png" style="width:100%">
+                </div>
+                <div class="mensages">
+                    <img src="email.png" style="width:100%">
+                </div>
+                <div class="alertas">
+                    <img src="advertencia.png" style="width:100%">
+                </div>
+                <div class="usuario">
+                    <img src="perfil.png" style="width:100%">
+                </div>
+            </div>
+        </div>
+        <div class="menu">
+            <h2>PORTAL PROPIETARIO</h2>
+            <hr />
+            <span>Opciones generales</span>
+            <hr>
+            <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+            <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
+            <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
+            <hr />
+            <a id="" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+            <hr />
+            <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
+            <hr />
 
 
-
-      <div class="logo"> </div>
-
-      <div class="right">
-        <div class="asesor">
-          <img src="asesoramiento.png" style="width:100%">
-        </div>
-        <div class="mensages">
-          <img src="email.png" style="width:100%">
-        </div>
-        <div class="alertas">
-          <img src="advertencia.png" style="width:100%">
-        </div>
-        <div class="usuario">
-          <img src="perfil.png" style="width:100%">
-        </div>
-      
-      </div>
-      
-      
-    </div>
-    <div class="menu">
-      <h2>PORTAL PROPIETARIO</h2>
-      <hr/>
-      <span>Opciones generales</span>
-      <hr>
-      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
-      <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
-      <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
-      <hr />
-      <a id="" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
-      <hr />
-      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
-      <hr />
-      
-      
-      <button id="gestiones" class="dropdown-btn">
+            <button id="gestiones" class="dropdown-btn">
         <i class="fa fa-tasks"></i> GESTIONES
-        
-      </button>
-      <div class="dropdown-container">
-        <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
-        <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
-        <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES</a>
-      </div>
-      <hr />
-    </div>
 
-    <div class="main">
-      <div class="main-calendar">
-        
-      <div id="foo" >
-      </div>
-    </div>
-    <div class="main-citas">
-        <div class="citas-programadas">
-            <div class="text-programadas">
-              <h2>CITAS PROGRAMADAS</h2>
-              <hr/>
-              <ul id="citas-programadas">
-              </ul>
-              <hr/>
-            </div>
-          </div>
-          
-          <div class="citas-anuladas">
-            <div class="text-anuladas">
-              <h2>CITAS ANULADAS</h2>
-              <hr/>
-              <ul>
-                <li><a>7/ENERO</a> Problemas personales del cliente</li>
-                <li><a>3/FEBRERO</a> Cambio de opinión del cliente</li>
-                <li><a>7/FEBRERO</a> Problemas de gestion de citas con el cliente</li>
-              </ul>
-              <hr/>
-            </div>
-          </div>
-          <div class="citas-realizadas">
-            <div class="text-realizadas">
-              <h2>CITAS REALIZADAS</h2>
-              <hr/>
-              <ul>
-                <li><a>15/FEBRERO</a> Posible comprador</li>
-                <li><a>20/MARZO</a> No le gustaron ciertas caracteristicas</li>
-            
-              </ul>
-              <hr/>
-            </div>
-          </div>
-        
-      </div>
-      <div class="main-gestion-citas">
-        <div class="gestion-citas">
-          <div class="text-gestion-citas">
-            <h2>GESTION DE CITAS</h2>
-            <hr/>
-            <button id="modificar-citas" class="dropdown-btn">
-              <i class="fas fa-exchange-alt"></i> MODIFICAR CITA
-            </button>
+      </button>
             <div class="dropdown-container">
-              <a id="modificar-cita" href="inmuebles.html">15/FEBRERO 14:30 MARIA Y CARLOS</a>
-            </div>
-            <button id="anular-citas" class="dropdown-btn">
-              <i class="fas fa-window-close"></i> ANULAR CITA
-            </button>
-            <div class="dropdown-container">
-              <a id ="anular-cita" href="mis-documentos.html">15/FEBRERO 14:30 MARIA Y CARLOS</a>
-            </div>
-            <button id="crear-cita" class="dropdown-btn">
-              <i class="fas fa-plus-square"></i> CREAR CITA
-            </button>
-            <div class="dropdown-container">
-              <a id="crear-cita" href="cargar-inmueble.html">GESTIONAR CITAS</a>
+                <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
+                <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+                <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES</a>
             </div>
             <hr />
-            </div> 
-          </div>
-      </div>
+        </div>
 
+        <div class="main">
+            <div class="gestor-citas">
+                <div class="main-calendar">
+                    <div id="foo"></div>
+                </div>
+                <div class="main-gestiones-calendar">
+                    <div class="citas-programadas">
+                        <div class="text-programadas">
+                            <table cellpadding="2" cellspacing="0" style="height:100px;">
+                                <tr>
+                                    <td class="mid">
+                                        <h2>PROGRAMADAS</h2>
+                                    </td>
+                                    <td class="mid-center">
+                                        <ul>
+                                            <li><a>12-DICIEMBRE 18:30</a> JOSECARLOS</li>
+                                            <li><a>13-DICIEMBRE 18:30</a> MARIA Y ALBERTO</li>
+                                            <li><a>14-DICIEMBRE 18:30</a> MANUEL</li>
+                                        </ul>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+
+                    <div class="citas-anuladas">
+                        <div class="text-anuladas">
+                            <table cellpadding="2" cellspacing="0" style="height:100px;">
+                                <tr>
+                                    <td class="mid">
+                                        <h2>ANULADAS</h2>
+                                    </td>
+                                    <td class="mid-center">
+                                        <ul>
+                                            <li><a>12-DICIEMBRE 18:30</a> JOSECARLOS</li>
+                                            <li><a>13-DICIEMBRE 18:30</a> MARIA Y ALBERTO</li>
+                                            <li><a>14-DICIEMBRE 18:30</a> MANUEL</li>
+                                        </ul>
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="citas-realizadas">
+                        <div class="text-realizadas">
+                            <table cellpadding="2" cellspacing="0" style="height:100px;">
+                                <tr>
+                                    <td class="mid">
+                                        <h2>REALIZADAS</h2>
+                                    </td>
+                                    <td class="mid-center">
+                                        <ul>
+                                            <li><a>12-DICIEMBRE <span>18:30</span></a> JOSECARLOS</li>
+                                            <li><a>12-DICIEMBRE <span>18:30</span></a> JOSECARLOS</li>
+                                            <li><a>12-DICIEMBRE <span>18:30</span></a> JOSECARLOS</li>
+                                        </ul>
+                                    </td>
+
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-
- 
-   
-
-  <div id="mobile">
+    <div id="mobile">
     </div>
-<script src="menu.js"></script>
-<script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
-<script src="citas.js"></script>
+    <script src="menu.js"></script>
+    <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+    <script src="citas.js"></script>
 </body>
 
 </html>
