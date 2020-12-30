@@ -148,6 +148,10 @@ function portal_propietario_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if (is_page_template("page-inicio.php")) {
+		wp_enqueue_style( 'portal_propietario-page-inicio-style', get_template_directory_uri() . '/page-inicio.css', array(), _S_VERSION );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'portal_propietario_scripts' );
 

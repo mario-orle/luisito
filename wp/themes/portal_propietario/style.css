@@ -967,3 +967,210 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+/** GLOBAL ESTILOS */
+/* PAGINA DE INICIO */
+
+
+.header{
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100px;
+  background-color:#1c1c1c;
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
+  box-shadow: 0px 2px 7px 1px #ff8000;
+}
+body {
+  font-family:"Raleway";
+  margin: auto;
+  background:white solid;
+  
+
+}
+h2{
+ text-align: center; 
+ font-family:"";
+}
+span{
+  color:white;
+}
+
+.logo{
+  width: 200px;
+  height: 75px;
+  background-image: url(logo.png);
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin: 10px;
+}
+
+.header .right {
+  display: flex;
+  width: 200px;
+}
+.usuario{
+  width: 60px;
+  height: 60px;
+  background-color:transparent;
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+
+}
+.alertas{
+  width: 30px;
+  height: 60px;
+  background-color:transparent;
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+
+}
+.asesor{
+  width: 30px;
+  height: 60px;
+  background-color:transparent;
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+
+}
+.mensages{
+  width: 30px;
+  height: 60px;
+  background-color:transparent;
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  margin-top: 32px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+
+}
+
+
+/* Fixed sidenav, full height */
+.menu {
+  padding: 20px;
+  height: calc(100% - 100px);
+  width: 200px;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background-color: #8a9597;
+  overflow-x: hidden;
+  padding-top: 20px;
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+  font-family: "roboto";
+}
+
+.nav-menu {
+	display: flex;
+	flex-flow: column;
+}
+
+/* Style the sidenav links and the dropdown button */
+.menu a, .dropdown-btn, menu span {
+  padding: 6px 8px 6px 8px;
+  text-decoration: none;
+  font-size: 16px;
+  color: white;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.menu a:hover, .dropdown-btn:hover {
+  color: orange;
+}
+.menu a i{
+  padding-right: 20px;
+}
+
+
+/* Main content */
+.main {
+  margin-top: 100px;
+  margin-left: 245px;
+  font-size: 20px;
+  padding: 20px;
+  font-family: "roboto";
+
+}
+.main-up-inmuebles {
+  margin-top: 100px;
+  margin-left: 200px;
+  font-size: 20px;
+  padding: 20px;
+  display: flex;
+  font-family: "roboto " regular;
+}
+
+
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: grey;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.btn {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .menu{padding-top: 15px;}
+  .menu a {font-size: 18px;}
+}
+
+@media (min-width: 200px) {
+  #mobile {
+    display: none;
+  }
+  #desktop {
+    display: block;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 60px;
+  }
+}
+@media (max-width: 200px) {
+  #mobile {
+    display: block;
+  }
+  #desktop {
+    display: none;
+  }
