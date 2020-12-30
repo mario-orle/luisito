@@ -88,7 +88,6 @@ td.mid {
 .mid-center{
     display: flex;
     width: 100%;
-    height: 75px;
     overflow: auto;
 }
 .mid-center a {
@@ -149,4 +148,71 @@ td.mid {
 }
 #foo  span{
     color:black;
+}
+
+#popup {
+    overflow: auto;
+    position: fixed;
+    width: 570px;
+    height: 400px;
+    background-color:#333;
+    box-shadow: 0 4px 8px 0 black;
+    color: black;
+    font-size: 13px;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px 0 black;
+    position: fixed;
+    left: calc(50% - 570px / 2);
+    top: calc(50vh - 400px / 2);
+    display: none;
+    z-index: 5;
+    opacity: 0;
+
+}
+.popup-icon img{
+    width: 150px;
+    height: auto;
+    padding: 15px;
+
+}
+.popup-icon{
+    float: right;
+
+}
+#popup-bg {
+    position: fixed;
+    background-color: #3333;
+    opacity: 0;
+    transition: opacity .5s;
+}
+#popup.active{
+    display: block;
+    opacity: 1;
+    
+}
+#popup-bg.active{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    opacity: 1;
+    transition: opacity .5s;
+}
+.popup-text{
+    padding: 25px;
+    
+}
+.popup-text h3{
+    color: #ff8000;
+}
+.popup-text p{
+    color: white;
+}
+.popup-text hr{
+    margin-left: 0;
+    width: 300px;
+    border: 1px solid white;
+    margin-bottom: 2px;
+    
 }
