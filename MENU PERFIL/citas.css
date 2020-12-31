@@ -38,6 +38,9 @@ h2{
    
     font-family: "roboto";
 }
+.text-programadas span{
+    color: green;
+}
 
 .citas-anuladas {
     border: 10px solid #437184;
@@ -216,3 +219,4 @@ td.mid {
     margin-bottom: 2px;
     
 }
+.popup
