@@ -14,7 +14,7 @@
   z-index: 100;
 }
 body {
-  font-family:"Raleway";
+  font-family:"Roboto";
   margin: auto;
   background:white solid;
   
@@ -22,7 +22,7 @@ body {
 }
 h2{
  text-align: center; 
- font-family:"";
+
 }
 span{
   color:white;
@@ -144,16 +144,6 @@ span{
   font-family: "roboto";
 
 }
-.main-up-inmuebles {
-  margin-top: 100px;
-  margin-left: 200px;
-  font-size: 20px;
-  padding: 20px;
-  display: flex;
-  font-family: "roboto " regular;
-}
-
-
 
 /* Add an active class to the active dropdown button */
 .dropdown-btn.active {

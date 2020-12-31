@@ -176,85 +176,57 @@
     }
   }
 
+  .main-calendar{
+    display: flex;
+    width: 100%;
+  }
 
-  /* PRUEBA CALENDARIO */
-
-
-
-
-
-  ul {list-style-type: none;}
-
-body{
-  font-family: "roboto";
+  #foo .datepicker-picker {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 black;
 }
 
-.month {
-  padding: 60px 0px;
-  width: 100%;
-  background: #1abc9c;
-  text-align: center;
+#foo .datepicker-picker span {
+    border-radius: 0;
+   
 }
 
-.month ul {
-  margin: 0;
-  padding: 0;
+#foo .datepicker-grid {
+    width: 100%;
+    height: 280px;
+    background-color: azure;
 }
 
-.month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+#foo .datepicker-cell {
+    background-color:transparent;
 }
 
-.month .prev {
-  float: left;
-  padding-top: 10px;
+#foo .datepicker-cell.selected {
+    background-color: orange;
 }
 
-.month .next {
-  float: right;
-  padding-top: 10px;
+#foo span.datepicker-cell.day.next {
+    visibility: hidden;
 }
 
-.weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color: #ddd;
+#foo .days-of-week span {
+    color: orange;
 }
 
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
+#foo .days-of-week {
+    background-color: #437184;
+    width: 100%;
 }
 
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
+#foo .datepicker-view .days .datepicker-cell,
+.datepicker-view .dow {
+    flex-basis: 13.286%;
 }
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
+#foo .datepicker-header .datepicker-controls .button {
+    border-color: grey;
+    font-weight: 700;
 }
-
-.days li .active {
-  padding: 5px;
-  background: #1abc9c;
-  color: white;
+#foo  span{
+    color:black;
 }
-.main-calendar{
-  box-shadow: 0 4px 8px 0 black;;
-  width: 55%;
-}
-  
   
