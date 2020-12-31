@@ -3,6 +3,7 @@ ul {
 }
 h2{
     font-family: "roboto";
+    text-align: center;
 }
 .gestor-citas {
     display: flex;
@@ -35,8 +36,8 @@ h2{
 
 .text-programadas {
     font-size: 14px;
-   
     font-family: "roboto";
+    padding: 10px;
 }
 .text-programadas span{
     color: green;
@@ -84,9 +85,18 @@ table{
     font-family: "roboto";
     margin-left: px;
 }
+.text-programadas th{
+    padding: 5px;
+    text-decoration: underline;
+}
+.text-programadas tr{
+ text-align: center;
+}
+
 
 td.mid {
-    vertical-align: middle;
+   
+    text-align: center;
 }
 .mid-center{
     display: flex;
@@ -101,9 +111,6 @@ td.mid {
     color: green;
 }
 
-#foo .datepicker-mai{
-  
-}
 #foo .datepicker-picker {
     width: 100%;
     box-shadow: 0 4px 8px 0 black;
