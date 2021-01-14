@@ -1,70 +1,132 @@
 
 .main-container{
-display: inline;
-align-items: center;
 width: 100%;
-margin-top: 30px;
-}
-.nota-simple {
-display: flex;
-height: 150px;
-width: 40%;
-background-color: white;
-box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
-border-radius: 2%;  
-margin-bottom: 10px;
-}
-.text-nota-simple{
-font-size: 12px;
-border-radius: 10%;
-margin:20px;
+
+} 
+.main-container p{
 text-align: center;
 }
-.certificado {
-  display: flex;
-  height: 150px;
-  width: 40%;
-  background-color: white;
-  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
-  border-radius: 2%;  
-  margin-bottom: 10px;
+.main-container h2{
+color: black;
+text-align: left;  
 }
-.text-certificado{
-font-size: 12px;
-border-radius: 10%;
-margin:20px;
-text-align: center;
-}
-.fotografia{
-  display: flex;
-  height: 200px;
-  width: 40%;
-  background-color: white;
-  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
-  border-radius: 2%;  
-  margin-bottom: 10px;  
-}  
-.text-foto{
-font-size: 12px;
-border-radius: 10%;
-margin:20px;
-text-align: center;
-}
-.chat{
+.gestiones{
 display: flex;
 justify-content: space-between;
-height: 322px;
-width:40%;
-box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
-border-radius: 2%;
-background-color: white;  
+align-items: center;
+width: 100%;
 }
-.chat .textchat {
-font-size: 12px;
-border-radius: 10%;
-margin:20px;
+.gestiones h2{
+  color: black;
+  text-align: center;
+}
+.gestiones button{
+  background-color: white;
+}
+.notario{
+padding: 10px;
+background-color: white;
+width: 250px;
+border-bottom: 5px solid #0099ff;
+border-radius: 6px;
 text-align: center;
 }
+.notario img{
+width: 30%;
+padding: 10px;
+margin-top: 10px;
+}
+.certificado-energetico{
+padding: 10px;
+background-color: white;
+width: 250px;
+border-bottom: 5px solid #ff0000;
+border-radius: 6px;
+text-align: center;
+}
+.certificado-energetico img{
+width: 30%;
+padding: 10px;
+margin-top: 10px;    
+}
+.nota-simple{
+padding: 10px;
+background-color: white;
+width: 210px;
+border-bottom: 5px solid #0099ff;
+border-radius: 6px;
+text-align: center;
+}
+.nota-simple img{
+width: 40%;
+padding: 10px;
+margin-top: 10px;
+}
+.reportaje-fotografico{
+padding: 10px;
+background-color: white;
+width: 250px;
+border-bottom: 5px solid #ff7b00;
+border-radius: 6px;
+text-align: center;
+}
+.reportaje-fotografico img{
+width: 34%;
+padding: 10px;   
+}  
+.main-container-sub p{
+text-align: center;
+}
+.main-container-sub h2{
+color: black;
+text-align: left;
+margin-top: 75px;
+}
+.estadisticas-sub{
+display: flex;
+justify-content: space-around;
+align-items: center;
+width: 100%;
+}
+  
+.tipos-precio{
+display: flex;
+flex-flow: column;
+justify-content: space-between;
+align-items: center;
+height: 350px;
+}
+.precio-medio{
+padding: 10px;
+background-color: white; 
+width: 450px;
+border-bottom: 5px solid #ffa600;
+border-radius: 6px;
+text-align: center;
+}
+.precio-medio img{
+width: 400px;
+padding: 10px;
+margin-top: 10px;
+}
+.precio-venta{
+padding: 10px;
+background-color: white; 
+width: 300px;
+border-bottom: 5px solid green;
+border-radius: 6px;
+text-align: center;
+}
+.precio-recomendado{
+padding: 10px;
+background-color: white; 
+width: 300px;
+border-bottom: 5px solid green;
+border-radius: 6px;
+text-align: center;
+}
+    
+   
 
   
   
