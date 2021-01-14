@@ -135,20 +135,3 @@ float: right;
 padding-right: 8px;
 }
 
-/* Some media queries for responsiveness */
-@media screen and (max-height: 450px) {
-  .menu{padding-top: 15px;}
-  .menu a {font-size: 18px;}
-}
-
-@media (min-width: 200px) {
-  #mobile {
-    display: none;
-  }
-  #desktop {
-    display: block;
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 60px;
-  }
-}
