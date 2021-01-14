@@ -12,6 +12,7 @@ display: inline;
   
 }
 
+
  
 .estadisticas{
   display: flex;
@@ -22,7 +23,6 @@ display: inline;
 }
 .visualizaciones{
   padding: 10px;
-  margin-left:10px;
   background-color: white;
   width: 250px;
   border-bottom: 5px solid #0099ff;
@@ -48,6 +48,20 @@ display: inline;
   margin-top: 10px;
   
 }
+.calendario{
+  padding: 10px;
+  background-color: white;
+  width: 250px;
+  border-bottom: 5px solid #fffb00;
+  border-radius: 6px;
+  text-align: center;
+}
+.calendario img{
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+  
+}
 .porcentaje-perfil{
   padding: 10px;
   background-color: white;
@@ -57,7 +71,7 @@ display: inline;
   text-align: center;
 }
 .porcentaje-perfil img{
-  width: 30%;
+  width: 34%;
   padding: 10px;
   
 }
