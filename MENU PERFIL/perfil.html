@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="perfil.css">
-    <link rel="stylesheet" href="css.css">
-    <title>PERFIL</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="perfil.css">
+  <link rel="stylesheet" href="css.css">
+  <title>PERFIL</title>
 </head>
+
 <body>
   <div id="desktop">
     <div class="header">
       <div class="right">
-        <div>
+        <div class="alerta-asesor">
           <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
         </div>
         <div class="mensages">
@@ -24,90 +26,92 @@
           <a id="alertas"><img src="advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario"><img src="perfil.png"></a>
+          <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
         </div>
-      
-    </div>
-      
-      
+
+      </div>
+
+
     </div>
     <div class="menu">
       <div class="logo"> </div>
       <h2>PORTAL PROPIETARIO</h2>
-      <hr/>
+      <hr />
       <span>Opciones generales</span>
       <hr>
       <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
       <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS</a>
-      <a id="perfil" href="perfil.html"><i class="fas fa-hands-helping"></i>PERFIL</a>
+      <a id="perfil" href="perfil.html"><i class="fas fa-user-circle"></i>PERFIL</a>
+      <a id="mensages" href="mensages.html"><i class="far fa-envelope"></i>MENSAGES</a>
       <hr />
-      <a id="" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+      <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
       <hr />
-      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
+      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
       <hr />
-      
-      
+
+
       <button id="gestiones" class="dropdown-btn">
         <i class="fa fa-tasks"></i> GESTIONES
-        
+
       </button>
       <div class="dropdown-container">
         <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
-        <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
-        <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES</a>
+        <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
       </div>
       <hr />
     </div>
-      <div class="main">
-             <div class="descripcion-usuario" >
-                <div class="perfil">
-                  <div class="img-perfil">
-                     <img src="perfil.png" alt="icono" width="100%">
-                  </div>
-                  <div class="form-perfil">
-                  <form>
-                    <h1>PERFIL</h1>
-                    <div class="primera-linea linea-formulario">
-                        <input type="text" placeholder="Nombre">
-                        <input type="text" placeholder="1 Apellido">
-                        <input type="text" placeholder="2 Apellido">
-                      </div>
-                    <div class="segunda-linea linea-formulario"> 
-                      <input type="text" placeholder="Fecha de nacimiento">
-                      <input type="text" placeholder="Nacionalidad">
-                    </div>
-                    <div class="tercera-linea linea-formulario">
-                      <input type="text" placeholder="Numero Documento">
-                      <select>
-                        <optgroup label="tipo"></optgroup>
-                        <option value="DNI">DNI</option>
-                        <option value="NIE">NIE</option>
-                        </optgroup>
-                      </select> 
-                    </div>
-                    <div class="cuarta-linea linea-formulario">
-                      <input type="text" placeholder="Telefono fijo">
-                      <input type="text" placeholder="Telefono fijo">
-                      <input type="text" placeholder="E-mail">
-                    </div>
-                    <div class="cuarta-linea linea-formulario">
-                      <input type="text" placeholder="Direccion">
-                      <input type="text" placeholder="Numero">
-                      <input type="text" placeholder="Codigo postal">
-                    </div>
-                    <div class="enviar">
-                      <div class="terminos-condiciones">
-                        <input type="checkbox"> Estoy de acuerdo con los <a href="#Terminos-condiciones"> Terminos y Condiciones</a>
-                        <input type= "button" onclick="location.href='perfil2.html';" value="GUARDAR"/>
-                      </div>
-                    </div>
-                </form>
+    <div class="main">
+      <div class="descripcion-usuario">
+        <div class="perfil">
+          <div class="img-perfil">
+            <img src="perfil.png" alt="icono" width="100%">
+          </div>
+          <div class="form-perfil">
+            <form>
+              <h1>PERFIL</h1>
+              <div class="primera-linea linea-formulario">
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="1 Apellido">
+                <input type="text" placeholder="2 Apellido">
               </div>
-            </div> 
+              <div class="segunda-linea linea-formulario">
+                <input type="text" placeholder="Fecha de nacimiento">
+                <input type="text" placeholder="Nacionalidad">
+              </div>
+              <div class="tercera-linea linea-formulario">
+                <input type="text" placeholder="Numero Documento">
+                <select>
+                  <optgroup label="tipo"></optgroup>
+                  <option value="DNI">DNI</option>
+                  <option value="NIE">NIE</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="cuarta-linea linea-formulario">
+                <input type="text" placeholder="Telefono fijo">
+                <input type="text" placeholder="Telefono fijo">
+                <input type="text" placeholder="E-mail">
+              </div>
+              <div class="cuarta-linea linea-formulario">
+                <input type="text" placeholder="Direccion">
+                <input type="text" placeholder="Numero">
+                <input type="text" placeholder="Codigo postal">
+              </div>
+              <div class="enviar">
+                <div class="terminos-condiciones">
+                  <input type="checkbox"> Estoy de acuerdo con los <a href="#Terminos-condiciones"> Terminos y
+                    Condiciones</a>
+                  <input type="button" onclick="location.href='perfil2.html';" value="GUARDAR" />
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-       </div>
-    <script src="boton-enviar.js"></script>
-    <script src="menu.js"></script>
+      </div>
+    </div>
+  </div>
+  <script src="boton-enviar.js"></script>
+  <script src="menu.js"></script>
 </body>
+
 </html>
