@@ -22,57 +22,27 @@ h2{
 }
 
 .citas-programadas {
-    border: 10px solid #437184;
     background: white;
     box-shadow: 0 4px 8px 0 black;
     color: black;
-    font-size: 13px;
-    border: 10px solid #437184;
     background: white;
     width: 100%;
-    border-radius: 1%;
     box-shadow: 0 4px 8px 0 black;
 }
 
 .text-programadas {
-    font-size: 14px;
+    font-size: 13px;
     font-family: "roboto";
     padding: 10px;
+    height: 325px;
 }
 .text-programadas span{
-    color: green;
+    color: rgb(0, 221, 0);
 }
-
-.citas-anuladas {
-    border: 10px solid #437184;
-    background: white;
-    box-shadow: 0 4px 8px 0 black;
+.text-programadas h2{
     color: black;
-    font-size: 13px;
-    border: 10px solid #437184;
-    background: white;
-    width: 100%;
-    border-radius: 1%;
-    box-shadow: 0 4px 8px 0 black;
 }
 
-.text-anuladas {
-    font-size: 14px;
-    
-    font-family: "roboto";
-}
-
-.citas-realizadas {
-    border: 10px solid #437184;
-    background: white;
-    box-shadow: 0 4px 8px 0 black;
-    color: black;
-    font-size: 13px;
-    background: white;
-    width: 100%;
-    border-radius: 1%;
-    box-shadow: 0 4px 8px 0 black;
-}
 table{
     width: 100%;
 }
@@ -80,35 +50,12 @@ table{
     overflow: auto;
     width: 100%;
   }
-.text-realizadas {
-    font-size: 14px;
-    font-family: "roboto";
-    margin-left: px;
-}
 .text-programadas th{
     padding: 5px;
     text-decoration: underline;
 }
 .text-programadas tr{
  text-align: center;
-}
-
-
-td.mid {
-   
-    text-align: center;
-}
-.mid-center{
-    display: flex;
-    width: 100%;
-    overflow: auto;
-}
-.mid-center a {
-    color: orange;
-}
-
-.mid-center a span {
-    color: green;
 }
 
 #foo .datepicker-picker {
@@ -226,4 +173,3 @@ td.mid {
     margin-bottom: 2px;
     
 }
-.popup

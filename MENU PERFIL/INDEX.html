@@ -11,15 +11,16 @@
   <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
   <link rel="stylesheet" href="css.css">
   <link rel="stylesheet" href="inicio.css">
-  
-  
+
+
   <title>INICIO</title>
 </head>
+
 <body>
   <div id="desktop">
     <div class="header">
       <div class="right">
-        <div>
+        <div class="alerta-asesor">
           <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
         </div>
         <div class="mensages">
@@ -29,17 +30,17 @@
           <a id="alertas"><img src="advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario"><img src="perfil.png"></a>
+          <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
         </div>
-      
-    </div>
-      
-      
+
+      </div>
+
+
     </div>
     <div class="menu">
       <div class="logo"> </div>
       <h2>PORTAL PROPIETARIO</h2>
-      <hr/>
+      <hr />
       <span>Opciones generales</span>
       <hr>
       <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
@@ -50,15 +51,15 @@
       <hr />
       <a id="asesor" href="alerta-asesor.html"><i class="fas fa-camera"></i>ASESOR</a>
       <hr />
-      
-      
+
+
       <button id="gestiones" class="dropdown-btn">
         <i class="fa fa-tasks"></i> GESTIONES
-        
+
       </button>
       <div class="dropdown-container">
         <a id="inmuebles" href="inmuebles.html">INMUEBLLES</a>
-        <a id ="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+        <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
         <a id="gestionar-inmuebles" href="cargar-inmueble.html">GESTIÓN INMUEBLES</a>
       </div>
       <hr />
@@ -93,87 +94,47 @@
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
           </div>
           <br>
-
-         
-        </div>
-        <div class="inmuebles">
-          <div class="text-inmuebles">
-            <h2>RESUMEN INMUEBLE</h2>
-            <ul>
-              <li>ESTADO DE VENTA/ALQUILE</li>
-              <li>ESTADO DOCUMENTACIÓN</li>
-              <li>DETALLES ASESOR</li>
-            </ul>
-          </div>
         </div>
 
         <div class="grafica">
-          <div class="text-grafica">
-            <h2>GRAFICA</h2>
-            <ul>
-              <li>VISITAS AL INMUEBLE</li>
-              <li>CITAS SOLICITADAS</li>
-            </ul>
-          </div>
+          <h2>GRAFICA</h2>
+          <table>
+            <tbody>
+              <tr>
+                <th>VISITAS AL INMUEBLE</th>
+                <th>CITAS SOLICITADAS</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+     
+    </div>
+    <div class="main-calendar">
+      <div id="foo"></div>
+      <div class="inmuebles">
+        <div class="text-inmuebles">
+          <h2>RESUMEN INMUEBLE</h2>
+          <ul>
+            <li>ESTADO DE VENTA/ALQUILE</li>
+            <li>ESTADO DOCUMENTACIÓN</li>
+            <li>DETALLES ASESOR</li>
+          </ul>
         </div>
       </div>
-        <div class= "main-container">
-          <div class="main-calendar">
-            <div id="foo" ></div>
-          </div>
-        <div class="chat">
-          <div class="textchat">
-            <h2>CHAT</h2>
-            <ul>
-              <li>CHAT ASES0R</li>
-            </ul>
-          </div>
-        </div>
     </div>
-
   </div>
-
-  </div>
- 
+</div>
 
 
-  <div id="mobile">
-    <div id="inicio" class="tabcontent active">
-      <h1>INICIO</h1>
-      <p>London is the capital city of England.</p>
-    </div>
 
-    <div id="inmuebles" class="tabcontent">
-      <h1>INMUEBLES</h1>
-      <p>Paris is the capital of France.</p>
-    </div>
 
-    <div id="misdocumentos" class="tabcontent">
-      <h1>DOCUMENTOS</h1>
-      <p>Tokyo is the capital of Japan.</p>
-    </div>
 
-    <div id="alertaasesor" class="tabcontent">
-      <h1>ALERTA ASESOR</h1>
-      <p>Oslo is the capital of Norway.</p>
-    </div>
+  <div id="mobile"></div>
 
-    <div id="asesorpersonal" class="tabcontent">
-      <h1>ASESOR PERSONAL</h1>
-      <p>Oslo is the capital of Norway.</p>
-    </div>
-
-    <div id="menu">
-      <a href="index.html" class="tablink">Inicio</a>
-      <a href="inmuebles.html" class="tablink">Inmuebles</a>
-      <a href="mis-documentos.html" class="tablink">Mis Documentos</a>
-      <a href="alerta-asesor.html" class="tablink">Alerta Asesor</a>
-      <a href="asesor-personal.html" class="tablink">Asesor Personal</a>
-    </div>
-<script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
-<script src="menu.js"></script>
-<script src="slider.js"></script>
-<script src="citas.js"></script>
+  <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+  <script src="menu.js"></script>
+  <script src="slider.js"></script>
+  <script src="citas.js"></script>
 </body>
 
 </html>

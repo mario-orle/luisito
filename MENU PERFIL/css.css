@@ -29,9 +29,7 @@ width: 200px;
 height: 75px;
 background-image: url(logo.png);
 background-size: contain;
-background-position: center; 
 background-repeat: no-repeat;
-margin-top:3px;
 margin-bottom: 40px;
 }
 
@@ -113,7 +111,6 @@ padding-right: 20px;
 .main {
 margin-top: 100px;
 margin-left: 245px;
-font-size: 20px;
 padding: 20px;
 font-family: "roboto";
 }
@@ -154,10 +151,3 @@ padding-right: 8px;
     padding-bottom: 60px;
   }
 }
-@media (max-width: 200px) {
-  #mobile {
-    display: block;
-  }
-  #desktop {
-    display: none;
-  }
