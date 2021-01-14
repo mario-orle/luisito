@@ -133,9 +133,12 @@ background-color: white;
 }
 .grafica tr{
   display: flex;
+  width: 500px;
+  justify-content: space-between;
+  margin-left: 20px;
 }
 .grafica th{
-  font-size: 14px;
+  font-size: 13px;
   text-align: center;
 
 }
