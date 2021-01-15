@@ -23,11 +23,11 @@ h2{
 
 .citas-programadas {
     background: white;
-    box-shadow: 0 4px 8px 0 black;
     color: black;
     background: white;
     width: 100%;
     box-shadow: 0 4px 8px 0 black;
+    height: 345px;
 }
 
 .text-programadas {
@@ -57,6 +57,24 @@ table{
 .text-programadas tr{
  text-align: center;
 }
+
+.icono-citas{
+display: flex;
+width: 50%;
+align-items: center;
+margin-left:170px;
+margin-top:15px;
+margin-bottom: 10px;
+}
+.icono-citas img{
+width: 20%;
+padding: 10px;
+margin-top: 10px;   
+}
+.icono-citas h2{
+    color: black;
+}
+
 
 #foo .datepicker-picker {
     width: 100%;

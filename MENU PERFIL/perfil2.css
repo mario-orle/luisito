@@ -1,12 +1,12 @@
 .row {  
   display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
 }
 
 
 .side {
-  flex: 10%;
+  width: 250px;
   background-color:#8a9597;
   padding: 20px;
   box-shadow: 0 4px 8px 0 black;
@@ -15,30 +15,79 @@
 
 
 .main-perfil{   
-  flex: 50%;
+  width: 500px;
   background-color: white;
   padding: 20px;
+  box-shadow: 0 4px 8px 0 black;
 }
 
 
 .fakeimg-perfil {
- margin-top:45px;
- margin-left:45px;
- margin-bottom: 45px;
+ margin-left:25px; 
+}
+.form-caracteristicas{
+  display: block;
+}
+.form-caracteristicas hr{
+  width: 100%;
+  margin-bottom: 25px;
  
 }
+.bg-fotos{
+  height: 300px;
+  margin-top:100px;
+
+}
+.fotos{
+ display: flex;
+ justify-content: space-between;
+  
 
 
-@media screen and (max-width: 700px) {
-  .row {   
-    flex-direction: column;
-  }
 }
 
-
-@media screen and (max-width: 400px) {
-  .navbar a {
-    float: none;
-    width: 100%;
-  }
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 15%;
+  margin-top: 40px;
+  background:none;
 }
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}
+.btn-imagenes{
+  width: 100%;
+  
+}
+.botons {
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+	background-color:#bddbfa;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #528ecc;
+  width: 20%;
+}
+.botons:hover {
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+.botons:active {
+	position:relative;
+	top:1px;
+}
+
+        

@@ -16,6 +16,7 @@ display: inline;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+
   
 }
 .visualizaciones{
@@ -25,6 +26,7 @@ display: inline;
   border-bottom: 5px solid #0099ff;
   border-radius: 6px;
   text-align: center;
+  box-shadow: 0 4px 8px 0 black;
 }
 .visualizaciones img{
   width: 30%;
@@ -38,6 +40,7 @@ display: inline;
   border-bottom: 5px solid #ff0000;
   border-radius: 6px;
   text-align: center;
+  box-shadow: 0 4px 8px 0 black;
 }
 .contacto-email img{
   width: 30%;
@@ -52,6 +55,7 @@ display: inline;
   border-bottom: 5px solid #fffb00;
   border-radius: 6px;
   text-align: center;
+  box-shadow: 0 4px 8px 0 black;
 }
 .calendario img{
   width: 30%;
@@ -66,6 +70,7 @@ display: inline;
   border-bottom: 5px solid #ff7b00;
   border-radius: 6px;
   text-align: center;
+  box-shadow: 0 4px 8px 0 black;
 }
 .porcentaje-perfil img{
   width: 34%;
@@ -102,6 +107,7 @@ width: 450px;
 border-bottom: 5px solid #ffa600;
 border-radius: 6px;
 text-align: center;
+box-shadow: 0 4px 8px 0 black;
 }
 .precio-medio img{
 width: 400px;
@@ -115,6 +121,7 @@ width: 300px;
 border-bottom: 5px solid green;
 border-radius: 6px;
 text-align: center;
+box-shadow: 0 4px 8px 0 black;
 }
 .precio-recomendado{
 padding: 10px;
@@ -123,6 +130,7 @@ width: 300px;
 border-bottom: 5px solid green;
 border-radius: 6px;
 text-align: center;
+box-shadow: 0 4px 8px 0 black;
 }
    
  
