@@ -1,0 +1,51 @@
+.botons {
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+	background-color:#bddbfa;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+  text-shadow:0px 1px 0px #528ecc;
+  width: 20%;
+}
+.botons:hover {
+	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+	background-color:#80b5ea;
+}
+.botons:active {
+	position:relative;
+	top:1px;
+}
+.documentos-descarga{
+    display: flex;
+    background-color: white;
+    width: 750px;
+    height: 350px;
+    padding: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    justify-content: space-between;
+}
+.documentos-descarga h3{
+    color: blue;
+}
+
+.text-documentos{
+    width: 800px;
+    height: 350px;
+    
+}
+.btn-descarga{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 360px;
+    height: 70px;
+    margin-top: 70px;
+}
+
