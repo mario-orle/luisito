@@ -28,13 +28,26 @@
     display: flex;
     background-color: white;
     width: 750px;
-    height: 350px;
-    padding: 10px;
+    height: 300px;
+    padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     margin-left: 150px;
 }
+.documentos-descarga-2{
+    display: flex;
+    background-color: white;
+    width: 750px;
+    height: 300px;
+    padding: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin-left: 150px;
+    margin-top: 15px;
+}
 
 .documentos-descarga h3{
+    color: blue;
+}
+.documentos-descarga-2 h3{
     color: blue;
 }
 
@@ -48,4 +61,10 @@
     justify-content: space-between;
     width: 100%;
 }
+.fila-documento-2{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
 

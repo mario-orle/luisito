@@ -1,6 +1,6 @@
 .perfil-asesor{
-	width: 770px;
-	height: 600px;
+	width: 1000px;
+	height:610px;
 	background-color: white;
 	display: flex;
 }
@@ -10,7 +10,7 @@
 	margin-top:50px;
 }
 .form-perfil{
-	margin-top: 25px;
+	margin-top:10px;
 }
 .form-perfil h3{
 	color: rgb(89, 89, 241);
@@ -30,11 +30,17 @@
 	height: 10%;
 }
 .doc-punt{
-	height: 245px;
+	height: 280px;
 	border: 5px solid #1C6EA4;
 	margin-bottom: 20px;
 	border-radius: 13px;
-	width: 500px;
+	width: 690px
+}
+.fila-documento{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	
 }
 .botons {
 	box-shadow:inset 0px 1px 0px 0px #dcecfb;
