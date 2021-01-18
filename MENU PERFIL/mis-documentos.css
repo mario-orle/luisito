@@ -11,8 +11,10 @@
 	font-size:15px;
 	font-weight:bold;
 	text-decoration:none;
-  text-shadow:0px 1px 0px #528ecc;
-  width: 20%;
+    text-shadow:0px 1px 0px #528ecc;
+    width: 30%;
+    height: 5%;
+    margin-top: 15px;
 }
 .botons:hover {
 	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
@@ -29,8 +31,9 @@
     height: 350px;
     padding: 10px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    justify-content: space-between;
+    margin-left: 150px;
 }
+
 .documentos-descarga h3{
     color: blue;
 }
@@ -38,14 +41,11 @@
 .text-documentos{
     width: 800px;
     height: 350px;
-    
+
 }
-.btn-descarga{
+.fila-documento{
     display: flex;
-    flex-flow: column;
     justify-content: space-between;
-    width: 360px;
-    height: 70px;
-    margin-top: 70px;
+    width: 100%;
 }
 

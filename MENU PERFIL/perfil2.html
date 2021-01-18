@@ -84,12 +84,12 @@
                   type="submit" value="GUARDAR">
                 <hr />
               </h3>
-            <div class="datos-inmuebles">
-              <h4>Piso en Calle Fermin Muruguja, 24(28006)</h4>
-              <h4>Madrid</h4>
-              <p>120m2 - 3Hab. - Atico Exterior</p>
+              <div class="datos-inmuebles">
+                <h4>Piso en Calle Fermin Muruguja, 24(28006)</h4>
+                <h4>Madrid</h4>
+                <p>120m2 - 3Hab. - Atico Exterior</p>
+              </div>
             </div>
-          </div>
             <div class="precios">
               <div class="venta">
                 <h1>198.000€</h1>
@@ -108,52 +108,95 @@
               <hr />
             </h4>
             <textarea name="comentarios" rows="10" cols="40"
-              style="width: 494px; height: 138px;">Descripción de la Vivienda</textarea>
+              style="width:695px; height: 138px;">Descripción de la Vivienda</textarea>
+            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
+                href="#">Terminos y Condiciones</a></p>
           </div>
+
           <div class="caracteristicas-equipamiento">
             <h4>Caracteristicas y Equipamiento <input class="botons" type="submit" value="EDITAR"> <input class="botons"
                 type="submit" value="GUARDAR">
               <hr />
             </h4>
-            <input class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
-              placeholder="Tipo de inmueble">
-            <input class="controls" type="text" name="estado" id="estado" placeholder="Estado">
-            <input class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
             <div>
-            <input class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
-              placeholder="Tipo de inmueble">
-            <input class="controls" type="text" name="estado" id="estado" placeholder="Estado">
-            <input class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
-          </div>
+              <div class="linea-formulario-caracteristicas-equipamiento1">
+                <input class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
+                  placeholder="Tipo de inmueble">
+              </div>
+              <div class="linea-formulario-caracteristicas-equipamiento1">
+                <input class="controls" type="text" name="estado" id="estado" placeholder="Estado">
+              </div>
+              <div class="linea-formulario-caracteristicas-equipamiento1">
+                <input class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
+              </div>
+            </div>
+            <div class="linea-formulario-caracteristicas-equipamiento">
+              <input class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
+                placeholder="Tipo de inmueble">
+            </div>
+            <div class="linea-formulario-caracteristicas-equipamiento">
+              <input class="controls" type="text" name="estado" id="estado" placeholder="Estado">
+            </div>
+            <div class="linea-formulario-caracteristicas-equipamiento">
+              <input class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
+            </div>
+            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
+                href="#">Terminos y Condiciones</a></p>
           </div>
           <div class="localizacion">
             <h4>Localización <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
                 value="GUARDAR">
               <hr />
             </h4>
-            <div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="pais" id="pais" placeholder="Pais">
+            </div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="provincia" id="provincia" placeholder="Provincia">
+            </div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="municipio" id="municipio" placeholder="municipio">
             </div>
-            <div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="poblacion" id="poblacion" placeholder="Población">
+            </div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="direccion" id="direccion" placeholder="Direccion">
+            </div>
+            <div class="linea-formulario-localizacion">
+              <input class="controls" type="text" name="tipo-de-via" id="tipo-de-via" placeholder="Tipo de Via">
+            </div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="codigo-postal" id="codigo-postal" placeholder="Codigo Postal">
             </div>
-            <div>
+            <div class="linea-formulario-localizacion">
               <input class="controls" type="text" name="numero" id="numero" placeholder="numero">
-              <input class="controls" type="text" name="escalera" id="escalera" placeholder="escalera">
-              <input class="controls" type="text" name="puerta" id="puerta" placeholder="puerta">
             </div>
-            <div class="superficie">
-              <input class="controls" type="text" name="tipo-de-via" id="tipo-de-via" placeholder="Tipo de Via">
-              <input class="controls" type="text" name="metros-contruido" id="metros-contruido"
-                placeholder="M2 contruido">
-              <input class="controls" type="text" name="metro-utiles" id="metro-utiles" placeholder="M2 utiles">
+            <div class="linea-formulario-localizacion">
+              <input class="controls" type="text" name="escalera" id="escalera" placeholder="escalera">
+            </div>
+            <div class="linea-formulario-localizacion">
+              <input class="controls" type="text" name="puerta" id="puerta" placeholder="puerta">
             </div>
             <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
                 href="#">Terminos y Condiciones</a></p>
+          </div>
+          <div class="superficie">
+            <h4>Superficie <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
+                value="GUARDAR">
+              <hr />
+            </h4>
+            <div class="linea-formulario-superficie">
+              <input class="controls" type="text" name="metros-contruido" id="metros-contruido"
+                placeholder="M2 contruido">
+            </div>
+            <div class="linea-formulario-superficie">
+              <input class="controls" type="text" name="metro-utiles" id="metro-utiles" placeholder="M2 utiles">
+            </div>
+
+            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
+                href="#">Terminos y Condiciones</a></p>
+          </div>
         </section>
       </div>
     </div>
