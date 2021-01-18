@@ -79,8 +79,7 @@ justify-content: space-around;
 .fotos{
  display: flex;
  justify-content: space-around;
- width: 98%;
- padding: 10px;
+ 
  }
 
 
@@ -143,7 +142,8 @@ justify-content: space-around;
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 2px ;
+  text-align: center;
 }
 .btn-imagenes{
   width: 100%;
