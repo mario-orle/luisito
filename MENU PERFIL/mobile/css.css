@@ -1,3 +1,6 @@
+.active{
+    background: url{logo.png};
+}
 .mobile-container {
     max-width: 480px;
     margin: auto;

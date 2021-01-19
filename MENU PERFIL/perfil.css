@@ -1,58 +1,61 @@
-.perfil{
-  display: flex;
+#regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+h1 {
+  text-align: center;  
+}
+
+input {
+  padding: 10px;
   width: 100%;
-  box-shadow: 0 4px 8px 0 black;
-}
-.img-perfil{
-  width: 150px;
-  height: 150px;
-  padding: 100px 10px 0px 15px;
-  }
-.text-perfil{
-  width: 10px;
-  height: 10px;
-}
-.form-perfil{
-  width: 80%;
-  height: 370px;
-  margin-top: 35px;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
 }
 
-.descripcion-usuario{
-    display: flex;
-    color: black;
-    font-size: 13px;
-    border: 10px solid #437184;
-    background: white;
-    height: 400px;
-    width: 70%;
-    border-radius: 1%;
-    box-shadow: 0 4px 8px 0 black;
-}
-.linea-formulario-perfil {
-  display: flex;
-  justify-content: left;
+input.invalid {
+  background-color: #ffdddd;
 }
 
-.enviar {
-  text-align: left;
-  margin-top: 5px;
+.tab {
+  display: none;
 }
 
-.descripcion-usuario input, .descripcion-usuario select, .descripcion-usuario button {
-  width: 172px;
-  margin: 5px;
-  padding: 5px;
+button {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  cursor: pointer;
 }
-.quinta-linea{
-  display: flex;
-  justify-content: space-between;
 
+button:hover {
+  opacity: 0.8;
 }
-.quinta-linea input {
-  width: 80px;
+
+#prevBtn {
+  background-color: #bbbbbb;
 }
-.quinta-linea select{
-  width: 80px;
-  
+
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;  
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+.step.finish {
+  background-color: #4CAF50;
 }

@@ -41,7 +41,7 @@
       <hr>
       <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
       <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
-      <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
+      <a id="perfil" href="perfil.html"><i class="fas fa-user-circle"></i>PERFIL</a>
       <a id="mensajes" href="mensajes.html"><i class="far fa-envelope"></i>MENSAJES</a>
       <hr />
       <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
@@ -102,7 +102,7 @@
             </div>
           </div>
 
-          <div class="descripcion">
+          <div class="descripcion seccion-formulario">
             <h4>Descripción <input class="botons" type="submit" value="EDITAR"><input class="botons" type="submit"
                 value="GUARDAR">
               <hr />
@@ -113,37 +113,38 @@
                 href="#">Terminos y Condiciones</a></p>
           </div>
 
-          <div class="caracteristicas-equipamiento">
-            <h4>Caracteristicas y Equipamiento <input class="botons" type="submit" value="EDITAR"> <input class="botons"
-                type="submit" value="GUARDAR">
+          <div class="caracteristicas-equipamiento seccion-formulario">
+            <h4>Caracteristicas y Equipamiento <input onclick="editar()" class="botons editar" type="button" value="EDITAR"> <input
+                class="botons guardar" type="button" value="GUARDAR">
               <hr />
             </h4>
             <div>
+
               <div class="linea-formulario-caracteristicas-equipamiento1">
-                <input class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
+                <input readonly class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
                   placeholder="Tipo de inmueble">
               </div>
               <div class="linea-formulario-caracteristicas-equipamiento1">
-                <input class="controls" type="text" name="estado" id="estado" placeholder="Estado">
+                <input readonly class="controls" type="text" name="estado" id="estado" placeholder="Estado">
               </div>
               <div class="linea-formulario-caracteristicas-equipamiento1">
-                <input class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
+                <input readonly class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
               </div>
             </div>
             <div class="linea-formulario-caracteristicas-equipamiento">
-              <input class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
+              <input readonly class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
                 placeholder="Tipo de inmueble">
             </div>
             <div class="linea-formulario-caracteristicas-equipamiento">
-              <input class="controls" type="text" name="estado" id="estado" placeholder="Estado">
+              <input readonly class="controls" type="text" name="estado" id="estado" placeholder="Estado">
             </div>
             <div class="linea-formulario-caracteristicas-equipamiento">
-              <input class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
+              <input readonly class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
             </div>
-            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
-                href="#">Terminos y Condiciones</a></p>
+            <p><input readonly type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con
+              <a href="#">Terminos y Condiciones</a></p>
           </div>
-          <div class="localizacion">
+          <div class="localizacion seccion-formulario">
             <h4>Localización <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
                 value="GUARDAR">
               <hr />
@@ -181,7 +182,7 @@
             <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
                 href="#">Terminos y Condiciones</a></p>
           </div>
-          <div class="superficie">
+          <div class="superficie seccion-formulario">
             <h4>Superficie <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
                 value="GUARDAR">
               <hr />
@@ -203,8 +204,8 @@
 
     <div class=bg-fotos>
       <div class="btn-imagenes">
-        <h4>Fotografias <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
-            value="EXAMINAR"> <input class="botons" type="submit" value="GUARDAR">
+        <h4>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
+            value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
           <hr />
         </h4>
         <div class="fotos">
@@ -261,6 +262,7 @@
       </div>
     </div>
   </div>
+  <script src="perfil2.js"></script>
   <script src="boton-enviar.js"></script>
   <script src="menu.js"></script>
 </body>
