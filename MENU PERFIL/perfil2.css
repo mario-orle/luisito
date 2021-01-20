@@ -57,33 +57,20 @@ justify-content: space-around;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   text-align: center;
 }
-.linea-formulario{
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+
 .fakeimg-perfil {
  margin-left:25px; 
 }
 
-.form-caracteristicas hr{
-  width: 100%;
-  margin-bottom: 25px;
- 
-}
-.bg-fotos{
-  height: 300px;
-  margin-top:80px;
 
+.seccion-formulario input[readonly]{
+  color: black;
+  border:none;
 }
-.fotos{
- display: flex;
- justify-content: space-around;
- 
- }
-
 
 .descripcion{
+  display: flex;
+  flex-flow: column;
   margin-top:10px;
   background-color: white;
   width: 700px;
@@ -92,16 +79,9 @@ justify-content: space-around;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   
 }
-
-.linea-formulario-caracteristicas-equipamiento{
-  display:flex;
-  justify-content: space-between;
-}
-.controls{
-  width: 40%;
-  
-}
 .superficie{
+  display: flex;
+  flex-flow: column;
   margin-top:10px;
   background-color: white;
   width: 700px;
@@ -109,14 +89,10 @@ justify-content: space-around;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.seccion-formulario input[readonly]{
-  color: black;
-  border:none;
-
-
-}
   
 .localizacion{
+  display: flex;
+  flex-flow: column;
   margin-top:10px;
   background-color: white;
   width: 700px;
@@ -126,12 +102,36 @@ justify-content: space-around;
   
 }
 .caracteristicas-equipamiento{
+  display: flex;
+  flex-flow: column;
   margin-top:10px;
   background-color: white;
   width: 700px;
   height: 280px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.pos-btn{
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin-bottom: 25px;
+  padding: 10px;
+}
+.primer-bloque{
+  margin-top: 15px;
+  margin-left: 50px;
+padding: 15px;
+}
+.segundo-bloque{
+  margin-top: 15px;
+  margin-left: 50px;
+padding: 15px;
+}
+.tercer-bloque{
+  margin-top: 15px;
+  margin-left: 50px;
+padding: 15px;
 }
 
 .card {
@@ -151,12 +151,19 @@ justify-content: space-around;
   padding: 2px ;
   text-align: center;
 }
+.bg-fotos{
+  height: 300px;
+  margin-top:80px;
+}
+.fotos{
+ display: flex;
+ justify-content: space-between;
+}
 .btn-imagenes{
   width: 100%;
   justify-content: center;
-  
 }
-.guardar{
+.botons.guardar{
   display: none;
 }
 

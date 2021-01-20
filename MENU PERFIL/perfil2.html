@@ -77,13 +77,11 @@
         <hr />
       </div>
       <div class="main-perfil">
-        <section class="form-caracteristicas">
+        <div class="form-caracteristicas">
           <div class="main-datos">
             <div class="texto">
-              <h3>Datos del Inmueble <input class="botons" type="submit" value="EDITAR"><input class="botons"
-                  type="submit" value="GUARDAR">
-                <hr />
-              </h3>
+              <h3>Datos del Inmueble </h3>
+              <hr />
               <div class="datos-inmuebles">
                 <h4>Piso en Calle Fermin Muruguja, 24(28006)</h4>
                 <h4>Madrid</h4>
@@ -103,168 +101,155 @@
           </div>
 
           <div class="descripcion seccion-formulario">
-            <h4>Descripción <input class="botons" type="submit" value="EDITAR"><input class="botons" type="submit"
-                value="GUARDAR">
-              <hr />
-            </h4>
+            <div class="pos-btn">
+              <h4>Descripción </h4>
+              <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button
+                onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
+            </div>
             <textarea name="comentarios" rows="10" cols="40"
               style="width:695px; height: 138px;">Descripción de la Vivienda</textarea>
-            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
-                href="#">Terminos y Condiciones</a></p>
           </div>
 
           <div class="caracteristicas-equipamiento seccion-formulario">
-            <h4>Caracteristicas y Equipamiento <input onclick="editar()" class="botons editar" type="button" value="EDITAR"> <input
-                class="botons guardar" type="button" value="GUARDAR">
-              <hr />
-            </h4>
-            <div>
 
-              <div class="linea-formulario-caracteristicas-equipamiento1">
+            <div class="pos-btn">
+              <h4>Caracteristicas y Equipamiento </h4>
+
+              <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button>
+              <button onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
+
+            </div>
+            <div class="primer-bloque">
+              <div class="linea-formulario">
                 <input readonly class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
                   placeholder="Tipo de inmueble">
-              </div>
-              <div class="linea-formulario-caracteristicas-equipamiento1">
                 <input readonly class="controls" type="text" name="estado" id="estado" placeholder="Estado">
-              </div>
-              <div class="linea-formulario-caracteristicas-equipamiento1">
                 <input readonly class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
               </div>
             </div>
-            <div class="linea-formulario-caracteristicas-equipamiento">
-              <input readonly class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
-                placeholder="Tipo de inmueble">
+            <div class="segundo-bloque">
+              <div class="linea-formulario">
+                <input readonly class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
+                  placeholder="Tipo de inmueble">
+                <input readonly class="controls" type="text" name="estado" id="estado" placeholder="Estado">
+                <input readonly class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
+              </div>
             </div>
-            <div class="linea-formulario-caracteristicas-equipamiento">
-              <input readonly class="controls" type="text" name="estado" id="estado" placeholder="Estado">
-            </div>
-            <div class="linea-formulario-caracteristicas-equipamiento">
-              <input readonly class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
-            </div>
-            <p><input readonly type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con
-              <a href="#">Terminos y Condiciones</a></p>
           </div>
+
           <div class="localizacion seccion-formulario">
-            <h4>Localización <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
-                value="GUARDAR">
-              <hr />
-            </h4>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="pais" id="pais" placeholder="Pais">
+            <div class="pos-btn">
+              <h4>Localización</h4>
+              <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button
+                onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
+
             </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="provincia" id="provincia" placeholder="Provincia">
+            <div class="primer-bloque">
+              <div class="linea-formulario-localizacion">
+                <input readonly class="controls" type="text" name="pais" id="pais" placeholder="Pais">
+                <input readonly class="controls" type="text" name="provincia" id="provincia" placeholder="Provincia">
+                <input readonly class="controls" type="text" name="municipio" id="municipio" placeholder="municipio">
+              </div>
             </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="municipio" id="municipio" placeholder="municipio">
+            <div class="segundo-bloque">
+              <div class="linea-formulario-localizacion">
+                <input readonly class="controls" type="text" name="poblacion" id="poblacion" placeholder="Población">
+                <input readonly class="controls" type="text" name="direccion" id="direccion" placeholder="Direccion">
+                <input readonly class="controls" type="text" name="tipo-de-via" id="tipo-de-via"
+                  placeholder="Tipo de Via">
+              </div>
             </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="poblacion" id="poblacion" placeholder="Población">
+            <div class="tercer-bloque">
+              <div class="linea-formulario-localizacion">
+                <input readonly class="controls" type="text" name="codigo-postal" id="codigo-postal"
+                  placeholder="Codigo Postal">
+                <input readonly class="controls" type="text" name="numero" id="numero" placeholder="numero">
+                <input readonly class="controls" type="text" name="escalera" id="escalera" placeholder="escalera">
+                <input readonly class="controls" type="text" name="puerta" id="puerta" placeholder="puerta">
+              </div>
             </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="direccion" id="direccion" placeholder="Direccion">
-            </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="tipo-de-via" id="tipo-de-via" placeholder="Tipo de Via">
-            </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="codigo-postal" id="codigo-postal" placeholder="Codigo Postal">
-            </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="numero" id="numero" placeholder="numero">
-            </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="escalera" id="escalera" placeholder="escalera">
-            </div>
-            <div class="linea-formulario-localizacion">
-              <input class="controls" type="text" name="puerta" id="puerta" placeholder="puerta">
-            </div>
-            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
-                href="#">Terminos y Condiciones</a></p>
           </div>
           <div class="superficie seccion-formulario">
-            <h4>Superficie <input class="botons" type="submit" value="EDITAR"> <input class="botons" type="submit"
-                value="GUARDAR">
+            <div class="pos-btn">
+              <h4>Superficie</h4>
+              <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button
+                onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
+            </div>
+            <div class="primer-bloque">
+              <input readonly class="controls" type="text" name="metros-contruido" id="metros-contruido"
+                placeholder="M2 contruido">
+              <input readonly class="controls" type="text" name="metro-utiles" id="metro-utiles"
+                placeholder="M2 utiles">
+            </div>
+          </div>
+
+          </section>
+
+        </div>
+
+        <div class=bg-fotos>
+          <div class="btn-imagenes">
+            <h4>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons"
+                type="submit" value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
               <hr />
             </h4>
-            <div class="linea-formulario-superficie">
-              <input class="controls" type="text" name="metros-contruido" id="metros-contruido"
-                placeholder="M2 contruido">
-            </div>
-            <div class="linea-formulario-superficie">
-              <input class="controls" type="text" name="metro-utiles" id="metro-utiles" placeholder="M2 utiles">
-            </div>
-
-            <p><input type="checkbox" id="myCheck" onmouseover="myFunction()" onclick=""> Estoy de acuerdo con <a
-                href="#">Terminos y Condiciones</a></p>
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <div class=bg-fotos>
-      <div class="btn-imagenes">
-        <h4>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
-            value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
-          <hr />
-        </h4>
-        <div class="fotos">
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
-            </div>
-          </div>
-          <div class="card">
-            <img src="casa1.jpg" alt="Avatar" style="width:100%">
-            <div class="container">
-              <h4><b>Frontal casa</b></h4>
+            <div class="fotos">
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <h4><b>Frontal casa</b></h4>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
-  </div>
-  <script src="perfil2.js"></script>
-  <script src="boton-enviar.js"></script>
-  <script src="menu.js"></script>
+    <script src="perfil2.js"></script>
+    <script src="boton-enviar.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>
