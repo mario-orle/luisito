@@ -1,7 +1,5 @@
 .row {  
   display: flex;
-  justify-content: space-around;
-  width: 80%;
 }
 
 
@@ -15,7 +13,7 @@
 }
 
 .main-perfil{   
-  width: 500px;
+  width: 100%;
   padding: 20px;
 }
 .main-datos{
@@ -106,7 +104,9 @@ justify-content: space-around;
   flex-flow: column;
   margin-top:10px;
   background-color: white;
-  width: 700px;
+  width: 100%;
+  max-width:700px;
+  min-width: 350px;
   height: 280px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
