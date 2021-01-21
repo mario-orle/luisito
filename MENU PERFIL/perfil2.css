@@ -13,13 +13,13 @@
 }
 
 .main-perfil{   
-  width: 100%;
+  width: calc(100% - 310px);
+  max-width: 700px;
   padding: 20px;
 }
 .main-datos{
   display: flex;
   background-color: white;
-  width: 700px;
   height: 350px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -37,7 +37,7 @@
 .precios{
  display: flex;
  flex-flow: column;
-justify-content: space-around;
+ justify-content: space-around;
 }
 .venta{
   background-color: #e4e4e4;
@@ -71,7 +71,6 @@ justify-content: space-around;
   flex-flow: column;
   margin-top:10px;
   background-color: white;
-  width: 700px;
   height: 300px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -82,7 +81,6 @@ justify-content: space-around;
   flex-flow: column;
   margin-top:10px;
   background-color: white;
-  width: 700px;
   height: 200px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -92,8 +90,7 @@ justify-content: space-around;
   display: flex;
   flex-flow: column;
   margin-top:10px;
-  background-color: white;
-  width: 700px;
+  background-color: white;;
   height: 360px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -104,9 +101,6 @@ justify-content: space-around;
   flex-flow: column;
   margin-top:10px;
   background-color: white;
-  width: 100%;
-  max-width:700px;
-  min-width: 350px;
   height: 280px;
   padding: 10px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
