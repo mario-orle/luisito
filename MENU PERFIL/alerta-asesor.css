@@ -30,7 +30,7 @@
 }
 .botons{
 	margin-top: 20px;
-	width: 150px;
+	width: 110px;
 	height: 25px;
 }
 .doc-punt{
@@ -39,7 +39,7 @@
 	margin-bottom: 20px;
 	border-radius: 13px;
 	width: 100%;
-	max-width: 690px%;
+	max-width: 690px;
 	min-width: 450px;
 }
 .fila-documento{
