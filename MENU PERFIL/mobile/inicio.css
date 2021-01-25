@@ -1,0 +1,84 @@
+body{
+    background-color: rgb(204, 204, 204);
+}
+.main-container{
+    width: 100%;
+    margin-top:25px;
+  display: flex;
+  flex-flow: column;
+  align-items:  center;
+  justify-content: space-between;
+}
+.logo{
+    width: 100px;
+}
+.estadisticas{
+    height: 650px;
+    justify-content: space-between;
+    display: flex;
+    flex-flow: column;
+}
+
+
+.visualizaciones{
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    width: 250px;
+    border-bottom: 5px solid #0099ff;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 black;
+  }
+  .visualizaciones img{
+    width: 30%;
+    height: 60%;
+    margin-top: 15px;
+  }
+  .contacto-email{
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    width: 250px;
+    border-bottom: 5px solid #0099ff;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 black;
+  }
+  .contacto-email img{
+    width: 30%;
+    height: 60%;
+    margin-top: 15px;
+    
+  }
+  .citas{
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    width: 250px;
+    border-bottom: 5px solid #0099ff;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 black;
+  }
+  .citas img{
+    width: 30%;
+    height: 60%;
+    margin-top: 15px;
+    
+  }
+  .porcentaje-perfil{
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    width: 250px;
+    border-bottom: 5px solid #0099ff;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 black;
+  }
+  .porcentaje-perfil img{
+    width: 30%;
+    height: 60%;
+    margin-top: 15px;
+  }
