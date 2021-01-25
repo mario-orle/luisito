@@ -144,14 +144,6 @@ function portal_propietario_scripts() {
 	wp_style_add_data( 'portal_propietario-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'portal_propietario-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	if (is_page_template("page-inicio.php")) {
-		wp_enqueue_style( 'portal_propietario-page-inicio-style', get_template_directory_uri() . '/page-inicio.css', array(), _S_VERSION );
-	}
 }
 add_action( 'wp_enqueue_scripts', 'portal_propietario_scripts' );
 
