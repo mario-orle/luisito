@@ -25,22 +25,22 @@ get_header();
             <br>
             <div class="estadisticas">
                 <div class="visualizaciones">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>lupa.png" width="100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
                     <h1>1750</h1>
                     <p>Numero de Visualizaciones</p>
                 </div>
                 <div class="contacto-email">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>email2.png" width="100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
                     <h1>150</h1>
                     <p>Contacto Via E-mail</p>
                 </div>
                 <div class="calendario">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>schedule.png" width="100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                     <h1>3</h1>
                     <p>Citas por Confirmar</p>
                 </div>
                 <div class="porcentaje-perfil">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>perfil.png" width="100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
                     <h1>70%</h1>
                     <p>Perfil Completado</p>
                 </div>
@@ -53,7 +53,7 @@ get_header();
             <div class="estadisticas-sub">
                 <div class="precio-medio">
                     <p>Precio Medio de Venta en la Zona</p>
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>grafica.png" width="100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>grafica.png" width="100%">
                 </div>
                 <div class="tipos-precio">
                     <div class="precio-venta">

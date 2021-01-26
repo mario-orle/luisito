@@ -26,7 +26,7 @@ get_header();
             <div class="main-gestiones-calendar">
                 <div class="citas-programadas">
                     <div class="icono-citas">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>cita.png" width="100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>cita.png" width="100%">
                         <h2>CITAS</h2>
                     </div>
                     <div class="text-programadas">
@@ -121,7 +121,7 @@ get_header();
         </div>
         <div id="popup">
             <div class="popup-icon">
-                <img src="<?php echo get_template_directory() . '/assets/img/'?>logo.png">
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>logo.png">
             </div>
             <div class="popup-text">
                 <h3><i class="fas fa-name"></i>NOMBRE Y APELLIDOS</h3>
