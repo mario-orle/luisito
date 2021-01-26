@@ -26,13 +26,13 @@ get_header();
             <div class="estadisticas">
                 <div class="visualizaciones">
                     <img src="<?php echo get_template_directory() . '/assets/img/'?>lupa.png" width="100%">
-                    <h1>1750</h1>
-                    <p>Numero de Visualizaciones</p>
+                    <h1>3</h1>
+                    <p>Ofertas Recibidas</p>
                 </div>
                 <div class="contacto-email">
                     <img src="<?php echo get_template_directory() . '/assets/img/'?>email2.png" width="100%">
-                    <h1>150</h1>
-                    <p>Contacto Via E-mail</p>
+                    <h1>5</h1>
+                    <p>Mensajes Sin Leer</p>
                 </div>
                 <div class="calendario">
                     <img src="<?php echo get_template_directory() . '/assets/img/'?>schedule.png" width="100%">
@@ -41,8 +41,8 @@ get_header();
                 </div>
                 <div class="porcentaje-perfil">
                     <img src="<?php echo get_template_directory() . '/assets/img/'?>perfil.png" width="100%">
-                    <h1>70%</h1>
-                    <p>Perfil Completado</p>
+                    <h1>6</h1>
+                    <p>Documento Requeridos</p>
                 </div>
             </div>
         </div>
