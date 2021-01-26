@@ -22,7 +22,7 @@ get_header();
         <div class="container">
             <div class="perfil-asesor">
                 <div class="img-perfil-asesor">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>hombre-traje.png" alt="icono" width="100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>hombre-traje.png" alt="icono" width="100%">
                 </div>
                 <div class="form-perfil">
                     <form>

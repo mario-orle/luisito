@@ -74,7 +74,7 @@ get_header();
 
             </form>
             <div class="img-desc-inmueble">
-                <img src="<?php echo get_template_directory() . '/assets/img/'?>eco-home.png" style="width: 100%;">
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eco-home.png" style="width: 100%;">
             </div>
 
         </div>
@@ -92,82 +92,82 @@ get_header();
             <div class="scroller">
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
                 <div class="editar-tirar-doc">
                     <div class="estilo-doc">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>documentos.png" alt="icono" style="width:32px">
                         <p>Patatas</p>
                     </div>
                     <div>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
-                        <button><img src="<?php echo get_template_directory() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>eliminar.png" alt="icono" style="width:32px"></button>
+                        <button><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>editar.png" alt="icono" style="width:32px;"></button>
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@ get_header();
         <div class="main-up-inmuebles">
             <div class="card-wrapper">
                 <div class="card">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                     <div class="editar-tirar">
 
                     </div>
@@ -36,7 +36,7 @@ get_header();
 
             <div class="card-wrapper">
                 <div class="card">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>casa2.jpg" alt="Avatar" style="width:100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa2.jpg" alt="Avatar" style="width:100%">
                     <div class="editar-tirar">
 
                     </div>
@@ -50,7 +50,7 @@ get_header();
 
             <div class="card-wrapper">
                 <div class="card">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>casa3.jpg" alt="Avatar" style="width:100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa3.jpg" alt="Avatar" style="width:100%">
                     <div class="editar-tirar">
 
                     </div>
@@ -64,7 +64,7 @@ get_header();
 
             <div class="card-wrapper">
                 <div class="card">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>casa4.jpg" alt="Avatar" style="width:100%">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa4.jpg" alt="Avatar" style="width:100%">
                     <div class="editar-tirar">
 
                     </div>

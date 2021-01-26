@@ -66,8 +66,8 @@
 
       </button>
       <div class="dropdown-container">
-        <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
-        <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+        <a id="inmuebles" href="/inmuebles">INMUEBLES</a>
+        <a id="documentacion" href="/mis-documentos">DOCUMENTACIÓN</a>
       </div>
       <hr />
     </div>
