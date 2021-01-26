@@ -2,149 +2,38 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="css.css">
-    <link rel="stylesheet" href="inicio.css">
-    <title>INICIO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="inicio.css">
+  <title>INICIO</title>
 </head>
 
 <body>
+  <div class="fondo"></div>
     <div class="topnav">
-        <a href="#home" class="active"><img src="../logo.png" width="50%"></a>
-        <div id="myLinks">
-            <a href="#citas">Citas</a>
-            <a href="#contact">Contacto</a>
-            <a href="#Doc">Documentación</a>
-        </div>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+      <a href="#home" class="active"><img src="../logo.png" width="50%"></a>
+      <div id="myLinks">
+        <a href="#citas">CITAS <i class="fas fa-handshake"></i> </a>
+        <a href="#contact">CONTACTO <i class="far fa-address-book"></i></a>
+        <a href="#Doc">DOCUMENTACIÓN <i class="fas fa-book"></i></a>
+      </div>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
+
 
     <div class="main-container">
-        <div class="estadisticas"></div>
-        <div class="row">
-            <div class="side">
-              <div class="fakeimg-perfil">
-                <img src="../perfil.png" style="width:200px;height: 200px;">
-              </div>
-              <hr />
-              <h4 style="color:aliceblue;">Información personal <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
-              <p>Diego armando maradona</p>
-              <p>30 de octubre de 1960</p>
-              <hr />
-              <h4 style="color:aliceblue;">Contacto <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
-              <p>Tlfn: 668995774</p>
-              <p>Email: lamanodedios@gmail.com</p>
-              <hr />
-            </div>
-            <div class="main-perfil">
-              <div class="form-caracteristicas">
-                <div class="main-datos">
-                  <div class="texto">
-                    <h3>Datos del Inmueble </h3>
-                    <hr />
-                    <div class="datos-inmuebles">
-                      <h4>Piso en Calle Fermin Muruguja, 24(28006)</h4>
-                      <h4>Madrid</h4>
-                      <p>120m2 - 3Hab. - Atico Exterior</p>
-                    </div>
-                  </div>
-                  <div class="precios">
-                    <div class="venta">
-                      <h1>198.000€</h1>
-                      <p>Precio de Venta</p>
-                    </div>
-                    <div class="valoracion">
-                      <h1>156.000€</h1>
-                      <p>Precio de Venta</p>
-                    </div>
-                  </div>
-                </div>
-      
-                <div class="descripcion seccion-formulario">
-                  <div class="pos-btn">
-                    <h4>Descripción </h4>
-                    <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button
-                      onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
-                  </div>
-                  <textarea name="comentarios" rows="10" cols="40">Descripción de la Vivienda</textarea>
-                </div>
-      
-                <div class="caracteristicas-equipamiento seccion-formulario">
-      
-                  <div class="pos-btn">
-                    <h4>Caracteristicas y Equipamiento </h4>
-      
-                    <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button>
-                    <button onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
-      
-                  </div>
-                  <div class="style-input">
-                  <div class="primer-bloque">
-                    <div class="linea-formulario">
-                      <input readonly class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble"
-                        placeholder="Tipo de inmueble">
-                      <input readonly class="controls" type="text" name="estado" id="estado" placeholder="Estado">
-                      <input readonly class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <div class="localizacion seccion-formulario">
-                  <div class="pos-btn">
-                    <h4>Localización</h4>
-                    <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button
-                      onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
-      
-                  </div>
-                  <div class="primer-bloque">
-                    <div class="linea-formulario-localizacion">
-                      <input readonly class="controls" type="text" name="provincia" id="provincia" placeholder="Provincia">
-                      <input readonly class="controls" type="text" name="municipio" id="municipio" placeholder="Municipio">
-                      <input readonly class="controls" type="text" name="poblacion" id="poblacion" placeholder="Población">
-                    </div>
-                  </div>
-                  <div class="segundo-bloque">
-                    <div class="linea-formulario-localizacion">
-                      <input readonly class="controls" type="text" name="direccion" id="direccion" placeholder="Direccion">
-                      <input readonly class="controls" type="text" name="tipo-de-via" id="tipo-de-via" placeholder="Tipo de Via">
-                      <input readonly class="controls" type="text" name="codigo-postal" id="codigo-postal" placeholder="Codigo Postal">
-                    </div>
-                  </div>
-                  <div class="tercer-bloque">
-                    <div class="linea-formulario-localizacion">
-                      <input readonly class="controls" type="text" name="numero" id="numero" placeholder="Numero">
-                      <input readonly class="controls" type="text" name="escalera" id="escalera" placeholder="Escalera">
-                      <input readonly class="controls" type="text" name="puerta" id="puerta" placeholder="Puerta">
-                    </div>
-                  </div>
-                </div>
-                <div class="superficie seccion-formulario">
-                  <div class="pos-btn">
-                    <h4>Superficie</h4>
-                    <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button
-                      onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
-                  </div>
-                  <div class="primer-bloque">
-                    <input readonly class="controls" type="text" name="metros-contruido" id="metros-contruido"
-                      placeholder="M2 contruido">
-                    <input readonly class="controls" type="text" name="metro-utiles" id="metro-utiles"
-                      placeholder="M2 utiles">
-                  </div>
-                </div>
-               </div>
-             </div>
-            
-        
-            
-    </div>
+      <div class="estadisticas">
+      </div>
+    </div>>
+  
 
-    </div>
-    <script src="botones.js "></script>
-    <script src="menu.js "></script>
+  >
+  <script src="botones.js "></script>
+  <script src="menu.js "></script>
 </body>
