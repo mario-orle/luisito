@@ -79,6 +79,25 @@ function create_our_pages() {
             'page_template' => 'page-mis-documentos.html.php'
         ));
     }
+    if (!get_page_by_title('file-upload')) {
+        wp_insert_post(array(
+            'post_title' => 'file-upload',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-file-upload.xhr.php'
+        ));
+    }
+    if (!get_page_by_title('inmueble-xhr')) {
+        wp_insert_post(array(
+            'post_title' => 'inmueble-xhr',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-inmueble.xhr.php'
+        ));
+    }
+
+
+    
 }
 
 function drop_default_pages() {
