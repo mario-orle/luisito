@@ -12,7 +12,7 @@ define( 'WP_DEBUG', true );
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
+	define( '_S_VERSION', '1.0.1' );
 }
 
 if ( ! function_exists( 'portal_propietario_setup' ) ) :
@@ -24,6 +24,13 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 	 * as indicating support for post thumbnails.
 	 */
 	function portal_propietario_setup() {
+
+		register_post_type('inmueble', array(
+			'label' => 'Inmuebles', 
+			'public' => true
+		));
+
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
@@ -33,7 +40,7 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 		load_theme_textdomain( 'portal_propietario', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
-		add_theme_support( 'automatic-feed-links' );
+		//add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
@@ -41,21 +48,21 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 		 * hard-coded <title> tag in the document head, and expect WordPress to
 		 * provide it for us.
 		 */
-		add_theme_support( 'title-tag' );
+		//add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		//add_theme_support( 'post-thumbnails' );
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus(
+		/*register_nav_menus(
 			array(
 				'menu-1' => esc_html__( 'Primary', 'portal_propietario' ),
 			)
-		);
+		);*/
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -64,18 +71,18 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 		add_theme_support(
 			'html5',
 			array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
+				//'search-form',
+				//'comment-form',
+				//'comment-list',
+				//'gallery',
+				//'caption',
 				'style',
 				'script',
 			)
 		);
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support(
+		/*add_theme_support(
 			'custom-background',
 			apply_filters(
 				'portal_propietario_custom_background_args',
@@ -85,16 +92,16 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 				)
 			)
 		);
-
+		*/
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+		//add_theme_support( 'customize-selective-refresh-widgets' );
 
 		/**
 		 * Add support for core custom logo.
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_theme_support(
+		/*add_theme_support(
 			'custom-logo',
 			array(
 				'height'      => 250,
@@ -102,7 +109,8 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 				'flex-width'  => true,
 				'flex-height' => true,
 			)
-		);
+		);*/
+
 	}
 endif;
 add_action( 'after_setup_theme', 'portal_propietario_setup' );
@@ -152,6 +160,11 @@ function portal_propietario_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'portal_propietario_scripts' );
+
+function remove_admin_login_header() {
+    remove_action('wp_head', '_admin_bar_bump_cb');
+}
+add_action('get_header', 'remove_admin_login_header');
 
 /**
  * Implement the Custom Header feature.
