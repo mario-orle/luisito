@@ -1,0 +1,136 @@
+.main-container{  
+display: inline;
+
+}
+
+.main-container p{
+  text-align: center;
+}
+.main-container h2{
+  color: black;
+  text-align: left;
+  
+}
+.estadisticas{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  
+}
+.visualizaciones{
+  padding: 10px;
+  background-color: white;
+  width: 250px;
+  border-bottom: 5px solid #0099ff;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 black;
+}
+.visualizaciones img{
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+}
+.contacto-email{
+  padding: 10px;
+  background-color: white;
+  width: 250px;
+  border-bottom: 5px solid #ff0000;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 black;
+}
+.contacto-email img{
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+  
+}
+.calendario{
+  padding: 10px;
+  background-color: white;
+  width: 250px;
+  border-bottom: 5px solid #fffb00;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 black;
+}
+.calendario img{
+  width: 30%;
+  padding: 10px;
+  margin-top: 10px;
+  
+}
+.porcentaje-perfil{
+  padding: 10px;
+  background-color: white;
+  width: 250px;
+  border-bottom: 5px solid #ff7b00;
+  border-radius: 6px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 black;
+}
+.porcentaje-perfil img{
+  width: 34%;
+  padding: 10px;
+  
+}
+
+.main-container-sub p{
+text-align: center;
+}
+.main-container-sub h2{
+color: black;
+text-align: left;
+margin-top: 75px;
+}
+.estadisticas-sub{
+display: flex;
+justify-content: space-around;
+align-items: center;
+width: 100%;
+}
+
+.tipos-precio{
+display: flex;
+flex-flow: column;
+justify-content: space-between;
+align-items: center;
+height: 350px;
+}
+.precio-medio{
+padding: 10px;
+background-color: white; 
+width: 450px;
+border-bottom: 5px solid #ffa600;
+border-radius: 6px;
+text-align: center;
+box-shadow: 0 4px 8px 0 black;
+}
+.precio-medio img{
+width: 400px;
+padding: 10px;
+margin-top: 10px;
+}
+.precio-venta{
+padding: 10px;
+background-color: white; 
+width: 300px;
+border-bottom: 5px solid green;
+border-radius: 6px;
+text-align: center;
+box-shadow: 0 4px 8px 0 black;
+}
+.precio-recomendado{
+padding: 10px;
+background-color: white; 
+width: 300px;
+border-bottom: 5px solid green;
+border-radius: 6px;
+text-align: center;
+box-shadow: 0 4px 8px 0 black;
+}
+   
+ 
