@@ -61,7 +61,7 @@
 }
 
 
-.seccion-formulario input[readonly]{
+.seccion-formulario input[readonly], .seccion-formulario textarea[readonly]{
   color: black;
   border:none;
 }

@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 
+
 $inmueble = get_posts(array(
     'post_type' => 'inmueble',
     'post_author' => get_current_user_id()
@@ -15,13 +16,13 @@ $inmueble = get_posts(array(
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil2.css">';
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/ext/dropzone.min.css">';
 }
 add_action('wp_head', 'myCss');
 
 
 get_header();
 ?>
-
 <main id="primary" class="site-main">
     <div class="main">
         <div class="row">
@@ -32,7 +33,13 @@ get_header();
                 <hr>
                 <h4 style="color:aliceblue;">Información personal <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
                 <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?></p>
-                <p>30 de octubre de 1960</p>
+                <p>
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-day', true) ?> 
+                    de 
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-month', true) ?>  
+                    de 
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-year', true) ?> 
+                </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
                 <p>Tlfn: <a href="tel:<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-phone', true) ?>"><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-phone', true) ?></a></p>
@@ -86,7 +93,9 @@ get_header();
                             <h4>Descripción </h4>
                             <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
                         </div>
-                        <textarea name="comentarios" rows="10" cols="40">Descripción de la Vivienda</textarea>
+                        <textarea readonly name="inmueble-comentarios" rows="10" cols="40" placeholder="Descripción de la Vivienda">
+                        <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-comentarios', true) ?>
+                        </textarea>
                     </div>
 
                     <div class="caracteristicas-equipamiento seccion-formulario">
@@ -101,9 +110,9 @@ get_header();
                         <div class="style-input">
                             <div class="primer-bloque">
                                 <div class="linea-formulario">
-                                    <input readonly="" class="controls" type="text" name="tipo de inmueble" id="tipo-inmueble" placeholder="Tipo de inmueble">
-                                    <input readonly="" class="controls" type="text" name="estado" id="estado" placeholder="Estado">
-                                    <input readonly="" class="controls" type="text" name="refenrecia" id="referencia" placeholder="Referencia">
+                                    <input readonly="" class="controls" type="text" name="inmueble-tipo" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>" placeholder="Tipo de inmueble">
+                                    <input readonly="" class="controls" type="text" name="inmueble-estado" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-estado', true) ?>" placeholder="Estado">
+                                    <input readonly="" class="controls" type="text" name="inmueble-referencia" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-referencia', true) ?>" placeholder="Referencia">
                                 </div>
                             </div>
                         </div>
@@ -116,23 +125,22 @@ get_header();
                         </div>
                         <div class="primer-bloque">
                             <div class="linea-formulario-localizacion">
-                                <input readonly="" class="controls" type="text" name="provincia" id="provincia" placeholder="Provincia">
-                                <input readonly="" class="controls" type="text" name="municipio" id="municipio" placeholder="Municipio">
-                                <input readonly="" class="controls" type="text" name="poblacion" id="poblacion" placeholder="Población">
+                                <input readonly="" class="controls" type="text" name="inmueble-provincia" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true) ?>" placeholder="Provincia">
+                                <input readonly="" class="controls" type="text" name="inmueble-municipio" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true) ?>" placeholder="Municipio">
+                                <input readonly="" class="controls" type="text" name="inmueble-poblacion" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-poblacion', true) ?>" placeholder="Población">
                             </div>
                         </div>
                         <div class="segundo-bloque">
                             <div class="linea-formulario-localizacion">
-                                <input readonly="" class="controls" type="text" name="direccion" id="direccion" placeholder="Direccion">
-                                <input readonly="" class="controls" type="text" name="tipo-de-via" id="tipo-de-via" placeholder="Tipo de Via">
-                                <input readonly="" class="controls" type="text" name="codigo-postal" id="codigo-postal" placeholder="Codigo Postal">
+                                <input readonly="" class="controls" type="text" name="inmueble-direccion" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true) ?>" placeholder="Direccion">
+                                <input readonly="" class="controls" type="text" name="inmueble-codigopostal" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-codigopostal', true) ?>" placeholder="Codigo Postal">
                             </div>
                         </div>
                         <div class="tercer-bloque">
                             <div class="linea-formulario-localizacion">
-                                <input readonly="" class="controls" type="text" name="numero" id="numero" placeholder="Numero">
-                                <input readonly="" class="controls" type="text" name="escalera" id="escalera" placeholder="Escalera">
-                                <input readonly="" class="controls" type="text" name="puerta" id="puerta" placeholder="Puerta">
+                                <input readonly="" class="controls" type="text" name="inmueble-numero" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-numero', true) ?>" placeholder="Numero">
+                                <input readonly="" class="controls" type="text" name="inmueble-escalera" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-escalera', true) ?>" placeholder="Escalera">
+                                <input readonly="" class="controls" type="text" name="inmueble-puerta" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-puerta', true) ?>" placeholder="Puerta">
                             </div>
                         </div>
                     </div>
@@ -142,8 +150,9 @@ get_header();
                             <button onclick="editar(event)" class="botons editar" type="button">EDITAR</button><button onclick="guardar(event)" class="botons guardar" type="button">GURDAR</button>
                         </div>
                         <div class="primer-bloque">
-                            <input readonly="" class="controls" type="text" name="metros-contruido" id="metros-contruido" placeholder="M2 contruido">
-                            <input readonly="" class="controls" type="text" name="metro-utiles" id="metro-utiles" placeholder="M2 utiles">
+                            <input readonly="" class="controls" type="text" name="inmueble-habitaciones" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true) ?>" placeholder="Habitaciones">
+                            <input readonly="" class="controls" type="text" name="inmueble-m2construidos" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true) ?>" placeholder="M2 contruido">
+                            <input readonly="" class="controls" type="text" name="inmueble-m2utiles" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true) ?>" placeholder="M2 utiles">
                         </div>
                     </div>
                 </div>
@@ -152,64 +161,98 @@ get_header();
 
         <div class="bg-fotos">
             <div class="btn-imagenes">
-                <h4>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit" value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
+                <h4>Fotografias
                     <hr>
                 </h4>
+                <div class="uploader">
+                    <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>"
+                        class="dropzone"
+                        id="dropzone"></form>
+                </div>
                 <div class="fotos">
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
+                <?php
+
+$photos = get_post_meta($inmueble->ID, 'meta-photos-inmueble');
+foreach ($photos as $photo) {
+                ?>
+                <div class="card">
+                    <img src="<?php echo $photo['url'] ?>" alt="" style="width:100%">
+                    <div class="container">
+                        <h4><b>Frontal casa</b></h4>
                     </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                            <h4><b>Frontal casa</b></h4>
-                        </div>
-                    </div>
+                </div>
+                <?php
+}
+                ?>
                 </div>
             </div>
         </div>
     </div>
 </main><!-- #main -->
-<script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/perfil2.js'; ?>"></script>
+<script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/ext/dropzone.min.js'; ?>"></script>
 
+<script>
+
+Dropzone.options.dropzone = {
+  init: function() {
+    this.on("success", function(file, response) { 
+        var objResponse = JSON.parse(response);
+        var newImg = '<div class="card">' +
+            '<img src="' + objResponse.url + '" alt="" style="width:100%">' +
+            '<div class="container">' +
+                '<h4><b>Frontal casa</b></h4>' +
+            '</div>' +
+        '</div>';
+
+        document.querySelector('.bg-fotos .fotos').innerHTML += newImg;
+
+        this.removeFile(file);
+    });
+  }
+};
+
+Dropzone.options.dropzone.dictDefaultMessage = "Arrastre imágenes aquí o haga click";
+Dropzone.options.dropzone.dictFallbackMessage = "Haga click aquí para subir imágenes";
+Dropzone.options.dropzone.dictFallbackText = "";
+Dropzone.options.dropzone.dictFileTooBig = "Imágenes demasiado grandes";
+Dropzone.options.dropzone.dictInvalidFileType = "Por favor, sólo imágenes";
+Dropzone.options.dropzone.dictResponseError = "Error en la subida";
+
+
+function editar(e){
+    var inputs = e.currentTarget.parentElement.parentElement.querySelectorAll("input[readonly], textarea[readonly]");
+    var botonguardar = e.currentTarget.parentElement.querySelector(".guardar");
+    botonguardar.style.display ="inline-block";
+    e.currentTarget.style.display ="none";
+    Array.from(inputs).forEach(function (input){
+        input.removeAttribute("readonly");
+    })
+}
+function guardar(e){
+    var inputs = e.currentTarget.parentElement.parentElement.querySelectorAll("input, textarea");
+    var botoneditar = e.currentTarget.parentElement.querySelector(".editar");
+    botoneditar.style.display = "inline-block";
+    e.currentTarget.style.display = "none";
+    Array.from(inputs).forEach(function (input){
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>");
+
+        var formData = new FormData();
+
+        formData.append('metaname', input.getAttribute("name"));     
+        formData.append('metavalue', input.value);     
+
+
+        xhr.onload = function () {
+            this.style.filter = "none";
+
+        }.bind(input);
+        xhr.send(formData);
+        input.style.filter = "blur(1px)";
+        input.setAttribute("readonly","true")
+    })
+}
+
+</script>
 <?php
 get_footer();
