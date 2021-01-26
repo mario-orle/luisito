@@ -7,6 +7,9 @@
  * @package portal_propietario
  */
 
+define( 'WP_DEBUG', true );
+
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
@@ -144,13 +147,16 @@ function portal_propietario_scripts() {
 	wp_style_add_data( 'portal_propietario-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'portal_propietario-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+
+	wp_enqueue_style( 'portal_propietario-roboto-style', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', array(), _S_VERSION );
+
 }
 add_action( 'wp_enqueue_scripts', 'portal_propietario_scripts' );
 
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+//require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -180,3 +186,16 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
+/**
+ * Create default pages.
+ */
+require get_template_directory() . '/self/installation.php';
+
+
+/**
+ * fontawesome helper.
+ */
+require get_template_directory() . '/self/fontawesome.php';
+

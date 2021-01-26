@@ -26,34 +26,52 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'portal_propietario' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$portal_propietario_description = get_bloginfo( 'description', 'display' );
-			if ( $portal_propietario_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $portal_propietario_description; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+		
+    <div class="header">
+      <div class="right">
+        <div class="alerta-asesor">
+          <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
+        </div>
+        <div class="mensages">
+          <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
+        </div>
+        <div class="alertas">
+          <a id="alertas"><img src="advertencia.png"></a>
+        </div>
+        <div class="usuario">
+          <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
+        </div>
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'portal_propietario' ); ?></button>
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				)
-			);
-			?>
-		</nav><!-- #site-navigation -->
+      </div>
+
+
+    </div>
+    <div class="menu">
+      <div class="logo"> </div>
+      <h2>PORTAL PROPIETARIO</h2>
+      <hr />
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
+      <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
+      <a id="mensajes" href="mensajes.html"><i class="far fa-envelope"></i>MENSAJES</a>
+      <hr />
+      <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+      <hr />
+      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
+      <hr />
+
+
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+
+      </button>
+      <div class="dropdown-container">
+        <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
+        <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+      </div>
+      <hr />
+    </div>
+
 	</header><!-- #masthead -->
