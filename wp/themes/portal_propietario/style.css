@@ -6,7 +6,7 @@
 	height: 100px;
 	background-color: white;
 	display: flex;
-	justify-content: right;
+	justify-content: flex-end;
 	box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
 	z-index: 100;
 	}
@@ -27,7 +27,6 @@
 	.logo{
 	width: 200px;
 	height: 75px;
-	background-image: url(logo.png);
 	background-size: contain;
 	background-repeat: no-repeat;
 	margin-bottom: 40px;
@@ -135,4 +134,6 @@
 	padding-right: 8px;
 	}
 	
-	
+	#wpadminbar {
+		display: none!important;
+	}

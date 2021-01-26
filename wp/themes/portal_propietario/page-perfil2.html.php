@@ -8,6 +8,11 @@
  * @package portal_propietario
  */
 
+$inmueble = get_posts(array(
+    'post_type' => 'inmueble',
+    'post_author' => get_current_user_id()
+))[0];
+
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil2.css">';
 }
@@ -22,16 +27,16 @@ get_header();
         <div class="row">
             <div class="side">
                 <div class="fakeimg-perfil">
-                    <img src="<?php echo get_template_directory() . '/assets/img/'?>perfil.png" style="width:200px;height: 200px;">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" style="width:200px;height: 200px;">
                 </div>
                 <hr>
                 <h4 style="color:aliceblue;">Información personal <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
-                <p>Diego armando maradona</p>
+                <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?></p>
                 <p>30 de octubre de 1960</p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
-                <p>Tlfn: 668995774</p>
-                <p>Email: lamanodedios@gmail.com</p>
+                <p>Tlfn: <a href="tel:<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-phone', true) ?>"><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-phone', true) ?></a></p>
+                <p>Email: <a href="mailto:<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-email', true) ?>"><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-email', true) ?></a></p>
                 <hr>
             </div>
             <div class="main-perfil">
@@ -41,9 +46,27 @@ get_header();
                             <h3>Datos del Inmueble </h3>
                             <hr>
                             <div class="datos-inmuebles">
-                                <h4>Piso en Calle Fermin Muruguja, 24(28006)</h4>
-                                <h4>Madrid</h4>
-                                <p>120m2 - 3Hab. - Atico Exterior</p>
+                                <h4>
+                                    Inmueble en
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true) ?>
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-numero', true) ?>
+                                    (<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-codigopostal', true) ?>)
+
+                                </h4>
+                                <h4>
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true) ?>
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true) ?>
+                                </h4>
+                                <p>
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true) ?> m2 construidos
+                                    -
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true) ?> m2 útiles
+                                    -
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true) ?> Hab.
+                                    -
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-escalera', true) ?>
+                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-puerta', true) ?>
+                                </p>
                             </div>
                         </div>
                         <div class="precios">
@@ -134,49 +157,49 @@ get_header();
                 </h4>
                 <div class="fotos">
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
                     </div>
                     <div class="card">
-                        <img src="<?php echo get_template_directory() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>casa1.jpg" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4><b>Frontal casa</b></h4>
                         </div>
@@ -186,6 +209,7 @@ get_header();
         </div>
     </div>
 </main><!-- #main -->
+<script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/perfil2.js'; ?>"></script>
 
 <?php
 get_footer();

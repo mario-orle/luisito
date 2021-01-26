@@ -30,16 +30,16 @@
     <div class="header">
       <div class="right">
         <div class="alerta-asesor">
-          <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
+          <a id="alerta-asesor" href="alerta-asesor.html"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asesoramiento.png"></a>
         </div>
         <div class="mensages">
-          <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
+          <a id="mensajes" href="mensajes.html"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
         </div>
         <div class="alertas">
-          <a id="alertas"><img src="advertencia.png"></a>
+          <a id="alertas"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
+          <a id="usuario" href="perfil2.html"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
         </div>
 
       </div>
@@ -47,7 +47,7 @@
 
     </div>
     <div class="menu">
-      <div class="logo"> </div>
+      <div class="logo" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo.png'?>)"> </div>
       <h2>PORTAL PROPIETARIO</h2>
       <hr />
       <span>Opciones generales</span>
