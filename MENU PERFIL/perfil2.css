@@ -70,8 +70,6 @@
 }
 
 .descripcion{
-  display: flex;
-  flex-flow: column;
   margin-top:10px;
   background-color: white;
   height: 300px;
@@ -212,5 +210,88 @@ background-color:#80b5ea;
 position:relative;
 top:1px;
 }
+
+/* cambios inputs */
+
+.formulario{
+  font-size: 30px;
+  width: 300px;
+  margin-bottom: 10px;    
+  }    
+  .formulario span{
+  padding: 10px;
+  color: black;
+  }
+  label{
+  font-size:28px;
+  position:absolute;
+  width: 100%;
+  margin:auto;
+  top:20px;
+  z-index: 10;
+  }
+  .formulario input:focus{
+  width:450px;
+  height:100px;
+  transition: all linear 0.8s;
+  }
+  .formulario input:focus + label{
+  font-size: 18px;
+  transition:all 0.8s;
+  }
+  .formulario input{
+  width: 350px;
+  height: 30px;
+  padding: 15px;
+  outline: none;
+  border:none;
+  background: transparent;
+  border-bottom: red solid 3px;
+  font-size: 22px;
+  }
+  .formulario input:not(:placeholder-shown) + label{
+  font-size: 18px;
+  }
+  .formulario input:not(:placeholder-shown){
+  width:450px;
+  height:60px;
+  padding: 40px 0 0 15px;
+  }
+  .formulario input:focus + label > span{
+  color:grey;
+  }
+  
+  .formulario textarea:focus{
+  width:450px;
+  height:100px;
+  transition: all linear 0.8s;
+  }
+  .formulario textarea:focus + label{
+  font-size: 18px;
+  transition:all 0.8s;
+  }
+  .formulario textarea{
+  width: 350px;
+  height: 30px;
+  padding: 15px;
+  outline: none;
+  border:none;
+  background: transparent;
+  border-bottom: red solid 3px;
+  font-size: 22px;
+  font-family: "roboto";
+  }
+  .formulario textarea:not(:placeholder-shown) + label{
+  font-size: 18px;
+  }
+  .formulario textarea:not(:placeholder-shown){
+  width:450px;
+  height:60px;
+  padding: 40px 0 0 15px;
+  }
+  .formulario textarea:focus + label > span{
+  color:grey;
+  }
+  
 
         

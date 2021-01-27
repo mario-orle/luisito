@@ -1,45 +1,80 @@
-input:focus{
-    width:450px;
-    height:100px;
-    transition: all linear 0.8s;
-}
-input:focus + label{
-    font-size: 50px;
-    transition:all 0.8s;
-
-}
-input{
-    width: 350px;
-    height: 50px;
-    padding: 15px;
-    border-bottom: red solid 3px;
-
-}
-label{
-    font-size:30px;
-    position:absolute;
-    width: 100%;
-    margin:auto;
-}
-textarea:focus{
-    width:450px;
-    height:100px;
-    transition: all linear 0.8s;
-}
-textarea{
-    width: 300px;
-    height: 50px;
-    
-}
 .formulario{
-    width: 300px;
-    position: relative;
-    margin-bottom: 10px;    
-}
-
+font-size: 30px;
+width: 300px;
+position: relative;
+margin-bottom: 10px;    
+}    
 .formulario span{
 padding: 10px;
 color: black;
 }
+label{
+font-size:28px;
+position:absolute;
+width: 100%;
+margin:auto;
+top:20px;
+z-index: 10;
+}
+input:focus{
+width:450px;
+height:100px;
+transition: all linear 0.8s;
+}
+input:focus + label{
+font-size: 18px;
+transition:all 0.8s;
+}
+input{
+width: 350px;
+height: 30px;
+padding: 15px;
+outline: none;
+border:none;
+background: transparent;
+border-bottom: red solid 3px;
+font-size: 22px;
+}
+input:not(:placeholder-shown) + label{
+font-size: 18px;
+}
+input:not(:placeholder-shown){
+width:450px;
+height:60px;
+padding: 40px 0 0 15px;
+}
+input:focus + label > span{
+color:grey;
+}
 
-
+textarea:focus{
+width:450px;
+height:100px;
+transition: all linear 0.8s;
+}
+textarea:focus + label{
+font-size: 18px;
+transition:all 0.8s;
+}
+textarea{
+width: 350px;
+height: 30px;
+padding: 15px;
+outline: none;
+border:none;
+background: transparent;
+border-bottom: red solid 3px;
+font-size: 22px;
+font-family: "roboto";
+}
+textarea:not(:placeholder-shown) + label{
+font-size: 18px;
+}
+textarea:not(:placeholder-shown){
+width:450px;
+height:60px;
+padding: 40px 0 0 15px;
+}
+textarea:focus + label > span{
+color:grey;
+}

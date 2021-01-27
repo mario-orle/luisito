@@ -60,25 +60,21 @@
     </div>
     </div>
     <div class="main">
-        <div class="container">
-            <form>
-                <div class="first-block formulario">
-                    <label for="nme">
-                        <span>What's your name?</span>
-                    </label>
-                    <input type="text" name="name" class="question"  id="nme" required autocomplete="off" />
-                </div>
-                <div class="sec-block formulario">
-                    <label for="msg">
-                        <span>What's your message?</span>
-                    </label>
-                    <textarea name="message" rows="2" class="question" id="msg" required autocomplete="off"></textarea>
-                </div>
-                <div class="btn-form">
-                    <input type="submit" value="Submit!" />
-                </div>
-            </form>
-        </div>
+        <form>
+            <div class="first-block formulario">
+                <input type="text" name="name" class="question" placeholder="" id="nme" required autocomplete="off" />
+                <label for="nme">
+                    <span>What's your name?</span>
+                </label>
+            </div>
+            <div class="sec-block formulario">
+                <textarea name="message" rows="2" class="question" placeholder="" id="msg" required
+                    autocomplete="off"></textarea>
+                <label for="msg">
+                    <span>What's your message?</span>
+                </label>
+            </div>
+        </form>
     </div>
 
 </body>
