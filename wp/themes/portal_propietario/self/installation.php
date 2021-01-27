@@ -11,18 +11,24 @@ if ($is_installed) {
 }
 
 create_our_pages();
+
 function make_installation() {
     drop_default_pages();
 }
+
 function create_our_pages() {
     if (!get_page_by_title('inicio')) {
-        wp_insert_post(array(
+        $index = wp_insert_post(array(
             'post_title' => 'inicio',
             'post_status' => 'publish',
             'post_type' => 'page',
             'page_template' => 'page-index.html.php'
         ));
+        
+        update_option( 'page_on_front', $index );
+        update_option( 'show_on_front', 'page' );
     }
+    
     if (!get_page_by_title('servicios+')) {
         wp_insert_post(array(
             'post_title' => 'servicios+',

@@ -212,3 +212,8 @@ require get_template_directory() . '/self/installation.php';
  */
 require get_template_directory() . '/self/fontawesome.php';
 
+/**
+ * permalinks activator.
+ */
+require get_template_directory() . '/self/permalinks.php';
+
