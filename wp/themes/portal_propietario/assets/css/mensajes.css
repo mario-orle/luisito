@@ -1,0 +1,108 @@
+.chat {
+    width: 80%;
+    min-width: 600px;
+    display: flex;
+    margin: 0 auto;
+    height: 500px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #cccc;
+}
+
+.chat .contactos {
+    width: calc(30% - 20px);;
+    padding: 10px;
+    background: #1f761f;
+    display: flex;
+    flex-flow: column-reverse;
+    height: calc(100% - 20px);
+    overflow: auto;
+    margin: 10px;
+}
+
+.chat .contactos .contacto {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    background-color: #9999;
+    margin-top: 10px;
+    position: relative;
+}
+
+.chat .contactos .contacto .contacto-unread {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 100%;
+    font-size: 10px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.chat .contactos .contacto .contacto-img {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+}
+
+.chat .mensajes-enviar {
+    width: calc(70% - 20px);
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    justify-content: space-between;
+
+}
+.chat .mensajes-enviar .mensajes {
+    min-height: 300px;
+    height: 90%;
+    background: white;
+    display: flex;
+    flex-flow: column-reverse;
+}
+.chat .mensajes-enviar .mensajes .mensaje {
+    padding: 5px;
+    background: white;
+    display: flex;
+    flex-flow: column;
+}
+.chat .mensajes-enviar .mensajes .mensaje .author {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+.chat .mensajes-enviar .mensajes .mensaje .author .author-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.chat .mensajes-enviar .mensajes .mensaje .author .author-name {
+    font-size: 8px;
+}
+
+.chat .mensajes-enviar .mensajes .mensaje .mensaje-txt {
+    background: #dddd;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.chat .mensajes-enviar .enviar {
+    height: 10%;
+    display: flex;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.chat .mensajes-enviar .enviar textarea {
+    width: 80%;
+    height: 100%;
+}
+.chat .mensajes-enviar .enviar button {
+    width: 20%;
+    height: 100%;
+}
