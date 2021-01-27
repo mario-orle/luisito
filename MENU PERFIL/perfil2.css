@@ -176,6 +176,10 @@
     width: 100%;
     justify-content: center;
     }
+    .btn-imagenes h2{
+      text-align: left ;
+      color:black ;
+    }
     .fotos{
     overflow:auto;
      }
