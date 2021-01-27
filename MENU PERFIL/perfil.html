@@ -68,6 +68,13 @@
           <p><input placeholder="Nombre..." oninput="this.className = ''" name="nombre"></p>
           <p><input placeholder="Primer Apellido..." oninput="this.className = ''" name="1 apellidos"></p>
           <p><input placeholder="Segundo Apellido..." oninput="this.className = ''" name="2 apellidos"></p>
+          <p>Tipo de documento:<select name="transporte">
+            <option>DNI</option>
+            <option>NIE</option>           
+            </select>
+          </p>
+          <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''" name="N documento"></p>
+
         </div>
         <div class="tab">Contacto:
           <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
@@ -80,19 +87,41 @@
         </div>
         <div class="tab">Localización Inmueble:
           <p><input placeholder="Provincia..." oninput="this.className = ''" name="provincia"></p>
-          <p><input placeholder="Municipio..." oninput="this.className = ''" name="municipio" ></p>
+          <p><input placeholder="Municipio..." oninput="this.className = ''" name="municipio"></p>
           <p><input placeholder="Población..." oninput="this.className = ''" name="poblacion"></p>
-          <p><input placeholder="Dirección..." oninput="this.className = ''" name="direccion" ></p>
           <p><input placeholder="Codigo postal..." oninput="this.className = ''" name="codigo postal"></p>
+          <p><input placeholder="Dirección..." oninput="this.className = ''" name="direccion"></p>
           <p><input placeholder="Numero..." oninput="this.className = ''" name="numero"></p>
           <p><input placeholder="Escalera..." oninput="this.className = ''" name="escalera"></p>
-          <p><input placeholder="Puerta..." oninput="this.className = ''" name="puerta" ></p>
+          <p><input placeholder="Puerta..." oninput="this.className = ''" name="puerta"></p>
         </div>
         <div class="tab">Superficie inmueble:
           <p><input placeholder="Metros2 Construidos..." oninput="this.className = ''" name="m2 construidos"></p>
-          <p><input placeholder="Metros2 Utiles..." oninput="this.className = ''" name="m2 utiles" ></p>
+          <p><input placeholder="Metros2 Utiles..." oninput="this.className = ''" name="m2 utiles"></p>
         </div>
-        
+        <div class="tab" >Situación Inmueble:
+          <p>Tipo de inmueble <select name="transporte">
+            <option>Piso</option>
+            <option>Casa</option> 
+            <option>Atico</option>          
+            <option>Chalet Idependiente</option>
+            <option>Chalet Pareado</option>
+            <option>Chalet Adosado</option>
+            <option>Garaje</option>
+            <option>Trastero</option>
+            </select></p>
+          <p>Estado Inmueble <select name="transporte">
+            <option>Entrar a vivir</option>
+            <option>Recien reformado</option>           
+            <option>Regular</option>
+            <option>Deficiente</option>
+            <option>Ruinoso</option>
+            </select></p>
+            <p><input placeholder="Otros..." oninput="this.className = ''" name="precio estimado"></p>
+        </div>
+        <div class="tab">Precio estimado
+          <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="precio estimado"></p>
+        </div>
         <div style="overflow:auto;">
           <div style="float:right;">
             <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
@@ -106,12 +135,14 @@
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
         </div>
       </form>
-  </div>
-  <script src="perfil.js"></script>
-  <script src="boton-enviar.js"></script>
-  <script src="menu.js"></script>
+    </div>
+    <script src="perfil.js"></script>
+    <script src="boton-enviar.js"></script>
+    <script src="menu.js"></script>
 </body>
 
 </html>

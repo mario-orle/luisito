@@ -4,6 +4,9 @@
   padding: 40px;
   width: 70%;
   min-width: 300px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-bottom: orange 3px solid;
+  border-radius: 3px;
 }
 
 h1 {
