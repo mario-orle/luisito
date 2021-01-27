@@ -27,7 +27,7 @@
 
 }
 .linea-formulario input{
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid red !important;
 }
 .texto{
   width: 450px;
@@ -98,6 +98,8 @@ height: 400px;
 padding: 10px;
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+
+
 .caracteristicas-equipamiento{
 display: flex;
 flex-flow: column;
