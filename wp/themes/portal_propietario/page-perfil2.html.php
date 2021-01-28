@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: page-perfil2.html
  * The template for displaying perfil2.html
@@ -11,12 +12,13 @@
 
 $inmueble = get_posts(array(
     'post_type' => 'inmueble',
-    'post_author' => get_current_user_id()
+    'author' => get_current_user_id()
 ))[0];
 
-function myCss() {
-    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil2.css">';
-    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/ext/dropzone.min.css">';
+function myCss()
+{
+    echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/css/perfil2.css">';
+    echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.css">';
 }
 add_action('wp_head', 'myCss');
 
@@ -28,17 +30,19 @@ get_header();
         <div class="row">
             <div class="side">
                 <div class="fakeimg-perfil">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" style="width:200px;height: 200px;">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/' ?>perfil.png" style="width:200px;height: 200px;">
                 </div>
                 <hr>
                 <h4 style="color:aliceblue;">Información personal <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
-                <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?></p>
                 <p>
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-day', true) ?> 
-                    de 
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-month', true) ?>  
-                    de 
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-year', true) ?> 
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?>
+                </p>
+                <p>
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-day', true) ?>
+                    de
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-month', true) ?>
+                    de
+                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-year', true) ?>
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
@@ -85,6 +89,103 @@ get_header();
                                 <h1>156.000€</h1>
                                 <p>Precio de Venta</p>
                             </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="main-formulario">
+                        <div class="caracteristicas">
+                            <h3>Caracteristicas:</h3>
+                            <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit" value="GUARDAR">
+                            <hr />
+                            <form>
+                                <div class="first-block formulario">
+                                    <input type="text" name="name" class="question" placeholder="" id="tipo" required autocomplete="off" />
+                                    <label for="tipo">
+                                        <span>Tipo de Inmueble</span>
+                                    </label>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="first-block formulario">
+                                    <input type="text" name="name" class="question" placeholder="" id="estado" required autocomplete="off" />
+                                    <label for="estado">
+                                        <span>Estado del Inmueble</span>
+                                    </label>
+                                </div>
+                            </form>
+                            <div class="first-block formulario">
+                                <input type="text" name="name" class="question" placeholder="" id="m2u" required autocomplete="off" />
+                                <label for="m2u">
+                                    <span>M2 utiles</span>
+                                </label>
+                            </div>
+                            </form>
+                            <div class="first-block formulario">
+                                <input type="text" name="name" class="question" placeholder="" id="m2c" required autocomplete="off" />
+                                <label for="m2c">
+                                    <span>M2 Construidos</span>
+                                </label>
+                            </div>
+                            </form>
+
+
+                        </div>
+                        <div class="localizacion">
+                            <h3>Localización:</h3>
+                            <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit" value="GUARDAR">
+                            <hr />
+                            <form>
+                                <div class="first-block formulario">
+                                    <input type="text" name="name" class="question" placeholder="" id="pro" required autocomplete="off" />
+                                    <label for="pro">
+                                        <span>Provincia</span>
+                                    </label>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="first-block formulario">
+                                    <input type="text" name="name" class="question" placeholder="" id="mun" required autocomplete="off" />
+                                    <label for="mun">
+                                        <span>Municipio</span>
+                                    </label>
+                                </div>
+                            </form>
+                            <form>
+                                <div class="first-block formulario">
+                                    <input type="text" name="name" class="question" placeholder="" id="pob" required autocomplete="off" />
+                                    <label for="pob">
+                                        <span>Población</span>
+                                    </label>
+                                </div>
+                            </form>
+                            <div class="first-block formulario">
+                                <input type="text" name="name" class="question" placeholder="" id="dir" required autocomplete="off" />
+                                <label for="dir">
+                                    <span>Dirección Completa</span>
+                                </label>
+                            </div>
+                            </form>
+                            <div class="first-block formulario">
+                                <input type="text" name="name" class="question" placeholder="" id="cod" required autocomplete="off" />
+                                <label for="cod">
+                                    <span>Codigo Postal</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="descripcion">
+                            <h2>Descripción:</h2>
+                            <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit" value="GUARDAR">
+                            <hr />
+                            <form>
+                                <div class="sec-block formulario">
+                                    <textarea name="message" rows="2" class="question" placeholder="" id="msg" required autocomplete="off"></textarea></textarea>
+                                    <label for="msg">
+                                        <span>Describa su Inmueble:</span>
+                                    </label>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -165,94 +266,91 @@ get_header();
                     <hr>
                 </h4>
                 <div class="uploader">
-                    <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>"
-                        class="dropzone"
-                        id="dropzone"></form>
+                    <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>" class="dropzone" id="dropzone"></form>
                 </div>
                 <div class="fotos">
-                <?php
+                    <?php
 
-$photos = get_post_meta($inmueble->ID, 'meta-photos-inmueble');
-foreach ($photos as $photo) {
-                ?>
-                <div class="card">
-                    <img src="<?php echo $photo['url'] ?>" alt="" style="width:100%">
-                    <div class="container">
-                        <h4><b>Frontal casa</b></h4>
-                    </div>
-                </div>
-                <?php
-}
-                ?>
+                    $photos = get_post_meta($inmueble->ID, 'meta-photos-inmueble');
+                    foreach ($photos as $photo) {
+                    ?>
+                        <div class="card">
+                            <img src="<?php echo $photo['url'] ?>" alt="" style="width:100%">
+                            <div class="container">
+                                <h4><b>Frontal casa</b></h4>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 </main><!-- #main -->
-<script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/ext/dropzone.min.js'; ?>"></script>
+<script src="<?php echo get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.js'; ?>"></script>
 
 <script>
+    Dropzone.options.dropzone = {
+        init: function() {
+            this.on("success", function(file, response) {
+                var objResponse = JSON.parse(response);
+                var newImg = '<div class="card">' +
+                    '<img src="' + objResponse.url + '" alt="" style="width:100%">' +
+                    '<div class="container">' +
+                    '<h4><b>Frontal casa</b></h4>' +
+                    '</div>' +
+                    '</div>';
 
-Dropzone.options.dropzone = {
-  init: function() {
-    this.on("success", function(file, response) { 
-        var objResponse = JSON.parse(response);
-        var newImg = '<div class="card">' +
-            '<img src="' + objResponse.url + '" alt="" style="width:100%">' +
-            '<div class="container">' +
-                '<h4><b>Frontal casa</b></h4>' +
-            '</div>' +
-        '</div>';
+                document.querySelector('.bg-fotos .fotos').innerHTML += newImg;
 
-        document.querySelector('.bg-fotos .fotos').innerHTML += newImg;
+                this.removeFile(file);
+            });
+        }
+    };
 
-        this.removeFile(file);
-    });
-  }
-};
-
-Dropzone.options.dropzone.dictDefaultMessage = "Arrastre imágenes aquí o haga click";
-Dropzone.options.dropzone.dictFallbackMessage = "Haga click aquí para subir imágenes";
-Dropzone.options.dropzone.dictFallbackText = "";
-Dropzone.options.dropzone.dictFileTooBig = "Imágenes demasiado grandes";
-Dropzone.options.dropzone.dictInvalidFileType = "Por favor, sólo imágenes";
-Dropzone.options.dropzone.dictResponseError = "Error en la subida";
-
-
-function editar(e){
-    var inputs = e.currentTarget.parentElement.parentElement.querySelectorAll("input[readonly], textarea[readonly]");
-    var botonguardar = e.currentTarget.parentElement.querySelector(".guardar");
-    botonguardar.style.display ="inline-block";
-    e.currentTarget.style.display ="none";
-    Array.from(inputs).forEach(function (input){
-        input.removeAttribute("readonly");
-    })
-}
-function guardar(e){
-    var inputs = e.currentTarget.parentElement.parentElement.querySelectorAll("input, textarea");
-    var botoneditar = e.currentTarget.parentElement.querySelector(".editar");
-    botoneditar.style.display = "inline-block";
-    e.currentTarget.style.display = "none";
-    Array.from(inputs).forEach(function (input){
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>");
-
-        var formData = new FormData();
-
-        formData.append('metaname', input.getAttribute("name"));     
-        formData.append('metavalue', input.value);     
+    Dropzone.options.dropzone.dictDefaultMessage = "Arrastre imágenes aquí o haga click";
+    Dropzone.options.dropzone.dictFallbackMessage = "Haga click aquí para subir imágenes";
+    Dropzone.options.dropzone.dictFallbackText = "";
+    Dropzone.options.dropzone.dictFileTooBig = "Imágenes demasiado grandes";
+    Dropzone.options.dropzone.dictInvalidFileType = "Por favor, sólo imágenes";
+    Dropzone.options.dropzone.dictResponseError = "Error en la subida";
 
 
-        xhr.onload = function () {
-            this.style.filter = "none";
+    function editar(e) {
+        var inputs = e.currentTarget.parentElement.parentElement.querySelectorAll("input[readonly], textarea[readonly]");
+        var botonguardar = e.currentTarget.parentElement.querySelector(".guardar");
+        botonguardar.style.display = "inline-block";
+        e.currentTarget.style.display = "none";
+        Array.from(inputs).forEach(function(input) {
+            input.removeAttribute("readonly");
+        })
+    }
 
-        }.bind(input);
-        xhr.send(formData);
-        input.style.filter = "blur(1px)";
-        input.setAttribute("readonly","true")
-    })
-}
+    function guardar(e) {
+        var inputs = e.currentTarget.parentElement.parentElement.querySelectorAll("input, textarea");
+        var botoneditar = e.currentTarget.parentElement.querySelector(".editar");
+        botoneditar.style.display = "inline-block";
+        e.currentTarget.style.display = "none";
+        Array.from(inputs).forEach(function(input) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>");
 
+            var formData = new FormData();
+
+            formData.append('metaname', input.getAttribute("name"));
+            formData.append('metavalue', input.value);
+
+
+            xhr.onload = function() {
+                this.style.filter = "none";
+
+            }.bind(input);
+            xhr.send(formData);
+            input.style.filter = "blur(1px)";
+            input.setAttribute("readonly", "true")
+        })
+    }
 </script>
 <?php
 get_footer();

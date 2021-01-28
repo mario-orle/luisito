@@ -17,16 +17,25 @@ function make_installation() {
 }
 
 function create_our_pages() {
-    if (!get_page_by_title('inicio')) {
+    if (!get_page_by_title('index-nosession')) {
         $index = wp_insert_post(array(
-            'post_title' => 'inicio',
+            'post_title' => 'index-nosession',
             'post_status' => 'publish',
             'post_type' => 'page',
-            'page_template' => 'page-index.html.php'
+            'page_template' => 'page-index-nosession.html.php'
         ));
         
         update_option( 'page_on_front', $index );
         update_option( 'show_on_front', 'page' );
+    }
+
+    if (!get_page_by_title('inicio')) {
+        wp_insert_post(array(
+            'post_title' => 'inicio',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-inicio.html.php'
+        ));
     }
     
     if (!get_page_by_title('servicios+')) {

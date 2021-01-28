@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: page-index.html
- * The template for displaying index.html
+ * Template Name: page-inicio.html
+ * The template for displaying inicio.html
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,7 +9,7 @@
  */
 
 function myCss() {
-    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/index.css">';
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/inicio.css">';
 }
 add_action('wp_head', 'myCss');
 
