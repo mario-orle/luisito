@@ -193,6 +193,7 @@ html {
     box-sizing: border-box;
 }
 
+
 .modal__header {
     display: flex;
     justify-content: space-between;
@@ -397,6 +398,37 @@ html {
     left: calc(50% - 250px);
     right: calc(50% - 250px);
 }
+#modal-contacto{
+    width: 408px;
+    height: 570px;
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 black;
+    color: orange;
+    font-size: 13px;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px 0 black;
+    position: fixed;
+    top: calc(50% - 289px);
+    bottom: calc(50% - 160px);
+    left: calc(50% - 205px);
+    right: calc(50% - 250px);
+}
+#modal-sobrenosotros{
+    width: 408px;
+    height: 570px;
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 black;
+    color: orange;
+    font-size: 13px;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px 0 black;
+    position: fixed;
+    top: calc(50% - 289px);
+    bottom: calc(50% - 160px);
+    left: calc(50% - 205px);
+    right: calc(50% - 250px);
+}
+ 
 
 .modal h4 {
     font-size: 22px;
@@ -420,6 +452,7 @@ html {
     text-align: center;
     font-size: 18px;
     line-height: 27px;
+    color:white;
 }
 
 .modal a {

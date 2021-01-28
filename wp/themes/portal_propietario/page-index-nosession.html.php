@@ -27,8 +27,8 @@
     <div class="header">
         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" class="logo">
         <div class="boton">
-            <a href="#contactos">Contacto</a>
-            <a href="sobrenosotros">Sobre nosotros</a>
+            <a data-micromodal-trigger="modal-contacto">Contacto</a>
+            <a data-micromodal-trigger="modal-sobrenosotros">Sobre nosotros</a>
         </div>
     </div>
     </div>
@@ -48,6 +48,59 @@
         </div>
 
     </div>
+    <div id="modal-contacto" aria-hidden="true" class="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-contacto">
+                <header class="modal__header">
+                    <h2 id="modal-contacto-title">
+                    </h2>
+                    
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-contacto-content">
+                    <div class="info-contac">
+                        <h2>Telefono:</h2>
+                        <p>91 042 44 77</p>
+                        <h2>E-mail</h2>
+                        <p>Grupomiracasa@miracasa.com</p>
+                        <h2>Dirección</h2>
+                        <p> Calle Nicolás Salmerón nº 44</p>
+                        <h2>Como Llegar:</h2>
+                        <p> Metro Alsacia (Línea 2)</p>
+                        <p> Autobuses Alsacia (Líneas 70, 106, 140, E2)</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sobrenosotros" aria-hidden="true" class="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-sobrenosotros">
+                <header class="modal__header">
+                    <h2 id="modal-sobrenosotros-title">
+                    </h2>
+                    
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-sobrenosotros-content">
+                    <div class="info-nos">
+                        <h2>Seriedad, compromiso y transparencia.</h2>
+                        <p> La búsqueda de una vivienda se antoja realmente difícil para casi  todo el mundo y es por eso que prestamos la mayor atención  a las necesidades de cada persona, además de ayudar en todo el proceso de compra, así como facilitar el acceso al préstamo hipotecario  o bien, asesoramiento y presupuesto de reformas. El objetivo no es otro que localizar  la casa de sus sueños.
+                            Si usted necesita vender su vivienda, cuente con nosotros, nos encargamos de todo. Estamos presentes en todo el proceso de la venta; de principio a fin.  Nuestro servicio de gestión integral de venta incluye, entre otras cosas, la total promoción de su inmueble, gestionamos las visitas, redactamos los contratos pertinentes de compraventa/arrendamiento, organizamos y acompañamos a la escritura pública ante Notario, le ayudamos con la gestión del pago de impuestos, herencias, viviendas de protección oficial, etc.
+                            En Grupo Inmobiliario Miracasa entendemos que la mejor publicidad que podemos tener es un cliente satisfecho.
+                            Somos una  agencia de intermediación inmobiliaria especializada en  la compraventa y arrendamiento de inmuebles, formada por profesionales con amplia experiencia en el sector, dónde nuestra filosofía es la plena satisfacción de nuestros clientes, tanto vendedores  como compradores.​
+                            En Grupo Inmobiliario Miracasa miramos por el empleo indefinido del Sistema Nacional de Garantía juvenil realizando contrataciones de acuerdo al Fondo Social Europeo para contribuir a la disminución de desempleo en nuestro país.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
 
     <div id="modal-registro" aria-hidden="true" class="modal">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
