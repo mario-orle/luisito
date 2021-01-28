@@ -363,9 +363,9 @@ html {
     color: white;
     box-shadow: 7px 13px 37px #000;
     width: 500px;
-    height: 640px;
-    top: calc(50% - 320px);
-    bottom: calc(50% - 320px);
+    height: 340px;
+    top: calc(50% - 170px);
+    bottom: calc(50% - 170px);
     left: calc(50% - 250px);
     right: calc(50% - 250px);
 }

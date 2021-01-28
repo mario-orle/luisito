@@ -1,24 +1,23 @@
 ul {
     list-style-type: none;
 }
-h2{
+
+h2 {
     font-family: "roboto";
     text-align: center;
 }
-.gestor-citas {
-    display: flex;
-    height: 345px;
-}
+
+.gestor-citas {}
+
 .main-gestiones-calendar {
-    width: 50%;
-    margin-left: 25px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     flex-flow: column;
 }
 
 .main-calendar {
-    width: 50%;
+    height: 500px;
 }
 
 .citas-programadas {
@@ -34,47 +33,52 @@ h2{
     font-size: 13px;
     font-family: "roboto";
     padding: 10px;
-    height: 325px;
 }
-.text-programadas span{
+
+.text-programadas span {
     color: rgb(0, 221, 0);
 }
-.text-programadas h2{
+
+.text-programadas h2 {
     color: black;
 }
 
-table{
+table {
     width: 100%;
 }
-.scroller{
+
+.scroller {
     overflow: auto;
     width: 100%;
-  }
-.text-programadas th{
+}
+
+.text-programadas th {
     padding: 5px;
     text-decoration: underline;
 }
-.text-programadas tr{
- text-align: center;
+
+.text-programadas tr {
+    text-align: center;
 }
 
-.icono-citas{
-display: flex;
-width: 50%;
-align-items: center;
-margin-left:170px;
-margin-top:15px;
-margin-bottom: 10px;
+.icono-citas {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    margin-left: 170px;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
-.icono-citas img{
-width: 20%;
-padding: 10px;
-margin-top: 10px;   
+
+.icono-citas img {
+    width: 20%;
+    padding: 10px;
+    margin-top: 10px;
 }
-.icono-citas h2{
+
+.icono-citas h2 {
     color: black;
 }
-
 
 #foo .datepicker-picker {
     width: 100%;
@@ -83,7 +87,6 @@ margin-top: 10px;
 
 #foo .datepicker-picker span {
     border-radius: 0;
-   
 }
 
 #foo .datepicker-grid {
@@ -93,7 +96,7 @@ margin-top: 10px;
 }
 
 #foo .datepicker-cell {
-    background-color:transparent;
+    background-color: transparent;
 }
 
 #foo .datepicker-cell.selected {
@@ -117,12 +120,14 @@ margin-top: 10px;
 .datepicker-view .dow {
     flex-basis: 13.286%;
 }
+
 #foo .datepicker-header .datepicker-controls .button {
     border-color: grey;
     font-weight: 700;
 }
-#foo  span{
-    color:black;
+
+#foo span {
+    color: black;
 }
 
 #popup {
@@ -130,7 +135,7 @@ margin-top: 10px;
     position: fixed;
     width: 570px;
     height: 400px;
-    background-color:#333;
+    background-color: #333;
     box-shadow: 0 4px 8px 0 black;
     color: black;
     font-size: 13px;
@@ -142,30 +147,31 @@ margin-top: 10px;
     display: none;
     z-index: 5;
     opacity: 0;
-
 }
-.popup-icon img{
+
+.popup-icon img {
     width: 150px;
     height: auto;
     padding: 15px;
-
 }
-.popup-icon{
+
+.popup-icon {
     float: right;
-
 }
+
 #popup-bg {
     position: fixed;
     background-color: #3333;
     opacity: 0;
     transition: opacity .5s;
 }
-#popup.active{
+
+#popup.active {
     display: block;
     opacity: 1;
-    
 }
-#popup-bg.active{
+
+#popup-bg.active {
     top: 0;
     left: 0;
     right: 0;
@@ -174,20 +180,52 @@ margin-top: 10px;
     opacity: 1;
     transition: opacity .5s;
 }
-.popup-text{
+
+.popup-text {
     padding: 25px;
-    
 }
-.popup-text h3{
+
+.popup-text h3 {
     color: #ff8000;
 }
-.popup-text p{
+
+.popup-text p {
     color: white;
 }
-.popup-text hr{
+
+.popup-text hr {
     margin-left: 0;
     width: 300px;
     border: 1px solid white;
     margin-bottom: 2px;
-    
+}
+
+.main-calendar #calendar {
+    background-color: #fff;
+    height: 500px;
+    padding: 20px;
+}
+
+.modal.modal-cita.is-open {
+    background: #ddd;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+    width: 500px;
+    height: 350px;
+    top: calc(50% - 175px);
+    bottom: calc(50% - 175px);
+    left: calc(50% - 250px);
+    right: calc(50% - 250px);
+}
+
+#modal-actualizar-cita {
+    height: 500px;
+    top: calc(50% - 250px);
+    bottom: calc(50% - 250px);
+}
+
+.modal.modal-cita.is-open input.controls {
+    width: calc(100% - 20px);
 }

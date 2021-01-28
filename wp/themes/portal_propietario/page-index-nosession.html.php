@@ -1,13 +1,62 @@
 <?php
 
 /**
- * Template Name: page-inicio.html
+ * Template Name: page-index-nosession.html
  * The template for displaying inicio.html
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package portal_propietario
  */
+
+ if (get_current_user_id() != 0) {
+    wp_redirect( '/inicio' );
+    exit;
+ }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    if ($_POST["action"] == 'crear-usuario') {
+        $newuserid = wp_create_user( $_POST['email'], $_POST['pwd'], $_POST['email'] );
+        $username = '';
+        if ( is_numeric( $newuserid ) ) {
+            if ( $user = get_user_by( 'id', $newuserid ) ) {
+                $username = $user->user_login;
+            }
+        } else {
+            die();
+        }
+    
+        $res = wp_signon(array(
+            'user_login' => $username,
+            'user_password' => $_POST['pwd'],
+            'remember' => true
+        ), true);
+        wp_set_current_user($res);
+
+        wp_redirect( '/inicio' );
+
+    } else {
+        $username = $_POST['user'];
+        if ( ! empty( $username ) && is_email( $username ) ) :
+            if ( $user = get_user_by_email( $username ) )
+              $username = $user->user_login;
+        endif;
+    
+        $res = wp_signon(array(
+            'user_login' => $username,
+            'user_password' => $_POST['pwd'],
+            'remember' => true
+        ), true);
+    
+        if (is_wp_error($res)) {
+            echo 'Contraseña incorrecta';
+        } else {
+            wp_set_current_user($res);
+            echo "OK";
+        }
+    }
+} else {
 
 ?>
 <!DOCTYPE html>
@@ -59,14 +108,12 @@
                     <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                 </header>
                 <div id="modal-registro-content">
-                    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-                    <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-                    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su E-mail">
-                    <input class="controls" type="email" name="correo" id="correo" placeholder="Repita su E-mail">
-                    <input class="controls" type="password" name="correo" id="contraseña" placeholder="Ingrese su Contraseña">
-                    <input class="controls" type="password" name="correo" id="contraseña" placeholder="Repita su Contraseña">
-                    <p><input type="checkbox" id="myCheck" onclick=""> Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-                    <input class="botons" type="submit" value="Registrar">
+                    <form method="POST">
+                        <input class="controls" type="email" name="email" id="correo" placeholder="E-mail">
+                        <input class="controls" type="password" name="pwd" id="contraseña" placeholder="Contraseña">
+                        <input class="controls" type="hidden" name="action" value="crear-usuario">
+                        <input class="botons" type="submit" value="Registrar">
+                    </form>
                 </div>
 
             </div>
@@ -82,9 +129,9 @@
                     <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                 </header>
                 <div id="modal-login-content">
-                    <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su E-mail">
-                    <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">
-                    <button class="botons" onclick="location.href='../index.html'">ENTRAR</button>
+                    <input class="controls" type="text" id="user" placeholder="Ingrese su E-mail">
+                    <input class="controls" type="password" id="pwd" placeholder="Ingrese su Contraseña">
+                    <button class="botons" onclick="trylogin()">ENTRAR</button>
                     <p><a data-micromodal-trigger="modal-recpass">¿Olvidaste la contraseña?</a></p>
                 </div>
 
@@ -114,7 +161,29 @@
 
     <script>
         MicroModal.init();
+
+        function trylogin() {
+            var user = document.querySelector('#user').value;
+            var pwd = document.querySelector('#pwd').value;
+
+            var fd = new FormData();
+            fd.append('user', user);
+            fd.append('pwd', pwd);
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '');
+            xhr.onload = function () {
+                if (this.responseText === 'OK') {
+                    window.location.href = "/inicio";
+                } else {
+
+                }
+            }
+            xhr.send(fd);
+        }
     </script>
 </body>
 
 </html>
+<?php 
+}
+?>

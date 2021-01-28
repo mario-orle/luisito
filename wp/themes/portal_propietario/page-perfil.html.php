@@ -34,6 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
 } else {
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil.css">';
+    //echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css">';
+    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
 }
 add_action('wp_head', 'myCss');
 
@@ -50,9 +53,11 @@ get_header();
           <p><input placeholder="Nombre..." oninput="this.className = ''" name="inmueble-owner-name"></p>
           <p><input placeholder="Primer Apellido..." oninput="this.className = ''" name="inmueble-owner-lastname"></p>
           <p><input placeholder="Segundo Apellido..." oninput="this.className = ''" name="inmueble-owner-lastname2"></p>
-          <p>Tipo de documento:<select name="inmueble-owner-tipodocumento">
-            <option>DNI</option>
-            <option>NIE</option>           
+          <p>
+            <select class="js-choice" name="inmueble-owner-tipodocumento">
+              <option value="">Tipo de documento</option>
+              <option value="DNI">DNI</option>
+              <option value="NIE">NIE</option>           
             </select>
           </p>
           <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''" name="inmueble-owner-numdocumento"></p>
@@ -82,22 +87,24 @@ get_header();
           <p><input placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles"></p>
         </div>
         <div class="tab" >Situación Inmueble:
-          <p>Tipo de inmueble <select name="inmueble-tipo">
-            <option>Piso</option>
-            <option>Casa</option> 
-            <option>Atico</option>          
-            <option>Chalet Idependiente</option>
-            <option>Chalet Pareado</option>
-            <option>Chalet Adosado</option>
-            <option>Garaje</option>
-            <option>Trastero</option>
+          <p><select class="js-choice" name="inmueble-tipo">
+            <option value="">Tipo de inmueble</option>
+            <option value="Piso">Piso</option>
+            <option value="Casa">Casa</option> 
+            <option value="Atico">Atico</option>          
+            <option value="Chalet Independiente">Chalet Independiente</option>
+            <option value="Chalet Pareado">Chalet Pareado</option>
+            <option value="Chalet Adosado">Chalet Adosado</option>
+            <option value="Garaje">Garaje</option>
+            <option value="Trastero">Trastero</option>
             </select></p>
-          <p>Estado Inmueble <select name="inmueble-estado">
-            <option>Entrar a vivir</option>
-            <option>Recien reformado</option>           
-            <option>Regular</option>
-            <option>Deficiente</option>
-            <option>Ruinoso</option>
+          <p><select class="js-choice" name="inmueble-estado">
+            <option value="">Estado Inmueble</option>
+            <option value="Entrar a vivir">Entrar a vivir</option>
+            <option value="Recién reformado">Recién reformado</option>           
+            <option value="Regular">Regular</option>
+            <option value="Deficiente">Deficiente</option>
+            <option value="Ruinoso">Ruinoso</option>
             </select></p>
             <p>
             <input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
@@ -125,6 +132,16 @@ get_header();
     </div>
 </main><!-- #main -->
 <script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/perfil.js'; ?>"></script>
+<script>
+  var choicesObjs = document.querySelectorAll('.js-choice');
+  var choices = [];
+  for (var i = 0; i < choicesObjs.length; i++) {
+    choices.push(new Choices(choicesObjs[i], {
+      itemSelectText: 'Click para seleccionar',
+      searchEnabled: false
+    }));
+  }
+</script>
 <?php
 get_footer();
 }
