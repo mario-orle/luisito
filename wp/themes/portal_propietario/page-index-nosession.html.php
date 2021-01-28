@@ -76,8 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="header">
         <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" class="logo">
         <div class="boton">
-            <a href="#contactos">Contacto</a>
-            <a href="sobrenosotros">Sobre nosotros</a>
+            <a data-micromodal-trigger="modal-contacto">Contacto</a>
+            <a data-micromodal-trigger="modal-sobrenosotros">Sobre nosotros</a>
         </div>
     </div>
     </div>
@@ -97,6 +97,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
 
     </div>
+    <div id="modal-contacto" aria-hidden="true" class="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-contacto">
+                <header class="modal__header">
+                    <h2 id="modal-contacto-title">
+                    </h2>
+                    
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-contacto-content">
+                    <div class="info-contac">
+                        <h2>Telefono:</h2>
+                        <p>91 042 44 77</p>
+                        <h2>E-mail</h2>
+                        <p>Grupomiracasa@miracasa.com</p>
+                        <h2>Dirección</h2>
+                        <p> Calle Nicolás Salmerón nº 44</p>
+                        <h2>Como Llegar:</h2>
+                        <p> Metro Alsacia (Línea 2)</p>
+                        <p> Autobuses Alsacia (Líneas 70, 106, 140, E2)</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-sobrenosotros" aria-hidden="true" class="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-sobrenosotros">
+                    <div id="modal-sobrenosotros-title"></div>
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                    <div id="modal-sobrenosotros-content">
+                    <div class="info-nos">
+                        <h2>Seriedad, Compromiso y Transparencia.</h2>
+                        <p> Grupo Inmobiliario Miracasa comenzó como un sueño de jóvenes trabajadores y emprendedores, que llevábamos viendo durante años las carencias que tenía este sector, comprendimos y analizamos como funcionaba, y no nos pareció justo.</p>                         
+                        <p> Después de mucho esfuerzo, ahorros y lucha, conseguimos crear nuestro pequeño espacio, y de hay nació Miracasa.</p> 
+                        <p>Nuestra mayor motivación era poder ayudar a toda la gente que quiere dar el paso y poder tener su propio espacio, una familia, una zona de encuentro donde crear experiencias</p> 
+                        <p>Al igual que aquellas otras personas que quisieran cambiar su rumbo y poner a disposición lo que antes fue su hogar a otras personas que están buscando su propio espacio.</p>   
+                        <p>Somos un Grupo inmobiliario que se descarta del resto, intentamos dar las mayores comodidades, porque no vemos al usuario como cliente sino como parte de Miracasa, sin vosotros miracasa no existiría.</p>
+                        <p>Queremos estar a la vanguardia en tecnologías para el usuario, sin olvidarnos de lo más importante que es la atención cara a cara, individual y personalizada, donde podemos comprender, entender y asistir todas las necesidades del usuario, pudiendo darle las mayores comodidades y garantías.</p>    
+                        <p>Disponemos de nuestra propia página web y un portal personalizado y único para cada cliente.</p>
+                        <p>Estamos presentes en todo el proceso de la venta; de principio a fin. Nuestro servicio de gestión integral incluye, entre otras cosas, la total promoción de su inmueble, gestionamos las visitas, redactamos los contratos pertinentes de compraventa/arrendamiento, organizamos y acompañamos a la escritura pública ante Notario, le ayudamos con la gestión del pago de impuestos, herencias, viviendas de protección oficial, etc.</p>     
+                        <p>En Grupo Inmobiliario Miracasa miramos por el empleo indefinido del Sistema Nacional de Garantía juvenil realizando contrataciones de acuerdo al Fondo Social Europeo para contribuir a la disminución de desempleo en nuestro país.</p>  
+                        <p>Porque fuimos trabajadores por cuenta ajena y queremos mejorar la situación de nuestra gente, de nuestros vecinos, de las futuras generaciones.</p>  
+                        <p>Por todo esto y más podéis contar con nosotros.</p>  
+                        <p>Grupo Inmobiliario Miracasa Atentamente:</p>  
+                        <p>Luis Gabaldon y David Carmona.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <div id="modal-registro" aria-hidden="true" class="modal">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>

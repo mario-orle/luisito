@@ -193,6 +193,7 @@ html {
     box-sizing: border-box;
 }
 
+
 .modal__header {
     display: flex;
     justify-content: space-between;
@@ -397,12 +398,63 @@ html {
     left: calc(50% - 250px);
     right: calc(50% - 250px);
 }
+#modal-contacto{
+    width: 408px;
+    height: 570px;
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 black;
+    color: orange;
+    font-size: 13px;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px 0 black;
+    position: fixed;
+    top: calc(50% - 289px);
+    bottom: calc(50% - 160px);
+    left: calc(50% - 205px);
+    right: calc(50% - 250px);
+}
+#modal-sobrenosotros{
+    width: 472px;
+    height: 540px;
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 black;
+    color: orange;
+    font-size: 13px;
+    border-radius: 1%;
+    box-shadow: 0 4px 8px 0 black;
+    position: fixed;
+    top: calc(50% - 256px);
+    bottom: calc(50% - 160px);
+    left: calc(50% - 235px);
+    right: calc(50% - 250px);
+}
+#modal-sobrenosotros p{
+    padding: 10px;
+    max-width: 500px;
+    height:auto;
+    border-radius: 4px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+#modal-sobrenosotros h2{
+    text-align: center;
+}
+#modal-sobrenosotros .modal__container{
+    height: 499px;
+width: 460px;
+padding: 10px;
+top: calc(50% - 241px);
+bottom: calc(50% - 160px);
+left: calc(50% - 230px);
+right: calc(50% - 250px);
+position: fixed;
+}
 
 .modal h4 {
     font-size: 22px;
     margin-bottom: 20px;
 }
-
 .controls {
     width: 100%;
     background: aliceblue;
@@ -420,6 +472,7 @@ html {
     text-align: center;
     font-size: 18px;
     line-height: 27px;
+    color:white;
 }
 
 .modal a {
