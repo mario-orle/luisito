@@ -78,24 +78,27 @@
     <div id="modal-sobrenosotros" aria-hidden="true" class="modal">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-sobrenosotros">
-                <header class="modal__header">
-                    <h2 id="modal-sobrenosotros-title">
-                    </h2>
-                    
+                    <div id="modal-sobrenosotros-title"></div>
                     <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
-                </header>
-                <div id="modal-sobrenosotros-content">
+                    <div id="modal-sobrenosotros-content">
                     <div class="info-nos">
-                        <h2>Seriedad, compromiso y transparencia.</h2>
-                        <p> La búsqueda de una vivienda se antoja realmente difícil para casi  todo el mundo y es por eso que prestamos la mayor atención  a las necesidades de cada persona, además de ayudar en todo el proceso de compra, así como facilitar el acceso al préstamo hipotecario  o bien, asesoramiento y presupuesto de reformas. El objetivo no es otro que localizar  la casa de sus sueños.
-                            Si usted necesita vender su vivienda, cuente con nosotros, nos encargamos de todo. Estamos presentes en todo el proceso de la venta; de principio a fin.  Nuestro servicio de gestión integral de venta incluye, entre otras cosas, la total promoción de su inmueble, gestionamos las visitas, redactamos los contratos pertinentes de compraventa/arrendamiento, organizamos y acompañamos a la escritura pública ante Notario, le ayudamos con la gestión del pago de impuestos, herencias, viviendas de protección oficial, etc.
-                            En Grupo Inmobiliario Miracasa entendemos que la mejor publicidad que podemos tener es un cliente satisfecho.
-                            Somos una  agencia de intermediación inmobiliaria especializada en  la compraventa y arrendamiento de inmuebles, formada por profesionales con amplia experiencia en el sector, dónde nuestra filosofía es la plena satisfacción de nuestros clientes, tanto vendedores  como compradores.​
-                            En Grupo Inmobiliario Miracasa miramos por el empleo indefinido del Sistema Nacional de Garantía juvenil realizando contrataciones de acuerdo al Fondo Social Europeo para contribuir a la disminución de desempleo en nuestro país.
-                        </p>
+                        <h2>Seriedad, Compromiso y Transparencia.</h2>
+                        <p> Grupo Inmobiliario Miracasa comenzó como un sueño de jóvenes trabajadores y emprendedores, que llevábamos viendo durante años las carencias que tenía este sector, comprendimos y analizamos como funcionaba, y no nos pareció justo.</p>                         
+                        <p> Después de mucho esfuerzo, ahorros y lucha, conseguimos crear nuestro pequeño espacio, y de hay nació Miracasa.</p> 
+                        <p>Nuestra mayor motivación era poder ayudar a toda la gente que quiere dar el paso y poder tener su propio espacio, una familia, una zona de encuentro donde crear experiencias</p> 
+                        <p>Al igual que aquellas otras personas que quisieran cambiar su rumbo y poner a disposición lo que antes fue su hogar a otras personas que están buscando su propio espacio.</p>   
+                        <p>Somos un Grupo inmobiliario que se descarta del resto, intentamos dar las mayores comodidades, porque no vemos al usuario como cliente sino como parte de Miracasa, sin vosotros miracasa no existiría.</p>
+                        <p>Queremos estar a la vanguardia en tecnologías para el usuario, sin olvidarnos de lo más importante que es la atención cara a cara, individual y personalizada, donde podemos comprender, entender y asistir todas las necesidades del usuario, pudiendo darle las mayores comodidades y garantías.</p>    
+                        <p>Disponemos de nuestra propia página web y un portal personalizado y único para cada cliente.</p>
+                        <p>Estamos presentes en todo el proceso de la venta; de principio a fin. Nuestro servicio de gestión integral incluye, entre otras cosas, la total promoción de su inmueble, gestionamos las visitas, redactamos los contratos pertinentes de compraventa/arrendamiento, organizamos y acompañamos a la escritura pública ante Notario, le ayudamos con la gestión del pago de impuestos, herencias, viviendas de protección oficial, etc.</p>     
+                        <p>En Grupo Inmobiliario Miracasa miramos por el empleo indefinido del Sistema Nacional de Garantía juvenil realizando contrataciones de acuerdo al Fondo Social Europeo para contribuir a la disminución de desempleo en nuestro país.</p>  
+                        <p>Porque fuimos trabajadores por cuenta ajena y queremos mejorar la situación de nuestra gente, de nuestros vecinos, de las futuras generaciones.</p>  
+                        <p>Por todo esto y más podéis contar con nosotros.</p>  
+                        <p>Grupo Inmobiliario Miracasa Atentamente:</p>  
+                        <p>Luis Gabaldon y David Carmona.</p>
+                        
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
