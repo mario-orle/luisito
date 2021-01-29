@@ -219,9 +219,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                             <hr />
                             <form>
                                 <div class="sec-block formulario">
-                                    <textarea onchange="editar(event)" name="inmueble-comentarios" rows="2" class="question" placeholder="" id="msg" required autocomplete="off">
-                                        <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-comentarios', true) ?>
-                                    </textarea>
+                                    <textarea onchange="editar(event)" name="inmueble-comentarios" rows="2" class="question" placeholder="" id="msg" required autocomplete="off"><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-comentarios', true) ?></textarea>
                                     <label for="msg">
                                         <span>Describa su Inmueble:</span>
                                     </label>
