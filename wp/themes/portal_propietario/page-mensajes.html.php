@@ -58,23 +58,31 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 </main><!-- #main -->
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var contactos = document.querySelectorAll(".contacto");
-        for (var i = 0; i < contactos.length; i++) {
-            var name = contactos[i].querySelector(".contacto-name").textContent;
-            var img = contactos[i].querySelector(".contacto-img");
-            img.src = window.creaImagen(name);
-        }
-
-        cargaMensajes();
-        setInterval(function() {
-            cargaMensajes();
-        }, 5000);
-    }, false);
-
 var userId = <?php echo $selected_user_id ?>;
+document.addEventListener('DOMContentLoaded', function () {
+    var contactos = document.querySelectorAll(".contacto");
+    for (var i = 0; i < contactos.length; i++) {
+        var name = contactos[i].querySelector(".contacto-name").textContent;
+        var img = contactos[i].querySelector(".contacto-img");
+        img.src = window.creaImagen(name);
+    }
+
+    setUserId(userId);
+    setInterval(function() {
+        cargaMensajes();
+    }, 5000);
+}, false);
+
 function setUserId(uid) {
+    var contactos = document.querySelectorAll(".contacto");
+    document.querySelector("#msg").value = "";
+    document.querySelector(".mensajes").innerHTML = "";
+    for (var i = 0; i < contactos.length; i++) {
+        contactos[i].classList.remove("selected");
+    }
+    document.querySelector("#user-" + uid).classList.add("selected");
     userId = uid;
+    cargaMensajes();
 }
 
 function cargaMensajes() {
@@ -84,7 +92,6 @@ function cargaMensajes() {
     xhr.onload = function () {
         var msgs = JSON.parse(xhr.response);
         document.querySelector(".mensajes").innerHTML = "";
-        document.querySelector("#msg").value = "";
         
         if (userId && msgs[userId]) {
             for (var i = 0; i < msgs[userId].length; i++) {
@@ -135,7 +142,10 @@ function enviarMsg() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/chat-xhr?action=put_messages&user_id=" + userId);
 
-    xhr.onload = cargaMensajes;
+    xhr.onload = function () {
+        cargaMensajes();
+        document.querySelector("#msg").value = "";
+    }
     xhr.send(fd);
 
 }

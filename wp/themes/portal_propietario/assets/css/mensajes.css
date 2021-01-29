@@ -7,6 +7,7 @@
     border: 1px solid #ccc;
     padding: 20px;
     background: #cccc;
+    user-select: none;
 }
 
 .chat .contactos {
@@ -29,6 +30,17 @@
     margin-top: 10px;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.chat .contactos .contacto.selected {
+    border: 2px solid #000;
+}
+
+.chat .contactos .contacto:hover {
+    background-color: #cccc;
+    color: #000;
 }
 
 .chat .contactos .contacto .contacto-unread {
