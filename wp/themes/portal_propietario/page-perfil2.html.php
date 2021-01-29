@@ -302,7 +302,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 
         xhr.onload = function() {
             input.style.filter = "none";
-            input.setAttribute("readonly", "false");
+            input.removeAttribute("readonly");
 
         }.bind(input);
         xhr.send(formData);
