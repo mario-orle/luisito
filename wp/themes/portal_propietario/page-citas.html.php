@@ -18,10 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
         $data['status'] = $_POST['status'];
         $data['comments'] = $_POST['comments'];
         $data['usuario'] = $user->display_name;
-
         
-    
-        update_user_meta( $user->ID, 'meta-citas-usuario', $data, $data);
+        delete_user_meta( $user->ID, 'meta-citas-usuario', $data);
+        add_user_meta($user->ID, 'meta-citas-usuario', $data);
     }
     if ($_POST['action'] == "actualizar") {
         $data['nombre'] = $_POST['nombre'];
@@ -297,7 +296,7 @@ if (current_user_can('administrator')) {
                 document.querySelector("#modal-actualizar-cita [name=status]").value = info.event.extendedProps.status;
                 document.querySelector("#modal-actualizar-cita [name=old-comments]").value = info.event.extendedProps.comments;
                 document.querySelector("#modal-actualizar-cita [name=comments]").value = info.event.extendedProps.comments;
-                document.querySelector("#modal-crear-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
+                document.querySelector("#modal-actualizar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
                 MicroModal.show('modal-actualizar-cita'); 
             },
             events: citasCalendar
