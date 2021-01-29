@@ -80,7 +80,9 @@ function setUserId(uid) {
     for (var i = 0; i < contactos.length; i++) {
         contactos[i].classList.remove("selected");
     }
-    document.querySelector("#user-" + uid).classList.add("selected");
+    if (document.querySelector("#user-" + uid)) {
+        document.querySelector("#user-" + uid).classList.add("selected");
+    }
     userId = uid;
     cargaMensajes();
 }
