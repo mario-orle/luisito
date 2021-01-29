@@ -35,10 +35,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
           $display_name .= $_POST['inmueble-owner-name'];
         }
         if ( isset( $_POST['inmueble-owner-lastname'] ) ) {
-          $display_name .= $_POST['inmueble-owner-lastname'];
+          $display_name .= ' ' . $_POST['inmueble-owner-lastname'];
         }
         if ( isset( $_POST['inmueble-owner-lastname2'] ) ) {
-          $display_name .= $_POST['inmueble-owner-lastname2'];
+          $display_name .= ' ' . $_POST['inmueble-owner-lastname2'];
         }
 
         $userdata = array(
