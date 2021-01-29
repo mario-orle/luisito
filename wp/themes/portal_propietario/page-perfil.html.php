@@ -8,20 +8,51 @@
  * @package portal_propietario
  */
 
+
+
 $inmueble = get_posts(array(
     'post_type' => 'inmueble',
     'author' => get_current_user_id()
 ))[0];
-
+if (current_user_can('administrator') && !empty($_GET['user'])) {
+  $inmueble = get_posts(array(
+    'post_type' => 'inmueble',
+    'author' => $_GET['user']
+  ))[0];
+}
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && !$inmueble) {
+      $user_id = get_current_user_id();
+      if (current_user_can('administrator') && !empty($_GET['user'])) {
+        $user_id = $_GET['user'];
+      } else if (empty($_GET['user'])) {
+        $user_id = wp_create_user( $_POST['inmueble-owner-email'], '1', '' );
+        $_GET['user'] = $user_id;
+        $display_name = '';
+        if ( isset( $_POST['inmueble-owner-name'] ) ) {
+          $display_name .= $_POST['inmueble-owner-name'];
+        }
+        if ( isset( $_POST['inmueble-owner-lastname'] ) ) {
+          $display_name .= $_POST['inmueble-owner-lastname'];
+        }
+        if ( isset( $_POST['inmueble-owner-lastname2'] ) ) {
+          $display_name .= $_POST['inmueble-owner-lastname2'];
+        }
 
+        $userdata = array(
+          'ID'           => $user_id,
+          'display_name' => $display_name,
+        );
+        wp_update_user( $userdata );
+      }
+      
         $inmueble_id = wp_insert_post(array(
             'post_type' => 'inmueble',
-            'post_title' => 'inmueble-' . get_current_user_id(),
-            'post_status' => 'publish'
+            'post_title' => 'inmueble-' . $user_id,
+            'post_status' => 'publish',
+            'post_author' => $user_id
         ));
     
         foreach ($_POST as $key => $value) {
@@ -45,7 +76,39 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
+
+    
     <div class="main">
+
+    <?php
+if (current_user_can('administrator')) {
+    ?>
+    <div class="admin-perfil">
+      <h4>Eres administrador, si rellenas el formulario, crearás un nuevo usuario e irás a su perfil, o podrás crearlo si aún no lo tiene.</h4>
+
+      <p>Si quieres ver el perfil de un usuario creado, usa este selector</p>
+      <select class="js-choice" onchange="window.location.href = '/perfil?user=' + this.value">
+        <option value=""></option>
+
+      <?php
+foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+  if ( $_GET['user'] == $user->ID) {
+
+      ?>
+        <option selected value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+      <?php
+  } else {
+      ?>
+          <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+      <?php
+  }
+}
+      ?>
+      </select>
+    </div>
+    <?php
+}
+    ?>
     <form id="regForm" method="POST">
         <h1>Perfil:</h1>
         <!-- One "tab" for each step in the form: -->
@@ -64,27 +127,25 @@ get_header();
 
         </div>
         <div class="tab">Contacto:
-          <p><input placeholder="E-mail..." oninput="this.className = ''" name="inmueble-owner-email"></p>
-          <p><input placeholder="Telefono..." oninput="this.className = ''" name="inmueble-owner-phone"></p>
+          <p><input placeholder="E-mail..." type="email" oninput="this.className = ''" name="inmueble-owner-email"></p>
+          <p><input placeholder="Telefono..." type="tel" oninput="this.className = ''" name="inmueble-owner-phone"></p>
         </div>
         <div class="tab">Fecha de Nacimiento:
-          <p><input placeholder="Dia" oninput="this.className = ''" name="inmueble-owner-birth-day"></p>
-          <p><input placeholder="Mes" oninput="this.className = ''" name="inmueble-owner-birth-month"></p>
-          <p><input placeholder="Año" oninput="this.className = ''" name="inmueble-owner-birth-year"></p>
+          <p><input placeholder="Dia" oninput="this.className = ''" name="inmueble-owner-birth-day" type="number"  min="1" max="31"></p>
+          <p><input placeholder="Mes" oninput="this.className = ''" name="inmueble-owner-birth-month" type="number"  min="1" max="12"></p>
+          <p><input placeholder="Año" oninput="this.className = ''" name="inmueble-owner-birth-year" type="number"  min="1950" max="2020"></p>
         </div>
         <div class="tab">Localización Inmueble:
           <p><input placeholder="Provincia..." oninput="this.className = ''" name="inmueble-provincia"></p>
           <p><input placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></p>
           <p><input placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></p>
-          <p><input placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal"></p>
+          <p><input placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
-          <p><input placeholder="Numero..." oninput="this.className = ''" name="inmueble-numero"></p>
-          <p><input placeholder="Escalera..." oninput="this.className = ''" name="inmueble-escalera"></p>
-          <p><input placeholder="Puerta..." oninput="this.className = ''" name="inmueble-puerta"></p>
         </div>
         <div class="tab">Superficie inmueble:
-          <p><input placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos"></p>
-          <p><input placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles"></p>
+          <p><input placeholder="Habitaciones..." oninput="this.className = ''" name="inmueble-habitaciones" type="number" min="1" max="10"></p>
+          <p><input placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
+          <p><input placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles" type="number"></p>
         </div>
         <div class="tab" >Situación Inmueble:
           <p><select class="js-choice" name="inmueble-tipo">
@@ -109,8 +170,8 @@ get_header();
             <p>
             <input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
         </div>
-        <div class="tab">Precio estimado
-          <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="inmueble-precioestimado"></p>
+        <div class="tab">Precio deseado
+          <p><input placeholder="Precio deseado..." oninput="this.className = ''" name="inmueble-preciodeseado" type="number"></p>
         </div>
         <div style="overflow:auto;">
           <div style="float:right;">

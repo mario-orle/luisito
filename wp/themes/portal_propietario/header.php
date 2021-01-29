@@ -9,6 +9,16 @@
  * @package portal_propietario
  */
 
+$inmueble = get_posts(array(
+  'post_type' => 'inmueble',
+  'author' => get_current_user_id()
+))[0];
+if (current_user_can('administrator') && !empty($_GET['user'])) {
+$inmueble = get_posts(array(
+  'post_type' => 'inmueble',
+  'author' => $_GET['user']
+))[0];
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -21,6 +31,10 @@
 </head>
 
 <body <?php body_class(); ?>>
+<input 
+  type="hidden" 
+  value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?>" 
+  id="user-name-and-lastname" />
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
@@ -37,7 +51,7 @@
           <a id="alertas"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario" href="/perfil"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
+          <a id="usuario" href="/perfil"><img class="user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
         </div>
 
       </div>

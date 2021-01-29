@@ -68,3 +68,8 @@ button:hover {
     min-height: auto;
     height: 30px;
 }
+
+.admin-perfil {
+    height: 300px;
+    background: orange;
+}

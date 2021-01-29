@@ -57,9 +57,6 @@ function get_all_citas() {
     return $arr;
 }
 function get_own_citas() {
-    echo 'aaaaaaaaaaaaaaaaaaaa';
-    echo get_current_user_id();
-
     $arr = array();
     $arr[get_current_user_id()] = get_user_meta(get_current_user_id(), 'meta-citas-usuario');
     return $arr;

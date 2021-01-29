@@ -155,6 +155,7 @@ function portal_propietario_scripts() {
 	wp_style_add_data( 'portal_propietario-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'portal_propietario-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'portal_propietario-imgauto', get_template_directory_uri() . '/assets/js/img-perfil.js', array(), _S_VERSION, true );
 
 	wp_enqueue_style( 'portal_propietario-roboto-style', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', array(), _S_VERSION );
 
