@@ -9,6 +9,7 @@
  * @package portal_propietario
  */
 
+require_once "self/security.php";
 
 $inmueble = get_posts(array(
     'post_type' => 'inmueble',

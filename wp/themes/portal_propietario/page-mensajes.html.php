@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 
+require_once "self/security.php";
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/mensajes.css">';
 }
@@ -21,6 +22,9 @@ get_header();
 <main id="primary" class="site-main">
     <div class="main">
         <div class="chat">
+            <?php
+if (current_user_can("administrator")) {
+            ?>
             <div class="contactos">
                 <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
@@ -35,6 +39,11 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 }
                 ?>
             </div>
+            <?php
+} else {
+    $selected_user_id = wp_get_current_user()->ID;
+}
+            ?>
             <div class="mensajes-enviar">
                 <div class="mensajes">
 

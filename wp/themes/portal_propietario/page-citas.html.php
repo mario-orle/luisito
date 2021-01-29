@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 
+require_once "self/security.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
     $user = get_user_by('id', $_POST['usuario']);
     $data = array();

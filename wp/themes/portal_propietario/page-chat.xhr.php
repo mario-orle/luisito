@@ -7,6 +7,7 @@
  *
  * @package portal_propietario
  */
+require_once "self/security.php";
 if ($_GET['action'] == 'get_messages') {
     if (current_user_can("administrator")) {
         $messages = [];
