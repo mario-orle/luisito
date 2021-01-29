@@ -67,7 +67,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
         }
 
         cargaMensajes();
-        setTimeout(function() {
+        setInterval(function() {
             cargaMensajes();
         }, 5000);
     }, false);
