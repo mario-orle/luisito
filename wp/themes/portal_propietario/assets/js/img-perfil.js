@@ -1,10 +1,18 @@
 //TODO: replace with initials extraction logic.
 var initials = "MM";
-var colors = ["#007bff", "#6610f2", "#6f42c1", "#e83e8c", "#dc3545", "#28a745", "#20c997", "#17a2b8", "#6c757d", "#343a40", " #007bff", "#6c757d", "#343a40", "#007bff", "#6c757d", "#28a745", "#17a2b8", "#dc3545", "#343a40"];
 
-function creaImagen(initials, color) {
+function creaImagen(nombre) {
+    var colors = ["#007bff", "#6610f2", "#6f42c1", "#e83e8c", "#dc3545", "#28a745", "#20c997", "#17a2b8", "#6c757d", "#343a40", " #007bff", "#6c757d", "#343a40", "#007bff", "#6c757d", "#28a745", "#17a2b8", "#dc3545", "#343a40"];
 
-    // Create a rectangular canvas which will become th image.
+    var initials = 'XX';
+    if (nombre.trim().indexOf(" ") > -1) {
+        initials = nombre.split(' ')[0][0] + nombre.split(' ')[1][0]
+    } else if (nombre.trim().length > 1) {
+        initials = nombre.trim()[0] + nombre.trim()[1]
+
+    }
+    var color = colors[nombre.length % colors.length]
+        // Create a rectangular canvas which will become th image.
     var canvas = document.createElement("canvas");
     var context = canvas.getContext("2d");
     canvas.width = canvas.height = 100;
@@ -29,12 +37,11 @@ function creaImagen(initials, color) {
 
     return canvas.toDataURL();
 }
+window.creaImagen = creaImagen;
 document.body.onload = function() {
     var nombre = document.querySelector("#user-name-and-lastname").value;
-    var iniciales = nombre.split(' ')[0][0] + nombre.split(' ')[1][0];
-    if (!iniciales) return;
     var imgs = document.querySelectorAll("img.user-logo-auto");
     for (var i = 0; i < imgs.length; i++) {
-        imgs[i].src = creaImagen(iniciales.toUpperCase(), colors[nombre.length % colors.length]);
+        imgs[i].src = creaImagen(nombre);
     }
 }

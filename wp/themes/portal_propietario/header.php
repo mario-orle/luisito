@@ -35,6 +35,10 @@ $inmueble = get_posts(array(
   type="hidden" 
   value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?>" 
   id="user-name-and-lastname" />
+<input 
+  type="hidden" 
+  value="<?php echo get_current_user()->display_name; ?>" 
+  id="real-user-name-and-lastname" />
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">

@@ -110,6 +110,14 @@ function create_our_pages() {
             'page_template' => 'page-inmueble.xhr.php'
         ));
     }
+    if (!get_page_by_title('chat-xhr')) {
+        wp_insert_post(array(
+            'post_title' => 'chat-xhr',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-chat.xhr.php'
+        ));
+    }
 
 
     

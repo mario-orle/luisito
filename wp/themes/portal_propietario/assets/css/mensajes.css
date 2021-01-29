@@ -10,7 +10,7 @@
 }
 
 .chat .contactos {
-    width: calc(30% - 20px);;
+    width: 180px;
     padding: 10px;
     background: #1f761f;
     display: flex;
@@ -28,9 +28,11 @@
     background-color: #9999;
     margin-top: 10px;
     position: relative;
+    overflow: hidden;
 }
 
 .chat .contactos .contacto .contacto-unread {
+    display: none;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -44,51 +46,67 @@
 }
 
 .chat .contactos .contacto .contacto-img {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     margin: 15px;
 }
 
 .chat .mensajes-enviar {
-    width: calc(70% - 20px);
+    flex-grow: 2;
     margin: 10px;
     display: flex;
     flex-flow: column;
     height: 100%;
     justify-content: space-between;
-
 }
+
 .chat .mensajes-enviar .mensajes {
     min-height: 300px;
     height: 90%;
     background: white;
     display: flex;
-    flex-flow: column-reverse;
+    flex-flow: column;
+    overflow: auto;
 }
+
 .chat .mensajes-enviar .mensajes .mensaje {
-    padding: 5px;
+    padding: 5px 50px;
     background: white;
     display: flex;
     flex-flow: column;
+    align-items: flex-end;
 }
+
+.chat .mensajes-enviar .mensajes .mensaje.admin {
+    align-items: flex-start;
+}
+
 .chat .mensajes-enviar .mensajes .mensaje .author {
     display: flex;
     align-items: center;
+    flex-flow: row-reverse;
     margin: 5px;
 }
+
+.chat .mensajes-enviar .mensajes .mensaje.admin .author {
+    flex-flow: row;
+}
+
 .chat .mensajes-enviar .mensajes .mensaje .author .author-img {
     width: 20px;
     height: 20px;
-    margin-right: 5px;
+    margin: 0 5px;
 }
+
 .chat .mensajes-enviar .mensajes .mensaje .author .author-name {
-    font-size: 8px;
+    font-size: 12px;
 }
 
 .chat .mensajes-enviar .mensajes .mensaje .mensaje-txt {
     background: #dddd;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 20px;
+    min-width: 60%;
 }
 
 .chat .mensajes-enviar .enviar {
@@ -102,6 +120,7 @@
     width: 80%;
     height: 100%;
 }
+
 .chat .mensajes-enviar .enviar button {
     width: 20%;
     height: 100%;
