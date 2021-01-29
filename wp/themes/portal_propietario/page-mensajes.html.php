@@ -58,6 +58,9 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
         }
 
         cargaMensajes();
+        setTimeout(function() {
+            cargaMensajes();
+        }, 5000);
     }, false);
 
 var userId = <?php echo $selected_user_id ?>;

@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'user_login' => $username,
             'user_password' => $_POST['pwd'],
             'remember' => true
-        ), true);
+        ));
     
         if (is_wp_error($res)) {
             echo 'Contraseña incorrecta';
@@ -89,7 +89,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h1>MIRACASA</h1>
                 <p></p>
                 <section class="container">
-                    <button class="btn1" data-micromodal-trigger="modal-registro">Registrarse</button>
                     <button class="btn" data-micromodal-trigger="modal-login">Inicio</button>
                 </section>
             </div>
