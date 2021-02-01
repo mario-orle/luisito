@@ -69,7 +69,7 @@ th{
   /* checked mark aspect */
   [type="checkbox"]:not(:checked) + label:after,
   [type="checkbox"]:checked + label:after {
-    content:'\0032E1';
+    content:'\01F44E';
     position: absolute;
     top: 14PX;
     left: 1PX;
@@ -78,13 +78,16 @@ th{
     line-height: 0;
     -webkit-transition: all .2s;
         transition: all .2s;
+        background-color: red;
   }
 
   /* checked mark aspect changes */
+  
   [type="checkbox"]:not(:checked) + label:after {
-    opacity: 0;
-    -webkit-transform: scale(0) rotate(45deg);
-        transform: scale(0) rotate(45deg);
+    opacity: 1 ;
+    content: '\01F44D';
+    background-color: red;
+    
   }
 
   [type="checkbox"]:checked + label:after {
