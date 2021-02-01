@@ -3,14 +3,35 @@ font-family: Raleway,sans-serif;
 font-size: 16px;
 text-align: justify;
 line-height: 35px;
+
+}
+i{
+  color: rgb(92, 91, 91);
+}
+th{
+  background-color: orange;
+  border-radius: 5px;
 }
 .default th{
     width:500px;
-    height: 100px;
+    height: 40px;
     text-align: center;
 }
+
 .default td{
     text-align: center;
+}
+.alerta-asesor id{
+  color:orange;
+}
+.style-box{
+  background-color: white;
+  height: auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 black;
+  border-bottom: 4px solid orange;
+  border-radius:0px 0px 5px 5px;
+  
 }
 
 [type="checkbox"]:not(:checked),
