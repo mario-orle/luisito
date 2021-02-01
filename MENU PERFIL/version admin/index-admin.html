@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+  <link rel="stylesheet" href="index-admin.css">
+  <link rel="stylesheet" href="inicio-admin.css">
+
+
+
+  <title>INICIO</title>
+</head>
+
+<body>
+  <div id="desktop">
+    <div class="header">
+      <div class="right">
+        <div class="alerta-asesor">
+          <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
+        </div>
+        <div class="mensages">
+          <a id="mensajes" href="mensajes.html"><img src="../email.png"></a>
+        </div>
+        <div class="alertas">
+          <a id="alertas"><img src="../advertencia.png"></a>
+        </div>
+        <div class="usuario">
+          <a id="usuario" href="perfil2.html"><img src="../perfil.png"></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="menu">
+      <div class="logo"> </div>
+      <h2>PORTAL ADMINISTRADOR</h2>
+      <hr />
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
+      <hr />
+
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+
+      </button>
+      <div class="dropdown-container">
+        <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+        <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+        <a id="perfil" href="perfil2-admin.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+      </div>
+      <hr />
+    </div>
+
+    <div class="main">
+      <div class="style-box">
+        <h2>Resumen propietarios</h2>
+        <table class="default">
+          <tr>
+            <th>Usuario </th>
+            <th>E-mail </th>
+            <th>Dirección </th>
+            <th>Ofertas enviadas</th>
+            <th>Ofertas Recibidas</th>
+            <th>Citas</th>
+          </tr>
+          <tr>
+            <tH>antonio lopez </tH>
+            <td>antoniolope@gmail.com </td>
+            <td>C/Pescadores</td>
+            <td>1</td>
+            <td>1</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th>Miguel gutierrez</th>
+            <td>Miguelgutierrez@gmail.com</td>
+            <td>C/Marineros</td>
+            <td>0</td>
+            <td>0</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <th>Jose Luis martines</th>
+            <td>JoseLuismartines@gmail.com</td>
+            <td>C/Ampostas </td>
+            <td>2</td>
+            <td>1</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <th>Miguel hernandez</th>
+            <td>>Miguelhernandez@gmail.com </td>
+            <td>C/hermitaño</td>
+            <td>1</td>
+            <td>1</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <th>Javier sanchez</th>
+            <td>Javiersanchez@gmail.com </td>
+            <td>C/Garcia Noblejas </td>
+            <td>3</td>
+            <td>1</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <th>Gonzalo gonzalez</th>
+            <td>Gonzalogonzalez@gmail.com </td>
+            <td>C/Ascao </td>
+            <td>6</td>
+            <td>2</td>
+            <td>9</td>
+          </tr>
+          <tr>
+            <th>Arturo jimenez</th>
+            <td>Arturojimenez@gmail.com</td>
+            <td>C/Raimundo amador</td>
+            <td>5</td>
+            <td>3</td>
+            <td>11</td>
+          </tr>
+          <tr>
+            <th>Garrido garcia</th>
+            <td>Garridogarcia@gmail.com </td>
+            <td>C/Antonio bizarra </td>
+            <td>15</td>
+            <td>15</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <th>Ignacio gutierrez</th>
+            <td>Ignaciogutierrez@gmail.com </td>
+            <td>C/Enrique vamonde </td>
+            <td>9</td>
+            <td>7</td>
+            <td>15</td>
+          </tr>
+          <tr>
+            <th>Javier ayala</th>
+            <td>Javierayala@gmail.com </td>
+            <td>C/Arturo cano</td>
+            <td>2</td>
+            <td>2</td>
+            <td>6</td>
+          </tr>
+        </table>
+      </div>
+      <div class="index-sub">
+        <div class="Documentos-recibidos">
+          <div class="img-doc">
+            <img src="../docs.png" width="100%">
+          </div>
+          <div class="text-doc">
+            <h2>14</h2>
+            <p>Documentos a Revisar</p>
+          </div>
+        </div>
+        <div class="Documentos-recibidos">
+          <div class="img-doc">
+            <img src="../docs.png" width="100%">
+          </div>
+          <div class="text-doc">
+            <h2>14</h2>
+            <p>Documentos a Revisar</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+    <script src="menu-admin.js"></script>
+</body>
+
+</html>
