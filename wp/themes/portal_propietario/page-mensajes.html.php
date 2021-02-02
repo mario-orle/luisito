@@ -11,6 +11,8 @@
 require_once "self/security.php";
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/mensajes.css?cb=' . generate_random_string() . '">';
+    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>';
 }
 add_action('wp_head', 'myCss');
 $selected_user_id = 1;
@@ -24,7 +26,7 @@ get_header();
             <?php
 if (current_user_can("administrator")) {
             ?>
-            <div class="contactos">
+            <div class="contactos" data-simplebar>
                 <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                 ?>
@@ -44,8 +46,10 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 }
             ?>
             <div class="mensajes-enviar">
-                <div class="mensajes">
+                <div data-simplebar>
+                    <div class="mensajes">
 
+                    </div>
                 </div>
                 <div class="enviar">
                     <textarea id="msg"></textarea>
