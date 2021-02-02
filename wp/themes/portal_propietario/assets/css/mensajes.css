@@ -2,23 +2,23 @@
     width: 80%;
     min-width: 600px;
     display: flex;
+    user-select: none;
     margin: 0 auto;
     height: 500px;
-    border: 1px solid #ccc;
     padding: 20px;
-    background: #cccc;
-    user-select: none;
+    background: none;
+   
 }
 
 .chat .contactos {
-    width: 180px;
+    width: 270px;
+    height: calc(100% - 29px);
     padding: 10px;
-    background: white;
     display: flex;
     flex-flow: column-reverse;
-    height: calc(100% - 29px);
     overflow: auto;
-    margin: 10px;
+    background: white;
+   
 }
 
 .chat .contactos .contacto {
@@ -65,7 +65,7 @@
 
 .chat .mensajes-enviar {
     flex-grow: 2;
-    margin: 10px;
+    
     display: flex;
     flex-flow: column;
     height: 100%;
