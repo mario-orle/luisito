@@ -6,7 +6,9 @@
     margin: 0 auto;
     height: 500px;
     padding: 20px;
-    background: none;
+    background: transparent;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius:6px;
    
 }
 
@@ -17,33 +19,35 @@
     display: flex;
     flex-flow: column-reverse;
     overflow: auto;
-    background: white;
-   
+    color: black;
+    position: relative;
+    overflow: hidden;
+    background-color:rgb(240, 240, 240);
+    border-radius:6px;
+    border:1px solid white;
+    cursor:pointer;
+
+  
 }
 
 .chat .contactos .contacto {
     height: 80px;
     display: flex;
     align-items: center;
+    width: calc(100% - 48px);
     color: #fff;
-    background-color: #9999;
+    font-size: px;
+    background-color: rgba(184, 184, 184, 0.6);
     margin-top: 10px;
     position: relative;
     overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    box-shadow:inset 0px 1px 0px 0px #c4c4c4;
-  background:linear-gradient(to bottom, #f9f9f9 5%, white 100%);
-  background-color:white;
-  border-radius:6px;
-  border:1px solid white;
-  display:inline-block;
-  cursor:pointer;
-  color:#666666;
-  font-weight:bold;
-  padding:6px 24px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #ffffff;
+    box-shadow:inset 0px 1px 0px 0px #575757;
+    background:linear-gradient(to bottom, #d6d6d6 5%,#d6d6d6 100%);
+    background-color:white;
+    border-radius:6px;
+    border:1px solid black;
+    padding:6px 24px;
+ 
   
   
   }
@@ -59,7 +63,7 @@
   }
 
 .chat .contactos .contacto.selected {
-    border: 2px solid #000;
+    border: 2px solid grey;
 }
 
 .chat .contactos .contacto:hover {
@@ -104,6 +108,7 @@
     background: white;
     display: flex;
     flex-flow: column;
+    height: 450px;
 }
 
 .chat .mensajes-enviar .mensajes .mensaje {
@@ -154,21 +159,18 @@
 
 .chat .mensajes-enviar .enviar textarea {
     width: 80%;
-    height: 100%;
-    background:#eeeeee;
-    border: 2px solid orange;
-    border-radius: px;
+    height: 90%;
+    border-radius:6px;
+    border:1px solid grey;
 }
 
 .chat .mensajes-enviar .enviar button {
     width: 20%;
     height: 100%;
-    box-shadow:inset 0px 1px 0px 0px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	display:inline-block;
+    box-shadow: inset 0px 1px 0px 0px #c1c1c1;
+    background: linear-gradient(to bottom, #fcfcfc 5%, #d1d1d1 100%);
+    border-radius: 6px;
+    border: 1px solid gray;
 	cursor:pointer;
 	color:#333333;
 	font-family:Arial;
@@ -178,3 +180,4 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffee66;
 }
+
