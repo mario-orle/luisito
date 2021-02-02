@@ -10,10 +10,9 @@
 
 require_once "self/security.php";
 function myCss() {
-    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/mensajes.css?cb=' + generate_random_string() + '">';
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/mensajes.css?cb=' . generate_random_string() . '">';
 }
 add_action('wp_head', 'myCss');
-
 $selected_user_id = 1;
 
 get_header();
