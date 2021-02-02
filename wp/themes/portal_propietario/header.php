@@ -114,16 +114,6 @@ if (!current_user_can("administrator")) {
     </div>
     <hr />
 
-
-  <button id="gestiones" class="dropdown-btn">
-    <i class="fa fa-tasks"></i> GESTIONES
-
-  </button>
-  <div class="dropdown-container">
-    <a id="inmuebles" href="/inmuebles">INMUEBLES</a>
-    <a id="documentacion" href="/mis-documentos">DOCUMENTACIÓN</a>
-  </div>
-  <hr />
   <?php
 }
       ?>

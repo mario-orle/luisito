@@ -13,10 +13,10 @@
 .chat .contactos {
     width: 180px;
     padding: 10px;
-    background: #1f761f;
+    background: white;
     display: flex;
     flex-flow: column-reverse;
-    height: calc(100% - 20px);
+    height: calc(100% - 29px);
     overflow: auto;
     margin: 10px;
 }
