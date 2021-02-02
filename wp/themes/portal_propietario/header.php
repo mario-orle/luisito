@@ -64,6 +64,9 @@ $inmueble = get_posts(array(
     </div>
     <div class="menu">
       <div class="logo" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo.png'?>)"> </div>
+      <?php
+if (!current_user_can("administrator")) {
+      ?>
       <h2>PORTAL PROPIETARIO</h2>
       <hr />
       <span>Opciones generales</span>
@@ -88,6 +91,42 @@ $inmueble = get_posts(array(
         <a id="documentacion" href="/mis-documentos">DOCUMENTACIÓN</a>
       </div>
       <hr />
+      <?php
+} else {
+
+  ?>
+    <h2>PORTAL ADMINISTRADOR</h2>
+    <hr />
+    <span>Opciones generales</span>
+    <hr>
+    <a id="inicio" href="/inicio"><i class="fas fa-home"></i>INICIO</a>
+    <a id="mensajes" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
+    <hr />
+
+    <button id="gestiones" class="dropdown-btn">
+      <i class="fa fa-tasks"></i> GESTIONES
+
+    </button>
+    <div class="dropdown-container">
+      <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+      <a id="admin-usuarios" href="/usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+      <a id="perfil" href="/usuarios"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+    </div>
+    <hr />
+
+
+  <button id="gestiones" class="dropdown-btn">
+    <i class="fa fa-tasks"></i> GESTIONES
+
+  </button>
+  <div class="dropdown-container">
+    <a id="inmuebles" href="/inmuebles">INMUEBLES</a>
+    <a id="documentacion" href="/mis-documentos">DOCUMENTACIÓN</a>
+  </div>
+  <hr />
+  <?php
+}
+      ?>
     </div>
 
 	</header><!-- #masthead -->
