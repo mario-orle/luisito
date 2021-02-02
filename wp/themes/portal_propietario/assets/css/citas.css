@@ -7,7 +7,9 @@ h2 {
     text-align: center;
 }
 
-.gestor-citas {}
+.gestor-citas {
+    
+}
 
 .main-gestiones-calendar {
     margin-top: 30px;
@@ -21,18 +23,21 @@ h2 {
 }
 
 .citas-programadas {
-    background: white;
     color: black;
     background: white;
     width: 100%;
-    box-shadow: 0 4px 8px 0 black;
     height: 345px;
+    box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);
+    background: linear-gradient(to bottom, #ffffff 5%, rgb(189, 189, 189) 100%);
+    border-radius: 6px;
+    border-bottom: 5px solid rgb(0, 0, 0);
+    
 }
 
 .text-programadas {
     font-size: 13px;
     font-family: "roboto";
-    padding: 10px;
+    padding: 0px;
 }
 
 .text-programadas span {
@@ -204,6 +209,7 @@ table {
     background-color: #fff;
     height: 500px;
     padding: 20px;
+    box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.75);
 }
 
 .modal.modal-cita.is-open {

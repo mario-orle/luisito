@@ -35,17 +35,16 @@
     display: flex;
     align-items: center;
     width: calc(100% - 48px);
-    color: #fff;
-    font-size: px;
-    background-color: rgba(184, 184, 184, 0.6);
     margin-top: 10px;
     position: relative;
     overflow: hidden;
+    color:rgb(77, 77, 77);
+    font-size: 20px;
     box-shadow:inset 0px 1px 0px 0px #575757;
     background:linear-gradient(to bottom, #d6d6d6 5%,#d6d6d6 100%);
     background-color:white;
     border-radius:6px;
-    border:1px solid black;
+    border:1px solid white;
     padding:6px 24px;
  
   
@@ -63,12 +62,13 @@
   }
 
 .chat .contactos .contacto.selected {
-    border: 2px solid grey;
+    border: 2px solid orange;
 }
 
 .chat .contactos .contacto:hover {
-    background-color: #cccc;
-    color: #000;
+    background:linear-gradient(to bottom, #ffe8c4 5%, #fff8c2 100%);
+    background-color:#ffab23;
+    color: black;
 }
 
 .chat .contactos .contacto .contacto-unread {
@@ -180,4 +180,11 @@
 	text-decoration:none;
 	text-shadow:0px 1px 0px #ffee66;
 }
-
+.chat .mensajes-enviar .enviar button:hover {
+	background:linear-gradient(to bottom, #ffe8c4 5%, #fff8c2 100%);
+	background-color:#ffab23;
+}
+.chat .mensajes-enviar .enviar button:active {
+	position:relative;
+	top:1px;
+}
