@@ -1,19 +1,4 @@
-.index-sub{
-  display: flex;
-  width: 1130px;
-  height: 500px;
-  justify-content: space-between;
-}
-.stilo{
-  margin-top: 50px;
-  width: 250px;
-  height: 150px;
-  display: flex;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 black;
-  border-bottom: 4px solid blue;
-  border-radius:0px 0px 5px 5px;
-}
+
 .img-doc{
   margin-top: 40px;
   margin-left: 20px;
@@ -49,7 +34,6 @@ margin-right: 10px;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  flex-wrap: wrap;
   }
   .general h2{
     color: black;
@@ -70,64 +54,48 @@ margin-right: 10px;
   text-shadow:0px 1px 0px #ffffff;
   border-bottom: 5px solid orange;
   height: 250px;
+  width: 250px;
   }
   .general button:hover {
   background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
   background-color:#e9e9e9;
+  text-decoration:none;
   }
   .general button:active {
   position:relative;
   top:1px;
+  text-decoration:none;
   }
     
   .doc-pendientes{
-  padding: 10px;
-  background-color: white;
-  width: 260px;
-  border-bottom: 5px solid #0099ff;
-  border-radius: 6px;
-  text-align: center;
+
   }
   .doc-pendientes img{
-  width: 35%;
+  width: 40%;
   padding: 10px;
   margin-top: 10px;
   }
   .doc-revisar{
-  padding: 10px;
-  background-color: white;
-  width: 260px;
-  border-bottom: 5px solid #ff0000;
-  border-radius: 6px;
-  text-align: center;
+  
   }
   .doc-revisar img{
-  width: 35%;
+  width: 40%;
   padding: 10px;
   margin-top: 10px;    
   }
   .chat-pendientes{
-  padding: 10px;
-  background-color: white;
-  width: 260px;
-  border-bottom: 5px solid #0099ff;
-  border-radius: 6px;
-  text-align: center;
+
   }
   .chat-pendientes img{
-  width: 35%;
+  width: 40%;
   padding: 10px;
   margin-top: 10px;
   }
   .citas{
-  padding: 0;
-  width:260px;
-  border-radius: 6px;
-  text-align: center;
-  height: 246px;
+ 
   }
   .citas img{
-  width: 35%;
+  width: 40%;
   padding: 10px;
   margin-top: 15px;   
   margin-bottom: 0;
