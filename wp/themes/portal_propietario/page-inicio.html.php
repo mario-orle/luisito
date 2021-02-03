@@ -10,7 +10,12 @@
 
 require_once "self/security.php";
 function myCss() {
-    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/inicio.css?cb=' . generate_random_string() . '">';
+    if (current_user_can('administrator')){
+        echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/inicio-admin.css?cb=' . generate_random_string() . '">';
+    } else {
+        echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/inicio.css?cb=' . generate_random_string() . '">';
+    }
+    
 }
 add_action('wp_head', 'myCss');
 
@@ -19,6 +24,9 @@ get_header();
 ?>
 
 <main id="primary" class="site-main">
+    <?php
+    if (!current_user_can('administrator')){
+        ?>
     <div class="main">
         <div class="main-container">
             <h2>Estadisticas Generales</h2>
@@ -62,7 +70,6 @@ get_header();
                     </div>
                 </div>
             </div>
-        
 
         <div class="main-container-sub">
             <h2>Evolución de la Vivienda</h2>
@@ -87,52 +94,52 @@ get_header();
             </div>
         </div>
     </div>
-    <!-- menu admin -->
-    <div class="main">
-                <div class="main-container">
-                    <h2>Estadisticas Generales</h2>
-                        <br>
-                        <div class="estadisticas">
-                                <div class="doc-pendientes">
-                                    <button>
-                                    <a href="#">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                                    <h2>Doc Pendientes</h2>
-                                        <p>7 Documentos</p>
-                                        </a>
-                                    </button>
-                                </div>
-                                <div class="doc-revisar">
-                                    <button>
-                                    <a href="#">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                                    <h2>Doc Revisar</h2>
-                                    <p>2 Documentos</p>
-                                    </a>
-                                    </button>
-                                </div>
-                                <div class="chat-pendientes">
-                                    <button>
-                                    <a href="#">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                                    <h2>Chat Pendientes</h2>
-                                    <p>4 Mensajes sin leer</p>
-                                    </a>
-                                    </button>
-                                </div>
-                                <div class="citas">
-                                    <button>
-                                    <a href="#">
-                                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                                    <h2>Citas Sin Actualizar</h2>
-                                    <p>6 Citas pendientes</p>
-                                    </a>
-                                    </button>
-                                </div>
-                            </div>
-                        </diV>
-                     </div>
-            <!-- menu arriba admin -->
+
+    <?php
+    } else {
+        ?>
+   <div class="main">
+      <div class="main-container">
+        <h2>Resumen de Actuación</h2>
+        <div class="general">
+          <div class="doc-pendientes">
+            <button>
+              <a href="#">
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
+              <h2>Doc Pendientes</h2>
+                <p>7 Documentos</p>
+            </button>
+          </div>
+          <div class="doc-revisar">
+            <button>
+              <a href="#">
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
+              <h2>Doc Revisar</h2>
+              <p>2 Documentos</p>
+            </button>
+          </div>
+          <div class="chat-pendientes">
+            <button>
+              <a href="#">
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
+              <h2>Chat Pendientes</h2>
+              <p>4 Mensajes sin leer</p>
+            </button>
+          </div>
+          <div class="citas">
+            <button>
+              <a href="#">
+                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
+              <h2>Citas Sin Actualizar</h2>
+              <p>6 Citas pendientes</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <?php 
+        }
+        ?>
 </main><!-- #main -->
 
 <?php
