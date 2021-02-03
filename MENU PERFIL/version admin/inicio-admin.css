@@ -22,12 +22,10 @@ margin-right: 10px;
   width: 100%;
   
   } 
-  .main-container p{
-  text-align: center;
-  }
+ 
   .main-container h2{
   color: black;
-  text-align: left;  
+  text-align: left; 
   }
   .general{
   display: flex;
@@ -52,7 +50,6 @@ margin-right: 10px;
   padding:6px 24px;
   text-decoration:none;
   text-shadow:0px 1px 0px #ffffff;
-  border-bottom: 5px solid orange;
   height: 250px;
   width: 250px;
   }
@@ -66,24 +63,30 @@ margin-right: 10px;
   top:1px;
   text-decoration:none;
   }
-    
- 
   .doc-pendientes img{
   width: 40%;
   padding: 10px;
   margin-top: 10px;
   }
- 
+  .doc-pendientes button{
+  border-bottom: 4px solid orange;
+  }
   .doc-revisar img{
   width: 40%;
   padding: 10px;
   margin-top: 10px;    
+  }
+  .doc-revisar button{
+    border-bottom: 4px solid yellow;
   }
 
   .chat-pendientes img{
   width: 40%;
   padding: 10px;
   margin-top: 10px;
+  }
+  .chat-pendientes button{
+    border-bottom: 4px solid red;
   }
 
   .citas img{
@@ -92,6 +95,10 @@ margin-right: 10px;
   margin-top: 15px;   
   margin-bottom: 0;
   }  
+
+  .citas button{
+    border-bottom: 4px solid blue;
+  }
 
 
   

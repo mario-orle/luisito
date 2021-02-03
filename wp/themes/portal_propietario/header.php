@@ -111,6 +111,7 @@ if (!current_user_can("administrator")) {
       <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
       <a id="admin-usuarios" href="/usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
       <a id="perfil" href="/perfil"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+      <a id="doc" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
     </div>
     <hr />
 

@@ -1,10 +1,11 @@
 .main-container{  
 display: inline;
-
 }
-
 .main-container p{
   text-align: center;
+  color: rgb(163, 163, 163);
+  text-decoration: none;
+ 
 }
 .main-container h2{
   color: black;
@@ -16,67 +17,83 @@ display: inline;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-
-  
 }
-.visualizaciones{
-  padding: 10px;
-  background-color: white;
-  width: 250px;
-  border-bottom: 5px solid #0099ff;
-  border-radius: 6px;
+.estadisticas h2{
+  color: black;
   text-align: center;
-  box-shadow: 0 4px 8px 0 black;
+  text-decoration: none;
 }
+.estadisticas button{
+  box-shadow:inset 0px 1px 0px 0px #c4c4c4;
+  background:linear-gradient(to bottom, #f9f9f9 5%, white 100%);
+  background-color:white;
+  border-radius:6px;
+  border:1px solid white;
+  display:inline-block;
+  cursor:pointer;
+  font-weight:bold;
+  padding:6px 24px;
+  text-decoration:none !important;
+  text-shadow:0px 1px 0px #ffffff;
+  height: 250px;
+  width: 250px;
+}
+.estadisticas button:hover {
+  background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+  background-color:#e9e9e9;
+}
+.estadisticas button:active {
+  position:relative;
+  top:1px;
+}
+
 .visualizaciones img{
   width: 30%;
   padding: 10px;
   margin-top: 10px;
 }
-.contacto-email{
-  padding: 10px;
-  background-color: white;
-  width: 250px;
-  border-bottom: 5px solid #ff0000;
-  border-radius: 6px;
-  text-align: center;
+.visualizaciones button{
+  border-bottom: 5px solid orange;
   box-shadow: 0 4px 8px 0 black;
 }
+
 .contacto-email img{
   width: 30%;
   padding: 10px;
   margin-top: 10px;
-  
 }
-.calendario{
-  padding: 10px;
-  background-color: white;
-  width: 250px;
-  border-bottom: 5px solid #fffb00;
-  border-radius: 6px;
-  text-align: center;
+.contacto-email button{
+  border-bottom: 5px solid yellow;
   box-shadow: 0 4px 8px 0 black;
 }
+
 .calendario img{
   width: 30%;
   padding: 10px;
   margin-top: 10px;
-  
 }
-.porcentaje-perfil{
-  padding: 10px;
-  background-color: white;
-  width: 250px;
-  border-bottom: 5px solid #ff7b00;
-  border-radius: 6px;
-  text-align: center;
+.calendario button{
+  border-bottom: 5px solid red;
   box-shadow: 0 4px 8px 0 black;
 }
+
 .porcentaje-perfil img{
   width: 34%;
-  padding: 10px;
-  
+  padding: 10px; 
 }
+.porcentaje-perfil button{
+  border-bottom: 5px solid blue;
+  box-shadow: 0 4px 8px 0 black;
+}
+.citas img{
+  width: 34%;
+  padding: 10px; 
+}
+.citas button{
+  border-bottom: 5px solid blue;
+  box-shadow: 0 4px 8px 0 black;
+}
+
 
 .main-container-sub p{
 text-align: center;
@@ -92,7 +109,6 @@ justify-content: space-around;
 align-items: center;
 width: 100%;
 }
-
 .tipos-precio{
 display: flex;
 flex-flow: column;

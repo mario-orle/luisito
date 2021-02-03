@@ -22,37 +22,48 @@ get_header();
     <div class="main">
         <div class="main-container">
             <h2>Estadisticas Generales</h2>
-
-            <br>
-            <div class="estadisticas">
-                <div class="visualizaciones">
-
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
-                    <h1>3</h1>
-                    <p>Ofertas Recibidas</p>
-                </div>
-                <div class="contacto-email">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
-                    <h1>5</h1>
-                    <p>Mensajes Sin Leer</p>
-
-                    
-
-                </div>
-                <div class="calendario">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                    <h1>3</h1>
-                    <p>Citas por Confirmar</p>
-                </div>
-                <div class="porcentaje-perfil">
-
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
-                    <h1>6</h1>
-                    <p>Documento Requeridos</p>
-
+                <br>
+                <div class="estadisticas">
+                    <div class="visualizaciones">
+                        <button>
+                        <a href="#"></a>
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
+                        <h2>Ofertas Recibidas</h2>
+                        <p>3 Ofertas</p>
+                        </button>
+                    </div>
+                    <div class="contacto-email">
+                        <button>
+                        <a href="#"></a>
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
+                        <h2>Mensajes sin Leer</h2>
+                        <p>8 Mensajes Sin Leer</p>
+                        </button>
+                    </div>
+                    <div class="calendario">
+                        <button>
+                        <a href="#"></a>
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
+                        <h2>Citas por Confirmar</h2>
+                        <p>3 Citas sin Confirmar</p>
+                        </button>
+                    </div>
+                    <div class="citas">
+                        <button>
+                        <a href="citas.html"></a>
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
+                        <h2>Doc Requeridos</h2>
+                        <p>3 Doc Requeridos</p>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        
+
+
+
+
+
         <div class="main-container-sub">
             <h2>Evolución de la Vivienda</h2>
 
