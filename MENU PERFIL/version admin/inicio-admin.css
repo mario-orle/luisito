@@ -24,8 +24,11 @@ margin-right: 10px;
   } 
  
   .main-container h2{
-  color: black;
+  color: rgb(254, 152, 0);;
   text-align: left; 
+  }
+  .main-container hr{
+    color: rgb(255, 255, 255);
   }
   .general{
   display: flex;
@@ -63,6 +66,7 @@ margin-right: 10px;
   top:1px;
   text-decoration:none;
   }
+  
   .doc-pendientes img{
   width: 40%;
   padding: 10px;
@@ -70,7 +74,9 @@ margin-right: 10px;
   }
   .doc-pendientes button{
   border-bottom: 4px solid orange;
+  box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   }
+  
   .doc-revisar img{
   width: 40%;
   padding: 10px;
@@ -78,8 +84,9 @@ margin-right: 10px;
   }
   .doc-revisar button{
     border-bottom: 4px solid yellow;
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   }
-
+ 
   .chat-pendientes img{
   width: 40%;
   padding: 10px;
@@ -87,8 +94,9 @@ margin-right: 10px;
   }
   .chat-pendientes button{
     border-bottom: 4px solid red;
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   }
-
+ 
   .citas img{
   width: 40%;
   padding: 10px;
@@ -98,6 +106,7 @@ margin-right: 10px;
 
   .citas button{
     border-bottom: 4px solid blue;
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
   }
 
 

@@ -2,7 +2,7 @@
 .perfil-asesor{
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    width: 1200px;
 }
 .asesor-admin{
     background-color: white;
@@ -14,49 +14,13 @@
 .info-asesor{
     display: flex;
     justify-content: space-around;
-    width: 700px;
-    max-width: 700px;
-}
-.datos-asesor{
-   width: 280px;
-   margin-top: 15px;
-}
-.datos-asesor h2{
-    color: orange;
-    text-align: left;
-    
+    width: 580px;
 }
 .img-asesor{
     width: 240px;
     margin-top: 45px;
 }
 
-.botons {
-	box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	background:linear-gradient(to bottom, #c2c2c2 5%, #b9b9b9 100%);
-	background-color:orange;
-	border-radius:6px;
-	border:1px solid #d2e5f8;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	text-decoration:none;
-  width: 150px;
-  height: 20px;
-  margin-top: 15px;
-  
-}
-.botons:hover {
-	background:linear-gradient(to bottom, #ffdf85 5%, #ffc760 100%);
-	background-color:#80b5ea;
-}
-.botons:active {
-	position:relative;
-	top:1px;
-}
 .new-asesor img{
 width: 200px;
 margin-top: 20px;
@@ -86,3 +50,66 @@ margin-top: 20px;
   .new-asesor a:visited{
     text-decoration: none;
   }
+ 
+
+  .main-formulario{
+    display: flex;
+    flex-flow: column;
+    
+  }
+  .main-formulario h2{
+    text-align: left;
+    color: #f90;
+  }
+  .formulario{
+    font-size: 16px;
+    width: 200px;
+    margin-bottom: 10px; 
+    position: relative;   
+    }    
+    .formulario span{
+    padding: 10px;
+    color: grey;
+    }
+    label{
+    font-size:16px;
+    position:absolute;
+    width: 100%;
+    margin:auto;
+    top:20px;
+    z-index: 10;
+    }
+    .formulario input:focus{
+    width:350px;
+    height:60px;
+    transition: all linear 0.8s;
+    }
+    .formulario input:focus + label{
+    font-size: 14px;
+    transition:all 0.8s;
+    }
+    .formulario input{
+    width: 250px;
+    height: 20px;
+    padding: 15px;
+    outline: none;
+    border:none;
+    background: transparent;
+    border-bottom: rgb(199, 199, 199) solid 3px;
+    font-size: 18px;
+    }
+    .formulario input:not(:placeholder-shown) + label{
+    font-size: 12px;
+    }
+    .formulario input:not(:placeholder-shown){
+    width:350px;
+    height:40px;
+    padding: 40px 0 0 10px;
+    }
+    .formulario input:focus + label > span{
+    color:#f90;
+    }
+    .caracteristicas{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
