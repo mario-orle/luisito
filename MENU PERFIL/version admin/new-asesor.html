@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+  <link rel="stylesheet" href="index-admin.css">
+  <link rel="stylesheet" href="new-asesor.css">
+  <title>PERFIL</title>
+</head>
+
+<body>
+  <div id="desktop">
+    <div class="header">
+      <div class="right">
+        <div class="alerta-asesor">
+          <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
+        </div>
+        <div class="mensages">
+          <a id="mensajes" href="mensajes.html"><img src="../email.png"></a>
+        </div>
+        <div class="alertas">
+          <a id="alertas"><img src="../advertencia.png"></a>
+        </div>
+        <div class="usuario">
+          <a id="usuario" href="perfil2.html"><img src="../perfil.png"></a>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="menu">
+      <div class="logo"> </div>
+      <h2>PORTAL ADMINISTRADOR</h2>
+      <hr />
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
+      <hr />
+
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+
+      </button>
+      <div class="dropdown-container">
+        <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+        <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+        <a id="perfil" href="gestiones-adminasesor.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+        <a id="doc" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
+      </div>
+      <hr />
+    </div>
+    <div class="main">
+      <form id="regForm" action="perfil2.html">
+        <h1>Perfil:</h1>
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">Identificación Asesor:
+          <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="nombre"></p>
+          <p><input placeholder="Usuario..." oninput="this.className = ''" name="Usuario"></p>
+          <p><input placeholder="E-mail..." oninput="this.className = ''" name="Email"></p>
+          <p><input placeholder="Contraseña..." oninput="this.className = ''" name="Contraseña"></p>
+        </div>
+      
+        <div class="tab">Información del Asesor:
+          <p><input placeholder="Puesto..." oninput="this.className = ''" name="Puesto"></p>
+          <p><input placeholder="Telefono..." oninput="this.className = ''" name="Telefono"></p>
+          <p><input placeholder="Disponibilidad Horaria..." oninput="this.className = ''" name="Disponibilidad"></p>
+        </div>
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+          </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </form>
+    </div>
+    <script src="new-asesor.js"></script>
+    <script src="menu.js"></script>
+</body>
+
+</html>

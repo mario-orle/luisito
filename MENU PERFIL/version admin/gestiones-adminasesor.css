@@ -1,0 +1,88 @@
+
+.perfil-asesor{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.asesor-admin{
+    background-color: white;
+    width: 750px;
+    border-radius: 5px;
+    border-bottom: 3px orange solid;
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+}
+.info-asesor{
+    display: flex;
+    justify-content: space-around;
+    width: 700px;
+    max-width: 700px;
+}
+.datos-asesor{
+   width: 280px;
+   margin-top: 15px;
+}
+.datos-asesor h2{
+    color: orange;
+    text-align: left;
+    
+}
+.img-asesor{
+    width: 240px;
+    margin-top: 45px;
+}
+
+.botons {
+	box-shadow:inset 0px 1px 0px 0px #dcecfb;
+	background:linear-gradient(to bottom, #c2c2c2 5%, #b9b9b9 100%);
+	background-color:orange;
+	border-radius:6px;
+	border:1px solid #d2e5f8;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+  width: 150px;
+  height: 20px;
+  margin-top: 15px;
+  
+}
+.botons:hover {
+	background:linear-gradient(to bottom, #ffdf85 5%, #ffc760 100%);
+	background-color:#80b5ea;
+}
+.botons:active {
+	position:relative;
+	top:1px;
+}
+.new-asesor img{
+width: 200px;
+margin-top: 20px;
+}
+.new-asesor button{
+    background-color: white;
+    width: 350px;
+    height: 400px;
+    border-radius: 5px;
+    border-bottom: 3px orange solid;
+    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
+}
+.new-asesor h2{
+    color: black;
+}
+.new-asesor button:hover{
+    transition: 0.4s;
+    background:rgba(255, 221, 159, 0.555);
+    cursor: pointer;
+}
+.new-asesor a:active{
+    text-decoration: none;
+  }
+  .new-asesor a:link{
+    text-decoration: none;
+  }
+  .new-asesor a:visited{
+    text-decoration: none;
+  }
