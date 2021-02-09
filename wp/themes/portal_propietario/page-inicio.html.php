@@ -99,37 +99,48 @@ get_header();
     } else {
         ?>
    <div class="main">
-      <div class="main-container">
+   <div class="main-container">
+        <div class="texto-cabecera">
         <h2>Resumen de Actuación</h2>
+      <select class="select">
+        <option>Selecciona Cliente</option>
+        <option>Ramon Garcia</option>
+        <option>Artiro Perez</option>
+        <option>Joaquin Hermida</option>
+        <option>Etxenique Uzurriagueta</option> 
+        <option>Omar Abdul Sahan</option>
+      </select>
+        </div>
+        <hr />
         <div class="general">
           <div class="doc-pendientes">
             <button>
-              <a href="#">
-                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
+              <a href="admin-documentos.html"></a>
+              <img src="docs.png" width="100%">
               <h2>Doc Pendientes</h2>
-                <p>7 Documentos</p>
+              <p>7 Documentos</p>
             </button>
           </div>
           <div class="doc-revisar">
             <button>
-              <a href="#">
-                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
+              <a href="admin-documentos.html"></a>
+              <img src="../docs.png" width="100%">
               <h2>Doc Revisar</h2>
               <p>2 Documentos</p>
             </button>
           </div>
           <div class="chat-pendientes">
             <button>
-              <a href="#">
-                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
+              <a href="mensajes-admin.html"></a>
+              <img src="../email2.png" width="100%">
               <h2>Chat Pendientes</h2>
               <p>4 Mensajes sin leer</p>
             </button>
           </div>
           <div class="citas">
             <button>
-              <a href="#">
-                <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
+              <a href="citas-admin.html"></a>
+              <img src="../cita.png" width="100%">
               <h2>Citas Sin Actualizar</h2>
               <p>6 Citas pendientes</p>
             </button>
