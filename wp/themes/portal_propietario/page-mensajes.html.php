@@ -39,56 +39,6 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <div class="contacto-name"><?php echo $user->display_name; ?></div>
                     <div class="contacto-unread"></div>
                 </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
-                    <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
-                    <div class="contacto-name"><?php echo $user->display_name; ?></div>
-                    <div class="contacto-unread"></div>
-                </div>
                 <?php
         $selected_user_id = $user->ID;
     }
