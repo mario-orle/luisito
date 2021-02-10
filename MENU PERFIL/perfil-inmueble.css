@@ -6,6 +6,9 @@
     width: 330px;
     background-color: #8a9597;
     padding: 20px;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border-bottom: rgb(216, 216, 216) 3px solid;
+    border-radius: 3px;
    
   }
   .colum-left p{
@@ -24,6 +27,9 @@
     width: 500px;
     margin-right: 150px;
     height: 870PX;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border-bottom: orange 3px solid;
+    border-radius: 3px;
   }
 
   .img-home {
