@@ -68,6 +68,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
       if (current_user_can('administrator') && !empty($_GET['user'])) {
         update_post_meta($inmueble_id, 'meta-gestor-asignado', get_current_user_id());
       }
+      $userdata = array(
+        'ID'           => $user_id,
+        'display_name' => $_POST['inmueble-owner-name'] . ' ' . $_POST['inmueble-owner-lastname'] . ' ' . $_POST['inmueble-owner-lastname2'],
+      );
+      wp_update_user( $userdata );
     }
     
     require('page-perfil2.html.php');

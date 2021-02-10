@@ -44,4 +44,9 @@ document.body.onload = function() {
     for (var i = 0; i < imgs.length; i++) {
         imgs[i].src = creaImagen(nombre);
     }
+    var realnombre = document.querySelector("#real-user-name-and-lastname").value;
+    var realimgs = document.querySelectorAll("img.real-user-logo-auto");
+    for (var i = 0; i < realimgs.length; i++) {
+        realimgs[i].src = creaImagen(realnombre);
+    }
 }
