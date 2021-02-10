@@ -12,7 +12,7 @@ if ($_GET['action'] == 'get_messages') {
     if (current_user_can("administrator")) {
         $messages = [];
         foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-            if (get_user_meta($user->ID, 'meta-gestor-asignado', true) === get_current_user_id()) {
+            if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
                 $messages[$user->ID] = get_user_meta($user->ID, 'meta-messages-chat');
             }
         }
