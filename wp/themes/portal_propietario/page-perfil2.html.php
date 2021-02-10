@@ -241,6 +241,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>" class="dropzone" id="dropzone"></form>
                 </div>
                 <div class="fotos">
+                    <div class="card-scroller">
+
                     <?php
 
                     $photos = get_post_meta($inmueble->ID, 'meta-photos-inmueble');
@@ -255,6 +257,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <?php
                     }
                     ?>
+                    </div>
                 </div>
             </div>
         </div>
