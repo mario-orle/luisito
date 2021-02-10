@@ -101,39 +101,6 @@ get_header();
 
     
     <div class="main">
-
-    <?php
-if (current_user_can('administrator')) {
-    ?>
-    <div class="admin-perfil">
-      <h4>Eres administrador, si rellenas el formulario, crearás un nuevo usuario e irás a su perfil, o podrás crearlo si aún no lo tiene.</h4>
-
-      <p>Si quieres ver el perfil de un usuario creado, usa este selector</p>
-      <select class="js-choice" onchange="window.location.href = '/perfil?user=' + this.value">
-        <option value=""></option>
-
-      <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-  if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
-    if ( $_GET['user'] == $user->ID) {
-
-      ?>
-        <option selected value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
-      <?php
-    } else {
-      ?>
-          <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
-      <?php
-    }
-  }
-}
-
-      ?>
-      </select>
-    </div>
-    <?php
-}
-    ?>
     <form id="regForm" method="POST">
         <h1>Perfil:</h1>
         <!-- One "tab" for each step in the form: -->

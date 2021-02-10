@@ -29,140 +29,30 @@ get_header();
                         <th>Estado Documentación </th>
                         <th>Gestionar</th>
                     </tr>
+                    <?php
+foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+                    ?>
                     <tr>
-                        <td>antonio lopez </td>
-                        <td>antoniolope@gmail.com </td>
+                        <td><?php echo $user_of_admin->display_name; ?></td>
+                        <td><?php echo $user_of_admin->user_email; ?></td>
                         <td>C/Pescadores</td>
                         <td>
                             <input type="checkbox" id="test1">
                             <label for="test1"></label>
                         </td>
                         <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
+                            <a id="Archivo" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
+                            <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
+                            <a id="chat" href="/mensajes?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-comments"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Miguel gutierrez</td>
-                        <td>Miguelgutierrez@gmail.com</td>
-                        <td>C/Marineros</td>
-                        <td>
-                            <input type="checkbox" id="test2">
-                            <label for="test2"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Jose Luis martines</td>
-                        <td>JoseLuismartines@gmail.com</td>
-                        <td>C/Ampostas </td>
-                        <td>
-                            <input type="checkbox" id="test3">
-                            <label for="test3"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Miguel hernandez</td>
-                        <td>&gt;Miguelhernandez@gmail.com </td>
-                        <td>C/hermitaño</td>
-                        <td> <input type="checkbox" id="test4">
-                            <label for="test4"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Javier sanchez</td>
-                        <td>Javiersanchez@gmail.com </td>
-                        <td>C/Garcia Noblejas </td>
-                        <td>
-                            <input type="checkbox" id="test5">
-                            <label for="test5"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gonzalo gonzalez</td>
-                        <td>Gonzalogonzalez@gmail.com </td>
-                        <td>C/Ascao </td>
-                        <td> <input type="checkbox" id="test6">
-                            <label for="test6"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Arturo jimenez</td>
-                        <td>Arturojimenez@gmail.com</td>
-                        <td>C/Raimundo amador</td>
-                        <td> <input type="checkbox" id="test7">
-                            <label for="test7"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Garrido garcia</td>
-                        <td>Garridogarcia@gmail.com </td>
-                        <td>C/Antonio bizarra </td>
-                        <td> <input type="checkbox" id="test8">
-                            <label for="test8"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Ignacio gutierrez</td>
-                        <td>Ignaciogutierrez@gmail.com </td>
-                        <td>C/Enrique vamonde </td>
-                        <td> <input type="checkbox" id="test9">
-                            <label for="test9"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Javier ayala</td>
-                        <td>Javierayala@gmail.com </td>
-                        <td>C/Arturo cano</td>
-                        <td> <input type="checkbox" id="test10">
-                            <label for="test10"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="usuarios-admin.html"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="usuarios-admin.html"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="mensajes-admin.html"><i class="fas fa-comments"></i></a>
-                        </td>
-                    </tr>
+
+                    <?php
+
+    }
+}
+                    ?>
                 </tbody>
             </table>
         </div>
