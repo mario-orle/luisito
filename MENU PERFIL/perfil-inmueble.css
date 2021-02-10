@@ -24,8 +24,8 @@
     background-color: white;
     padding: 20px;
     margin-left: 10px;
-    width: 500px;
-    margin-right: 150px;
+    width: 535px;
+    margin-right: 90px;
     height: 870PX;
     box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
     border-bottom: orange 3px solid;
@@ -212,3 +212,4 @@ label {
     .botons:active {
     position:relative;
     top:1px;
+    }
