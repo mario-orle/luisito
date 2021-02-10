@@ -59,7 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
       ));
   
       foreach ($_POST as $key => $value) {
+        if (strpos($key, 'inmueble-owner') === 0) {
+          update_user_meta($user_id, 'meta-' . $key, $value);
+        } else {
           update_post_meta($inmueble_id, 'meta-' . $key, $value);
+        }
       }
       if (current_user_can('administrator') && !empty($_GET['user'])) {
         update_post_meta($inmueble_id, 'meta-gestor-asignado', get_current_user_id());
@@ -212,7 +216,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
   for (var i = 0; i < choicesObjs.length; i++) {
     choices.push(new Choices(choicesObjs[i], {
       itemSelectText: 'Click para seleccionar',
-      searchEnabled: false
+      searchEnabled: false,
+      shouldSort: false
     }));
   }
   
