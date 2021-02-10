@@ -8,14 +8,14 @@ async function taka() {
         resources: 'usable',
     };
 
-    var allFiles = fs.readdirSync(process.cwd() + "/");
+    var allFiles = fs.readdirSync(process.cwd() + "/version\ admin/");
 
     var allHTML = allFiles.filter(f => f.endsWith(".html"));
 
     for (let i = 0; i < allHTML.length; i++) {
         const htmlFile = allHTML[i];
 
-        const dom = await JSDOM.fromFile(process.cwd() + '/' + htmlFile, options);
+        const dom = await JSDOM.fromFile(process.cwd() + '/version\ admin/' + htmlFile, options);
 
         const contentDiv = dom.window.document.querySelector("DIV.main");
 

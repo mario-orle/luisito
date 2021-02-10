@@ -118,6 +118,41 @@ function create_our_pages() {
             'page_template' => 'page-chat.xhr.php'
         ));
     }
+    if (!get_page_by_title('admin-doc')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-doc',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-admin-doc.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('admin-asesor')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-asesor',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-admin-asesor.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('admin-usuarios')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-usuarios',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-admin-usuarios.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('new-asesor')) {
+        wp_insert_post(array(
+            'post_title' => 'new-asesor',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-new-asesor.html.php'
+        ));
+    }
 
 
     
