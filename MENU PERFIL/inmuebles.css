@@ -1,17 +1,32 @@
 .card-wrapper{
   width: 24%;
-  margin-top: 30px;
   padding: 10px;
-  
+ 
 }
-.card {
-  box-shadow: 0 4px 8px 0 black;
-  width: 100%;
-  font-size: 14px;
-  background-color:#434b4d;
-  color:aliceblue ;
+.card-wrapper img{
+  margin-top: 8px;
+  border-radius: 5px;
 }
-.card:hover {
+
+.card-wrapper button{
+  background-color: #434b4d;
+  box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+}
+
+.card-wrapper h4, p{
+  color: white;
+}
+.card-wrapper p{
+  font-style: italic
+}
+.card-wrapper h3{
+  color: orange;
+
+}
+
+.card-wrapper button:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -25,4 +40,13 @@
   padding: 20px;
   display: flex;
   font-family: "roboto ";
+}
+.card-wrapper button a:active{
+  text-decoration: none;
+}
+.card-wrapper button a:link{
+  text-decoration: none;
+}
+.card-wrapper button a:visited{
+  text-decoration: none;
 }
