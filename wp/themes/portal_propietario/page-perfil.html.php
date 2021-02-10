@@ -69,6 +69,13 @@ function myCss() {
     //echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css">';
     echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
+
+    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker.min.css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/datepicker-full.min.js"></script>';
+    echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/locales/es.js"></script>';
+    echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
+
+    
 }
 add_action('wp_head', 'myCss');
 
@@ -130,11 +137,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
         <div class="tab">Contacto:
           <p><input placeholder="E-mail..." type="email" oninput="this.className = ''" name="inmueble-owner-email"></p>
           <p><input placeholder="Telefono..." type="tel" oninput="this.className = ''" name="inmueble-owner-phone"></p>
-        </div>
-        <div class="tab">Fecha de Nacimiento:
-          <p><input placeholder="Dia" oninput="this.className = ''" name="inmueble-owner-birth-day" type="number"  min="1" max="31"></p>
-          <p><input placeholder="Mes" oninput="this.className = ''" name="inmueble-owner-birth-month" type="number"  min="1" max="12"></p>
-          <p><input placeholder="Año" oninput="this.className = ''" name="inmueble-owner-birth-year" type="number"  min="1950" max="2020"></p>
+          <p><input id="datepicker" placeholder="Fecha de nacimiento..." oninput="this.className = ''"></p>
+          <p><input type="hidden" name="inmueble-owner-birth-date"></p>
         </div>
         <div class="tab">Localización Inmueble:
           <p><input placeholder="Provincia..." oninput="this.className = ''" name="inmueble-provincia"></p>
@@ -188,13 +192,13 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
-          <span class="step"></span>
         </div>
       </form>
     </div>
 </main><!-- #main -->
 <script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/perfil.js'; ?>"></script>
 <script>
+  moment.locale("es");
   var choicesObjs = document.querySelectorAll('.js-choice');
   var choices = [];
   for (var i = 0; i < choicesObjs.length; i++) {
@@ -203,6 +207,24 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
       searchEnabled: false
     }));
   }
+  
+  var elem = document.querySelector('input#datepicker');
+  var datepicker = new Datepicker(elem, {
+    autohide: true,
+    language: 'es',
+    maxDate: new Date(new Date().getFullYear() - 18, 1, 1),
+    weekStart: 1,
+    format: {
+      toValue(date, format, locale) {
+          return moment(date, 'D MMMM YYYY');;
+      },
+      toDisplay(date, format, locale) {
+          var elem = document.querySelector('input[name="inmueble-owner-birth-date"]');
+          elem.value = moment(date).format();
+          return moment(date).format('D MMMM YYYY');
+      },
+    }
+  }); 
 </script>
 <?php
 get_footer();

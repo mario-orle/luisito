@@ -29,6 +29,8 @@ function myCss()
     echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.css?cb=' . generate_random_string() . '">';
     echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
+    echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
+
 }
 add_action('wp_head', 'myCss');
 
@@ -77,12 +79,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                 <p>
                     <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?>
                 </p>
-                <p>
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-day', true) ?>
-                    de
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-month', true) ?>
-                    de
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-year', true) ?>
+                <p id="fecha-nacimiento">
+                    
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
@@ -321,6 +319,12 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
       searchEnabled: false
     }));
   }
+</script>
+
+<script>
+    moment.locale("es");
+    var fechaNacimiento = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-date', true) ?>";
+    document.querySelector("#fecha-nacimiento").textContent = moment(fechaNacimiento).format('D MMMM YYYY');
 </script>
 <?php
 get_footer();
