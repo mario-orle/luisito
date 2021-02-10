@@ -52,16 +52,18 @@ if (current_user_can('administrator')) {
 
       <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-  if ( $_GET['user'] == $user->ID) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) === get_current_user_id()) {
+        if ( $_GET['user'] == $user->ID) {
 
       ?>
         <option selected value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
       <?php
-  } else {
+        } else {
       ?>
           <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
       <?php
-  }
+        }
+    }
 }
       ?>
       </select>

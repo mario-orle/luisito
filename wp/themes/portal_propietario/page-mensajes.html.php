@@ -29,6 +29,7 @@ if (current_user_can("administrator")) {
             <div class="contactos" data-simplebar>
                 <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) === get_current_user_id()) {
                 ?>
                 <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
                     <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
@@ -37,6 +38,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                 </div>
                 <?php
     $selected_user_id = $user->ID;
+    }
 }
                 ?>
             </div>
@@ -144,12 +146,15 @@ function enviarMsg() {
     var fd = new FormData();
     fd.append("message", txt.value);
 
+    txt.setAttribute("readonly", "true");
+
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/chat-xhr?action=put_messages&user_id=" + userId);
 
     xhr.onload = function () {
         cargaMensajes();
         document.querySelector("#msg").value = "";
+        document.querySelector("#msg").removeAttribute("readonly");
     }
     xhr.send(fd);
 
