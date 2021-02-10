@@ -95,8 +95,9 @@ get_header();
             <div class="main-gestiones-calendar">
                 <div class="citas-programadas">
                     <div class="icono-citas">
-                        <h2>CITAS</h2>
+                        <h2>Citas Programadas</h2>
                     </div>
+                    <hr/>
                     <div class="text-programadas">
                         <table>
                             <tbody>

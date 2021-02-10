@@ -34,8 +34,7 @@ h2 {
 
 .text-programadas {
     font-size: 13px;
-    font-family: "roboto";
-    padding: 0px;
+   margin-right: 130px;
 }
 
 .text-programadas span {
@@ -66,11 +65,8 @@ table {
 
 .icono-citas {
     display: flex;
-    width: 50%;
-    align-items: center;
-    margin-left: 170px;
-    margin-top: 15px;
-    margin-bottom: 10px;
+    width: 100%;
+    justify-content: center;
 }
 
 .icono-citas img {
