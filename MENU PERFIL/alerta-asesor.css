@@ -16,8 +16,13 @@
 	margin-top:10px;
 	width: calc(100% - 270px);
 }
+.form-perfil h2{
+	color: black;
+	text-align: left;
+}
 .form-perfil h3{
-	color: rgb(89, 89, 241);
+	color: orange;
+	text-align: left;
 }
 .container{
 	display: flex;
@@ -35,7 +40,7 @@
 }
 .doc-punt{
 	height: 280px;
-	border: 5px solid #1C6EA4;
+	border: 3px solid #1C6EA4;
 	margin-bottom: 20px;
 	border-radius: 13px;
 	width: 100%;
@@ -71,3 +76,20 @@
 	position:relative;
 	top:1px;
 }
+
+.text-documentos{
+    width: 650px;
+    margin-left: 20px;
+
+}
+.fila-documento{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.fila-documento-2{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
