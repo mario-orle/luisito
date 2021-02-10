@@ -43,38 +43,6 @@ get_header();
 ?>
 <main id="primary" class="site-main">
     <div class="main">
-
-    <?php
-if (current_user_can('administrator')) {
-    ?>
-    <div class="admin-perfil">
-      <h4>Eres administrador, si rellenas el formulario, crearás un nuevo usuario e irás a su perfil, o podrás crearlo si aún no lo tiene.</h4>
-
-      <p>Si quieres ver el perfil de un usuario creado, usa este selector</p>
-      <select class="js-choice" onchange="window.location.href = '/perfil?user=' + this.value">
-        <option value=""></option>
-
-      <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
-    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
-        if ( $_GET['user'] == $user_of_admin->ID) {
-
-      ?>
-        <option selected value="<?php echo $user_of_admin->ID ?>"><?php echo $user_of_admin->display_name ?></option>
-      <?php
-        } else {
-      ?>
-          <option value="<?php echo $user_of_admin->ID ?>"><?php echo $user_of_admin->display_name ?></option>
-      <?php
-        }
-    }
-}
-      ?>
-      </select>
-    </div>
-    <?php
-}
-    ?>
         <div class="row">
             <div class="side">
                 <div class="fakeimg-perfil">
