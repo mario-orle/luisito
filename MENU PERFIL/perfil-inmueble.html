@@ -2,109 +2,174 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <link rel="stylesheet" href="perfil-inmueble.css">
-  <link rel="stylesheet" href="css.css">
-  <title>INMUEBLES</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="perfil-inmueble.css">
+    <link rel="stylesheet" href="css.css">
+    <title>INMUEBLES</title>
 </head>
 
 <body>
-  <div id="desktop">
-    <div class="header">
-      <div class="right">
-        <div class="alerta-asesor">
-          <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
-        </div>
-        <div class="mensages">
-          <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
-        </div>
-        <div class="alertas">
-          <a id="alertas"><img src="advertencia.png"></a>
-        </div>
-        <div class="usuario">
-          <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
-        </div>
+    <div id="desktop">
+        <div class="header">
+            <div class="right">
+                <div class="alerta-asesor">
+                    <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
+                </div>
+                <div class="mensages">
+                    <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
+                </div>
+                <div class="alertas">
+                    <a id="alertas"><img src="advertencia.png"></a>
+                </div>
+                <div class="usuario">
+                    <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
+                </div>
 
-      </div>
-
-
-    </div>
-    <div class="menu">
-      <div class="logo"> </div>
-      <h2>PORTAL PROPIETARIO</h2>
-      <hr />
-      <span>Opciones generales</span>
-      <hr>
-      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
-      <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
-      <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
-      <a id="mensages" href="mensages.html"><i class="far fa-envelope"></i>MENSAGES</a>
-      <hr />
-      <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
-      <hr />
-      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
-      <hr />
+            </div>
 
 
-      <button id="gestiones" class="dropdown-btn">
-        <i class="fa fa-tasks"></i> GESTIONES
+        </div>
+        <div class="menu">
+            <div class="logo"> </div>
+            <h2>PORTAL PROPIETARIO</h2>
+            <hr />
+            <span>Opciones generales</span>
+            <hr>
+            <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+            <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
+            <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
+            <a id="mensages" href="mensages.html"><i class="far fa-envelope"></i>MENSAGES</a>
+            <hr />
+            <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+            <hr />
+            <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
+            <hr />
 
-      </button>
-      <div class="dropdown-container">
-        <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
-        <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
-      </div>
-      <hr />
-    </div>
-    <div class="main">
-      <div class="main-up-inmuebles">
-        <div class="card-wrapper">
-          <button>
-            <a href="citas-admin.html">
-              <img src="casa1.jpg" alt="Avatar" style="width:100%">
-              <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-              <h4><b>145.000€</b></h4>
-              <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
-            </a>
-          </button>
+
+            <button id="gestiones" class="dropdown-btn">
+                <i class="fa fa-tasks"></i> GESTIONES
+
+            </button>
+            <div class="dropdown-container">
+                <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
+                <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+            </div>
+            <hr />
+        </div>
+        <div class="main">
+            <div class="perfil-inmueble">
+                <div class="colum-left">
+                    <h2>Perfil Inmueble</h2>
+                    <hr>
+                    <div class="img-home">
+                        <img src="casa1.jpg" width="100%">
+                    </div>
+                    <h3>CARACTERISTICAS</h3>
+                    <hr>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="MU" required
+                                autocomplete="off" />
+                            <label for="MU">
+                                <span>Metros Utiles</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="MC" required
+                                autocomplete="off" />
+                            <label for="MC">
+                                <span>Metros Construido</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="AM" required
+                                autocomplete="off" />
+                            <label for="AM">
+                                <span>Amueblado</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="CE" required
+                                autocomplete="off" />
+                            <label for="CE">
+                                <span>Certificado energetico</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="PI" required
+                                autocomplete="off" />
+                            <label for="PI">
+                                <span>Piso</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="AS" required
+                                autocomplete="off" />
+                            <label for="AS">
+                                <span>Ascensor</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="GA" required
+                                autocomplete="off" />
+                            <label for="GA">
+                                <span>Garaje</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="TR" required
+                                autocomplete="off" />
+                            <label for="TR">
+                                <span>Trastero</span>
+                            </label>
+                        </div>
+                    </form>
+                    <form>
+                        <div class="first-block formulario">
+                            <input type="text" name="name" class="question" placeholder="" id="PR" required
+                                autocomplete="off" />
+                            <label for="PR">
+                                <span>PRECIO DE VENTA</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="colum-rigth">
+                    <h3>Resumen Inmueble</h3>
+                    <img src="casa1.jpg" width="100%">
+                    <hr />
+                    <form>
+                        <div class="sec-block formulario">
+                            <textarea name="message" rows="2" class="question" placeholder="" id="msg" required
+                                autocomplete="off"></textarea></textarea>
+                            <label for="msg">
+                                <span>Describa su Inmueble:</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
 
-        <div class="card-wrapper">
-          <button>
-            <a href="citas-admin.html">
-              <img src="casa2.jpg" alt="Avatar" style="width:100%">
-              <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-              <h4><b>145.000€</b></h4>
-              <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
-            </a>
-          </button>
-        </div>
-
-        <div class="card-wrapper">
-          <button>
-            <a href="citas-admin.html">
-              <img src="casa3.jpg" alt="Avatar" style="width:100%">
-              <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-              <h4><b>145.000€</b></h4>
-              <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
-            </a>
-          </button>
-        </div>
-        <div class="card-wrapper">
-          <button>
-            <a href="citas-admin.html">
-              <img src="casa4.jpg" alt="Avatar" style="width:100%">
-              <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-              <h4><b>145.000€</b></h4>
-              <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
-            </a>
-          </button>
-        </div>
-      </div>
     </div>
     <script src="menu.js"></script>
 

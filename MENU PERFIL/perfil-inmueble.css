@@ -1,0 +1,128 @@
+.perfil-inmueble{  
+    display: flex;
+    justify-content: space-between;
+}
+  .colum-left{
+    width: 330px;
+    background-color: #8a9597;
+    padding: 20px;
+   
+  }
+  .colum-left p{
+      color: white;
+      text-align: center;
+  }
+  .colum-left h3{
+    color: orange;
+    text-align: center;
+}
+
+  .colum-rigth {   
+    background-color: white;
+    padding: 20px;
+    margin-left: 10px;
+    width: 500px;
+    margin-right: 150px;
+    height: 870PX;
+  }
+
+  .img-home {
+    width: 289px;
+    padding: 20px;
+  }
+  .formulario {
+    font-size: 30px;
+    width: 300px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.formulario span {
+    padding: 10px;
+    color: black;
+}
+.first-block span{
+    color: white;
+}
+
+label {
+    font-size: 16px;
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    top: 20px;
+    z-index: 10;
+}
+
+.formulario input:focus {
+    width: 300px;
+    height: 100px;
+    transition: all linear 0.8s;
+}
+
+.formulario input:focus+label {
+    font-size: 12px;
+    transition: all 0.8s;
+}
+
+.formulario input {
+    width: 300px;
+    height: 20px;
+    padding: 15px;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: rgba(255, 255, 255, 0.363) solid 3px;
+    font-size: 18px;
+}
+
+.formulario input:not(:placeholder-shown)+label {
+    font-size: 13px;
+}
+
+.formulario input:not(:placeholder-shown) {
+    width: 300px;
+    height: 40px;
+    padding: 40px 0 0 15px;
+}
+
+.formulario input:focus+label>span {
+    color: rgb(70, 70, 70);
+}
+
+.formulario textarea:focus {
+    width: 470px;
+    height: 400px;
+    transition: all linear 0.8s;
+}
+
+.formulario textarea:focus+label {
+    font-size: 18px;
+    transition: all 0.8s;
+}
+
+.formulario textarea {
+    width: 470px;
+    height: 40px;
+    padding: 15px;
+    outline: none;
+    border: none;
+    background: transparent;
+    border-bottom: rgb(199, 199, 199) solid 3px;
+    font-size: 18px;
+    font-family: "roboto";
+}
+
+.formulario textarea:not(:placeholder-shown)+label {
+    font-size: 13px;
+}
+
+.formulario textarea:not(:placeholder-shown) {
+    width:470px;
+    height: 400px;
+    padding: 50px 0 0 15px;
+}
+
+.formulario textarea:focus+label>span {
+    color: grey;
+}
