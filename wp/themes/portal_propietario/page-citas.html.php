@@ -52,7 +52,9 @@ $array_citas = array();
 function get_all_citas() {
     $arr = array();
     foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-        $arr[$user->ID] = get_user_meta($user->ID, 'meta-citas-usuario');
+        if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+            $arr[$user->ID] = get_user_meta($user->ID, 'meta-citas-usuario');
+        }
     }
     return $arr;
 }
@@ -139,9 +141,11 @@ if (current_user_can('administrator')) {
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
                             ?>
                             <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
                             <?php
+    }
 }
                             ?>
                         </select>

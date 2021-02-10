@@ -16,11 +16,15 @@ $inmueble = get_posts(array(
     'author' => get_current_user_id()
 ))[0];
 
+$user = wp_get_current_user();
+
 if (current_user_can('administrator') && !empty($_GET['user'])) {
     $inmueble = get_posts(array(
       'post_type' => 'inmueble',
       'author' => $_GET['user']
     ))[0];
+
+    $user = get_user_by('ID', $_GET['user']);
 }
 
 function myCss()
@@ -51,17 +55,19 @@ if (current_user_can('administrator')) {
         <option value=""></option>
 
       <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-  if ( $_GET['user'] == $user->ID) {
+foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+        if ( $_GET['user'] == $user_of_admin->ID) {
 
       ?>
-        <option selected value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+        <option selected value="<?php echo $user_of_admin->ID ?>"><?php echo $user_of_admin->display_name ?></option>
       <?php
-  } else {
+        } else {
       ?>
-          <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+          <option value="<?php echo $user_of_admin->ID ?>"><?php echo $user_of_admin->display_name ?></option>
       <?php
-  }
+        }
+    }
 }
       ?>
       </select>
@@ -77,15 +83,15 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                 <hr>
                 <h4 style="color:aliceblue;">Información personal <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
                 <p>
-                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?>
+                    <?php echo $user->display_name ?>
                 </p>
                 <p id="fecha-nacimiento">
                     
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h4>
-                <p>Tlfn: <a href="tel:<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-phone', true) ?>"><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-phone', true) ?></a></p>
-                <p>Email: <a href="mailto:<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-email', true) ?>"><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-email', true) ?></a></p>
+                <p>Tlfn: <a href="tel:<?php echo get_user_meta($user->ID, 'meta-inmueble-owner-phone', true) ?>"><?php echo get_user_meta($user->ID, 'meta-inmueble-owner-phone', true) ?></a></p>
+                <p>Email: <a href="mailto:<?php echo get_user_meta($user->ID, 'meta-inmueble-owner-email', true) ?>"><?php echo get_user_meta($user->ID, 'meta-inmueble-owner-email', true) ?></a></p>
                 <hr>
             </div>
             <div class="main-perfil">
@@ -239,6 +245,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>" class="dropzone" id="dropzone"></form>
                 </div>
                 <div class="fotos">
+                    <div class="card-scroller">
+
                     <?php
 
                     $photos = get_post_meta($inmueble->ID, 'meta-photos-inmueble');
@@ -253,6 +261,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <?php
                     }
                     ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -323,7 +332,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 
 <script>
     moment.locale("es");
-    var fechaNacimiento = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-birth-date', true) ?>";
+    var fechaNacimiento = "<?php echo get_user_meta($user->ID, 'meta-inmueble-owner-birth-date', true) ?>";
     document.querySelector("#fecha-nacimiento").textContent = moment(fechaNacimiento).format('D MMMM YYYY');
 </script>
 <?php

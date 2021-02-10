@@ -17,6 +17,8 @@ function myCss() {
 add_action('wp_head', 'myCss');
 $selected_user_id = 1;
 
+$admin_name = "";
+
 get_header();
 ?>
 
@@ -25,10 +27,12 @@ get_header();
         <div class="chat">
             <?php
 if (current_user_can("administrator")) {
+    $admin_name = wp_get_current_user()->display_name;
             ?>
             <div class="contactos" data-simplebar>
                 <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
                 ?>
                 <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
                     <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
@@ -36,17 +40,19 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <div class="contacto-unread"></div>
                 </div>
                 <?php
-    $selected_user_id = $user->ID;
+        $selected_user_id = $user->ID;
+    }
 }
                 ?>
             </div>
             <?php
 } else {
     $selected_user_id = wp_get_current_user()->ID;
+    $admin_name = 'Asesor';
 }
             ?>
             <div class="mensajes-enviar">
-                <div data-simplebar>
+                <div class="parent-messages">
                     <div class="mensajes">
 
                     </div>
@@ -61,6 +67,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 </main><!-- #main -->
 
 <script>
+const simpleBarMsgs = new SimpleBar(document.querySelector('.parent-messages'));
+
 var userId = <?php echo $selected_user_id ?>;
 document.addEventListener('DOMContentLoaded', function () {
     var contactos = document.querySelectorAll(".contacto");
@@ -97,7 +105,6 @@ function cargaMensajes() {
     xhr.onload = function () {
         var msgs = JSON.parse(xhr.response);
         document.querySelector(".mensajes").innerHTML = "";
-        
         if (userId && msgs[userId]) {
             for (var i = 0; i < msgs[userId].length; i++) {
                 if (!msgs[userId][i].name) continue
@@ -115,6 +122,10 @@ function cargaMensajes() {
                 var authorName = document.createElement("div");
                 authorName.classList.add("author-name");
                 authorName.textContent = msgs[userId][i].name;
+                if (msgs[userId][i].user === "admin") {
+                    authorImg.src = window.creaImagen("<?php echo $admin_name ?>");
+                    authorName.textContent = "<?php echo $admin_name ?>";
+                }
 
                 author.appendChild(authorImg);
                 author.appendChild(authorName);
@@ -129,10 +140,10 @@ function cargaMensajes() {
 
 
                 document.querySelector(".mensajes").appendChild(container);
-                document.querySelector(".mensajes").scrollTop = document.querySelector(".mensajes").scrollHeight;
                 
 
             }
+            simpleBarMsgs.getScrollElement().scrollTop = simpleBarMsgs.getScrollElement().scrollHeight;
         }
     }
     xhr.send();
@@ -144,17 +155,20 @@ function enviarMsg() {
     var fd = new FormData();
     fd.append("message", txt.value);
 
+    txt.setAttribute("readonly", "true");
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/chat-xhr?action=put_messages&user_id=" + userId);
 
     xhr.onload = function () {
         cargaMensajes();
         document.querySelector("#msg").value = "";
+        document.querySelector("#msg").removeAttribute("readonly");
     }
     xhr.send(fd);
 
 }
 
+;
 
 </script>
 

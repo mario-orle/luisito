@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
       if (current_user_can('administrator') && !empty($_GET['user'])) {
         $user_id = $_GET['user'];
       } else if (empty($_GET['user'])) {
-        $user_id = wp_create_user( $_POST['inmueble-owner-email'], '1', '' );
+        $user_id = wp_create_user( $_POST['inmueble-owner-email'], '1', $_POST['inmueble-owner-email']);
         $_GET['user'] = $user_id;
         $display_name = '';
         if ( isset( $_POST['inmueble-owner-name'] ) ) {
@@ -47,18 +47,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
           'display_name' => $display_name,
         );
         wp_update_user( $userdata );
+
+        update_user_meta($user_id, 'meta-gestor-asignado', get_current_user_id());
       }
       
-        $inmueble_id = wp_insert_post(array(
-            'post_type' => 'inmueble',
-            'post_title' => 'inmueble-' . $user_id,
-            'post_status' => 'publish',
-            'post_author' => $user_id
-        ));
-    
-        foreach ($_POST as $key => $value) {
-            update_post_meta($inmueble_id, 'meta-' . $key, $value);
+      $inmueble_id = wp_insert_post(array(
+          'post_type' => 'inmueble',
+          'post_title' => 'inmueble-' . $user_id,
+          'post_status' => 'publish',
+          'post_author' => $user_id
+      ));
+  
+      foreach ($_POST as $key => $value) {
+        if (strpos($key, 'inmueble-owner') === 0) {
+          update_user_meta($user_id, 'meta-' . $key, $value);
+        } else {
+          update_post_meta($inmueble_id, 'meta-' . $key, $value);
         }
+      }
+      if (current_user_can('administrator') && !empty($_GET['user'])) {
+        update_post_meta($inmueble_id, 'meta-gestor-asignado', get_current_user_id());
+      }
+      $userdata = array(
+        'ID'           => $user_id,
+        'display_name' => $_POST['inmueble-owner-name'] . ' ' . $_POST['inmueble-owner-lastname'] . ' ' . $_POST['inmueble-owner-lastname2'],
+      );
+      wp_update_user( $userdata );
     }
     
     require('page-perfil2.html.php');
@@ -100,17 +114,20 @@ if (current_user_can('administrator')) {
 
       <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-  if ( $_GET['user'] == $user->ID) {
+  if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+    if ( $_GET['user'] == $user->ID) {
 
       ?>
         <option selected value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
       <?php
-  } else {
+    } else {
       ?>
           <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
       <?php
+    }
   }
 }
+
       ?>
       </select>
     </div>
@@ -204,7 +221,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
   for (var i = 0; i < choicesObjs.length; i++) {
     choices.push(new Choices(choicesObjs[i], {
       itemSelectText: 'Click para seleccionar',
-      searchEnabled: false
+      searchEnabled: false,
+      shouldSort: false
     }));
   }
   

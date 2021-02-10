@@ -13,11 +13,15 @@ $inmueble = get_posts(array(
   'post_type' => 'inmueble',
   'author' => get_current_user_id()
 ))[0];
+$user = wp_get_current_user();
+
 if (current_user_can('administrator') && !empty($_GET['user'])) {
 $inmueble = get_posts(array(
   'post_type' => 'inmueble',
   'author' => $_GET['user']
 ))[0];
+$user = get_user_by('ID', $_GET['user']);
+
 }
 ?>
 <!doctype html>
@@ -33,7 +37,7 @@ $inmueble = get_posts(array(
 <body <?php body_class(); ?>>
 <input 
   type="hidden" 
-  value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-owner-name', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname', true) . ' ' . get_post_meta($inmueble->ID, 'meta-inmueble-owner-lastname2', true) ?>" 
+  value="<?php echo $user->display_name ?>" 
   id="user-name-and-lastname" />
 <input 
   type="hidden" 
@@ -55,7 +59,7 @@ $inmueble = get_posts(array(
           <a id="alertas"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario" href="/perfil"><img class="user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
+          <a id="usuario" href="/perfil"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
         </div>
 
       </div>
