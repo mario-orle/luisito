@@ -15,7 +15,7 @@ function myCss() {
     echo '<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>';
 }
 add_action('wp_head', 'myCss');
-$selected_user_id = 1;
+$selected_user_id = $_GET["user"];
 
 $admin_name = "";
 
@@ -40,7 +40,6 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                     <div class="contacto-unread"></div>
                 </div>
                 <?php
-        $selected_user_id = $user->ID;
     }
 }
                 ?>
@@ -69,7 +68,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 <script>
 const simpleBarMsgs = new SimpleBar(document.querySelector('.parent-messages'));
 
-var userId = <?php echo $selected_user_id ?>;
+var userId = "<?php echo $selected_user_id ?>";
 document.addEventListener('DOMContentLoaded', function () {
     var contactos = document.querySelectorAll(".contacto");
     for (var i = 0; i < contactos.length; i++) {
@@ -77,11 +76,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var img = contactos[i].querySelector(".contacto-img");
         img.src = window.creaImagen(name);
     }
-
-    setUserId(userId);
-    setInterval(function() {
-        cargaMensajes();
-    }, 5000);
+    if (userId) {
+        setUserId(userId);
+        setInterval(function() {
+            cargaMensajes();
+        }, 5000);
+    }
 }, false);
 
 function setUserId(uid) {
