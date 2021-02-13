@@ -210,13 +210,13 @@ get_header();
                 <h4>Fotografias
                     <hr>
                 </h4>
-                <div class="uploader">
-                    <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>" class="dropzone" id="dropzone"></form>
-                </div>
                 <div class="fotos">
                     <div class="card-scroller">
 
                     </div>
+                </div>
+                <div class="uploader">
+                    <form action="/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>" class="dropzone" id="dropzone"></form>
                 </div>
             </div>
         </div>
@@ -231,7 +231,8 @@ get_header();
 
             var fotos = JSON.parse(fotosStr);
             for (var i = 0; i < fotos.length; i++) {
-                var img = '<div class="card">' +
+                var img = '<div class="card ' + (fotos[i].validated ? "" : "not-validated") + '">' +
+                        '<div class="closer" onclick="this.parentElement.remove(); updatePhotosMeta()">x</div>' +
                         '<img src="' + fotos[i].url + '" alt="" style="width:100%">' +
                         '<div class="container">' +
                         '<h4><input onchange="updatePhotosMeta()" type="text" value="' + fotos[i].comment + '" /></h4>' +
@@ -279,6 +280,7 @@ get_header();
             this.on("success", function(file, response) {
                 var objResponse = JSON.parse(response);
                 var newImg = '<div class="card">' +
+                    '<div class="closer" onclick="this.parentElement.remove(); updatePhotosMeta()">x</div>' +
                     '<img src="' + objResponse.url + '" alt="" style="width:100%">' +
                     '<div class="container">' +
                     '<h4><input onchange="updatePhotosMeta()" type="text" /></h4>' +
