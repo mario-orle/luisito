@@ -78,10 +78,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     if (userId) {
         setUserId(userId);
-        setInterval(function() {
-            cargaMensajes();
-        }, 5000);
     }
+    setInterval(function() {
+        cargaMensajes();
+    }, 5000);
 }, false);
 
 function setUserId(uid) {
@@ -95,15 +95,17 @@ function setUserId(uid) {
         document.querySelector("#user-" + uid).classList.add("selected");
     }
     userId = uid;
-    cargaMensajes();
+    cargaMensajes(true);
 }
 
-function cargaMensajes() {
+function cargaMensajes(firstTime) {
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "/chat-xhr?action=get_messages");
     xhr.onload = function () {
         var msgs = JSON.parse(xhr.response);
+        var estabaAlFinal = (simpleBarMsgs.getScrollElement().scrollTop + simpleBarMsgs.getScrollElement().offsetHeight) == simpleBarMsgs.getScrollElement().scrollHeight;
+        var estabaEnTop = simpleBarMsgs.getScrollElement().scrollTop;
         document.querySelector(".mensajes").innerHTML = "";
         if (userId && msgs[userId]) {
             for (var i = 0; i < msgs[userId].length; i++) {
@@ -141,9 +143,12 @@ function cargaMensajes() {
 
                 document.querySelector(".mensajes").appendChild(container);
                 
-
             }
-            simpleBarMsgs.getScrollElement().scrollTop = simpleBarMsgs.getScrollElement().scrollHeight;
+            if (estabaAlFinal || firstTime) {
+                simpleBarMsgs.getScrollElement().scrollTop = simpleBarMsgs.getScrollElement().scrollHeight;
+            } else {
+                simpleBarMsgs.getScrollElement().scrollTop = estabaEnTop;
+            }
         }
     }
     xhr.send();
@@ -163,6 +168,7 @@ function enviarMsg() {
         cargaMensajes();
         document.querySelector("#msg").value = "";
         document.querySelector("#msg").removeAttribute("readonly");
+        simpleBarMsgs.getScrollElement().scrollTop = simpleBarMsgs.getScrollElement().scrollHeight;
     }
     xhr.send(fd);
 

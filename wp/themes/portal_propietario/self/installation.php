@@ -154,6 +154,15 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('crear-inmueble')) {
+        wp_insert_post(array(
+            'post_title' => 'crear-inmueble',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-crear-inmueble.html.php'
+        ));
+    }
+
 
     
 }

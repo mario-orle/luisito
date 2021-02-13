@@ -73,3 +73,17 @@ button:hover {
     height: 300px;
     background: orange;
 }
+
+label[for=foto] {
+    width: 100%;
+    background-color: #dddd;
+    display: block;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#foto-preview img {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+}
