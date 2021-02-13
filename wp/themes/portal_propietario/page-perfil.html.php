@@ -60,9 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' || $inmueble) {
   
       foreach ($_POST as $key => $value) {
         if (strpos($key, 'inmueble-owner') === 0) {
-          update_user_meta($user_id, 'meta-' . $key, $value);
+          update_user_meta($user_id, 'meta-' . $key, wp_slash($value));
         } else {
-          update_post_meta($inmueble_id, 'meta-' . $key, $value);
+          update_post_meta($inmueble_id, 'meta-' . $key, wp_slash($value));
         }
       }
       if (current_user_can('administrator') && !empty($_GET['user'])) {
