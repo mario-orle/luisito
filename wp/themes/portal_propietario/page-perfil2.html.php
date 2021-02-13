@@ -233,6 +233,13 @@ get_header();
             for (var i = 0; i < fotos.length; i++) {
                 var img = '<div class="card ' + (fotos[i].validated ? "" : "not-validated") + '">' +
                         '<div class="closer" onclick="this.parentElement.remove(); updatePhotosMeta()">x</div>' +
+<?php
+if (current_user_can('administrator')) { 
+?>
+                        (fotos[i].validated ? "" : '<div class="validate" onclick="this.parentElement.classList.remove(\'not-validated\'); updatePhotosMeta(); this.remove()">v</div>') +
+<?php
+}
+?>
                         '<img src="' + fotos[i].url + '" alt="" style="width:100%">' +
                         '<div class="container">' +
                         '<h4><input onchange="updatePhotosMeta()" type="text" value="' + fotos[i].comment + '" /></h4>' +
@@ -263,9 +270,9 @@ get_header();
         for (var i = 0; i < fotos.length; i++) {
             var url = fotos[i].querySelector("img").src;
             var comment = fotos[i].querySelector("input").value;
-            fotosObj.push({url, comment, validated: false});
+            var validated = !fotos[i].classList.contains("not-validated");
+            fotosObj.push({url, comment, validated});
         }
-
         var fd = new FormData();
         fd.append("metaname", "inmueble-photos");
         fd.append("metavalue", JSON.stringify(fotosObj));
