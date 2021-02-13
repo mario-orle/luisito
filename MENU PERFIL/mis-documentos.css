@@ -1,9 +1,9 @@
 .botons {
 	box-shadow:inset 0px 1px 0px 0px #dcecfb;
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+    background:linear-gradient(to bottom, orange 5%, orange 100%);
 	background-color:#bddbfa;
 	border-radius:6px;
-	border:1px solid #84bbf3;
+	border:1px solid orange;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
@@ -17,8 +17,9 @@
     margin-top: 15px;
 }
 .botons:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
+    background:linear-gradient(to bottom, rgb(252, 205, 119) 5%,rgb(252, 205, 119)100%);
+	
+	background-color:orange;
 }
 .botons:active {
 	position:relative;
@@ -28,6 +29,8 @@
 .main-documentos{
     display: flex;
     flex-flow: column;
+    align-items: center;
+    
     
 }
 .documentos-descarga{
@@ -39,6 +42,7 @@
     height: 300px;
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    
 }
 .documentos-descarga-2{
     display: flex;
@@ -49,13 +53,14 @@
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     margin-top: 15px;
+    
 }
 
 .documentos-descarga h3{
-    color: blue;
+    color: orange;
 }
 .documentos-descarga-2 h3{
-    color: blue;
+    color: orange;
 }
 
 .text-documentos{
