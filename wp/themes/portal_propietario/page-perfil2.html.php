@@ -34,6 +34,7 @@ function myCss()
     echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
     echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
+    echo '<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>';
 
 }
 add_action('wp_head', 'myCss');
@@ -71,32 +72,32 @@ get_header();
                             <div class="datos-inmuebles">
                                 <h4>
                                     Inmueble en
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true) ?>
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-numero', true) ?>
-                                    (<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-codigopostal', true) ?>)
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true)) ?>
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-numero', true))  ?>
+                                    (<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-codigopostal', true))  ?>)
 
                                 </h4>
                                 <h4>
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true) ?>
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true) ?>
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true))  ?>
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true))  ?>
                                 </h4>
                                 <p>
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true) ?> m2 construidos
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true))  ?> m2 construidos
                                     -
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true) ?> m2 útiles
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true))  ?> m2 útiles
                                     -
-                                    <?php echo get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true) ?> Hab.
+                                    <?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true))  ?> Hab.
                                 </p>
                             </div>
                         </div>
                         <div class="precios">
                             <div class="venta">
-                                <input name="inmueble-preciodeseado" type="text" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-preciodeseado', true) ?>" onchange="editar(event)" />
+                                <input name="inmueble-preciodeseado" type="text" value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-preciodeseado', true)) ?>" onchange="editar(event)" />
                                 <p>Precio deseado</p>
                             </div>
                             <div class="valoracion">
                                 <input name="inmueble-preciovaloracion" type="text" 
-                                    value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-preciovaloracion', true) ?>" 
+                                    value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-preciovaloracion', true)) ?>" 
                                     <?php if (current_user_can('administrator')) { ?>onchange="editar(event)"<?php } else { ?> readonly <?php } ?>  
                                 />
                                 <p>Precio de Venta</p>
@@ -112,31 +113,31 @@ get_header();
                             <hr />
                             <form>
                                 <div class="first-block formulario">
-                                    <input onchange="editar(event)" type="text" name="inmueble-tipo" class="question" placeholder="" id="tipo" required autocomplete="off" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>" />
+                                    <input onchange="editar(event)" type="text" name="inmueble-tipo" class="question" placeholder="" id="tipo" required autocomplete="off" value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true)) ?>" />
                                     <label for="tipo">
                                         <span>Tipo de Inmueble</span>
                                     </label>
                                 </div>
                                 <div class="first-block formulario">
-                                    <input onchange="editar(event)" type="text" name="inmueble-estado" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-estado', true) ?>" class="question" placeholder="" id="estado" required autocomplete="off" />
+                                    <input onchange="editar(event)" type="text" name="inmueble-estado" value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-estado', true)) ?>" class="question" placeholder="" id="estado" required autocomplete="off" />
                                     <label for="estado">
                                         <span>Estado del Inmueble</span>
                                     </label>
                                 </div>
                             <div class="first-block formulario">
-                                <input onchange="editar(event)" type="text" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true) ?>" name="inmueble-habitaciones" class="question" placeholder="" id="habitas" required autocomplete="off" />
+                                <input onchange="editar(event)" type="text" value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true)) ?>" name="inmueble-habitaciones" class="question" placeholder="" id="habitas" required autocomplete="off" />
                                 <label for="habitas">
                                     <span>Habitaciones</span>
                                 </label>
                             </div>
                             <div class="first-block formulario">
-                                <input onchange="editar(event)" type="text" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true) ?>" name="inmueble-m2construidos" class="question" placeholder="" id="m2c" required autocomplete="off" />
+                                <input onchange="editar(event)" type="text" value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true)) ?>" name="inmueble-m2construidos" class="question" placeholder="" id="m2c" required autocomplete="off" />
                                 <label for="m2c">
                                     <span>M2 Construidos</span>
                                 </label>
                             </div>
                             <div class="first-block formulario">
-                                <input onchange="editar(event)" type="text" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true) ?>" name="inmueble-m2utiles" class="question" placeholder="" id="m2u" required autocomplete="off" />
+                                <input onchange="editar(event)" type="text" value="<?php echo wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true)) ?>" name="inmueble-m2utiles" class="question" placeholder="" id="m2u" required autocomplete="off" />
                                 <label for="m2u">
                                     <span>M2 Útiles</span>
                                 </label>
@@ -215,20 +216,6 @@ get_header();
                 <div class="fotos">
                     <div class="card-scroller">
 
-                    <?php
-
-                    $photos = get_post_meta($inmueble->ID, 'meta-photos-inmueble');
-                    foreach ($photos as $photo) {
-                    ?>
-                        <div class="card">
-                            <img src="<?php echo $photo['url'] ?>" alt="" style="width:100%">
-                            <div class="container">
-                                <h4><b>Frontal casa</b></h4>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?>
                     </div>
                 </div>
             </div>
@@ -238,6 +225,55 @@ get_header();
 <script src="<?php echo get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.js'; ?>"></script>
 
 <script>
+    function drawPhotosMeta() {
+        var fotosStr = <?php echo json_encode(wp_unslash(get_post_meta($inmueble->ID, 'meta-inmueble-photos', true))); ?>;
+        if (fotosStr) {
+
+            var fotos = JSON.parse(fotosStr);
+            for (var i = 0; i < fotos.length; i++) {
+                var img = '<div class="card">' +
+                        '<img src="' + fotos[i].url + '" alt="" style="width:100%">' +
+                        '<div class="container">' +
+                        '<h4><input onchange="updatePhotosMeta()" type="text" value="' + fotos[i].comment + '" /></h4>' +
+                        '</div>' +
+                        '</div>';
+
+                document.querySelector('.bg-fotos .fotos .card-scroller').innerHTML += img;
+            }
+            var cardParent = document.querySelector('.bg-fotos .fotos .card-scroller');
+            new Sortable(cardParent, {
+                onEnd: function () {
+                    updatePhotosMeta();
+                }
+            });
+            
+        }
+        
+    }
+
+    drawPhotosMeta();
+
+
+    function updatePhotosMeta() {
+        var fotos = Array.from(document.querySelectorAll('.bg-fotos .fotos .card'));
+
+        var fotosObj = [];
+
+        for (var i = 0; i < fotos.length; i++) {
+            var url = fotos[i].querySelector("img").src;
+            var comment = fotos[i].querySelector("input").value;
+            fotosObj.push({url, comment, validated: false});
+        }
+
+        var fd = new FormData();
+        fd.append("metaname", "inmueble-photos");
+        fd.append("metavalue", JSON.stringify(fotosObj));
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>&user_id=<?php echo $user->ID ?>");
+        xhr.send(fd);
+    }
+
     Dropzone.options.dropzone = {
         init: function() {
             this.on("success", function(file, response) {
@@ -245,13 +281,15 @@ get_header();
                 var newImg = '<div class="card">' +
                     '<img src="' + objResponse.url + '" alt="" style="width:100%">' +
                     '<div class="container">' +
-                    '<h4><b>Frontal casa</b></h4>' +
+                    '<h4><input onchange="updatePhotosMeta()" type="text" /></h4>' +
                     '</div>' +
                     '</div>';
 
-                document.querySelector('.bg-fotos .fotos').innerHTML += newImg;
+                document.querySelector('.bg-fotos .fotos .card-scroller').innerHTML += newImg;
 
                 this.removeFile(file);
+
+                updatePhotosMeta();
             });
         }
     };
@@ -267,7 +305,7 @@ get_header();
     function editar(e) {
         var input = e.currentTarget;
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>");
+        xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>&user_id=<?php echo $user->ID ?>");
 
         var formData = new FormData();
 

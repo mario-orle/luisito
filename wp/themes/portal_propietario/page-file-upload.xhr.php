@@ -21,12 +21,8 @@ if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) &&
         $movefile = wp_handle_upload( $_FILES['file'], $upload_overrides );
 
         if ( $movefile ) {
-
             $movefile['validated'] = false;
-            add_post_meta( $inmueble_id, 'meta-photos-inmueble', $movefile);
-
             echo json_encode($movefile);
-        } else {
         }
     }
 }
