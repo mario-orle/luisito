@@ -1,0 +1,125 @@
+
+.header{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 341px;
+   padding: 10px;
+   background-color: grey;
+    
+}
+.logo{
+    display: flex;
+    width: 170px;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn-contac {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 5px;
+    color: #00E2FF;
+    font-family: Open Sans;
+    padding: 15px;
+    background-color: #000000;
+    box-shadow: 1px 1px 20px 0px #000000;
+    -webkit-box-shadow: 1px 1px 20px 0px #000000;
+    -moz-box-shadow: 1px 1px 20px 0px #000000;
+    text-shadow: 1px 1px 20px #000000;
+    border: solid #00E2FF 7px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align:center;
+    margin-left: 50px;
+ }
+ 
+ .btn-contac:hover {
+    background: #000000;
+    border: solid #00E2FF 5px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    text-decoration: none;
+ }
+.btn-contac a {
+    color: white;
+}
+.btn-contac a:active{
+  text-decoration: none;
+}
+.btn-contac a:link{
+   text-decoration: none;
+}
+.btn-contac a:visited{
+  text-decoration: none;
+}
+
+.main{
+    margin-top: 210px;
+    margin-left:15px; 
+}
+.container{
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(214, 214, 214);
+    height: 250px;
+}
+ 
+  body {
+    background-image: url('../fondo-form.jpg');
+  }
+  
+  .form-register {
+    align-items: center;
+    display: flex;
+    flex-flow: column;
+    width: 250px;
+    background: #24303c;
+    padding: 30px;
+    border-radius: 4px;
+    font-family: 'calibri';
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+
+  }
+  
+
+  
+  .controls {
+    width: 230px;
+    background: aliceblue;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #1f53c5;
+    font-family: 'calibri';
+    font-size: 18px;
+    color: black;
+  }
+  
+  .form-register p {
+    text-align: center;
+    font-size: 18px;
+
+  }
+  
+  .form-register a {
+    color:rgb(143, 143, 204);
+    text-decoration: none;
+  }
+  
+  .form-register a:hover {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .form-register .botons {
+    width: 80px;
+    background: #1f53c5;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    
+  }

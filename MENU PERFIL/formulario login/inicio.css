@@ -31,29 +31,6 @@
 
   }
 
-  .header a {
-    color: black;
-    text-align: center;
-    padding: 12px;
-    text-decoration: none;
-    text-shadow: 1px 1px grey;
-    font-size: 18px; 
-    line-height: 25px;
-    border-radius: 4px;
-  }
-  
-  .header a:hover {
-    background-color: #f90;
-    color: black;
-    transition: .3s;
-  }
-  
-  .header a.active {
-    background-color: dodgerblue;
-    color: white;
-  }
-  
-  
 @media screen and (max-width: 380px) {
     .header a {
       float: none;
@@ -63,10 +40,7 @@
     
     .header-right {
       float: none;
-    }
-    .logo{
-    width: 130px;
-    float: left;
+
   }
   .header a {
     float: right;
@@ -103,25 +77,17 @@ body, html {
   
  
   .bg-image {
-
     display: flex;
-    /* The image used */
     background-image: url("landscape-429319_1920.jpg");
-    
-    /* Add the blur effect */
     filter: blur(8px);
-    -webkit-filter: blur(8px);
-    
-    /* Full height */
+
     height: 100%; 
-    
-    /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   
-  /* Position text in the middle of the page/image */
+
   .bg-text {
     color: white;
     font-weight: bold; 
@@ -189,8 +155,7 @@ body, html {
   .container .btn1:hover {
     background-color: #f90;
     transition: .3s;
-
-
+  }
 
 
    
