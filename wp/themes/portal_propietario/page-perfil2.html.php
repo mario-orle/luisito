@@ -230,6 +230,7 @@ get_header();
         if (fotosStr) {
 
             var fotos = JSON.parse(fotosStr);
+            console.log(fotos);
             for (var i = 0; i < fotos.length; i++) {
                 var img = '<div class="card ' + (fotos[i].validated ? "" : "not-validated") + '">' +
                         '<div class="closer" onclick="this.parentElement.remove(); updatePhotosMeta()">x</div>' +
@@ -286,7 +287,7 @@ if (current_user_can('administrator')) {
         init: function() {
             this.on("success", function(file, response) {
                 var objResponse = JSON.parse(response);
-                var newImg = '<div class="card">' +
+                var newImg = '<div class="card not-validated">' +
                     '<div class="closer" onclick="this.parentElement.remove(); updatePhotosMeta()">x</div>' +
                     '<img src="' + objResponse.url + '" alt="" style="width:100%">' +
                     '<div class="container">' +
