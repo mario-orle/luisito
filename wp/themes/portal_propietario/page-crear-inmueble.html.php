@@ -57,6 +57,7 @@ function myCss() {
     echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/datepicker-full.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/locales/es.js"></script>';
     echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
+    echo '<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>';
 
     
 }
@@ -76,13 +77,13 @@ get_header();
           <p><input placeholder="Provincia..." oninput="this.className = ''" name="inmueble-provincia"></p>
           <p><input placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></p>
           <p><input placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></p>
-          <p><input placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
+          <p><input validators="numeric" placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
         </div>
         <div class="tab">Superficie y características inmueble:
-          <p><input placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
-          <p><input placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles" type="number"></p>
-          <p><input placeholder="Habitaciones..." oninput="this.className = ''" name="inmueble-habitaciones" type="number" min="1" max="10"></p>
+          <p><input validators="numeric" placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
+          <p><input validators="numeric" placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles" type="number"></p>
+          <p><input validators="numeric" placeholder="Habitaciones..." oninput="this.className = ''" name="inmueble-habitaciones" type="number" min="1" max="10"></p>
         </div>
         <div class="tab" >Situación Inmueble:
           <p><select class="js-choice" name="inmueble-tipo">
@@ -144,7 +145,7 @@ get_header();
       </form>
     </div>
 </main><!-- #main -->
-<script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/perfil.js'; ?>"></script>
+<script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/validator.js'; ?>"></script>
 <script>
   moment.locale("es");
   var choicesObjs = document.querySelectorAll('.js-choice');

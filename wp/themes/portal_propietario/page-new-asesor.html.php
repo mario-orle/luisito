@@ -10,6 +10,7 @@
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/new-asesor.css">';
+    echo '<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>';
 }
 add_action('wp_head', 'myCss');
 
@@ -24,14 +25,13 @@ get_header();
             <!-- One "tab" for each step in the form: -->
             <div class="tab">Identificación Asesor:
                 <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="nombre"></p>
-                <p><input placeholder="Usuario..." oninput="this.className = ''" name="Usuario"></p>
-                <p><input placeholder="E-mail..." oninput="this.className = ''" name="Email"></p>
-                <p><input placeholder="Contraseña..." oninput="this.className = ''" name="Contraseña"></p>
+                <p><input validators="email" placeholder="E-mail..." oninput="this.className = ''" name="Email"></p>
+                <p><input type="password" placeholder="Contraseña..." oninput="this.className = ''" name="Contraseña"></p>
             </div>
 
             <div class="tab">Información del Asesor:
                 <p><input placeholder="Puesto..." oninput="this.className = ''" name="Puesto"></p>
-                <p><input placeholder="Telefono..." oninput="this.className = ''" name="Telefono"></p>
+                <p><input validators="numeric" placeholder="Telefono..." oninput="this.className = ''" name="Telefono"></p>
                 <p><input placeholder="Disponibilidad Horaria..." oninput="this.className = ''" name="Disponibilidad"></p>
             </div>
             <div style="overflow:auto;">
@@ -47,7 +47,7 @@ get_header();
             </div>
         </form>
     </div>
-    <script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/perfil.js'; ?>"></script>
+    <script src="<?php echo get_bloginfo('stylesheet_directory').'/assets/js/validator.js'; ?>"></script>
 
 </main><!-- #main -->
 

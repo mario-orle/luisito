@@ -163,6 +163,15 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('usuarios-xhr')) {
+        wp_insert_post(array(
+            'post_title' => 'usuarios-xhr',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-usuarios.xhr.php'
+        ));
+    }
+
 
     
 }

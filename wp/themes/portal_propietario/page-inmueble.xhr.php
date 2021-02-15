@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: page-inmueble.xhr.php
- * The template for displaying page-file-upload.xhr
+ * The template for displaying page-inmueble.xhr
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
