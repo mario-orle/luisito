@@ -1,115 +1,129 @@
-
-.perfil-asesor{
-    display: flex;
-    justify-content: space-around;
-    width: 1200px;
-}
-.asesor-admin{
-    background-color: white;
-    width: 750px;
-    border-radius: 5px;
-    border-bottom: 3px orange solid;
-    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
-}
-.info-asesor{
-    display: flex;
-    justify-content: space-around;
-    width: 580px;
-}
-.img-asesor{
-    width: 240px;
-    margin-top: 45px;
+.agregar-wrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
 }
 
-.new-asesor img{
-width: 200px;
-margin-top: 20px;
-}
-.new-asesor button{
-    background-color: white;
-    width: 350px;
-    height: 400px;
-    border-radius: 5px;
-    border-bottom: 3px orange solid;
-    box-shadow: 0px 2px 7px 1px rgba(0,0,0,0.77);
-}
-.new-asesor h2{
-    color: black;
-}
-.new-asesor button:hover{
-    transition: 0.4s;
-    background:rgba(255, 221, 159, 0.555);
-    cursor: pointer;
-}
-.new-asesor a:active{
-    text-decoration: none;
-  }
-  .new-asesor a:link{
-    text-decoration: none;
-  }
-  .new-asesor a:visited{
-    text-decoration: none;
-  }
+
+.card-agregar{
+  width: 255px;
+  max-width: 255px;
+  margin-top:10px;
  
+  
+}
+.agregar-wrapper h2{
+  color: Orange;
+}
+.img-agregar{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
-  .main-formulario{
-    display: flex;
-    flex-flow: column;
+}
+
+.card-agregar button{
+  background-color: #434b4d;
+  box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+}
+
+.card-agregar h4, p{
+  color: white;
+}
+.card-agregar p{
+  font-style: italic
+}
+.card-agregar h3{
+  color: orange;
+
+}
+
+.card-agregar button:hover {
+  box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
+}
+
+.card-wrapper{
+  width: 24%;
+  padding: 10px;
+ 
+}
+.card-wrapper img{
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+.card-wrapper button{
+  background-color: #434b4d;
+  box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+}
+
+.card-wrapper h4, p{
+  color: white;
+}
+.card-wrapper p{
+  font-style: italic
+}
+.card-wrapper h3{
+  color: orange;
+
+}
+
+.card-wrapper button:hover {
+  box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
+}
+.card-agregar button a:active{
+  text-decoration: none;
+}
+.card-agregar button a:link{
+  text-decoration: none;
+}
+.card-agregar button a:visited{
+  text-decoration: none;
+}
+
+
+
+
+.default{
+  font-family: Raleway,sans-serif;
+  font-size: 16px;
+  text-align: justify;
+  line-height: 35px;
+  
+  }
+  th{
+    background-color: orange;
+    border-radius: 5px;
+  }
+  .default th{
+      width:500px;
+      height: 40px;
+      text-align: center;
+  }
+  
+  .default td{
+      text-align: center;
+  }
+  .alerta-asesor id{
+    color:orange;
+  }
+  .style-box{
+    background-color: white;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 black;
+    border-bottom: 4px solid orange;
+    border-radius:0px 0px 5px 5px;
     
   }
-  .main-formulario h2{
-    text-align: left;
-    color: #f90;
-  }
-  .formulario{
-    font-size: 16px;
-    width: 200px;
-    margin-bottom: 10px; 
-    position: relative;   
-    }    
-    .formulario span{
-    padding: 10px;
+  .style-box i {
     color: grey;
-    }
-    label{
-    font-size:16px;
-    position:absolute;
-    width: 100%;
-    margin:auto;
-    top:20px;
-    z-index: 10;
-    }
-    .formulario input:focus{
-    width:350px;
-    height:60px;
-    transition: all linear 0.8s;
-    }
-    .formulario input:focus + label{
-    font-size: 14px;
-    transition:all 0.8s;
-    }
-    .formulario input{
-    width: 250px;
-    height: 20px;
-    padding: 15px;
-    outline: none;
-    border:none;
-    background: transparent;
-    border-bottom: rgb(199, 199, 199) solid 3px;
-    font-size: 18px;
-    }
-    .formulario input:not(:placeholder-shown) + label{
-    font-size: 12px;
-    }
-    .formulario input:not(:placeholder-shown){
-    width:350px;
-    height:40px;
-    padding: 40px 0 0 10px;
-    }
-    .formulario input:focus + label > span{
-    color:#f90;
-    }
-    .caracteristicas{
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
+  }
+  
+ 
+
+    
