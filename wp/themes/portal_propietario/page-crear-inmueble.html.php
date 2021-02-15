@@ -116,8 +116,7 @@ get_header();
             <option value="Venta">Venta</option>
             <option value="Alquiler">Alquiler</option>           
             </select></p>
-            <p>
-            <input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
+          <p><input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
         </div>
         <div class="tab">Precio estimado y foto principal
           <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="inmueble-precioestimado" type="number"></p>

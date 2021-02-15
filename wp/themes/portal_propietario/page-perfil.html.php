@@ -41,6 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') &&
     
     require('page-perfil2.html.php');
 
+} else if (current_user_can('administrator') && !empty($_GET['user'])) {
+
+  require('page-perfil2.html.php');
+
 } else {
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil.css?cb=' . generate_random_string() . '">';

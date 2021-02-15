@@ -25,9 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
     foreach ($_POST as $key => $value) {
       update_user_meta($user_id, 'meta-' . $key, wp_slash($value));
     }
-    if (current_user_can('administrator') && !empty($_GET['user'])) {
-      update_user_meta($user_id, 'meta-gestor-asignado', get_current_user_id());
-    }
     $userdata = array(
       'ID'           => $user_id,
       'display_name' => $_POST['nombre'],
@@ -62,9 +59,9 @@ get_header();
             </div>
 
             <div class="tab">Información del Asesor:
-                <p><input placeholder="Puesto..." oninput="this.className = ''" name="Puesto"></p>
-                <p><input validators="numeric" placeholder="Telefono..." oninput="this.className = ''" name="Telefono"></p>
-                <p><input placeholder="Disponibilidad Horaria..." oninput="this.className = ''" name="Disponibilidad"></p>
+                <p><input placeholder="Puesto..." oninput="this.className = ''" name="puesto"></p>
+                <p><input validators="numeric" placeholder="Telefono..." oninput="this.className = ''" name="telefono"></p>
+                <p><input placeholder="Disponibilidad Horaria..." oninput="this.className = ''" name="disponibilidad"></p>
             </div>
             <div style="overflow:auto;">
                 <div style="float:right;">
