@@ -7,6 +7,38 @@
  *
  * @package portal_propietario
  */
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+    $user_id = wp_create_user( $_POST['email'], $_POST['pwd'], $_POST['email']);
+    $display_name = '';
+    if ( isset( $_POST['nombre'] ) ) {
+      $display_name .= $_POST['nombre'];
+    }
+
+    $userdata = array(
+      'ID'           => $user_id,
+      'display_name' => $display_name,
+    );
+    wp_update_user( $userdata );
+
+    update_user_meta($user_id, 'meta-gestor-asignado', get_current_user_id());
+  
+    foreach ($_POST as $key => $value) {
+      update_user_meta($user_id, 'meta-' . $key, wp_slash($value));
+    }
+    if (current_user_can('administrator') && !empty($_GET['user'])) {
+      update_user_meta($user_id, 'meta-gestor-asignado', get_current_user_id());
+    }
+    $userdata = array(
+      'ID'           => $user_id,
+      'display_name' => $_POST['nombre'],
+    );
+    wp_update_user( $userdata );
+
+    $user = new WP_User( $user_id );
+    $user->set_role( 'administrator' );
+
+
+} else {
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/new-asesor.css">';
@@ -20,13 +52,13 @@ get_header();
 
 <main id="primary" class="site-main">
     <div class="main">
-        <form id="regForm" action="perfil2.html">
+        <form id="regForm" method="POST">
             <h1>Perfil:</h1>
             <!-- One "tab" for each step in the form: -->
             <div class="tab">Identificación Asesor:
                 <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="nombre"></p>
-                <p><input validators="email" placeholder="E-mail..." oninput="this.className = ''" name="Email"></p>
-                <p><input type="password" placeholder="Contraseña..." oninput="this.className = ''" name="Contraseña"></p>
+                <p><input validators="email" placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+                <p><input type="password" placeholder="Contraseña..." oninput="this.className = ''" name="pwd"></p>
             </div>
 
             <div class="tab">Información del Asesor:
@@ -53,3 +85,4 @@ get_header();
 
 <?php
 get_footer();
+}
