@@ -2,161 +2,197 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
-    <link rel="stylesheet" href="index-admin.css">
-    <link rel="stylesheet" href="gestiones-adminasesor.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+  <link rel="stylesheet" href="index-admin.css">
+  <link rel="stylesheet" href="gestiones-adminasesor.css">
 
 
 
-    <title>INICIO</title>
+  <title>INICIO</title>
 </head>
 
 <body>
-    <div id="desktop">
-        <div class="header">
-            <div class="right">
-                <div class="alerta-asesor">
-                    <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
-                </div>
-                <div class="mensajes">
-                    <a id="mensajes" href="mensajes-admin.html"><img src="../email.png"></a>
-                </div>
-                <div class="alertas">
-                    <a id="alertas"><img src="../advertencia.png"></a>
-                </div>
-                <div class="usuario">
-                    <a id="usuario" href="perfil-admin.html"><img src="../perfil.png"></a>
-                </div>
-            </div>
-
+  <div id="desktop">
+    <div class="header">
+      <div class="right">
+        <div class="alerta-asesor">
+          <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
         </div>
-        <div class="menu">
-            <div class="logo"> </div>
-            <h2>PORTAL ADMINISTRADOR</h2>
-            <hr />
-            <span>Opciones generales</span>
-            <hr>
-            <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
-            <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
-            <hr />
-
-            <button id="gestiones" class="dropdown-btn">
-                <i class="fa fa-tasks"></i> GESTIONES
-
-            </button>
-            <div class="dropdown-container">
-                <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
-                <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
-                <a id="perfil" href="gestiones-adminasesor.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
-                <a id="doc" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
-            </div>
-            <hr />
+        <div class="mensajes">
+          <a id="mensajes" href="mensajes-admin.html"><img src="../email.png"></a>
         </div>
-
-        <div class="main">
-            <div class="perfil-asesor">
-                <div class="asesor-admin">
-                    <div class="info-asesor">
-                        <div class="img-asesor">
-                            <img src="../perfil.png" style="width:100%;">
-                        </div>
-                        <div class="main-formulario">
-                            <div class="caracteristicas">
-                              <h2>Perfil Asesor:</h2>
-                              <form>
-                                <div class="formulario">
-                                  <input type="text" name="name" class="question" placeholder="" id="nombre" required autocomplete="off" />
-                                  <label for="nombre">
-                                    <span>Nombre y Apellidos</span>
-                                  </label>
-                                </div>
-                              </form>
-                              <form>
-                                <div class="formulario">
-                                  <input type="text" name="name" class="question" placeholder="" id="usuario" required
-                                    autocomplete="off" />
-                                  <label for="usuario">
-                                    <span>Usuario</span>
-                                  </label>
-                                </div>
-                              </form>
-                              <form>
-                              <div class="formulario">
-                                <input type="text" name="name" class="question" placeholder="" id="email" required autocomplete="off" />
-                                <label for="email">
-                                  <span>E-mail</span>
-                                </label>
-                              </div>
-                              </form>
-                              <form>
-                                <div class="formulario">
-                                  <input type="text" name="name" class="question" placeholder="" id="telefono" required autocomplete="off" />
-                                  <label for="telefono">
-                                    <span>Telefono</span>
-                                  </label>
-                                </div>
-                                </form>
-                              <form>
-                              <div class="formulario">
-                                <input type="text" name="name" class="question" placeholder="" id="pass" required autocomplete="off" />
-                                <label for="pass">
-                                  <span>Contraseña</span>
-                                </label>
-                              </div>
-                              </form>
-                              <form>
-                                <div class="formulario">
-                                  <input type="text" name="name" class="question" placeholder="" id="telefono" required autocomplete="off" />
-                                  <label for="telefono">
-                                    <span>Puesto</span>
-                                  </label>
-                                </div>
-                                </form>
-                              <form>
-                              <div class="formulario">
-                                <input type="text" name="name" class="question" placeholder="" id="disponibilidad" required autocomplete="off" />
-                                <label for="disponibilidad">
-                                  <span>Disponibilidad</span>
-                                </label>
-                              </div>
-                              </form>
-                  
-                  
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="new-asesor">
-                    <button>
-                        <a href="new-asesor.html">
-                            <img src="../agregar-usuario.png" width="100%">
-                            <h2>AGREGAR ASESOR</h2>
-                        </a>
-                    </button>
-                </div>
-
-            </div>
+        <div class="alertas">
+          <a id="alertas"><img src="../advertencia.png"></a>
         </div>
-    </div>
+        <div class="perfil-admin">
+          <a id="usuario" href="perfil-admin.html"><img src="../perfil.png"></a>
+        </div>
+      </div>
 
     </div>
+    <div class="menu">
+      <div class="logo"> </div>
+      <h2>PORTAL ADMINISTRADOR</h2>
+      <hr />
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
+      <a id="perfil-asesor" href="admin-perfil-asesores.html"><i class="far fa-envelope"></i>PERFIL</a>
+      <hr />
+
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+
+      </button>
+      <div class="dropdown-container">
+        <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+        <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+        <a id="perfil" href="gestiones-adminasesor.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+        <a id="doc" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
+      </div>
+      <hr />
+    </div>
+
+    <div class="main">
+      <div class="agregar-wrapper">
+        <h2>Estado Asesores</h2>
+        <div class="card-agregar">
+          <button>
+            <a href="perfil-inmueble.html">
+              <div class="img-agregar">
+                <img src="../plus.png" alt="Avatar" style="width:10%">
+                <h3><b>AGREGAR ASESOR</b></h3>
+              </div>
+            </a>
+          </button>
+        </div>
+      </div>
+      <div class="style-box">
+        <table class="default">
+          <tr>
+            <th>Asesor </th>
+            <th>E-mail </th>
+            <th>Disponibilidad </th>
+            <th>Numero de Clientes </th>
+            <th>Gestionar</th>
+          </tr>
+          <tr>
+            <td>antonio lopez </td>
+            <td>antoniolope@miracasa.com </td>
+            <td>Mañanas</td>
+            <td>4</td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+    
+            </td>
+          </tr>
+          <tr>
+            <td>Miguel gutierrez</td>
+            <td>Miguelgutierrez@miracasa.com</td>
+            <td>mañanas</td>
+            <td>
+            2
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Jose Luis martines</td>
+            <td>JoseLuismartines@miracasa.com</td>
+            <td>Tardes</td>
+            <td>
+            3
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Miguel hernandez</td>
+            <td>Miguelhernandez@miracasa.com </td>
+            <td>Mañana</td>
+            <td> 7
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Javier sanchez</td>
+            <td>Javiersanchez@miracasa.com </td>
+            <td>Tardes</td>
+            <td>
+              1
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Gonzalo gonzalez</td>
+            <td>Gonzalogonzalez@miracasa.com </td>
+            <td>Mañanas y Tardes</td>
+            <td> 9
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Arturo jimenez</td>
+            <td>Arturojimenez@miracasa.com</td>
+            <td>Tardes</td>
+            <td>5
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Garrido garcia</td>
+            <td>Garridogarcia@miracasa.com </td>
+            <td>Tardes</td>
+            <td> 4
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Ignacio gutierrez</td>
+            <td>Ignaciogutierrez@miracasa.com </td>
+            <td>Mañanas </td>
+            <td> 5
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Javier ayala</td>
+            <td>Javierayala@miracasa.com </td>
+            <td>Tarde</td>
+            <td> 8
+            </td>
+            <td>
+              <a id="password" href="#"><i class="fas fa-key"></i></i></a>
+            </td>
+          </tr>
+        </table>
+      </div>
+      
 
     </div>
 
-
-
-
-    <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
-    <script src="menu-admin.js"></script>
+  <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+  <script src="menu-admin.js"></script>
 </body>
 
 </html>

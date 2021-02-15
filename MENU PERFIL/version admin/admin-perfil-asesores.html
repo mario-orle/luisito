@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+    <link rel="stylesheet" href="index-admin.css">
+    <link rel="stylesheet" href="admin-perfil-asesores.css">
+
+
+
+    <title>INICIO</title>
+</head>
+
+<body>
+    <div id="desktop">
+        <div class="header">
+            <div class="right">
+                <div class="alerta-asesor">
+                    <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
+                </div>
+                <div class="mensajes">
+                    <a id="mensajes" href="mensajes-admin.html"><img src="../email.png"></a>
+                </div>
+                <div class="alertas">
+                    <a id="alertas"><img src="../advertencia.png"></a>
+                </div>
+                <div class="usuario">
+                    <a id="usuario" href="perfil-admin.html"><img src="../perfil.png"></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="menu">
+            <div class="logo"> </div>
+            <h2>PORTAL ADMINISTRADOR</h2>
+            <hr />
+            <span>Opciones generales</span>
+            <hr>
+            <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
+            <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
+            <a id="perfil-asesor" href="admin-perfil-asesores.html"><i class="far fa-envelope"></i>PERFIL</a>
+            <hr />
+
+            <button id="gestiones" class="dropdown-btn">
+                <i class="fa fa-tasks"></i> GESTIONES
+
+            </button>
+            <div class="dropdown-container">
+                <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+                <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+                <a id="perfil" href="gestiones-adminasesor.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+                <a id="doc" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
+            </div>
+            <hr />
+        </div>
+
+        <div class="main">
+            <div class="perfil-asesor">
+                <div class="asesor-admin">
+                    <div class="info-asesor">
+                        <div class="img-asesor">
+                            <img src="../perfil.png" style="width:100%;">
+                        </div>
+                        <div class="main-formulario">
+                            <div class="caracteristicas">
+                                <h2>Perfil Asesor:</h2>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder="" id="nombre"
+                                            required autocomplete="off" />
+                                        <label for="nombre">
+                                            <span>Nombre y Apellidos</span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder="" id="usuario"
+                                            required autocomplete="off" />
+                                        <label for="usuario">
+                                            <span>Usuario</span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder="" id="email"
+                                            required autocomplete="off" />
+                                        <label for="email">
+                                            <span>E-mail</span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder="" id="telefono"
+                                            required autocomplete="off" />
+                                        <label for="telefono">
+                                            <span>Telefono</span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder="" id="pass"
+                                            required autocomplete="off" />
+                                        <label for="pass">
+                                            <span>Contraseña</span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder="" id="telefono"
+                                            required autocomplete="off" />
+                                        <label for="telefono">
+                                            <span>Puesto</span>
+                                        </label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="formulario">
+                                        <input type="text" name="name" class="question" placeholder=""
+                                            id="disponibilidad" required autocomplete="off" />
+                                        <label for="disponibilidad">
+                                            <span>Disponibilidad</span>
+                                        </label>
+                                    </div>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+
+    <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+    <script src="menu-admin.js"></script>
+</body>
+
+</html>
