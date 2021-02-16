@@ -127,7 +127,7 @@ get_header();
           return moment(date, 'D MMMM YYYY');;
       },
       toDisplay(date, format, locale) {
-          var elem = document.querySelector('input[name="inmueble-owner-birth-date"]');
+          var elem = document.querySelector('input[name="owner-birth-date"]');
           elem.value = moment(date).format();
           return moment(date).format('D MMMM YYYY');
       },
