@@ -9,6 +9,8 @@ body, html {
   position: fixed;
   top: 150px;
   left: 42px;
+  bottom: 0;
+  overflow: scroll;
 }
 
 .header{
@@ -18,7 +20,7 @@ body, html {
   align-items: center;
   top: 0;
   left: 0;
-  width: 341px;
+  width: calc(100% - 20px);
   padding: 10px;
   background-color: black;
   box-shadow: 1px 1px 20px 0px orange;
