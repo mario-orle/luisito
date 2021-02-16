@@ -1,7 +1,8 @@
+.main{
+    margin-top: 140px !important;
+}
 
-
-  
-  .form-register {
+.form-register {
     align-items: center;
     display: flex;
     flex-flow: column;
@@ -12,27 +13,30 @@
     font-family: 'calibri';
     color: white;
     box-shadow: 7px 13px 37px #000;
-
   }
   
-
+  .form-register h4 {
+    font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
   
   .controls {
-    width: 230px;
+    width: 100%;
     background: aliceblue;
     padding: 10px;
     border-radius: 4px;
-    margin-bottom: 16px;
     border: 1px solid #1f53c5;
     font-family: 'calibri';
-    font-size: 18px;
+    font-size: 14px;
     color: black;
   }
   
   .form-register p {
     text-align: center;
-    font-size: 18px;
-
+    font-size: 14px;
+    margin-top: 30px;
+    margin-bottom: 0px;
   }
   
   .form-register a {
@@ -46,11 +50,11 @@
   }
   
   .form-register .botons {
-    width: 80px;
+    width: 100%;
     background: #1f53c5;
     border: none;
+    padding: 12px;
     color: white;
+    margin: 16px 0;
     font-size: 16px;
-    border-radius: 5px;
-    
   }
