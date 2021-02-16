@@ -174,7 +174,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
 
 <script>
     moment.locale("es");
-    var fechaNacimiento = "<?php echo get_user_meta($user->ID, 'meta-inmueble-owner-birth-date', true) ?>";
+    var fechaNacimiento = "<?php echo get_user_meta($user->ID, 'meta-owner-birth-date', true) ?>";
     var firstTime = true;
 
     document.querySelector("#fecha-nacimiento input[type='text']").value = moment(fechaNacimiento).format('D MMMM YYYY');
