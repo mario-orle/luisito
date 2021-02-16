@@ -1,0 +1,17 @@
+.main{
+    top: 100px !important;
+    left:20px !important;
+}
+.main-documentos{
+    display: flex;
+    flex-flow: column;
+    overflow: scroll;
+    padding: 15px;
+
+}
+.documentos{
+    margin-top: 25px;
+    background-color: white;
+    padding: 10px;
+  
+}
