@@ -72,7 +72,6 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
                     <input type="text" name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editar(event)" >
-                    
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto</h4>
