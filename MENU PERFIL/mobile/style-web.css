@@ -7,8 +7,9 @@ body, html {
   color: black;
   font-weight: bold;
   position: fixed;
-  top: 150px;
-  left: 42px;
+  top: 110px;
+  left: 0px;
+  right: 0;
   bottom: 0;
   overflow: scroll;
 }
