@@ -25,7 +25,7 @@ get_header();
                     <tr>
                         <th>Usuario </th>
                         <th>E-mail </th>
-                        <th>Dirección </th>
+                        <th>Nº Inmuebles </th>
                         <th>Estado Documentación </th>
                         <th>Gestionar</th>
                     </tr>

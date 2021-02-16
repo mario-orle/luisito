@@ -9,18 +9,10 @@
  * @package portal_propietario
  */
 
-$inmueble = get_posts(array(
-  'post_type' => 'inmueble',
-  'author' => get_current_user_id()
-))[0];
 $user = wp_get_current_user();
 
 if (current_user_can('administrator') && !empty($_GET['user'])) {
-$inmueble = get_posts(array(
-  'post_type' => 'inmueble',
-  'author' => $_GET['user']
-))[0];
-$user = get_user_by('ID', $_GET['user']);
+  $user = get_user_by('ID', $_GET['user']);
 
 }
 ?>
@@ -41,8 +33,16 @@ $user = get_user_by('ID', $_GET['user']);
   id="user-name-and-lastname" />
 <input 
   type="hidden" 
+  value="<?php echo get_user_meta($user->ID, 'meta-foto-perfil', true) ?>" 
+  id="user-img-perfil" />
+<input 
+  type="hidden" 
   value="<?php echo get_current_user()->display_name; ?>" 
   id="real-user-name-and-lastname" />
+<input 
+  type="hidden" 
+  value="<?php echo get_user_meta(wp_get_current_user()->ID, 'meta-foto-perfil', true) ?>" 
+  id="real-user-img-perfil" />
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
@@ -105,6 +105,7 @@ if (!current_user_can("administrator")) {
     <hr>
     <a id="inicio" href="/inicio"><i class="fas fa-home"></i>INICIO</a>
     <a id="mensajes" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
+    <a id="perfil" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
     <hr />
 
     <button id="gestiones" class="dropdown-btn">

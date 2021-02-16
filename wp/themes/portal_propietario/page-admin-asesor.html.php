@@ -91,17 +91,6 @@ get_header();
                 </div>
 
             </div>
-
-
-            <div class="new-asesor">
-                <button>
-                    <a href="/new-asesor">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>agregar-usuario.png" width="100%">
-                        <h2>AGREGAR ASESOR</h2>
-                    </a>
-                </button>
-            </div>
-
         </div>
     </div>
 </main><!-- #main -->
