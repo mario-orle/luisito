@@ -11,6 +11,8 @@
 
 require_once "self/security.php";
 
+$logged_user = wp_get_current_user();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') && empty($_GET['user'])) {
     $user_id = wp_create_user( $_POST['owner-email'], $_POST['owner-pwd'], $_POST['owner-email']);
     $_GET['user'] = $user_id;
@@ -38,6 +40,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') &&
 
 } else if (current_user_can('administrator') && !empty($_GET['user'])) {
 
+  require('page-perfil2.html.php');
+
+} else if (get_user_meta($logged_user->ID, 'meta-gestor-asignado', true) != "") {
   require('page-perfil2.html.php');
 
 } else {
