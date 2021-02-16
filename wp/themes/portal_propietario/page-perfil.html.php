@@ -12,11 +12,11 @@
 require_once "self/security.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') && empty($_GET['user'])) {
-    $user_id = wp_create_user( $_POST['inmueble-owner-email'], $_POST['inmueble-owner-pwd'], $_POST['inmueble-owner-email']);
+    $user_id = wp_create_user( $_POST['owner-email'], $_POST['owner-pwd'], $_POST['owner-email']);
     $_GET['user'] = $user_id;
     $display_name = '';
-    if ( isset( $_POST['inmueble-owner-name'] ) ) {
-      $display_name .= $_POST['inmueble-owner-name'];
+    if ( isset( $_POST['owner-name'] ) ) {
+      $display_name .= $_POST['owner-name'];
     }
 
     $userdata = array(
@@ -33,11 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') &&
     if (current_user_can('administrator') && !empty($_GET['user'])) {
       update_user_meta($user_id, 'meta-gestor-asignado', get_current_user_id());
     }
-    $userdata = array(
-      'ID'           => $user_id,
-      'display_name' => $_POST['inmueble-owner-name'] . ' ' . $_POST['inmueble-owner-lastname'] . ' ' . $_POST['inmueble-owner-lastname2'],
-    );
-    wp_update_user( $userdata );
     
     require('page-perfil2.html.php');
 
@@ -74,23 +69,23 @@ get_header();
         <h1>Perfil:</h1>
         <!-- One "tab" for each step in the form: -->
         <div class="tab">Nombre:
-          <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="inmueble-owner-name"></p>
+          <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="owner-name"></p>
           <p>
-            <select class="js-choice" name="inmueble-owner-tipodocumento">
+            <select class="js-choice" name="owner-tipodocumento">
               <option value="">Tipo de documento</option>
               <option value="DNI">DNI</option>
               <option value="NIE">NIE</option>           
             </select>
           </p>
-          <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''" name="inmueble-owner-numdocumento"></p>
+          <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''" name="owner-numdocumento"></p>
 
         </div>
         <div class="tab">Contacto:
-          <p><input validators="email" placeholder="E-mail..." type="email" oninput="this.className = ''" name="inmueble-owner-email"></p>
-          <p><input placeholder="Contraseña..." type="password" oninput="this.className = ''" name="inmueble-owner-pwd"></p>
-          <p><input validators="numeric" placeholder="Telefono..." type="tel" oninput="this.className = ''" name="inmueble-owner-phone"></p>
+          <p><input validators="email" placeholder="E-mail..." type="email" oninput="this.className = ''" name="owner-email"></p>
+          <p><input placeholder="Contraseña..." type="password" oninput="this.className = ''" name="owner-pwd"></p>
+          <p><input validators="numeric" placeholder="Telefono..." type="tel" oninput="this.className = ''" name="owner-phone"></p>
           <p><input id="datepicker" placeholder="Fecha de nacimiento..." oninput="this.className = ''"></p>
-          <p><input type="hidden" name="inmueble-owner-birth-date"></p>
+          <p><input type="hidden" name="owner-birth-date"></p>
         </div>
         <div style="overflow:auto;">
           <div style="float:right;">
@@ -100,7 +95,6 @@ get_header();
         </div>
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
-          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
         </div>

@@ -37,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $upload_overrides = array( 'test_form' => false );
       $movefile = wp_handle_upload( $_FILES['inmueble-foto-principal'], $upload_overrides );
 
-      echo $movefile->url;
-
       update_post_meta($inmueble_id, 'meta-inmueble-foto-principal', wp_slash($movefile['url']));
 
       
@@ -179,7 +177,6 @@ get_header();
   
   var foto = document.querySelector("#foto");
   foto.onchange = function () {
-    debugger
     if (foto.files && foto.files[0]) {
     var reader = new FileReader();
     

@@ -61,8 +61,12 @@
     text-align: center;
 }
 
-.fakeimg-perfil {
-    margin-left: 25px;
+.fakeimg-perfil img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
 }
 
 
@@ -116,15 +120,6 @@
 .formulario span {
     padding: 10px;
     color: black;
-}
-
-label {
-    font-size: 22px;
-    position: absolute;
-    width: 100%;
-    margin: auto;
-    top: 20px;
-    z-index: 10;
 }
 
 .formulario input:focus {
@@ -352,4 +347,36 @@ label {
     padding: 10px;
     font-size: 2em;
     text-align: center;
+}
+
+input.editor {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+}
+
+#dni {
+    display: flex;
+    justify-content: center;
+}
+
+#dni>input {
+    width: calc(100% - 60px);
+}
+
+#dni .choices {
+    width: 70px;
+    height: 40px;
+    margin-bottom: 0;
+}
+
+#dni .choices .choices__inner {
+    min-height: auto;
+    width: 45px;
+    background: transparent;
+    border: none;
+}
+
+#dni .choices .choices__list {
+    width: 250%;
 }

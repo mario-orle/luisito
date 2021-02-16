@@ -42,11 +42,13 @@ document.body.onload = function() {
     var nombre = document.querySelector("#user-name-and-lastname").value;
     var imgs = document.querySelectorAll("img.user-logo-auto");
     for (var i = 0; i < imgs.length; i++) {
-        imgs[i].src = creaImagen(nombre);
+        if (!imgs[i].hasAttribute("data-photo-selected"))
+            imgs[i].src = creaImagen(nombre);
     }
     var realnombre = document.querySelector("#real-user-name-and-lastname").value;
     var realimgs = document.querySelectorAll("img.real-user-logo-auto");
     for (var i = 0; i < realimgs.length; i++) {
-        realimgs[i].src = creaImagen(realnombre);
+        if (!realimgs[i].hasAttribute("data-photo-selected"))
+            realimgs[i].src = creaImagen(realnombre);
     }
 }

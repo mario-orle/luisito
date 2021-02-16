@@ -159,6 +159,9 @@ function portal_propietario_scripts() {
 
 	wp_enqueue_style( 'portal_propietario-roboto-style', 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', array(), _S_VERSION );
 
+	wp_enqueue_script( 'portal_propietario-toast', 'https://cdn.jsdelivr.net/npm/toastify-js', array(), _S_VERSION, true);
+	wp_enqueue_style( 'portal_propietario-toast-style', 'https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css', array(), _S_VERSION );
+
 }
 add_action( 'wp_enqueue_scripts', 'portal_propietario_scripts' );
 
