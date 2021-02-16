@@ -1,6 +1,14 @@
 body, html {
   height: 100%;
   margin: 0;
+  font-family: "ralewey";
+}
+.main{
+  color: black;
+  font-weight: bold;
+  position: fixed;
+  top: 150px;
+  left: 42px;
 }
 
 .header{
