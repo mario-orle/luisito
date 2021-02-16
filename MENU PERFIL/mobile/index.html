@@ -7,34 +7,78 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <link rel="stylesheet" href="css.css">
-  <link rel="stylesheet" href="inicio.css">
+  <link rel="stylesheet" href="index-mobile.css">
+  <link rel="stylesheet" href="style-web.css">
   <title>INICIO</title>
 </head>
 
 <body>
-  <div class="fondo"></div>
-    <div class="topnav">
-      <a href="#home" class="active"><img src="../logo.png" width="50%"></a>
-      <div id="myLinks">
-        <a href="#citas">CITAS <i class="fas fa-handshake"></i> </a>
-        <a href="#contact">CHAT <i class="far fa-address-book"></i></a>
-        <a href="#Doc">DOCUMENTACIÓN <i class="fas fa-book"></i></a>
+  <div class="header">
+    <img src="logo.png" width="100%">
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="#">CHAT</a>
+        <a href="#">CITAS</a>
+        <a href="#">DOCUMENTOS</a>
       </div>
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i>
-      </a>
     </div>
-
-
+    <span onclick="openNav()">&#9776;</span>
+  </div>
+  <div class="bg-image">
+  <div class="main">
     <div class="main-container">
-      <div class="estadisticas">
-        
+      <div class="texto-cabecera">
+        <h2>Resumen Propietario</h2>
+        <select class="select">
+          <option>Selecciona Cliente</option>
+          <option>Ramon Garcia</option>
+          <option>Artiro Perez</option>
+          <option>Joaquin Hermida</option>
+          <option>Etxenique Uzurriagueta</option>
+          <option>Omar Abdul Sahan</option>
+        </select>
       </div>
-    </div>>
-  
+      <hr />
+      <div class="general">
+        <div class="doc-pendientes">
+          <button>
+            <a href="admin-documentos.html"></a>
+            <img src="../docs.png" width="100%">
+            <h2>Doc Pendientes</h2>
+            <p>7 Documentos</p>
+          </button>
+        </div>
+        <div class="doc-revisar">
+          <button>
+            <a href="admin-documentos.html"></a>
+            <img src="../docs.png" width="100%">
+            <h2>Doc Revisar</h2>
+            <p>2 Documentos</p>
+          </button>
+        </div>
+        <div class="chat-pendientes">
+          <button>
+            <a href="mensajes-admin.html"></a>
+            <img src="../email2.png" width="100%">
+            <h2>Chat Pendientes</h2>
+            <p>4 Mensajes sin leer</p>
+          </button>
+        </div>
+        <div class="citas">
+          <button>
+            <a href="citas-admin.html"></a>
+            <img src="../cita.png" width="100%">
+            <h2>Citas Sin Actualizar</h2>
+            <p>6 Citas pendientes</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  >
-  <script src="botones.js "></script>
+
+
   <script src="menu.js "></script>
 </body>
