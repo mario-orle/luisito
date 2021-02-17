@@ -172,6 +172,15 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('perfiladmin')) {
+        wp_insert_post(array(
+            'post_title' => 'perfiladmin',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-adminasesor.html.php'
+        ));
+    }
+
 
     
 }

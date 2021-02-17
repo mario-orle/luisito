@@ -18,7 +18,7 @@ if ($_GET['action'] == 'update_metadata') {
     
     update_user_meta($user_id, 'meta-' . $_POST['metaname'], wp_slash($_POST['metavalue']));
 
-    if ($_POST["metaname"] === 'owner-display-name') {
+    if ($_POST["metaname"] === 'owner-display-name' || $_POST["metaname"] === 'admin-display-name') {
         $userdata = array(
             'ID'           => $user_id,
             'display_name' => $_POST['metavalue'],

@@ -28,6 +28,8 @@ function myCss()
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker.min.css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/datepicker-full.min.js"></script>';
     echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/locales/es.js"></script>';
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js" integrity="sha512-Gs+PsXsGkmr+15rqObPJbenQ2wB3qYvTHuJO6YJzPe/dTLvhy0fmae2BcnaozxDo5iaF8emzmCZWbQ1XXiX2Ig==" crossorigin="anonymous"></script>';
+    echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css" integrity="sha512-zxBiDORGDEAYDdKLuYU9X/JaJo/DPzE42UubfBw9yg8Qvb2YRRIQ8v4KsGHOx2H1/+sdSXyXxLXv5r7tHc9ygg==" crossorigin="anonymous" />';
 
 }
 add_action('wp_head', 'myCss');
@@ -134,6 +136,12 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
             
             reader.onload = function(e) {
                 document.querySelector(".fakeimg-perfil img").src = e.target.result;
+                /*var c = new Croppie(document.querySelector(".fakeimg-perfil img"), {
+                    viewport: { width: 150, height: 150, type: 'circle' },
+                    boundary: { width: 200, height: 200 },
+                    
+                });*/
+
             }
             
             reader.readAsDataURL(file); // convert to base64 string

@@ -105,7 +105,7 @@ if (!current_user_can("administrator")) {
     <hr>
     <a id="inicio" href="/inicio"><i class="fas fa-home"></i>INICIO</a>
     <a id="mensajes" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
-    <a id="perfil" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
+    <a id="perfil" href="/perfiladmin"><i class="far fa-user-circle"></i>PERFIL</a>
     <hr />
 
     <button id="gestiones" class="dropdown-btn">
