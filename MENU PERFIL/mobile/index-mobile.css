@@ -5,14 +5,18 @@
     width: 50px;
    align-content: center;
 }
-
+.btn{
+    margin: 0 auto;
+    width: calc(100% - 80px);
+    padding-top: 25px;
+}
 
 .btn button{
-     display:inline-block;
+    display:inline-block;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    width: 280px;
+    width: 100%;
     margin-bottom: 20px;
     border-radius:6px;
     border:1px solid white;
@@ -22,18 +26,28 @@
     padding:6px 24px;
     text-decoration:none;
     text-shadow:0px 1px 0px #ffffff;
-    }
+}
 
-    .btn button:active {
+.btn button:active {
     position:relative;
     top:1px;
     text-decoration:none;
     background-color: orange;
     transform: scale(1.1);
-	transition: .1s;
-    }    
+    transition: .1s;
+}    
 
-    .btn button h2{
-        color: black;
-    }
+.btn button h2{
+  color: black;
+}
+
+.btn a:active{
+  text-decoration: none;
+}
+.btn a:link{
+  text-decoration: none;
+}
+.btn a:visited{
+  text-decoration: none;
+}
     
