@@ -3,6 +3,7 @@ display: flex;
 justify-content: space-between;
 }
 
+
 .colum-left{
 width: 330px;
 background-color: #8a9597;
@@ -32,6 +33,52 @@ height: 870PX;
 box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
 border-bottom: orange 3px solid;
 border-radius: 3px;
+}
+.main-datos {
+  display: flex;
+  background-color: white;
+  height: 350px;
+  padding: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  justify-content: space-around;
+  border-bottom: orange 3px solid;
+  border-radius: 3px;
+  width: calc(100% - 110px);
+  margin-bottom: 25px;
+}
+
+.texto {
+  width: 450px;
+  padding: 30px;
+}
+
+.datos-inmuebles {
+  text-align: left;
+  margin-top: 75px;
+}
+
+.precios {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+
+.venta {
+  background-color: #e4e4e4;
+  width: 200px;
+  height: 100px;
+  padding: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.valoracion {
+  background-color: #e4e4e4;
+  width: 200px;
+  height: 100px;
+  padding: 5px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
 .img-home {

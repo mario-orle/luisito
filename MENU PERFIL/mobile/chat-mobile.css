@@ -63,10 +63,9 @@
     text-shadow: 1px black;
 }
 
-.user{
+.chat .img-contact .user {
     background-color: white;
     border-radius: 3px;
     height: 25px;
     border: 1px black solid;
-    
 }
