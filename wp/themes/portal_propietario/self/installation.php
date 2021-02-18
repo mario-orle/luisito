@@ -177,7 +177,7 @@ function create_our_pages() {
             'post_title' => 'perfiladmin',
             'post_status' => 'publish',
             'post_type' => 'page',
-            'page_template' => 'page-adminasesor.html.php'
+            'page_template' => 'page-perfil-asesor.html.php'
         ));
     }
 

@@ -12,8 +12,6 @@
 }
 
 .main-perfil {
-    width: calc(100% - 310px);
-    max-width: 700px;
     padding: 20px;
 }
 
@@ -379,4 +377,85 @@ input.editor {
 
 #dni .choices .choices__list {
     width: 250%;
+}
+
+.row {
+    display: flex;
+}
+
+.side {
+    width: 250px;
+    background-color: #8a9597;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 black;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.fakeimg-perfil img {
+    display: block;
+    margin: 0 auto;
+}
+
+.card-wrapper {
+    padding: 10px;
+}
+
+.card-wrapper img {
+    margin-top: 8px;
+    border-radius: 5px;
+}
+
+.card-wrapper button {
+    background-color: #6d7677;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+}
+
+.card-wrapper h4,
+p {
+    color: white;
+}
+
+.card-wrapper p {
+    font-style: italic
+}
+
+.card-wrapper h3 {
+    color: orange;
+}
+
+.card-wrapper button:hover {
+    box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
+}
+
+.container {
+    padding: 2px 16px;
+    width: 90%;
+}
+
+.main-up-inmuebles {
+    font-size: 20px;
+    padding: 20px;
+    display: flex;
+    font-family: "roboto ";
+    flex-wrap: wrap;
+}
+
+.card-wrapper button a:active {
+    text-decoration: none;
+}
+
+.card-wrapper button a:link {
+    text-decoration: none;
+}
+
+.card-wrapper button a:visited {
+    text-decoration: none;
+}
+
+.card-wrapper img {
+    width: 338px;
+    height: 190px;
 }

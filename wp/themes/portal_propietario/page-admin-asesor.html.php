@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: page-usuarios-admin.html
- * The template for displaying usuarios-admin.html
+ * Template Name: page-admin-asesor.html
+ * The template for displaying admin-asesor.html
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
