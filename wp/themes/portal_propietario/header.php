@@ -15,6 +15,10 @@ if (current_user_can('administrator') && !empty($_GET['user'])) {
   $user = get_user_by('ID', $_GET['user']);
 
 }
+
+$creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
+//si ha sido creado por otro usuario, al inicio
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -115,7 +119,13 @@ if (!current_user_can("administrator")) {
     <div class="dropdown-container">
       <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
       <a id="admin-usuarios" href="/admin-usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+      <?php
+if (!$creator_of_user) {
+      ?>
       <a id="perfil" href="/admin-asesor"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+      <?php
+}
+      ?>
       <a id="doc" href="/admin-doc"><i class="fas fa-folder"></i>ADMIN DOC</a>
     </div>
     <hr />

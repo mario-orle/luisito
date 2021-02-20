@@ -7,7 +7,15 @@
  *
  * @package portal_propietario
  */
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+
+$user = wp_get_current_user();
+$creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
+//si ha sido creado por otro usuario, al inicio
+if (!empty($creator_of_user)) {
+    wp_redirect("/inicio");
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') && !$creator_of_user) {
     $user_id = wp_create_user( $_POST['email'], $_POST['pwd'], $_POST['email']);
     $display_name = '';
     if ( isset( $_POST['nombre'] ) ) {
@@ -20,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
     );
     wp_update_user( $userdata );
 
-    update_user_meta($user_id, 'meta-gestor-asignado', get_current_user_id());
+    update_user_meta($user_id, 'meta-creator-of-user', get_current_user_id());
   
     foreach ($_POST as $key => $value) {
       update_user_meta($user_id, 'meta-' . $key, wp_slash($value));

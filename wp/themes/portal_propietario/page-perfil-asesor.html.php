@@ -14,6 +14,12 @@ function myCss() {
 add_action('wp_head', 'myCss');
 
 $user = wp_get_current_user();
+$creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
+//si ha sido creado por otro usuario, al inicio
+if (empty($creator_of_user) && !empty($_GET['user']) ) {
+    $user = get_user_by('ID', $_GET['user']);
+}
+
 
 get_header();
 ?>

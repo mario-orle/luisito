@@ -22,10 +22,10 @@ get_header();
     <div class="agregar-wrapper">
         <div class="card-agregar">
           <button>
-            <a href="/perfil">
+            <a href="/new-asesor">
               <div class="img-agregar">
                 <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>plus.png" alt="" style="width:10%">
-                <h3><b>AGREGAR USUARIO</b></h3>
+                <h3><b>AGREGAR ASESOR</b></h3>
               </div>
             </a>
           </button>
@@ -35,41 +35,31 @@ get_header();
             <table class="default">
                 <tbody>
                     <tr>
-                        <th>Usuario </th>
+                        <th>Asesor </th>
                         <th>E-mail </th>
-                        <th>Nº Inmuebles </th>
-                        <th>Estado Documentación </th>
+                        <th>Disponibilidad</th>
+                        <th>Número de clientes </th>
                         <th>Gestionar</th>
                     </tr>
                     <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
-    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
-        $inmuebles = get_posts([
-            'post_type' => 'inmueble',
-            'post_status' => 'publish',
-            'numberposts' => -1,
-            'author' => $user_of_admin->ID
-            // 'order'    => 'ASC'
-        ]);
+foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin) {
+    $users_of_admin = get_users(array(
+        'meta_key' => 'meta-gestor-asignado',
+        'meta_value' => $user_admin->ID
+    ));
                     ?>
                     <tr>
-                        <td><?php echo $user_of_admin->display_name; ?></td>
-                        <td><?php echo $user_of_admin->user_email; ?></td>
-                        <td><?php echo count($inmuebles); ?></td>
+                        <td><?php echo $user_admin->display_name; ?></td>
+                        <td><?php echo $user_admin->user_email; ?></td>
+                        <td><?php echo get_user_meta($user_admin->ID, 'meta-disponibilidad', true) ?></td>
+                        <td><?php echo count($users_of_admin); ?></td>
                         <td>
-                            <input type="checkbox" id="test<?php echo $user_of_admin->ID ?>">
-                            <label for="test<?php echo $user_of_admin->ID ?>"></label>
-                        </td>
-                        <td>
-                            <a id="Archivo" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
-                            <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
-                            <a id="chat" href="/mensajes?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-comments"></i></a>
+                            <a id="editar" href="/perfiladmin?user=<?php echo $user_admin->ID ?>"><i class="fas fa-key"></i></a>
                         </td>
                     </tr>
 
                     <?php
 
-    }
 }
                     ?>
                 </tbody>
