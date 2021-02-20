@@ -37,3 +37,10 @@ if ($_GET['action'] == 'update_photo') {
     update_user_meta($user_id, 'meta-foto-perfil', wp_slash($movefile['url']));
 
 }
+
+if ($_GET['action'] == 'update_password') {
+    $user_id = $_GET['user_id'];
+    $new_pwd = $_POST["new-password"];
+
+    wp_set_password($new_pwd, $user_id);
+}

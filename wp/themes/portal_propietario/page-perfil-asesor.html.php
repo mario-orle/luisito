@@ -67,7 +67,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                                     </label>
                                 </div>
                                 <div class="first-block formulario">
-                                    <input type="password" name="pwd" class="question" placeholder="" id="pass" required="" autocomplete="off" onchange="editar(event)">
+                                    <input type="password" name="pwd" class="question" placeholder="" id="pass" required="" autocomplete="off" onchange="editarPassword(event)">
                                     <label for="pass">
                                         <span>Contraseña</span>
                                     </label>
@@ -96,6 +96,39 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
 </main><!-- #main -->
 <script>
 
+function editarPassword(e) {
+    if (confirm("¿Estás seguro de cambiar la contraseña de este usuario?")) {
+        var input = e.currentTarget;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/usuarios-xhr?action=update_password&user_id=<?php echo $user->ID ?>");
+
+        var formData = new FormData();
+
+        formData.append('new-password', input.value);
+
+
+        xhr.onload = function() {
+            input.style.filter = "none";
+            input.removeAttribute("readonly");
+            
+            Toastify({
+                text: "Contraseña actualizada",
+                duration: 3000,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                backgroundColor: "rgb(254, 152, 0)",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                onClick: function(){} // Callback after click
+            }).showToast();
+            input.value = "";
+
+        }.bind(input);
+        xhr.send(formData);
+        input.style.filter = "blur(1px)";
+        input.setAttribute("readonly", "true");
+    }
+}
+
 function editar(e) {
     var input = e.currentTarget;
     var xhr = new XMLHttpRequest();
@@ -120,11 +153,11 @@ function editar(e) {
             stopOnFocus: true, // Prevents dismissing of toast on hover
             onClick: function(){} // Callback after click
         }).showToast();
-
     }.bind(input);
     xhr.send(formData);
     input.style.filter = "blur(1px)";
     input.setAttribute("readonly", "true");
+    
 }
 
 document.querySelector("#uploader").onchange = function () {

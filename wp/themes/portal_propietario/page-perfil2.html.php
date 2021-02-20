@@ -84,6 +84,11 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     <input type="text" name="owner-email" style="width: 75%;" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-email', true) ?>" onchange="editar(event)" />    
                 </p>
                 <hr>
+                <h4 style="color:aliceblue;">Contraseña </h4>
+                <input type="password" name="pwd" placeholder="Cambiar contraseña..." class="editor" id="pass" required="" autocomplete="off" onchange="editarPassword(event)">
+
+                <hr>
+
             </div>
             <div class="main-perfil">
                 <div class="main-up-inmuebles">
@@ -119,6 +124,40 @@ foreach ($inmuebles as $inmueble) {
 <script src="<?php echo get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.js'; ?>"></script>
 
 <script>
+
+function editarPassword(e) {
+    if (confirm("¿Estás seguro de cambiar la contraseña de este usuario?")) {
+        var input = e.currentTarget;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/usuarios-xhr?action=update_password&user_id=<?php echo $user->ID ?>");
+
+        var formData = new FormData();
+
+        formData.append('new-password', input.value);
+
+
+        xhr.onload = function() {
+            input.style.filter = "none";
+            input.removeAttribute("readonly");
+            
+            Toastify({
+                text: "Contraseña actualizada",
+                duration: 3000,
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                backgroundColor: "rgb(254, 152, 0)",
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                onClick: function(){} // Callback after click
+            }).showToast();
+            input.value = "";
+
+        }.bind(input);
+        xhr.send(formData);
+        input.style.filter = "blur(1px)";
+        input.setAttribute("readonly", "true");
+    }
+}
+
     function editar(e) {
         var input = e.currentTarget;
         var xhr = new XMLHttpRequest();
