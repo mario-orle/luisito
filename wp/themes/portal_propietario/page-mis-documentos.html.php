@@ -9,10 +9,76 @@
  */
 
 require_once "self/security.php";
+
+$user = wp_get_current_user();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $data = array();
+    $old_data = array();
+    if ($_POST['action'] == "solicitar") {
+        $data['id'] = ($_POST['id']);
+        $data['nombre'] = ($_POST['nombre']);
+        $data['status'] = ('solicitado-al-asesor');
+        $data['file'] = ($_POST['file']);
+
+        $old_data['id'] = ($_POST['id']);
+        $old_data['nombre'] = ($_POST['nombre']);
+        $old_data['status'] = ($_POST['status']);
+        $old_data['file'] = ($_POST['file']);
+
+        foreach (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $old_data["id"]) {
+                delete_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash($old_meta_encoded)). '<br>'. '<br>';
+            }
+        }
+        add_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash(json_encode($data)));
+    }
+    if ($_POST['action'] == "cargar") {
+
+
+        if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+        $upload_overrides = array( 'test_form' => false );
+        $movefile = wp_handle_upload( $_FILES['documento'], $upload_overrides );
+        
+        $data['id'] = ($_POST['id']);
+        $data['nombre'] = ($_POST['nombre']);
+        $data['status'] = ('fichero-anadido');
+        $data['file'] = ($movefile['url']);
+
+
+        $old_data['id'] = ($_POST['id']);
+        $old_data['nombre'] = ($_POST['nombre']);
+        $old_data['status'] = ($_POST['status']);
+        $old_data['file'] = ($_POST['file']);
+        
+        foreach (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $old_data["id"]) {
+                delete_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash($old_meta_encoded));
+            }
+        }
+        add_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash(json_encode($data)));
+    }
+    wp_redirect("/mis-documentos");
+
+}
+
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/mis-documentos.css?cb=' . generate_random_string() . '">';
 }
 add_action('wp_head', 'myCss');
+
+function get_own_documentos_solicitados() {
+    $arr = array();
+    foreach (get_user_meta(get_current_user_id(), 'meta-documento-solicitado-al-cliente') as $meta) {
+        $arr[] = json_decode(wp_unslash($meta), true);
+    }
+    return $arr;
+}
+
+$array_documentos = get_own_documentos_solicitados();
 
 
 get_header();
@@ -26,18 +92,20 @@ get_header();
                     <h3>Documentos para ti:
                         <hr>
                     </h3>
+<?php 
+foreach ($array_documentos as $i => $documento) {
+    if (wp_unslash($documento["status"]) == 'fichero-anadido') {
+        $file = pathinfo($documento["file"])["basename"];
+?>
                     <div class="fila-documento">
-                        <p>Certificado_de_eficiencia_energetica.pdf</p><input class="botons" type="submit" value="GUARDAR">
+                        <p><?php echo $documento["nombre"] ?></p>
+                        
+                        <a download="<?php echo $file ?>" class="botons" href="<?php echo $documento["file"] ?>">GUARDAR</a>
                     </div>
-                    <div class="fila-documento">
-                        <p>Book_de_fotos_profesional.zip</p><input class="botons" type="submit" value="GUARDAR">
-                    </div>
-                    <div class="fila-documento">
-                        <p>Celula_de_habitabilidad.pdf</p><input class="botons" type="submit" value="GUARDAR">
-                    </div>
-                    <div class="fila-documento">
-                        <p>Nota_simple_e_informe_juridico.pdf</p><input class="botons" type="submit" value="GUARDAR">
-                    </div>
+<?php
+    }
+}
+?>
                 </div>
             </div>
             <div class="documentos-descarga-2">
@@ -45,39 +113,70 @@ get_header();
                     <h3>Documentos Requeridos:
                         <hr>
                     </h3>
+<?php 
+foreach ($array_documentos as $i => $documento) {
+    if (wp_unslash($documento["status"]) != 'fichero-anadido') {
+?>
+
                     <div class="fila-documento-2">
-                        <p>Certificado_de_eficiencia_energetica.pdf</p>
+                        <p><?php echo $documento["nombre"] ?></p>
                         <div class="btn-container">
-                            <input class="botons" type="submit" value="CARGAR">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                        </div>
-                    </div>
-                    <div class="fila-documento-2">
-                        <p>Book_de_fotos_profesional.zip</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="CARGAR">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                        </div>
-                    </div>
-                    <div class="fila-documento-2">
-                        <p>Celula_de_habitabilidad.pdf</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="CARGAR">
-                            <input class="botons" type="submit" value="SOLICITAR">
+<?php
+        if (wp_unslash($documento["status"]) == 'creada') {
+?>
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
+                                <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
+                                <input type="hidden" name="file" value="<?php echo wp_unslash($documento["file"])?>" />
+                                <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
+                                <input type="hidden" name="action" value="cargar" />
+                                <label class="botons" for="uploader-<?php echo $i ?>">CARGAR</label>
+                                <input name="documento" onchange="this.parentElement.submit()" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
+                            </form>
+                            <form method="POST" onsubmit="return confirmSubmit(event)">
+                                <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
+                                <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
+                                <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
+                                <input type="hidden" name="file" value="<?php echo wp_unslash($documento["file"])?>" />
+                                <input type="hidden" name="action" value="solicitar" />
+                                <input class="botons" type="submit" value="SOLICITAR">
+                            </form>
+<?php
+        } else if (wp_unslash($documento["status"]) == 'solicitado-al-asesor') {
+?>
+                            <form method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
+                                <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
+                                <input type="hidden" name="file" value="<?php echo wp_unslash($documento["file"])?>" />
+                                <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
+                                <input type="hidden" name="action" value="cargar" />
+                                <label class="botons" for="uploader-<?php echo $i ?>">CARGAR</label>
+                                <input name="documento" onchange="this.parentElement.submit()" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
+                            </form>
+                                <input class="botons" type="submit" disabled value="SOLICITADO...">
+<?php
+
+
+        }
+    
+?>          
                         </div>
                     </div>
 
-                    <div class="fila-documento-2">
-                        <p>Nota_simple_e_informe_juridico.pdf</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="CARGAR">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                        </div>
-                    </div>
+<?php
+    }
+}
+?>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function confirmSubmit() {
+            return confirm("Se va a solicitar el documento a su asesor. ¿Está seguro?");
+        }
+
+    </script>
 </main><!-- #main -->
 
 <?php

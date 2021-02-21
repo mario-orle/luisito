@@ -43,7 +43,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
 }
 ?>                    
                     </label>
-                    <input type="file" name="foto-perfil" id="uploader" style="display: none;" />
+                    <input type="file" accept="image/x-png,image/gif,image/jpeg" name="foto-perfil" id="uploader" style="display: none;" />
                     </div>
                     <div class="main-formulario">
                         <div class="caracteristicas">

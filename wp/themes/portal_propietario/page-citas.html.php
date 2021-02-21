@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
             add_user_meta( $user->ID, 'meta-citas-usuario', $data);
         }
     }
-
+    wp_redirect("/citas");
 }
 $array_citas = array();
 

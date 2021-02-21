@@ -119,7 +119,7 @@ get_header();
         <div class="tab">Precio estimado y foto principal
           <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="inmueble-precioestimado" type="number"></p>
           <p>
-            <input oninput="this.className = ''" name="inmueble-foto-principal" id="foto" type="file" style="display:none;">
+            <input oninput="this.className = ''" name="inmueble-foto-principal" id="foto" type="file"  accept="image/x-png,image/gif,image/jpeg" style="display:none;">
             <label for="foto">Haga click para elegir una fotografía</label>
             <div id="foto-preview" style="display: none;">
               <img src="" />

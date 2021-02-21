@@ -8,8 +8,73 @@
  * @package portal_propietario
  */
 
+function generateRandomString($length = 10) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
+require_once "self/security.php";
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+    $user = get_user_by('id', $_POST['usuario']);
+    $data = array();
+    if ($_POST['action'] == "crear") {
+        $data['id'] = generateRandomString(30);
+        $data['nombre'] = ($_POST['nombre']);
+        $data['status'] = ($_POST['status']);
+        $data['file'] = ($_POST['file']);
+        
+        delete_user_meta( $user->ID, 'meta-documento-solicitado-al-cliente', wp_slash(json_encode($data)));
+        add_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash(json_encode($data)));
+    }
+    if ($_POST['action'] == "cargar") {
+        if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
+
+        $upload_overrides = array( 'test_form' => false );
+        $movefile = wp_handle_upload( $_FILES['documento'], $upload_overrides );
+
+        $data['id'] = ($_POST['id']);
+        $data['nombre'] = ($_POST['nombre']);
+        $data['status'] = ('fichero-anadido');
+        $data['file'] = ($movefile['url']);
+
+        $old_data['id'] = ($_POST['id']);
+        $old_data['nombre'] = ($_POST['nombre']);
+        $old_data['status'] = ($_POST['status']);
+        $old_data['file'] = ($_POST['file']);
+
+        foreach (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $old_data["id"]) {
+                delete_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash($old_meta_encoded));
+            }
+        }
+        add_user_meta($user->ID, 'meta-documento-solicitado-al-cliente', wp_slash(json_encode($data)));
+    }
+    wp_redirect("/admin-doc");
+
+}
+
+function get_all_documentos_solicitados() {
+    $arr = array();
+    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+        if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+            if (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente')) {
+                $arr[$user->ID] = ["name" => $user->display_name, "documentos" => array()];
+                foreach (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+                    $arr[$user->ID]["documentos"][] = json_decode(wp_unslash($meta), true);
+                }
+            }
+        }
+    }
+    return $arr;
+}
+
+$array_documentos = get_all_documentos_solicitados();
+
+
+
 function myCss() {
-    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/doc-admin.css">';
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/doc-admin.css?cb=' . generate_random_string() . '">';
+    echo '<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>';
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/popup.css?cb=' . generate_random_string() . '">';
 }
 add_action('wp_head', 'myCss');
 
@@ -25,34 +90,42 @@ get_header();
                     <h3>Documentos Solicitados por el Cliente:
                         <hr>
                     </h3>
-                    <div class="fila-documento">
-                        <p>Certificado_de_eficiencia_energetica.pdf</p>
+                    <?php
+foreach ($array_documentos as $user => $documentos) {
+?>
+                    <div class="usuario">
+                        <button class="toggler" onclick="toggle('solicitados-cliente<?php echo $user; ?>')">
+                            <span class="mas" style="display: none">+</span>
+                            <span class="menos">-</span>
+                            <?php echo $documentos["name"] ?>
+                        </button>
+                        <div class="documentos-usuario" id="documentos-usuario-solicitados-cliente<?php echo $user; ?>">
+<?php
+    foreach ($documentos["documentos"] as $documento) {
+        $is_checked = false;
+        if (wp_unslash($documento["status"]) == 'fichero-anadido') {
+            $is_checked = true;
+        }
+        ?>
+                            <div class="fila-documento">
+                                <p><?php echo wp_unslash($documento["nombre"]) ?></p>
+                                
+                                <input type="checkbox" <?php if ($is_checked) echo "checked";?>>
+                                <label for="-" 
+                                    data-url="<?php echo $documento["file"] ?>" 
+                                    <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></label>
 
-                        <input type="checkbox" id="test1">
-                        <label for="test1"></label>
-
+                            </div>
+                    <?php
+    }
+?>
+                        </div>
                     </div>
-                    <div class="fila-documento">
-                        <p>Book_de_fotos_profesional.zip</p>
+<?php
+}
+?>
+                    
 
-                        <input type="checkbox" id="test2">
-                        <label for="test2"></label>
-
-                    </div>
-                    <div class="fila-documento">
-                        <p>Celula_de_habitabilidad.pdf</p>
-
-                        <input type="checkbox" id="test3">
-                        <label for="test3"></label>
-
-                    </div>
-                    <div class="fila-documento">
-                        <p>Nota_simple_e_informe_juridico.pdf</p>
-
-                        <input type="checkbox" id="test4">
-                        <label for="test4"></label>
-
-                    </div>
                 </div>
             </div>
             <div class="documentos-descarga-2">
@@ -60,75 +133,156 @@ get_header();
                     <h3>Envio de Documentos para el Cliente:
                         <hr>
                     </h3>
-                    <div class="fila-documento-2">
-                        <p>Certificado_de_eficiencia_energetica.pdf</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="ENVIAR">
-                            <input class="botons" type="submit" value="CARGAR">
-                        </div>
-                    </div>
-                    <div class="fila-documento-2">
-                        <p>Book_de_fotos_profesional.zip</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="ENVIAR">
-                            <input class="botons" type="submit" value="CARGAR">
-                        </div>
-                    </div>
-                    <div class="fila-documento-2">
-                        <p>Celula_de_habitabilidad.pdf</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="ENVIAR">
-                            <input class="botons" type="submit" value="CARGAR">
-                        </div>
-                    </div>
+                            
+<?php
+foreach ($array_documentos as $user => $documentos) {
+?>
+                    <div class="usuario">
+                        <button class="toggler" onclick="toggle(<?php echo $user; ?>)">
+                            <span class="mas" style="display: none">+</span>
+                            <span class="menos">-</span>
+                            <?php echo $documentos["name"] ?>
+                        </button>
+                        <div class="documentos-usuario" id="documentos-usuario-<?php echo $user; ?>">
+<?php
+    foreach ($documentos["documentos"] as $documento) {
+        if (wp_unslash($documento['status']) == "solicitado-al-asesor") {
 
-                    <div class="fila-documento-2">
-                        <p>Nota_simple_e_informe_juridico.pdf</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="ENVIAR">
-                            <input class="botons" type="submit" value="CARGAR">
+?>
+                            <div class="fila-documento-2">
+                                <p><?php echo $documento["nombre"] ?></p>
+                                <div class="btn-container">
+                                    <input class="botons" type="submit" value="ENVIAR">
+
+                                    <form method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
+                                        <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
+                                        <input type="hidden" name="usuario" value="<?php echo $user?>" />
+                                        <input type="hidden" name="file" value="<?php echo wp_unslash($documento["file"])?>" />
+                                        <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
+                                        <input type="hidden" name="action" value="cargar" />
+                                        <label class="botons" for="uploader-<?php echo $i ?>">CARGAR</label>
+                                        <input name="documento" onchange="this.parentElement.submit()" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
+                                    </form>
+                                </div>
+                            </div>
+                    <?php
+        }
+    }
+?>
                         </div>
                     </div>
+<?php
+}
+?>
                 </div>
             </div>
             <div class="documentos-descarga-2">
                 <div class="text-documentos">
-                    <h3>Solicitar Documentos al Cliente:
-                        <hr>
+                    <h3>
+                        Solicitar Documentos al Cliente:
+                        <button onclick="solicitarDocumento()" class="solicitar-documento">Solicitar Documento</button>
                     </h3>
-                    <div class="fila-documento-2">
-                        <p>Certificado de pagos del Inmueble</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                            <input class="botons" type="submit" value="DESCARGAR">
-                        </div>
-                    </div>
-                    <div class="fila-documento-2">
-                        <p>Planos del Inmueble</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                            <input class="botons" type="submit" value="DESCARGAR">
-                        </div>
-                    </div>
-                    <div class="fila-documento-2">
-                        <p>Celula_de_habitabilidad</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                            <input class="botons" type="submit" value="DESCARGAR">
-                        </div>
-                    </div>
+                    <hr>
+                    
+<?php
+foreach ($array_documentos as $user => $documentos) {
+?>
+                    <div class="usuario">
+                        <button class="toggler" onclick="toggle('env<?php echo $user; ?>')">
+                            <span class="mas" style="display: none">+</span>
+                            <span class="menos">-</span>
+                            <?php echo $documentos["name"] ?>
+                        </button>
+                        <div class="documentos-usuario" id="documentos-usuario-env<?php echo $user; ?>">
+<?php
+    foreach ($documentos["documentos"] as $documento) {
+        if (wp_unslash($documento["status"]) != "solicitado-al-asesor" && wp_unslash($documento["status"]) != "fichero-anadido") {
 
-                    <div class="fila-documento-2">
-                        <p>Certificado Pago de Cuota Comunidad de Vecinos</p>
-                        <div class="btn-container">
-                            <input class="botons" type="submit" value="SOLICITAR">
-                            <input class="botons" type="submit" value="DESCARGAR">
+?>
+                            <div class="fila-documento-2">
+                                <p><?php echo wp_unslash($documento["nombre"]) ?></p>
+                                <div class="btn-container">
+<?php if (wp_unslash($documento["status"]) != "fichero-anadido") { ?>
+    
+                                    <input class="botons" disabled value="En espera del cliente..." />
+    
+<?php
+} else {
+?>
+                                    <input class="botons" type="button" onclick="window.open('<?php echo wp_unslash($documento["file"]); ?>')" value="DESCARGAR">
+<?php
+}
+?>
+                                </div>
+                            </div>
+
+<?php
+        }
+
+    }
+?>
                         </div>
                     </div>
+<?php
+}
+?>
                 </div>
             </div>
         </div>
     </div>
+    <div id="modal-crear-solicitud-documento" aria-hidden="true" class="modal modal-solicitud-documento">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-crear-solicitud-documento">
+                <header class="modal__header">
+                    <h2 id="modal-crear-solicitud-documento-title">
+                        Crear solicitud de documento
+                    </h2>
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-crear-solicitud-documento-content">
+                    <form method="POST">
+                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese nombre del documento solicitado">
+                        <select class="controls js-choices" type="text" name="usuario" id="usuario">
+                            <?php
+foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+                            ?>
+                            <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+                            <?php
+    }
+}
+                            ?>
+                        </select>
+                        <input style="display: none" name="status" value="creada" />
+                        <input style="display: none" name="action" value="crear" />
+                        <input type="hidden" name="file" value="" />
+                        <input class="botons" type="submit" value="Guardar" />
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+function toggle(id) {
+    if (document.getElementById("documentos-usuario-" + id).style.display == "none") {
+        document.getElementById("documentos-usuario-" + id).style.display = "block";
+        document.getElementById("documentos-usuario-" + id).parentElement.querySelector(".mas").style.display = "none";
+        document.getElementById("documentos-usuario-" + id).parentElement.querySelector(".menos").style.display = "inline-block";
+    } else {
+        document.getElementById("documentos-usuario-" + id).style.display = "none";
+        document.getElementById("documentos-usuario-" + id).parentElement.querySelector(".menos").style.display = "none";
+        document.getElementById("documentos-usuario-" + id).parentElement.querySelector(".mas").style.display = "inline-block";
+    }
+}
+function solicitarDocumento() {
+    MicroModal.show('modal-crear-solicitud-documento'); 
+
+}
+MicroModal.init();
+
+    </script>
 </main><!-- #main -->
 
 <?php
