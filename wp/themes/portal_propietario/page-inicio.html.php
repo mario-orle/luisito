@@ -26,45 +26,80 @@ get_header();
 <main id="primary" class="site-main">
     <?php
     if (!current_user_can('administrator')){
-        ?>
+      $unread_msgs = 0;
+      foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
+        $chat = json_decode(wp_unslash($chat_str), true);
+        if (!$chat['readed'] && $chat["user"] == "admin") {
+          $unread_msgs++;
+        }
+      }
+      function get_own_documentos_solicitados() {
+        $arr = array();
+        foreach (get_user_meta(get_current_user_id(), 'meta-documento-solicitado-al-cliente') as $meta) {
+            $arr[] = json_decode(wp_unslash($meta), true);
+        }
+        return $arr;
+      }
+      function get_own_citas() {
+        return get_user_meta(get_current_user_id(), 'meta-citas-usuario');
+      }
+      
+      $pending_documents = 0;
+      $array_documentos = get_own_documentos_solicitados();
+      foreach ($array_documentos as $i => $documento) {
+        if (wp_unslash($documento["status"]) != 'fichero-anadido') {
+          $pending_documents++;
+        }
+      }
+
+      $pending_citas = 0;
+      $array_citas = get_own_citas();
+
+      foreach ($array_citas as $i => $cita) {
+        if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+          $pending_citas++;
+        }
+      }
+
+?>
     <div class="main">
         <div class="main-container">
             <h2>Estadisticas Generales</h2>
                 <br>
                 <div class="estadisticas">
                     <div class="visualizaciones">
-                        <button>
-                        <a href="citas-admin.html">
+                        <button onclick="location.href='#'">
+                        <a href="#">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
                         <h2>Ofertas Recibidas</h2>
-                        <p>3 Ofertas</p>
+                        <p>- Ofertas</p>
                         </a>
                         </button>
                     </div>
                     <div class="contacto-email">
-                        <button>
-                        <a href="#">
+                        <button onclick="location.href='/mensajes'">
+                        <a href="/mensajes">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
                         <h2>Mensajes sin Leer</h2>
-                        <p>8 Mensajes Sin Leer</p>
+                        <p><?php echo $unread_msgs ?> Mensajes Sin Leer</p>
                         </a>
                         </button>
                     </div>
                     <div class="calendario">
-                        <button>
-                        <a href="#">
+                        <button onclick="location.href='/citas'">
+                        <a href="/citas">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                         <h2>Citas por Confirmar</h2>
-                        <p>3 Citas sin Confirmar</p>
+                        <p><?php echo $pending_citas ?> Citas sin Confirmar</p>
                         </a>
                         </button>
                     </div>
                     <div class="citas">
-                        <button>
-                        <a href="citas.html">
+                        <button onclick="location.href='/mis-documentos'">
+                        <a href="/mis-documentos">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
                         <h2>Doc Requeridos</h2>
-                        <p>3 Doc Requeridos</p>
+                        <p><?php echo $pending_documents ?> Doc Requeridos</p>
                         </a>
                         </button>
                     </div>
@@ -95,14 +130,48 @@ get_header();
         </div>
     </div>
 
-    <?php
+<?php
     } else {
-        ?>
+      $users_of_admin = get_users(array(
+        'meta_key' => 'meta-gestor-asignado',
+        'meta_value' => get_current_user_id()
+      ));
+      $unread_msgs = 0;
+      $pending_documents = 0;
+      $review_documents = 0;
+      $pending_citas = 0;
+      foreach ($users_of_admin as $user_of_admin) {
+        foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
+          $chat = json_decode(wp_unslash($chat_str), true);
+          if (!$chat['readed'] && $chat["user"] == "user") {
+            $unread_msgs++;
+          }
+        }
+
+        foreach (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+          $documento = json_decode(wp_unslash($meta), true);
+
+          if (wp_unslash($documento["status"]) != 'fichero-anadido') {
+            $pending_documents++;
+          } else {
+            $review_documents++;
+          }
+        }
+
+        foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
+          $cita = json_decode(wp_unslash($meta), true);
+
+          if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+            $pending_citas++;
+          }
+        }
+      }
+?>
    <div class="main">
    <div class="main-container">
         <div class="texto-cabecera">
         <h2>Resumen de Actuación</h2>
-      <select class="select">
+      <select class="select" style="display: none;">
         <option>Selecciona Cliente</option>
         <option>Ramon Garcia</option>
         <option>Artiro Perez</option>
@@ -114,35 +183,39 @@ get_header();
         <hr />
         <div class="general">
           <div class="doc-pendientes">
-            <button>
-              <a href="admin-documentos.html"></a>
-              <img src="docs.png" width="100%">
+            <button onclick="location.href='/admin-doc'">
+              <a href="/admin-doc">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
               <h2>Doc Pendientes</h2>
-              <p>7 Documentos</p>
+              <p><?php echo $pending_documents ?> Documentos</p>
+              </a>
             </button>
           </div>
           <div class="doc-revisar">
-            <button>
-              <a href="admin-documentos.html"></a>
-              <img src="../docs.png" width="100%">
+            <button onclick="location.href='/admin-doc'">
+              <a href="/admin-doc">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/docs.png" width="100%">
               <h2>Doc Revisar</h2>
-              <p>2 Documentos</p>
+              <p><?php echo $review_documents ?> Documentos</p>
+              </a>
             </button>
           </div>
           <div class="chat-pendientes">
-            <button>
-              <a href="mensajes-admin.html"></a>
-              <img src="../email2.png" width="100%">
+            <button onclick="location.href='/mensajes'">
+              <a href="/mensajes">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/email2.png" width="100%">
               <h2>Chat Pendientes</h2>
-              <p>4 Mensajes sin leer</p>
+              <p><?php echo $unread_msgs ?> Mensajes sin leer</p>
+              </a>
             </button>
           </div>
           <div class="citas">
-            <button>
-              <a href="citas-admin.html"></a>
-              <img src="../cita.png" width="100%">
+            <button onclick="location.href='/citas'">
+              <a href="/citas">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/cita.png" width="100%">
               <h2>Citas Sin Actualizar</h2>
-              <p>6 Citas pendientes</p>
+              <p><?php echo $pending_citas ?> Citas pendientes</p>
+              </a>
             </button>
           </div>
         </div>

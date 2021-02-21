@@ -164,7 +164,17 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-actualizar-cita">
                 <header class="modal__header">
                     <h2 id="modal-actualizar-cita-title">
+<?php
+if (current_user_can('administrator')) {
+?>                        
                         Actualizar cita
+<?php
+} else {
+?>
+                        Ver cita
+<?php
+}
+?>
                     </h2>
                     <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                 </header>
@@ -174,13 +184,17 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                         <input class="controls" type="text" readonly name="fechas-str">
                         <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
                         <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
+ 
+<?php
+if (current_user_can('administrator')) {
+?>
                         <select class="controls js-choices" type="text" name="usuario">
                             <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                             ?>
                             <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
                             <?php
-}
+    }
                             ?>
                         </select>
                         <select class="controls js-choices" name="status">
@@ -190,6 +204,14 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                             <option value="descartada">Descartada</option>
                             <option value="eliminada">Eliminada</option>
                         </select>
+<?php
+} else {
+?>
+                        <input type="hidden" name="usuario">
+                        <input type="hidden" name="status">
+<?php
+}
+?>
                         <textarea class="controls" placeholder="Comentarios..." name="comments"></textarea>
                         <input class="controls" type="hidden" name="old-nombre">
                         <input class="controls" type="hidden" name="old-inicio">
@@ -213,6 +235,14 @@ if (current_user_can('administrator')) {
         </div>
     </div>
     <script>
+<?php 
+if (!current_user_can('administrator')) {
+?>
+        document.querySelectorAll("input,textarea").forEach(o => o.setAttribute("readonly", true))
+
+<?php
+}
+?>
         moment.locale("es");
         var users = <?php echo json_encode(get_users(array('role__in' => array( 'subscriber' )))) ?>;
         var citas = <?php echo json_encode($array_citas) ?>;
