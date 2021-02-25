@@ -184,8 +184,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                 </header>
                 <div id="modal-login-content">
-                    <input class="controls" type="text" id="user" placeholder="Ingrese su E-mail">
-                    <input class="controls" type="password" id="pwd" placeholder="Ingrese su Contraseña">
+                    <input class="controls" type="text" onkeypress="onEnter(event)" id="user" placeholder="Ingrese su E-mail">
+                    <input class="controls" type="password" onkeypress="onEnter(event)" id="pwd" placeholder="Ingrese su Contraseña">
+                    <p id="error-msg" style="">Usuario o contraseña erróneos</p>
                     <button class="botons" onclick="trylogin()">ENTRAR</button>
                     <p><a data-micromodal-trigger="modal-recpass">¿Olvidaste la contraseña?</a></p>
                 </div>
@@ -217,7 +218,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <script>
         MicroModal.init();
 
+        function onEnter(e) {
+            if (e.which === 13 ) trylogin();
+        }
+
         function trylogin() {
+            document.getElementById("error-msg").style.opacity = "0";
             var user = document.querySelector('#user').value;
             var pwd = document.querySelector('#pwd').value;
 
@@ -230,6 +236,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 if (this.responseText === 'OK') {
                     window.location.href = "/inicio";
                 } else {
+                    document.getElementById("error-msg").style.opacity = "1";
 
                 }
             }
