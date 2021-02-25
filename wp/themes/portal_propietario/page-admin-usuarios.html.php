@@ -39,11 +39,19 @@ get_header();
                         <th>E-mail </th>
                         <th>Nº Inmuebles </th>
                         <th>Estado Documentación </th>
+<?php 
+if (get_current_user_id() === 1) {
+?>
+                        <th>Asesor asignado</th>
+<?php
+}
+?>
                         <th>Gestionar</th>
                     </tr>
                     <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
-    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
+        $asesor = get_user_by('id', get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true));
         $inmuebles = get_posts([
             'post_type' => 'inmueble',
             'post_status' => 'publish',
@@ -60,6 +68,13 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
                             <input type="checkbox" id="test<?php echo $user_of_admin->ID ?>">
                             <label for="test<?php echo $user_of_admin->ID ?>"></label>
                         </td>
+                        <?php 
+if (get_current_user_id() === 1) {
+?>
+                        <td><?php echo $asesor->display_name ?></td>
+<?php
+}
+?>
                         <td>
                             <a id="Archivo" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
                             <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
