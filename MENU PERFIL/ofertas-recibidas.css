@@ -1,0 +1,42 @@
+.oferta-main{
+    display: flex;
+flex-flow: column;
+}
+
+.oferta-main h2{
+color: orange;
+text-align: left;
+}
+
+.card-wrapper{
+    width: 24%;
+    padding: 10px;
+   
+  }
+  .card-wrapper img{
+    margin-top: 8px;
+    border-radius: 5px;
+  }
+  
+  .card-wrapper button{
+    background-color: #434b4d;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .card-wrapper h4, p{
+    color: white;
+  }
+  .card-wrapper p{
+    font-style: italic
+  }
+  .card-wrapper h3{
+    color: orange;
+  
+  }
+  
+  .card-wrapper button:hover {
+    box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
+  }
+  

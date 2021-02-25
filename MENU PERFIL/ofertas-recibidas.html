@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="ofertas-recibidas.css">
+    <title>MiS DOCUMENTOS</title>
+</head>
+
+<body>
+    <div id="desktop">
+        <div class="header">
+            <div class="right">
+                <div class="alerta-asesor">
+                    <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
+                </div>
+                <div class="mensages">
+                    <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
+                </div>
+                <div class="alertas">
+                    <a id="alertas"><img src="advertencia.png"></a>
+                </div>
+                <div class="usuario">
+                    <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="menu">
+            <div class="logo"> </div>
+            <h2>PORTAL PROPIETARIO</h2>
+            <hr />
+            <span>Opciones generales</span>
+            <hr>
+            <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+            <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
+            <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
+            <a id="mensajes" href="mensajes.html"><i class="far fa-envelope"></i>MENSAJES</a>
+            <hr />
+            <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+            <hr />
+            <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
+            <hr />
+            <button id="gestiones" class="dropdown-btn">
+                <i class="fa fa-tasks"></i> GESTIONES
+            </button>
+            <div class="dropdown-container">
+                <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
+                <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+            </div>
+            <hr />
+        </div>
+        <div class="main">
+            <div class="oferta-main">
+                <h2>Oferta Recibida</h2>
+                <div class="oferta-left">
+                    <h3>Precio de Oferta</h3>
+                    <p>125.000</p>
+                </div>
+                <div class="oferta-right">
+                    <select class="select">
+                        <option>Seleccione Opción</option>
+                        <option>Aceptar</option>
+                        <option>Denegar</option>
+                        <option>Contra Oferta</option>
+                    </select>
+                    <input type="text" placeholder="Ingrese Contra oferta">
+                    <!-- input opcional en caso de elegir contra oferta -->
+                </div>
+            </div>
+            <div class="oferta-inmueble">
+                <div class="card-wrapper">
+                    <button>
+                        <a href="perfil-inmueble.html">
+                            <img src="casa3.jpg" alt="Avatar" style="width:100%">
+                            <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                            <h4><b>145.000€</b></h4>
+                            <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="mobile">
+
+        <script src="menu.js"></script>
+
+</body>
+
+</html>
