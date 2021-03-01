@@ -9,12 +9,28 @@
  */
 
 function myCss() {
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/popup.css?cb=' . generate_random_string() . '">';
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/usuarios-admin.css">';
     echo '<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>';
+    echo '<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>';
 
 }
 add_action('wp_head', 'myCss');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+    $viejoasesor = $_POST["viejoasesor"];
+    $nuevoasesor = $_POST["nuevoasesor"];
+    $users_to_change = get_users(array(
+        'meta_key' => 'meta-gestor-asignado',
+        'meta_value' => $viejoasesor
+    ));
+
+    foreach ($users_to_change as $user) {
+        update_user_meta($user->ID, 'meta-gestor-asignado', $nuevoasesor);
+        
+    }
+}
 
 
 get_header();
@@ -60,6 +76,7 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                         <td><?php echo count($users_of_admin); ?></td>
                         <td>
                             <a id="editar" href="/perfiladmin?user=<?php echo $user_admin->ID ?>"><i class="fas fa-key"></i></a>
+                            <a id="changeasesor" onclick="changeUsersOfAsesor(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-random"></i></a>
                         </td>
                     </tr>
 
@@ -70,8 +87,43 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                 </tbody>
             </table>
         </div>
+        <div id="modal-cambiar-usuario-asesor" aria-hidden="true" class="modal">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
+                    <header class="modal__header">
+                        <h2 id="modal-cambiar-usuario-asesor-title">
+                            Cambiar todos los usuarios de asesor
+                        </h2>
+                        <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                    </header>
+                    <div id="modal-cambiar-usuario-asesor-content">
+                        <form method="POST">
+                            <input type="hidden" name="viejoasesor">
+                            <select class="controls js-choices" type="text" name="nuevoasesor" id="nuevoasesor">
+                                <?php
+foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
+                                ?>
+                                <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+                                <?php
+}
+                                ?>
+                            </select>
+                            <input class="botons" type="submit" value="Cambiar" />
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
     <script>
+
+MicroModal.init();
+
+function changeUsersOfAsesor(userId) {
+    document.querySelector("#modal-cambiar-usuario-asesor-content").querySelector("[name='viejoasesor']").value = userId;
+    MicroModal.show("modal-cambiar-usuario-asesor");
+}
 const dataTable = new simpleDatatables.DataTable("table", {
     labels: {
         placeholder: "Buscar...",
