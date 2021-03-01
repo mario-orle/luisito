@@ -494,3 +494,10 @@ position: fixed;
     margin: 16px 0;
     font-size: 16px;
 }
+
+#error-msg {
+    color: red; 
+    height: auto; 
+    line-height: 0;
+    opacity: 0
+}

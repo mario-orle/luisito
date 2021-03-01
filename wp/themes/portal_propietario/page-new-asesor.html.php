@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator') &&
     $user = new WP_User( $user_id );
     $user->set_role( 'administrator' );
 
-
+    wp_redirect("/admin-asesor");
 } else {
 
 function myCss() {
