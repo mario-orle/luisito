@@ -181,8 +181,49 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba')) {
+        update_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba', '1');
+        $asesor = wp_create_user("asesor@a.com", "1", "asesor@a.com");
 
+        $asesor = new WP_User( $asesor );
+        $asesor->set_role( 'administrator' );
+        $asesoruserdata = array(
+            'ID'           => $asesor,
+            'display_name' => 'ASESOR',
+        );
+        wp_update_user( $asesoruserdata );
+
+        
+        $propietario = wp_create_user("prop1@a.com", "1", "prop1@a.com");
+        $propietariouserdata = array(
+            'ID'           => $propietario,
+            'display_name' => 'PROPIETARIO 1',
+        );
+        wp_update_user( $propietariouserdata );
     
+        update_user_meta($propietario, 'meta-gestor-asignado', $asesor->ID);
+
+        
+        $propietario2 = wp_create_user("prop2@a.com", "1", "prop2@a.com");
+        $propietario2userdata = array(
+            'ID'           => $propietario2,
+            'display_name' => 'PROPIETARIO 2',
+        );
+        wp_update_user( $propietario2userdata );
+    
+        update_user_meta($propietario2, 'meta-gestor-asignado', $asesor->ID);
+
+        
+        $propietario3 = wp_create_user("prop3@a.com", "1", "prop3@a.com");
+        $propietario3userdata = array(
+            'ID'           => $propietario3,
+            'display_name' => 'PROPIETARIO 3',
+        );
+        wp_update_user( $propietario3userdata );
+    
+        update_user_meta($propietario3, 'meta-gestor-asignado', get_current_user_id());
+    }
+        
 }
 
 function drop_default_pages() {

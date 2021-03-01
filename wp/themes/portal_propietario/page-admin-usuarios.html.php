@@ -8,11 +8,21 @@
  * @package portal_propietario
  */
 
-function myCss() {
+function myCss() {    
+    echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/popup.css?cb=' . generate_random_string() . '">';
+    echo '<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>';
+    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/usuarios-admin.css">';
+    echo '<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>';
 }
 add_action('wp_head', 'myCss');
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+    $usuario = $_POST["usuario"];
+    $asesor = $_POST["nuevoasesor"];
+    update_user_meta($usuario, 'meta-gestor-asignado', $asesor);
+}
 
 get_header();
 ?>
@@ -33,7 +43,7 @@ get_header();
       </div>
         <div class="style-box">
             <table class="default">
-                <tbody>
+                <thead>
                     <tr>
                         <th>Usuario </th>
                         <th>E-mail </th>
@@ -48,6 +58,8 @@ if (get_current_user_id() === 1) {
 ?>
                         <th>Gestionar</th>
                     </tr>
+                </thead>
+                <tbody>
                     <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
     if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
@@ -77,6 +89,7 @@ if (get_current_user_id() === 1) {
 ?>
                         <td>
                             <a id="Archivo" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
+                            <a id="changeasesor" onclick="changeAsesorOfUser(<?php echo $user_of_admin->ID ?>)" href="#"><i class="fas fa-random"></i></a>
                             <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
                             <a id="chat" href="/mensajes?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-comments"></i></a>
                         </td>
@@ -90,7 +103,56 @@ if (get_current_user_id() === 1) {
                 </tbody>
             </table>
         </div>
+        
+        <div id="modal-cambiar-usuario-asesor" aria-hidden="true" class="modal">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
+                    <header class="modal__header">
+                        <h2 id="modal-cambiar-usuario-asesor-title">
+                            Cambiar usuario al asesor
+                        </h2>
+                        <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                    </header>
+                    <div id="modal-cambiar-usuario-asesor-content">
+                        <form method="POST">
+                            <input type="hidden" name="usuario">
+                            <select class="controls js-choices" type="text" name="nuevoasesor" id="nuevoasesor">
+                                <?php
+foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
+                                ?>
+                                <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+                                <?php
+}
+                                ?>
+                            </select>
+                            <input class="botons" type="submit" value="Cambiar" />
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+
+MicroModal.init();
+
+function changeAsesorOfUser(userId) {
+    document.querySelector("#modal-cambiar-usuario-asesor-content").querySelector("[name='usuario']").value = userId;
+    MicroModal.show("modal-cambiar-usuario-asesor");
+}
+const dataTable = new simpleDatatables.DataTable("table", {
+    labels: {
+        placeholder: "Buscar...",
+        perPage: "Mostrar {select} elementos por página",
+        noRows: "Sin elementos para mostrar",
+        info: "Mostrando {start} a {end} de {rows} elementos (Pág {page} de {pages})",
+    },
+
+});
+
+
+    </script>
 </main><!-- #main -->
 
 <?php
