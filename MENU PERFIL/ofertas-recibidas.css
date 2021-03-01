@@ -2,18 +2,16 @@
   color: orange;
   text-align: left;
 }
-.propuesta-oferta{
-  display: flex;
-  width: 100%;
-}
+
 .oferta-main{
   display: flex;
-  width: 335px;
+  width: 100%;
+ 
+}
+.oferta-left{
   background-color: white;
-  height: 140px;
   border-radius: 5px;
   box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
-  
 }
 .oferta-main p{
   color: black;
