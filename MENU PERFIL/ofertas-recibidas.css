@@ -6,12 +6,31 @@
 .oferta-main{
   display: flex;
   width: 100%;
+  margin-bottom: 25px;
  
 }
 .oferta-left{
+  width: 400px;
   background-color: white;
   border-radius: 5px;
   box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+}
+.btn-oferta{
+  display: flex;
+flex-flow: column;
+align-items: center;
+}
+.btn-oferta textarea{
+  width: 300px;
+}
+.btn-oferta input{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.btn-oferta select{
+  padding: 5px;
+  margin: 5px 0px 5px 0px;
+  
 }
 .oferta-main p{
   color: black;
@@ -24,6 +43,18 @@
 }
 .oferta-main select{
   align-content: center;
+}
+
+
+.aceptar-text{
+  height: 270px;
+}
+.denegada-btn{
+  margin-bottom: 20px;
+}
+.registro-ofertas{
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-wrapper{
@@ -46,7 +77,8 @@
     color: white;
   }
   .card-wrapper p{
-    font-style: italic
+    font-style: italic;
+    color: #c1c1c1;
   }
   .card-wrapper h3{
     color: orange;
