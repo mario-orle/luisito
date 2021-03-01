@@ -10,6 +10,9 @@
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/usuarios-admin.css">';
+    echo '<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>';
+
 }
 add_action('wp_head', 'myCss');
 
@@ -33,7 +36,7 @@ get_header();
       </div>
         <div class="style-box">
             <table class="default">
-                <tbody>
+                <thead>
                     <tr>
                         <th>Asesor </th>
                         <th>E-mail </th>
@@ -41,6 +44,8 @@ get_header();
                         <th>Número de clientes </th>
                         <th>Gestionar</th>
                     </tr>
+                </thead>
+                <tbody>
                     <?php
 foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin) {
     $users_of_admin = get_users(array(
@@ -66,6 +71,17 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
             </table>
         </div>
     </div>
+    <script>
+const dataTable = new simpleDatatables.DataTable("table", {
+    labels: {
+        placeholder: "Buscar...",
+        perPage: "Mostrar {select} elementos por página",
+        noRows: "Sin elementos para mostrar",
+        info: "Mostrando {start} a {end} de {rows} elementos (Pág {page} de {pages})",
+    },
+
+});
+    </script>
 </main><!-- #main -->
 
 <?php
