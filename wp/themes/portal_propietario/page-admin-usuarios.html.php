@@ -18,7 +18,11 @@ function myCss() {
     echo '<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>';
 }
 add_action('wp_head', 'myCss');
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+    $usuario = $_POST["usuario"];
+    $asesor = $_POST["nuevoasesor"];
+    update_user_meta($usuario, 'meta-gestor-asignado', $asesor);
+}
 
 get_header();
 ?>
@@ -85,7 +89,7 @@ if (get_current_user_id() === 1) {
 ?>
                         <td>
                             <a id="Archivo" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
-                            <a id="changeasesor" onclick="changeAsesorOfUser(<?php echo $user_of_admin->ID . ", " . $asesor->ID; ?>)"><i class="fas fa-random"></i></a>
+                            <a id="changeasesor" onclick="changeAsesorOfUser(<?php echo $user_of_admin->ID . ", " . $asesor->ID; ?>)" href="#"><i class="fas fa-random"></i></a>
                             <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
                             <a id="chat" href="/mensajes?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-comments"></i></a>
                         </td>
@@ -105,19 +109,20 @@ if (get_current_user_id() === 1) {
                 <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
                     <header class="modal__header">
                         <h2 id="modal-cambiar-usuario-asesor-title">
-                            Crear cita
+                            Cambiar usuario al asesor
                         </h2>
                         <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                     </header>
                     <div id="modal-cambiar-usuario-asesor-content">
                         <form method="POST">
-                            <select class="controls js-choices" type="text" name="usuario" id="usuario">
+                            <input type="hidden" name="usuario">
+                            <select class="controls js-choices" type="text" name="nuevoasesor" id="nuevoasesor">
                                 <?php
-    foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
                                 ?>
                                 <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
                                 <?php
-    }
+}
                                 ?>
                             </select>
                             <input class="botons" type="submit" value="Cambiar" />
@@ -133,7 +138,8 @@ if (get_current_user_id() === 1) {
 MicroModal.init();
 
 function changeAsesorOfUser(userId) {
-
+    document.querySelector("#modal-cambiar-usuario-asesor-content").querySelector("[name='usuario']").value = userId;
+    MicroModal.show("modal-cambiar-usuario-asesor");
 }
 const dataTable = new simpleDatatables.DataTable("table", {
     labels: {
