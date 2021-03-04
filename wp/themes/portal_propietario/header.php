@@ -97,6 +97,7 @@ if (!current_user_can("administrator")) {
       <div class="dropdown-container">
         <a id="inmuebles" href="/inmuebles">INMUEBLES</a>
         <a id="documentacion" href="/mis-documentos">DOCUMENTACIÓN</a>
+        <a id="documentacion" href="/ofertas-recibidas">OFERTAS</a>
       </div>
       <hr />
       <?php
@@ -127,6 +128,8 @@ if (!$creator_of_user) {
 }
       ?>
       <a id="doc" href="/admin-doc"><i class="fas fa-folder"></i>ADMIN DOC</a>
+      <a id="doc" href="/admin-doc"><i class="fas fa-building"></i>ADMIN INMUEBLE</a>
+      <a id="doc" href="/admin-doc"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
     </div>
     <hr />
 

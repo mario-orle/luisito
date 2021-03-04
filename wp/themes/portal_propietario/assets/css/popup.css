@@ -47,8 +47,11 @@
     padding-right: 1rem;
     padding-top: .5rem;
     padding-bottom: .5rem;
-    background-color: #e6e6e6;
-    color: rgba(0, 0, 0, .8);
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 black;
+    color: black;
+    font-size: 13px;
+    box-shadow: 0 4px 8px 0 black;
     border-radius: .25rem;
     border-style: none;
     border-width: 0;
