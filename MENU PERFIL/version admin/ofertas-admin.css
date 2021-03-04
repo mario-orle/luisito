@@ -5,26 +5,26 @@
     line-height: 35px;
     
     }
-    i{
+.default i{
       color: rgb(92, 91, 91);
     }
-    th{
+.default th{
       background-color: orange;
       border-radius: 5px;
     }
-    .default th{
+.default th{
         width:500px;
         height: 40px;
         text-align: center;
     }
     
-    .default td{
+.default td{
         text-align: center;
     }
     .alerta-asesor id{
       color:orange;
     }
-    .style-box{
+.style-box{
       background-color: white;
       height: auto;
       padding: 20px;

@@ -2,189 +2,176 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
-  <link rel="stylesheet" href="index-admin.css">
-  <link rel="stylesheet" href="admin-inmueble.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/css/datepicker.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.0/dist/js/datepicker-full.min.js"></script>
+    <link rel="stylesheet" href="index-admin.css">
+    <link rel="stylesheet" href="admin-inmueble.css">
 
 
 
-  <title>INICIO</title>
+    <title>INICIO</title>
 </head>
 
 <body>
-  <div id="desktop">
-    <div class="header">
-      <div class="right">
-        <div class="alerta-asesor">
-          <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
+    <div id="desktop">
+        <div class="header">
+            <div class="right">
+                <div class="alerta-asesor">
+                    <a id="alerta-asesor" href="alerta-asesor.html"><img src="../asesoramiento.png"></a>
+                </div>
+                <div class="mensajes">
+                    <a id="mensajes" href="mensajes-admin.html"><img src="../email.png"></a>
+                </div>
+                <div class="alertas">
+                    <a id="alertas"><img src="../advertencia.png"></a>
+                </div>
+                <div class="usuario">
+                    <a id="usuario" href="perfil-admin.html"><img src="../perfil.png"></a>
+                </div>
+            </div>
+
         </div>
-        <div class="mensajes">
-          <a id="mensajes" href="mensajes-admin.html"><img src="../email.png"></a>
+        <div class="menu">
+            <div class="logo"> </div>
+            <h2>PORTAL ADMINISTRADOR</h2>
+            <hr />
+            <span>Opciones generales</span>
+            <hr>
+            <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
+            <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
+            <a id="perfil-asesor" href="admin-perfil-asesores.html"><i class="far fa-user-circle"></i>PERFIL</a>
+            <hr />
+
+            <button id="gestiones" class="dropdown-btn">
+                <i class="fa fa-tasks"></i> GESTIONES
+
+            </button>
+            <div class="dropdown-container">
+                <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+                <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+                <a id="perfil" href="gestiones-adminasesor.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
+                <a id="doc-admin" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
+                <a id="admin-inmueble" href="admin-inmueble.html"> <i class="fas fa-building"></i>ADMIN INMUEBLE</a>
+                <a id="ofertas-admin" href="ofertas-admin.html"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
+            </div>
+            <hr />
         </div>
-        <div class="alertas">
-          <a id="alertas"><img src="../advertencia.png"></a>
+
+        <div class="main">
+            <button type="button" class="collapsible">Arturo Ramirez
+                <div class="funciones">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-folder"></i>
+                    <i class="fas fa-money-check-alt"></i>
+                    <i class="fas fa-calendar-alt"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </button>
+            <div class="content">
+                <div class="main-up-inmuebles">
+                    <div class="card-wrapper">
+                        <button>
+                            <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+            <button type="button" class="collapsible">Antonio Garcias
+                <div class="funciones">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-folder"></i>
+                    <i class="fas fa-money-check-alt"></i>
+                    <i class="fas fa-calendar-alt"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </button>
+            <div class="content">
+                <div class="main-up-inmuebles">
+                    <div class="card-wrapper">
+                        <button>
+                            <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                            </a>
+                        </button>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <button>
+                            <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                            </a>
+                        </button>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <button>
+                            <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="collapsible">Rebeca Hernadez
+                <div class="funciones">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-folder"></i>
+                    <i class="fas fa-money-check-alt"></i>
+                    <i class="fas fa-calendar-alt"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </button>
+            <div class="content">
+                <div class="main-up-inmuebles">
+                    <div class="card-wrapper">
+                        <button>
+                            <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                            </a>
+                        </button>
+                    </div>
+
+                    <div class="card-wrapper">
+                        <button>
+                            <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                            </a>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="usuario">
-          <a id="usuario" href="perfil-admin.html"><img src="../perfil.png"></a>
-        </div>
-      </div>
-
-    </div>
-    <div class="menu">
-      <div class="logo"> </div>
-      <h2>PORTAL ADMINISTRADOR</h2>
-      <hr />
-      <span>Opciones generales</span>
-      <hr>
-      <a id="inicio" href="index-admin.html"><i class="fas fa-home"></i>INICIO</a>
-      <a id="mensajes" href="mensajes-admin.html"><i class="far fa-envelope"></i>MENSAJES</a>
-      <a id="perfil-asesor" href="admin-perfil-asesores.html"><i class="far fa-user-circle"></i>PERFIL</a>
-      <hr />
-
-      <button id="gestiones" class="dropdown-btn">
-        <i class="fa fa-tasks"></i> GESTIONES
-
-      </button>
-      <div class="dropdown-container">
-        <a id="citas" href="citas-admin.html"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
-        <a id="admin-usuarios" href="usuarios-admin.html"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
-        <a id="perfil" href="gestiones-adminasesor.html"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
-        <a id="doc-admin" href="doc-admin.html"><i class="fas fa-folder"></i>ADMIN DOC</a>
-        <a id="admin-inmueble" href="admin-inmueble.html"> <i class="fas fa-building"></i>ADMIN INMUEBLE</a>
-        <a id="ofertas-admin" href="ofertas-admin.html"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
-      </div>
-      <hr />
-    </div>
-
-    <div class="main">
-      <div class="style-box">
-        <table class="default">
-          <tr>
-            <th>Usuario </th>
-            <th>Inmueble</th>
-            <th>Oferta Realizada</th>
-            <th>Descripcion Oferta</th>
-            <th>Estado Oferta</th>
-            <th>Gestionar</th>
-          </tr>
-          <tr>
-            <td>antonio lopez </td>
-            <td>C/blablabla</td>
-            <td>156.000€</td>
-            <td>Clientes muy interesados</td>
-            <td>
-              <input type="checkbox" id="test1" />
-              <label for="test1"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Miguel gutierrez</td>
-            <td>C/blablabla</td>
-            <td>120.000€</td>
-            <td>Deberiamos de esperar, a lo mejor sacamos algo mas</td>
-            <td>
-              <input type="checkbox" id="test2" />
-              <label for="test2"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Jose Luis martines</td>
-            <td>C/blablabla</td>
-            <td>850€</td>
-            <td>Alquiler, seguro gente buena</td>
-            <td>
-              <input type="checkbox" id="test3" />
-              <label for="test3"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Miguel hernandez</td>
-            <td>C/blablabla</td>
-            <td>259.000€</td>
-            <td>Propuesta abierta a negociación</td>
-            <td> <input type="checkbox" id="test4" />
-              <label for="test4"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Javier sanchez</td>
-            <td>C/blablabla</td>
-            <td>69.000€</td>
-            <td>Piden Garantias de no tener problemas con el Inmuble.</td>
-            <td>
-              <input type="checkbox" id="test5" />
-              <label for="test5"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Gonzalo gonzalez</td>
-            <td>C/blablabla</td>
-            <td>589€</td>
-            <td>Urge poder entrar rapido a la vivienda. </td>
-            <td> <input type="checkbox" id="test6" />
-              <label for="test6"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>Arturo jimenez</td>
-            <td>C/blablabla</td>
-            <td>980€</td>
-            <td>Quieres tramitar una acuerdo, reforma d ela vivienda.</td>
-            <td> <input type="checkbox" id="test7" />
-              <label for="test7"></label>
-            </td>
-            <td>
-              <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-              <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
-              <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
-            </td>
-          </tr>
-
-        </table>
-      </div>
-
-    </div>
 
 
-
-    <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
-    <script src="menu-admin.js"></script>
+        <script src="collapse-inmueble.js"></script>
+        <script src="node_modules/vanillajs-datepicker/dist/datepicker-full,s"></script>
+        <script src="menu-admin.js"></script>
 </body>
 
 </html>
