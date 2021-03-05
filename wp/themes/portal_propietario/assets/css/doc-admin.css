@@ -30,12 +30,11 @@
     background-color: orange;
     border-radius: 6px;
     border: 1px solid #d2e5f8;
-    padding: 10px;
     color: #fff;
-    font-family: Arial;
     font-size: 15px;
     font-weight: bold;
     float: right;
+    height: 25px;
 }
 
 .main .botons {
@@ -52,11 +51,9 @@
     font-weight: bold;
     text-decoration: none;
     text-shadow: 0px 1px 0px #528ecc;
-    width: 150px;
-    margin-top: 15px;
+    width: 190px;
     text-align: center;
     padding: 5px;
-    margin-left: 20px;
 }
 
 .main .botons:hover:not([disabled]) {
