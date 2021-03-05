@@ -1,15 +1,20 @@
 .main button.toggler {
     box-shadow: inset 0px 1px 0px 0px #dcecfb;
-    border-radius: 6px;
-    border: 1px solid #d2e5f8;
-    padding: 10px;
-    color: #000;
-    font-family: Arial;
-    font-size: 13px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
+    background-color: #777;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-bottom:10px ;
 }
+.main button.toggler:hover {
+    background-color: orange;
+  }
 
 .main button.toggler .mas,
 .main button.toggler .menos {
@@ -73,6 +78,9 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.documentos-usuario{
+    margin-left: 10px;
+}
 
 .documentos-descarga {
     display: flex;
@@ -80,37 +88,21 @@
     background-color: white;
     width: 100%;
     max-width: 850px;
-    height: 300px;
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    justify-content: center;
-    overflow: auto;
-}
-
-.documentos-descarga-2 {
-    display: flex;
-    background-color: white;
-    width: 100%;
-    max-width: 850px;
-    height: 300px;
-    padding: 20px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-    justify-content: center;
-    overflow: auto;
+  margin-bottom: 10px;
 }
 
 .documentos-descarga h3 {
     color: orange;
 }
 
-.documentos-descarga-2 h3 {
-    color: orange;
-}
-
 .text-documentos {
-    width: 800px;
-    height: 350px;
+    width: 845px;
+   
+}
+.usuario{
+    width: 100%;
 }
 
 .fila-documento {
@@ -119,11 +111,7 @@
     width: 100%;
 }
 
-.fila-documento-2 {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
+
 
 [type="checkbox"]:not(:checked),
 [type="checkbox"]:checked {

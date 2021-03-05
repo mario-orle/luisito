@@ -90,6 +90,7 @@ get_header();
                     <h3>Documentos Solicitados por el Cliente:
                         <hr>
                     </h3>
+                    </div>
                     <?php
 foreach ($array_documentos as $user => $documentos) {
 ?>
@@ -126,14 +127,14 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                     
 
-                </div>
+                
             </div>
-            <div class="documentos-descarga-2">
+            <div class="documentos-descarga">
                 <div class="text-documentos">
                     <h3>Envio de Documentos para el Cliente:
                         <hr>
                     </h3>
-                            
+                    </div>   
 <?php
 foreach ($array_documentos as $user => $documentos) {
 ?>
@@ -149,7 +150,7 @@ foreach ($array_documentos as $user => $documentos) {
         if (wp_unslash($documento['status']) == "solicitado-al-asesor") {
 
 ?>
-                            <div class="fila-documento-2">
+                            <div class="fila-documento">
                                 <p><?php echo $documento["nombre"] ?></p>
                                 <div class="btn-container">
                                     <input class="botons" type="submit" value="ENVIAR">
@@ -175,16 +176,16 @@ foreach ($array_documentos as $user => $documentos) {
 <?php
 }
 ?>
-                </div>
+                
             </div>
-            <div class="documentos-descarga-2">
+            <div class="documentos-descarga">
                 <div class="text-documentos">
                     <h3>
                         Solicitar Documentos al Cliente:
                         <button onclick="solicitarDocumento()" class="solicitar-documento">Solicitar Documento</button>
                     </h3>
                     <hr>
-                    
+                    </div>
 <?php
 foreach ($array_documentos as $user => $documentos) {
 ?>
@@ -200,7 +201,7 @@ foreach ($array_documentos as $user => $documentos) {
         if (wp_unslash($documento["status"]) != "solicitado-al-asesor" && wp_unslash($documento["status"]) != "fichero-anadido") {
 
 ?>
-                            <div class="fila-documento-2">
+                            <div class="fila-documento">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
                                 <div class="btn-container">
 <?php if (wp_unslash($documento["status"]) != "fichero-anadido") { ?>
@@ -229,7 +230,7 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                 </div>
             </div>
-        </div>
+        
     </div>
     <div id="modal-crear-solicitud-documento" aria-hidden="true" class="modal modal-solicitud-documento">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
