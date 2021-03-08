@@ -120,6 +120,13 @@ foreach ($inmuebles as $inmueble) {
             </div>
         </div>
     </div>
+    <div class="upload-image-bg"></div>
+    <div class="upload-image" >
+        <div class="croppiecontainer">
+            <img />
+        </div>
+        <button onclick="setPhoto()" id="btn-aceptar-photo" style="display: none">Aceptar</button>
+    </div>
 </main><!-- #main -->
 <script src="<?php echo get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.js'; ?>"></script>
 
@@ -188,6 +195,7 @@ function editarPassword(e) {
         input.style.filter = "blur(1px)";
         input.setAttribute("readonly", "true");
     }
+    var croppie;
 
     document.querySelector("#uploader").onchange = function () {
         var file = this.files[0];
@@ -196,22 +204,37 @@ function editarPassword(e) {
             var reader = new FileReader();
             
             reader.onload = function(e) {
-                document.querySelector(".fakeimg-perfil img").src = e.target.result;
-                /*var c = new Croppie(document.querySelector(".fakeimg-perfil img"), {
-                    viewport: { width: 150, height: 150, type: 'circle' },
-                    boundary: { width: 200, height: 200 },
-                    
-                });*/
+                document.querySelector(".upload-image").style.display = "flex";
+                document.querySelector(".upload-image-bg").style.display = "block";
+                document.querySelector(".upload-image img").src = e.target.result;
+                croppie = new Croppie(document.querySelector(".upload-image img"), {
+                    viewport: { width: 200, height: 200, type: 'circle' },
+                });
+                document.querySelector("#btn-aceptar-photo").style.display = "block";
 
             }
             
             reader.readAsDataURL(file); // convert to base64 string
 
+            
+        }
+    }
+
+    function setPhoto() {
+        document.querySelector(".fakeimg-perfil img").style.filter = "blur(2px)";
+        croppie.result({type: "blob", format: 'png', size: 'viewport', circle: true}).then(function (blob) {
+            var file = new File([blob], 'perfil.png', {type: "image/png"});
+            croppie.destroy();
+            document.querySelector(".upload-image").style.display = "none";
+            document.querySelector(".upload-image-bg").style.display = "none";
+            document.querySelector("#btn-aceptar-photo").style.display = "none";
+
+            document.querySelector(".fakeimg-perfil img").src = URL.createObjectURL(blob);
+
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/usuarios-xhr?action=update_photo&user_id=<?php echo $user->ID ?>");
 
             xhr.onload = function () {
-
                 Toastify({
                     text: "Imagen actualizada",
                     duration: 3000,
@@ -221,12 +244,14 @@ function editarPassword(e) {
                     stopOnFocus: true, // Prevents dismissing of toast on hover
                     onClick: function(){} // Callback after click
                 }).showToast();
+                document.querySelector(".fakeimg-perfil img").style.filter = "none";
             }
 
             var formData = new FormData();
             formData.append("foto-perfil", file);
             xhr.send(formData);
-        }
+        });
+        
     }
 </script>
 

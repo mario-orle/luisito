@@ -459,3 +459,33 @@ p {
     width: 338px;
     height: 190px;
 }
+
+.upload-image {
+    display: none;
+    position: fixed;
+    top: calc(50% - 110px);
+    left: calc(50% - 140px);
+    width: 220px;
+    height: 280px;
+    padding: 20px;  
+    border: 2px solid #ccc;
+    background-color: #333;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;  
+    z-index: 3;
+}
+.upload-image .croppiecontainer {
+    width: 210px;
+    height: 210px;
+}
+.upload-image-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #3339;
+    z-index: 2;
+}

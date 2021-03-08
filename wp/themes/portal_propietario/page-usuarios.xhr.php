@@ -35,7 +35,6 @@ if ($_GET['action'] == 'update_photo') {
     $movefile = wp_handle_upload( $_FILES['foto-perfil'], $upload_overrides );
     
     update_user_meta($user_id, 'meta-foto-perfil', wp_slash($movefile['url']));
-
 }
 
 if ($_GET['action'] == 'update_password') {
