@@ -99,6 +99,9 @@ foreach ($array_documentos as $user => $documentos) {
                             <span class="mas" style="display: none">+</span>
                             <span class="menos">-</span>
                             <?php echo $documentos["name"] ?>
+                            <div class="funciones">
+                   
+                </div>
                         </button>
                         <div class="documentos-usuario" id="documentos-usuario-solicitados-cliente<?php echo $user; ?>">
 <?php
@@ -110,11 +113,18 @@ foreach ($array_documentos as $user => $documentos) {
         ?>
                             <div class="fila-documento">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
-                                
+                               
+                                <div class="funciones">
                                 <input type="checkbox" <?php if ($is_checked) echo "checked";?>>
                                 <label for="-" 
                                     data-url="<?php echo $documento["file"] ?>" 
                                     <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></label>
+                                <i class="fas fa-edit"></i>
+                                <i class="fas fa-folder"></i>
+                                <i class="fas fa-trash-alt"></i>
+                                
+                                </div>
+                                
 
                             </div>
                     <?php
@@ -194,6 +204,9 @@ foreach ($array_documentos as $user => $documentos) {
                             <span class="mas" style="display: none">+</span>
                             <span class="menos">-</span>
                             <?php echo $documentos["name"] ?>
+                            
+                 
+               
                         </button>
                         <div class="documentos-usuario" id="documentos-usuario-env<?php echo $user; ?>">
 <?php
@@ -203,9 +216,13 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                             <div class="fila-documento">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
+                             
                                 <div class="btn-container">
 <?php if (wp_unslash($documento["status"]) != "fichero-anadido") { ?>
-    
+                                    
+                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-folder"></i>
+                                        <i class="fas fa-trash-alt"></i>
                                     <input class="botons" disabled value="En espera del cliente..." />
     
 <?php
@@ -213,7 +230,7 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                                     <input class="botons" type="button" onclick="window.open('<?php echo wp_unslash($documento["file"]); ?>')" value="DESCARGAR">
 <?php
-}
+}                               
 ?>
                                 </div>
                             </div>

@@ -75,16 +75,18 @@ body, html {
     justify-content: center;
     align-items: center;
     width: 270px;
-    height: 410px;
+    height: 265px;
     border: 15px solid #f1f1f1;
     background-color: rgba(0,0,0, 0.4);
+    border-radius: 5px;
+    box-shadow: 1px 1px 20px 0px rgb(172, 172, 172);
   }
 .wrapper-text-btn{
     text-align: center;
 
   }
 .wrapper-text-btn h1 {
-  font-size: 50px;
+  font-size: 40px;
   margin:auto
 }
 .wrapper-text-btn h4 {
