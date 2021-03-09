@@ -165,3 +165,31 @@
     background-color: #3339;
     z-index: 2;
 }
+.change-pwd {
+    display: none;
+    position: fixed;
+    top: calc(50% - 60px);
+    left: calc(50% - 140px);
+    width: 220px;
+    height: 120px;
+    padding: 20px;  
+    border: 2px solid #ccc;
+    background-color: #333;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: column;  
+    z-index: 20;
+}
+.change-pwd-bg {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #3339;
+    z-index: 2;
+}
+.change-pwd input {
+    padding: 10px;
+}

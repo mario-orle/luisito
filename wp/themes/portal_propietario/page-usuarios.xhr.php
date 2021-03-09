@@ -41,5 +41,15 @@ if ($_GET['action'] == 'update_password') {
     $user_id = $_GET['user_id'];
     $new_pwd = $_POST["new-password"];
 
+
     wp_set_password($new_pwd, $user_id);
+
+    if (get_current_user_id() == $user_id) {
+        $user = get_user_by('ID', $user_id);
+
+        wp_set_auth_cookie($user->ID);
+        wp_set_current_user($user->ID);
+        do_action('wp_login', $user->user_login, $user);
+    }
+
 }
