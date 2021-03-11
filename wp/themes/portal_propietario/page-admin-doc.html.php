@@ -87,7 +87,7 @@ get_header();
         <div class="main-documentos">
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Documentos del Cliente:
+                    <h3> <i class="fas fa-id-card-alt"></i> Documentos del Cliente:
                         <hr>
                     </h3>
                     </div>
@@ -141,7 +141,7 @@ foreach ($array_documentos as $user => $documentos) {
             </div>
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Envio de Documentos para el Cliente:
+                    <h3><i class="fas fa-file-import"></i> Documentos para el Cliente:
                         <hr>
                     </h3>
                     </div>   
