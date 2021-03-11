@@ -6,6 +6,7 @@
     background-color: white;
     display: flex;
     flex-flow: wrap;
+    margin: 0 auto;
 }
 
 .img-perfil-asesor {
