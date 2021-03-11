@@ -90,7 +90,7 @@ get_header();
                     <h3>Documentos del Cliente:
                         <hr>
                     </h3>
-                    </div>
+                </div>
                     <?php
 foreach ($array_documentos as $user => $documentos) {
     $title_added = false;
@@ -100,7 +100,6 @@ foreach ($array_documentos as $user => $documentos) {
             $is_checked = true;
         }
         if (!$title_added) {
-            $title_added = true;
 ?>
         <div class="usuario">
             <button class="toggler" onclick="toggle('solicitados-cliente<?php echo $user; ?>')">
@@ -133,10 +132,14 @@ foreach ($array_documentos as $user => $documentos) {
                             </div>
                     <?php
     }
+    if (!$title_added) {
+            $title_added = true;
+
 ?>
                         </div>
                     </div>
 <?php
+    }
 }
 ?>
                     
@@ -155,7 +158,6 @@ foreach ($array_documentos as $user => $documentos) {
     foreach ($documentos["documentos"] as $documento) {
         if (wp_unslash($documento['status']) == "solicitado-al-asesor") {
             if (!$title_added) {
-                $title_added = true;
 ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle(<?php echo $user; ?>)">
@@ -188,10 +190,13 @@ foreach ($array_documentos as $user => $documentos) {
                     <?php
         }
     }
+    if (!$title_added) {
+            $title_added = true;
 ?>
                         </div>
                     </div>
 <?php
+    }
 }
 ?>
                 
@@ -210,7 +215,6 @@ foreach ($array_documentos as $user => $documentos) {
     foreach ($documentos["documentos"] as $documento) {
         if (wp_unslash($documento["status"]) != "solicitado-al-asesor" && wp_unslash($documento["status"]) != "fichero-anadido") {
             if (!$title_added) {
-                $title_added = true;
 ?>
             <div class="usuario">
                 <button class="toggler" onclick="toggle('env<?php echo $user; ?>')">
@@ -250,10 +254,13 @@ foreach ($array_documentos as $user => $documentos) {
         }
 
     }
+    if (!$title_added) {
+            $title_added = true;
 ?>
                         </div>
                     </div>
 <?php
+    }
 }
 ?>
                 </div>
