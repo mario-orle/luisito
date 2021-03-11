@@ -105,6 +105,8 @@ $inmuebles = get_posts([
     // 'order'    => 'ASC'
 ]);
 
+echo json_encode($inmuebles);
+
 foreach ($inmuebles as $inmueble) {
 ?>
                     <div class="card-wrapper">

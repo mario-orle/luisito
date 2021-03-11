@@ -29,6 +29,7 @@ if (current_user_can('administrator') && !empty($_GET['user'])) {
 
     $user = get_user_by('ID', $_GET['user']);
 }
+echo json_encode($inmuebles);
 
 get_header();
 ?>
