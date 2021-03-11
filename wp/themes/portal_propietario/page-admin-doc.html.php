@@ -87,7 +87,7 @@ get_header();
         <div class="main-documentos">
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Documentos Solicitados por el Cliente:
+                    <h3>Documentos Solicitados del Cliente:
                         <hr>
                     </h3>
                     </div>
@@ -123,8 +123,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <label for="-" 
                                     data-url="<?php echo $documento["file"] ?>" 
                                     <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></label>
-                                <i class="fas fa-edit"></i>
-                                <i class="fas fa-folder"></i>
+                                   
                                 <i class="fas fa-trash-alt"></i>
                                 
                                 </div>
@@ -231,7 +230,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <div class="btn-container">
 <?php if (wp_unslash($documento["status"]) != "fichero-anadido") { ?>
                                     
-                                        <i class="fas fa-edit"></i>   <i class="fas fa-folder"></i></i>  <i class="fas fa-trash-alt"></i> 
+                                    <i class="fas fa-file-download"></i> <i class="fas fa-trash-alt"></i> 
                                        
                                         
                                     <input class="botons" disabled value="En espera del cliente..." />
