@@ -69,12 +69,6 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                                     </label>
                                 </div>
                                 <div class="first-block formulario">
-                                    <input type="password" name="pwd" class="question" placeholder="" id="pass" required="" autocomplete="off" onchange="editarPassword(event)">
-                                    <label for="pass">
-                                        <span>Contraseña</span>
-                                    </label>
-                                </div>
-                                <div class="first-block formulario">
                                     <input type="text" name="puesto" class="question" value="<?php echo get_user_meta($user->ID, 'meta-puesto', true) ?>" placeholder="" id="puesto" required="" autocomplete="off"  onchange="editar(event)">
                                     <label for="puesto">
                                         <span>Puesto</span>
@@ -85,6 +79,9 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                                     <label for="disponibilidad">
                                         <span>Disponibilidad</span>
                                     </label>
+                                </div>
+                                <div class="first-block formulario">
+                                    <button onclick="showEditarPassword()">Cambiar contraseña</button>
                                 </div>
 
 
@@ -102,12 +99,27 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
         </div>
         <button onclick="setPhoto()" id="btn-aceptar-photo" style="display: none">Aceptar</button>
     </div>
+    <div class="change-pwd-bg"></div>
+    <div class="change-pwd" >
+        <input type="text" id="new-pwd" placeholder="Nueva contraseña..." />
+        <button onclick="editarPassword()" id="btn-aceptar-photo" >Cambiar Contraseña</button>
+    </div>
 </main><!-- #main -->
 <script>
 
+function showEditarPassword() {
+    document.querySelector(".change-pwd-bg").style.display = "block";
+    document.querySelector(".change-pwd").style.display = "flex";
+    document.querySelector(".change-pwd-bg").onclick = function () {
+        
+        document.querySelector(".change-pwd-bg").style.display = "none";
+        document.querySelector(".change-pwd").style.display = "none";
+        document.querySelector(".change-pwd input").value = "";
+    }
+}
 function editarPassword(e) {
     if (confirm("¿Estás seguro de cambiar la contraseña de este usuario?")) {
-        var input = e.currentTarget;
+        var input = document.getElementById("new-pwd");
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/usuarios-xhr?action=update_password&user_id=<?php echo $user->ID ?>");
 
@@ -117,6 +129,9 @@ function editarPassword(e) {
 
 
         xhr.onload = function() {
+
+            document.querySelector(".change-pwd-bg").style.display = "none";
+            document.querySelector(".change-pwd").style.display = "none";
             input.style.filter = "none";
             input.removeAttribute("readonly");
             
@@ -137,6 +152,7 @@ function editarPassword(e) {
         input.setAttribute("readonly", "true");
     }
 }
+
 
 function editar(e) {
     var input = e.currentTarget;

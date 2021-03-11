@@ -133,5 +133,8 @@
     float: right;
     padding-right: 8px;
     }
-    
+    .main .dataTable-sorter{
+        display: flex;
+        align-items: center;
+    }
     

@@ -48,7 +48,7 @@ get_header();
                         <th>Usuario </th>
                         <th>E-mail </th>
                         <th>Nº Inmuebles </th>
-                        <th>Estado Documentación </th>
+                        <th>Documentación </th>
 <?php 
 if (get_current_user_id() === 1) {
 ?>

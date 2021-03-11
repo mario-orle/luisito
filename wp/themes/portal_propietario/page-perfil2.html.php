@@ -69,10 +69,14 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     
                 </p>
                 <p id="dni">
+                    <?php if (current_user_can('administrator')) { ?>
                     <select class="js-choice" name="owner-tipodocumento" onchange="editar(event)">
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI") { echo "selected"; } ?> value="DNI">DNI</option>
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
+                    <?php } else { ?>
+                        <label><?php echo get_user_meta($user->ID, 'meta-owner-tipodocumento', true) ?>
+                    <?php } ?>
                     <input type="text" name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editar(event)" >
                 </p>
                 <hr>
@@ -85,7 +89,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contraseña </h4>
-                <input type="password" name="pwd" placeholder="Cambiar contraseña..." class="editor" id="pass" required="" autocomplete="off" onchange="editarPassword(event)">
+                <button onclick="showEditarPassword()">Cambiar contraseña</button>
 
                 <hr>
 
@@ -127,14 +131,28 @@ foreach ($inmuebles as $inmueble) {
         </div>
         <button onclick="setPhoto()" id="btn-aceptar-photo" style="display: none">Aceptar</button>
     </div>
+    <div class="change-pwd-bg"></div>
+    <div class="change-pwd" >
+        <input type="text" id="new-pwd" placeholder="Nueva contraseña..." />
+        <button onclick="editarPassword()" id="btn-aceptar-photo" >Cambiar Contraseña</button>
+    </div>
 </main><!-- #main -->
 <script src="<?php echo get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.js'; ?>"></script>
 
 <script>
-
+function showEditarPassword() {
+    document.querySelector(".change-pwd-bg").style.display = "block";
+    document.querySelector(".change-pwd").style.display = "flex";
+    document.querySelector(".change-pwd-bg").onclick = function () {
+        
+        document.querySelector(".change-pwd-bg").style.display = "none";
+        document.querySelector(".change-pwd").style.display = "none";
+        document.querySelector(".change-pwd input").value = "";
+    }
+}
 function editarPassword(e) {
     if (confirm("¿Estás seguro de cambiar la contraseña de este usuario?")) {
-        var input = e.currentTarget;
+        var input = document.getElementById("new-pwd");
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/usuarios-xhr?action=update_password&user_id=<?php echo $user->ID ?>");
 
@@ -144,6 +162,9 @@ function editarPassword(e) {
 
 
         xhr.onload = function() {
+
+            document.querySelector(".change-pwd-bg").style.display = "none";
+            document.querySelector(".change-pwd").style.display = "none";
             input.style.filter = "none";
             input.removeAttribute("readonly");
             
