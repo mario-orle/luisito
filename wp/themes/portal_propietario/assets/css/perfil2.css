@@ -351,6 +351,7 @@ input.editor {
     font-size: 16px;
     background-color: transparent;
     border: none;
+    color: white;
 }
 
 #dni {
@@ -385,11 +386,13 @@ input.editor {
 
 .side {
     width: 250px;
-    background-color: #8a9597;
+    background-color: #6d7677;
     padding: 20px;
-    box-shadow: 0 4px 8px 0 black;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
     height: 100%;
     margin-top: 20px;
+    border-radius: 4px;
+    border: 5px double grey;
 }
 
 .fakeimg-perfil img {
@@ -493,16 +496,29 @@ p {
     display: none;
     position: fixed;
     top: calc(50% - 60px);
-    left: calc(50% - 140px);
+    left: calc(50% - 50px);
     width: 220px;
     height: 120px;
     padding: 20px;  
     border: 2px solid #ccc;
-    background-color: #333;
     align-items: center;
     justify-content: space-between;
     flex-flow: column;  
     z-index: 3;
+    font-size: .875rem;
+    background-color: #333;
+    box-shadow: 0 4px 8px 0 black;
+    color: black;
+    border-radius: .25rem;
+    cursor: pointer;
+    text-transform: none;
+    overflow: visible;
+    line-height: 1.15;
+    margin: 0;
+    transform: translateZ(0);
+    transition: -webkit-transform .25s ease-out;
+    transition: transform .25s ease-out;
+    transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 .change-pwd-bg {
     display: none;
@@ -516,4 +532,15 @@ p {
 }
 .change-pwd input {
     padding: 10px;
+    margin-top: 15px;
+}
+#btn-aceptar-photo{
+    width: 160px;
+    background: #1f53c5;
+    border: none;
+    padding: 5px;
+    color: white;
+    margin: 16px 0;
+    font-size: 14px;
+    border-radius: 5px;
 }

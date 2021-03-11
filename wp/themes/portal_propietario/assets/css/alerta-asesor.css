@@ -6,6 +6,7 @@
     background-color: white;
     display: flex;
     flex-flow: wrap;
+    margin: 0 auto;
 }
 
 .img-perfil-asesor {
@@ -20,13 +21,16 @@
 }
 
 .form-perfil h2 {
-    color: black;
+    color: orange;
     text-align: left;
 }
 
 .form-perfil h3 {
-    color: orange;
+    color: black;
     text-align: left;
+}
+.form-perfil p{
+    color: grey;
 }
 
 .container {
@@ -47,7 +51,6 @@
 
 .doc-punt {
     height: 280px;
-    border: 3px solid #1C6EA4;
     margin-bottom: 20px;
     border-radius: 13px;
     width: 100%;
@@ -64,10 +67,10 @@
 
 .botons {
     box-shadow: inset 0px 1px 0px 0px #dcecfb;
-    background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+    background: linear-gradient(to bottom, orange 5%, orange 100%);
     background-color: #bddbfa;
     border-radius: 6px;
-    border: 1px solid #84bbf3;
+    border: 1px solid orange;
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
@@ -76,20 +79,24 @@
     font-weight: bold;
     text-decoration: none;
     text-shadow: 0px 1px 0px #528ecc;
+    width: 150px;
+    margin-top: 15px;
     text-align: center;
-    padding: 3px;
+    padding: 5px;
     margin-left: 20px;
+}
+
+
+
+.botons:hover {
+    background: linear-gradient(to bottom, rgb(252, 205, 119) 5%, rgb(252, 205, 119)100%);
+    background-color: rgba(0, 0, 0, 0);
+    background-color: orange;
 }
 
 form {
     display: inline-block;
 }
-
-.botons:hover {
-    background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-    background-color: #80b5ea;
-}
-
 .botons:active {
     position: relative;
     top: 1px;
@@ -97,7 +104,7 @@ form {
 
 .text-documentos {
     width: 650px;
-    margin-left: 20px;
+
 }
 
 .fila-documento {
