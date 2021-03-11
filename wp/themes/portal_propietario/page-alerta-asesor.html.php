@@ -58,9 +58,11 @@ get_header();
                                 <h2>Documentos Requeridos por el Asesor:
                                     <hr />
                                 </h2>
+                                <div class="scroll-text">
 <?php 
 if (count($array_documentos) === 0) {
 ?>
+        
                                 <div class="fila-documento-2">
                                     <p>Sin documentación aún</p>
                                 </div>
@@ -125,6 +127,7 @@ if (count($array_documentos) === 0) {
     }
 }
 ?>
+                                </div>
                             </div>
                         </div>
                     </form>
