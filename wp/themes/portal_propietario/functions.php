@@ -146,7 +146,7 @@ function portal_propietario_widgets_init() {
 	);
 }
 add_action( 'widgets_init', 'portal_propietario_widgets_init' );
-
+define('ALLOW_UNFILTERED_UPLOADS', true);
 /**
  * Enqueue scripts and styles.
  */
