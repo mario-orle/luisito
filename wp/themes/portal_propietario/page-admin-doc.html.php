@@ -93,25 +93,28 @@ get_header();
                     </div>
                     <?php
 foreach ($array_documentos as $user => $documentos) {
-    if (count($documentos["documentos"]) != 0) {
-    ?>
-                    <div class="usuario">
-                        <button class="toggler" onclick="toggle('solicitados-cliente<?php echo $user; ?>')">
-                            <span class="mas" style="display: none">+</span>
-                            <span class="menos">-</span>
-                            <?php echo $documentos["name"] ?>
-                            <div class="funciones">
-                   
-                </div>
-                        </button>
-                        <div class="documentos-usuario" id="documentos-usuario-solicitados-cliente<?php echo $user; ?>">
-<?php
+    $title_added = false;
     foreach ($documentos["documentos"] as $documento) {
         $is_checked = false;
         if (wp_unslash($documento["status"]) == 'fichero-anadido') {
             $is_checked = true;
         }
-        ?>
+        if (!$title_added) {
+            $title_added = true;
+?>
+        <div class="usuario">
+            <button class="toggler" onclick="toggle('solicitados-cliente<?php echo $user; ?>')">
+                <span class="mas" style="display: none">+</span>
+                <span class="menos">-</span>
+                <?php echo $documentos["name"] ?>
+                <div class="funciones">
+       
+        </div>
+            </button>
+            <div class="documentos-usuario" id="documentos-usuario-solicitados-cliente<?php echo $user; ?>">
+<?php
+        }
+?>
                             <div class="fila-documento">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
                                
@@ -134,7 +137,6 @@ foreach ($array_documentos as $user => $documentos) {
                         </div>
                     </div>
 <?php
-    }
 }
 ?>
                     
@@ -149,7 +151,11 @@ foreach ($array_documentos as $user => $documentos) {
                     </div>   
 <?php
 foreach ($array_documentos as $user => $documentos) {
-        if (count($documentos["documentos"]) != 0) { 
+    $title_added = false;
+    foreach ($documentos["documentos"] as $documento) {
+        if (wp_unslash($documento['status']) == "solicitado-al-asesor") {
+            if (!$title_added) {
+                $title_added = true;
 ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle(<?php echo $user; ?>)">
@@ -159,8 +165,7 @@ foreach ($array_documentos as $user => $documentos) {
                         </button>
                         <div class="documentos-usuario" id="documentos-usuario-<?php echo $user; ?>">
 <?php
-    foreach ($documentos["documentos"] as $documento) {
-        if (wp_unslash($documento['status']) == "solicitado-al-asesor") {
+            }
 
 ?>
                             <div class="fila-documento">
@@ -187,7 +192,6 @@ foreach ($array_documentos as $user => $documentos) {
                         </div>
                     </div>
 <?php
-        }
 }
 ?>
                 
@@ -202,22 +206,24 @@ foreach ($array_documentos as $user => $documentos) {
                     </div>
 <?php
 foreach ($array_documentos as $user => $documentos) {
-    if (count($documentos["documentos"]) != 0) { 
-    ?>
-                    <div class="usuario">
-                        <button class="toggler" onclick="toggle('env<?php echo $user; ?>')">
-                            <span class="mas" style="display: none">+</span>
-                            <span class="menos">-</span>
-                            <?php echo $documentos["name"] ?>
-                            
-                 
-               
-                        </button>
-                        <div class="documentos-usuario" id="documentos-usuario-env<?php echo $user; ?>">
-<?php
+    $title_added = false;
     foreach ($documentos["documentos"] as $documento) {
         if (wp_unslash($documento["status"]) != "solicitado-al-asesor" && wp_unslash($documento["status"]) != "fichero-anadido") {
-
+            if (!$title_added) {
+                $title_added = true;
+?>
+            <div class="usuario">
+                <button class="toggler" onclick="toggle('env<?php echo $user; ?>')">
+                    <span class="mas" style="display: none">+</span>
+                    <span class="menos">-</span>
+                    <?php echo $documentos["name"] ?>
+                    
+         
+       
+                </button>
+                <div class="documentos-usuario" id="documentos-usuario-env<?php echo $user; ?>">
+<?php
+            }
 ?>
                             <div class="fila-documento">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
@@ -248,7 +254,6 @@ foreach ($array_documentos as $user => $documentos) {
                         </div>
                     </div>
 <?php
-    }
 }
 ?>
                 </div>
