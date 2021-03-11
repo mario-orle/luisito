@@ -89,7 +89,7 @@ get_header();
         <div class="main-documentos">
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Documentos para ti:
+                    <h3> <i class="fas fa-file-alt"></i> Mis Documentos:
                         <hr>
                     </h3>
 <?php 
@@ -110,7 +110,7 @@ foreach ($array_documentos as $i => $documento) {
             </div>
             <div class="documentos-descarga-2">
                 <div class="text-documentos">
-                    <h3>Documentos Requeridos:
+                    <h3><i class="fas fa-file-medical"></i> Documentos Requeridos:
                         <hr>
                     </h3>
 <?php 
