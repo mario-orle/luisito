@@ -237,7 +237,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <div class="btn-container">
 <?php if (wp_unslash($documento["status"]) != "fichero-anadido") { ?>
                                     
-                                        <i class="fas fa-edit"></i>   <i class="fas fa-folder"></i></i>  <i class="fas fa-trash-alt"></i> 
+                                    <i class="fas fa-trash-alt"></i> 
                                        
                                         
                                     <input class="botons" disabled value="En espera del cliente..." />
