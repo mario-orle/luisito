@@ -113,7 +113,9 @@
     justify-content: space-between;
     width: 100%;
 }
-
+.funciones{
+    width: calc(100% - 780px);
+}
 
 
 [type="checkbox"]:not(:checked),
