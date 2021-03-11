@@ -120,8 +120,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <label for="-" 
                                     data-url="<?php echo $documento["file"] ?>" 
                                     <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></label>
-                                <i class="fas fa-edit"></i>
-                                <i class="fas fa-folder"></i>
+                                    <i class="fas fa-file-download"></i>
                                 <i class="fas fa-trash-alt"></i>
                                 
                                 </div>
