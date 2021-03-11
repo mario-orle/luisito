@@ -171,9 +171,9 @@ foreach ($array_documentos as $user => $documentos) {
                             <div class="fila-documento">
                                 <p><?php echo $documento["nombre"] ?></p>
                                 <div class="btn-container">
-                                    <input class="botons" type="submit" value="ENVIAR">
 
                                     <form method="POST" enctype="multipart/form-data">
+                                        <input class="botons" disabled type="submit" value="ENVIAR">
                                         <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
                                         <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
                                         <input type="hidden" name="usuario" value="<?php echo $user?>" />
@@ -181,7 +181,7 @@ foreach ($array_documentos as $user => $documentos) {
                                         <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
                                         <input type="hidden" name="action" value="cargar" />
                                         <label class="botons" for="uploader-<?php echo $i ?>">CARGAR</label>
-                                        <input name="documento" onchange="this.parentElement.submit()" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
+                                        <input name="documento" onchange="this.parentElement.querySelector('label').textContent = 'CAMBIAR'; this.parentElement.querySelector('input.botons').removeAttribute('disabled')" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
                                     </form>
                                 </div>
                             </div>
