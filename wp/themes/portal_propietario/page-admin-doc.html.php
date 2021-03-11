@@ -87,7 +87,7 @@ get_header();
         <div class="main-documentos">
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Documentos Solicitados por el Cliente:
+                    <h3>Documentos Solicitados del Cliente:
                         <hr>
                     </h3>
                     </div>
