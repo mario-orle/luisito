@@ -55,7 +55,6 @@
     border-radius: 13px;
     width: 100%;
     max-width: 690px;
-    overflow: auto;
     min-width: 450px;
 }
 
@@ -100,6 +99,11 @@ form {
 .botons:active {
     position: relative;
     top: 1px;
+}
+.scroll-text{
+    overflow-x: hidden;
+    height: 265px;
+    width: calc(100% - 0px);
 }
 
 .text-documentos {
