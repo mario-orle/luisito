@@ -136,9 +136,11 @@ foreach ($array_documentos as $user => $documentos) {
 
 ?>
                         </div>
-                    </div>
 <?php
     }
+?>  
+                    </div>
+<?php
 }
 ?>
                     
@@ -193,9 +195,11 @@ foreach ($array_documentos as $user => $documentos) {
             $title_added = true;
 ?>
                         </div>
-                    </div>
 <?php
     }
+?>  
+                    </div>
+<?php
 }
 ?>
                 
@@ -257,9 +261,11 @@ foreach ($array_documentos as $user => $documentos) {
             $title_added = true;
 ?>
                         </div>
-                    </div>
 <?php
     }
+?>  
+                    </div>
+<?php
 }
 ?>
                 </div>
