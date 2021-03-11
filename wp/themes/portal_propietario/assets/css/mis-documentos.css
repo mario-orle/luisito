@@ -49,7 +49,6 @@ a.botons {
     background-color: white;
     width: 100%;
     max-width: 750px;
-    height: 300px;
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
@@ -59,7 +58,6 @@ a.botons {
     background-color: white;
     width: 100%;
     max-width: 750px;
-    height: 300px;
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     margin-top: 15px;
@@ -75,7 +73,6 @@ a.botons {
 
 .text-documentos {
     width: 800px;
-    height: 350px;
 }
 
 .fila-documento {
