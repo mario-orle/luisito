@@ -128,7 +128,7 @@ if (!$creator_of_user) {
 }
       ?>
       <a id="doc" href="/admin-doc"><i class="fas fa-folder"></i>ADMIN DOC</a>
-      <a id="doc" href="/admin-doc"><i class="fas fa-building"></i>ADMIN INMUEBLE</a>
+      <a id="doc" href="/admin-inmuebles"><i class="fas fa-building"></i>ADMIN INMUEBLE</a>
       <a id="doc" href="/admin-doc"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
     </div>
     <hr />

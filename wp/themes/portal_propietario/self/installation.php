@@ -181,6 +181,23 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('perfil-inmueble')) {
+        wp_insert_post(array(
+            'post_title' => 'perfil-inmueble',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-perfil-inmueble.html.php'
+        ));
+    }
+    if (!get_page_by_title('admin-inmuebles')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-inmuebles',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-admin-inmuebles.html.php'
+        ));
+    }
+
     if (!get_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba')) {
         update_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba', '1');
         $asesor = wp_create_user("asesor@a.com", "1", "asesor@a.com");

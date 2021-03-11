@@ -112,7 +112,7 @@ foreach ($inmuebles as $inmueble) {
 ?>
                     <div class="card-wrapper">
                         <button>
-                            <a href="/inmueble?inmueble-id=<?php echo $inmueble->ID ?>">
+                            <a href="/perfil-inmueble?inmueble-id=<?php echo $inmueble->ID ?>">
                                 <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>">
                                 <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
                                 <h4><b><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 2, ",", "."); ?> €</b></h4>
