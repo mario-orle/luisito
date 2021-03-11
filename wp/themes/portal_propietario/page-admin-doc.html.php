@@ -87,7 +87,7 @@ get_header();
         <div class="main-documentos">
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Documentos Solicitados por el Cliente:
+                    <h3>Documentos del Cliente:
                         <hr>
                     </h3>
                     </div>
@@ -115,13 +115,13 @@ foreach ($array_documentos as $user => $documentos) {
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
                                
                                 <div class="funciones">
+                                <i class="fas fa-file-download"></i>
                                 <input type="checkbox" <?php if ($is_checked) echo "checked";?>>
                                 <label for="-" 
                                     data-url="<?php echo $documento["file"] ?>" 
                                     <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></label>
-                                <i class="fas fa-edit"></i>
-                                <i class="fas fa-folder"></i>
-                                <i class="fas fa-trash-alt"></i>
+                                    
+                                
                                 
                                 </div>
                                 
