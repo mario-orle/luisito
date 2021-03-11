@@ -93,7 +93,7 @@ get_header();
                     </div>
                     <?php
 foreach ($array_documentos as $user => $documentos) {
-    if (count($documentos) == 0) continue 
+    if (count($documentos["documentos"]) == 0) continue 
     ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle('solicitados-cliente<?php echo $user; ?>')">
@@ -148,7 +148,7 @@ foreach ($array_documentos as $user => $documentos) {
                     </div>   
 <?php
 foreach ($array_documentos as $user => $documentos) {
-        if (count($documentos) == 0) continue 
+        if (count($documentos["documentos"]) == 0) continue 
 ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle(<?php echo $user; ?>)">
@@ -200,7 +200,7 @@ foreach ($array_documentos as $user => $documentos) {
                     </div>
 <?php
 foreach ($array_documentos as $user => $documentos) {
-    if (count($documentos) == 0) continue 
+    if (count($documentos["documentos"]) == 0) continue 
     ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle('env<?php echo $user; ?>')">
