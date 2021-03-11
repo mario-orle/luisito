@@ -96,8 +96,8 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle('solicitados-cliente<?php echo $user; ?>')">
-                            <span class="mas" style="display: none">+</span>
-                            <span class="menos">-</span>
+                            <span class="mas">+</span>
+                            <span class="menos" style="display: none">-</span>
                             <?php echo $documentos["name"] ?>
                             <div class="funciones">
                    
@@ -158,8 +158,8 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle(<?php echo $user; ?>)">
-                            <span class="mas" style="display: none">+</span>
-                            <span class="menos">-</span>
+                            <span class="mas">+</span>
+                            <span class="menos" style="display: none">-</span>
                             <?php echo $documentos["name"] ?>
                         </button>
                         <div class="documentos-usuario" id="documentos-usuario-<?php echo $user; ?>">
@@ -218,8 +218,8 @@ foreach ($array_documentos as $user => $documentos) {
 ?>
                     <div class="usuario">
                         <button class="toggler" onclick="toggle('env<?php echo $user; ?>')">
-                            <span class="mas" style="display: none">+</span>
-                            <span class="menos">-</span>
+                            <span class="mas">+</span>
+                            <span class="menos" style="display: none">-</span>
                             <?php echo $documentos["name"] ?>
                             
                  
