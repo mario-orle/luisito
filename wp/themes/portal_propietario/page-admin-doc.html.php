@@ -87,7 +87,7 @@ get_header();
         <div class="main-documentos">
             <div class="documentos-descarga">
                 <div class="text-documentos">
-                    <h3>Documentos Solicitados del Cliente:
+                    <h3>Documentos Solicitados por el Cliente:
                         <hr>
                     </h3>
                     </div>
@@ -120,7 +120,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <label for="-" 
                                     data-url="<?php echo $documento["file"] ?>" 
                                     <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></label>
-                                   
+                                    <i class="fas fa-file-download"></i>
                                 <i class="fas fa-trash-alt"></i>
                                 
                                 </div>
@@ -166,7 +166,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <p><?php echo $documento["nombre"] ?></p>
                                 <div class="btn-container">
                                     <input class="botons" type="submit" value="ENVIAR">
-
+                                    <i class="fas fa-file-upload"></i>
                                     <form method="POST" enctype="multipart/form-data">
                                         <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
                                         <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
@@ -224,7 +224,7 @@ foreach ($array_documentos as $user => $documentos) {
                                 <div class="btn-container">
 <?php if (wp_unslash($documento["status"]) != "fichero-anadido") { ?>
                                     
-                                    <i class="fas fa-file-download"></i> <i class="fas fa-trash-alt"></i> 
+                                    <i class="fas fa-trash-alt"></i> 
                                        
                                         
                                     <input class="botons" disabled value="En espera del cliente..." />
