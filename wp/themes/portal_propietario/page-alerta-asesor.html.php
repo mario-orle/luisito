@@ -93,7 +93,7 @@ if (count($array_documentos) === 0) {
                                             <input class="botons" type="submit" value="SOLICITAR">
                                         </form>
 <?php
-            } else if (wp_unslash($documento["status"]) == 'solicitado-al-asesor') {
+            } else if (wp_unslash($documento["status"]) == 'solicitado-al-asesor' && 0) {
 ?>
                                         <form method="POST" enctype="multipart/form-data" action="/mis-documentos">
                                             <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
@@ -108,7 +108,7 @@ if (count($array_documentos) === 0) {
 <?php
                 
                 
-            } else if (wp_unslash($documento["status"]) == 'fichero-anadido') {
+            } else if (wp_unslash($documento["status"]) == 'fichero-anadido' && 0) {
                 $file = pathinfo($documento["file"])["basename"];
 ?>
                                         <a download="<?php echo $file ?>" style="display: block;" class="botons" href="<?php echo $documento["file"] ?>">DESCARGAR</a>
