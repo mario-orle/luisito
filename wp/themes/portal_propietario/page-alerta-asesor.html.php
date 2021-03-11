@@ -60,7 +60,13 @@ get_header();
                                 </h2>
                                 <div class="scroll-text">
 <?php 
-if (count($array_documentos) === 0) {
+foreach ($array_documentos as $i => $documento) {
+    if (wp_unslash($documento["status"]) == 'creada') {
+        $hay_documentos = true;
+        break;
+    }
+}
+if (!$hay_documentos) {
 ?>
         
                                 <div class="fila-documento-2">
