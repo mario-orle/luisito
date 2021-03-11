@@ -55,9 +55,9 @@ get_header();
                         </div>
                         <div class="doc-punt">
                             <div class="text-documentos">
-                                <h3>Documentos Requeridos:
+                                <h2>Documentos Requeridos por el Asesor:
                                     <hr />
-                                </h3>
+                                </h2>
 <?php 
 if (count($array_documentos) === 0) {
 ?>
