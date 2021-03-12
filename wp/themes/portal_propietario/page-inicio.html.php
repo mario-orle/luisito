@@ -118,8 +118,6 @@ get_header();
                     <p>Precio Medio de Venta en la Zona</p>
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>grafica.png" width="100%">
                 </div>
-                <div class="tipos-precio">
-                   <div class="content">
                        <div class="main-up-inmuebles">
 <?php 
     $inmuebles_of_user = getInmueblesOfUser(wp_get_current_user());
@@ -129,9 +127,11 @@ get_header();
                              <button>
                                 <a href="perfil-inmueble.html">
                                 <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>" alt="Avatar" style="width:100%">
-                                <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-                                <h4><b><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?></b></h4>
-                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                                <div class="box-text">
+                                  <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                  <h4><b><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?></b></h4>
+                                  <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                                </div>
                                </a>
                               </button>
                             </div>
@@ -139,15 +139,8 @@ get_header();
     }
 
 ?>
-                          </div>
-                      </div>
-                    <div class="precio-recomendado">
-                        <h1>175.000€</h1>
-                        <p>Precio Recomendado <i class="fas fa-hand-holding-usd"></i></p>
-
-                    </div>
-                </div>
-            </div>
+                     </div>
+              </div>
         </div>
     </div>
 
