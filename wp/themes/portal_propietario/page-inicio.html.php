@@ -64,8 +64,10 @@ get_header();
 ?>
     <div class="main">
         <div class="main-container">
-            <h2>Estadisticas Generales</h2>
-                <br>
+        <div class="texto-cabecera">
+          <h2>Resumen de Actuación</h2>
+          </div>
+          <hr>
                 <div class="estadisticas">
                     <div class="visualizaciones">
                         <button onclick="location.href='#'">
@@ -109,17 +111,27 @@ get_header();
         <div class="main-container-sub">
             <h2>Evolución de la Vivienda</h2>
 
-            <br>
+            <hr>
             <div class="estadisticas-sub">
                 <div class="precio-medio">
                     <p>Precio Medio de Venta en la Zona</p>
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>grafica.png" width="100%">
                 </div>
                 <div class="tipos-precio">
-                    <div class="precio-venta">
-                        <h1>150.000€ </h1>
-                        <p>Precio de venta <i class="fas fa-hand-holding-usd"></i> </p>
-                    </div>
+                   <div class="content">
+                       <div class="main-up-inmuebles">
+                            <div class="card-wrapper">
+                             <button>
+                                <a href="perfil-inmueble.html">
+                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
+                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b>145.000€</b></h4>
+                                <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                               </a>
+                              </button>
+                            </div>
+                          </div>
+                      </div>
                     <div class="precio-recomendado">
                         <h1>175.000€</h1>
                         <p>Precio Recomendado <i class="fas fa-hand-holding-usd"></i></p>
@@ -169,18 +181,10 @@ get_header();
 ?>
    <div class="main">
    <div class="main-container">
-        <div class="texto-cabecera">
-        <h2>Resumen de Actuación</h2>
-      <select class="select" style="display: none;">
-        <option>Selecciona Cliente</option>
-        <option>Ramon Garcia</option>
-        <option>Artiro Perez</option>
-        <option>Joaquin Hermida</option>
-        <option>Etxenique Uzurriagueta</option> 
-        <option>Omar Abdul Sahan</option>
-      </select>
-        </div>
-        <hr />
+   <div class="texto-cabecera">
+          <h2>Resumen de Actuación</h2>
+          </div>
+          <hr>
         <div class="general">
           <div class="doc-pendientes">
             <button onclick="location.href='/admin-doc'">
