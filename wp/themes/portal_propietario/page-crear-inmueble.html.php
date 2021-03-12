@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       
     }
     
-    wp_redirect("/inmueble?inmueble_id=" . $inmueble_id);
+    wp_redirect("/perfil-inmueble?inmueble_id=" . $inmueble_id);
 
 } else {
 function myCss() {
