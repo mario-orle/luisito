@@ -120,16 +120,24 @@ get_header();
                 <div class="tipos-precio">
                    <div class="content">
                        <div class="main-up-inmuebles">
+<?php 
+    $inmuebles_of_user = getInmueblesOfUser(wp_get_current_user());
+    foreach($inmuebles_of_user as $inmueble) {
+?>
                             <div class="card-wrapper">
                              <button>
                                 <a href="perfil-inmueble.html">
-                                <img src="../casa1.jpg" alt="Avatar" style="width:100%">
-                                <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-                                <h4><b>145.000€</b></h4>
+                                <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>" alt="Avatar" style="width:100%">
+                                <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                <h4><b><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?></b></h4>
                                 <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
                                </a>
                               </button>
                             </div>
+<?php
+    }
+
+?>
                           </div>
                       </div>
                     <div class="precio-recomendado">
