@@ -99,10 +99,6 @@ display: inline;
   width: 34%;
   padding: 10px; 
 }
-.porcentaje-perfil button{
-  border-bottom: 5px solid blue;
-  box-shadow: 0 4px 8px 0 black;
-}
 .citas img{
   width: 34%;
   padding: 10px; 
@@ -111,8 +107,6 @@ display: inline;
   border-bottom: 5px solid blue;
   box-shadow: 0 4px 8px 0 black;
 }
-
-
 .main-container-sub p{
 text-align: center;
 }
@@ -131,7 +125,10 @@ align-items: center;
 width: 100%;
 margin-top: 65px;
 }
+
+
 /* revisar codigo para arriba */
+
 
 .main-up-inmuebles {
   font-size: 20px;
@@ -191,13 +188,6 @@ p {
   text-decoration: none;
 }
 
-.tipos-precio{
-display: flex;
-flex-flow: column;
-justify-content: space-between;
-align-items: center;
-height: 350px;
-}
 .precio-medio{
 padding: 10px;
 background-color: white; 
