@@ -18,6 +18,7 @@ function myCss() {
     
 }
 add_action('wp_head', 'myCss');
+if ( ! function_exists( 'getAllUsersForAdmin' ) ) require_once( get_template_directory() . '/self/users-stuff.php' );
 
 
 get_header();
