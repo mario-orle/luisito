@@ -95,9 +95,9 @@ if (!current_user_can("administrator")) {
 
       </button>
       <div class="dropdown-container">
-        <a id="inmuebles" href="/inmuebles">INMUEBLES</a>
-        <a id="documentacion" href="/mis-documentos">DOCUMENTACIÓN</a>
-        <a id="documentacion" href="/ofertas-recibidas">OFERTAS</a>
+        <a id="inmuebles" href="/inmuebles"><i class="fas fa-building"></i>INMUEBLES</a>
+        <a id="documentacion" href="/mis-documentos"><i class="fas fa-folder"></i>DOCUMENTACIÓN</a>
+        <a id="documentacion" href="/ofertas-recibidas"><i class="fas fa-money-check-alt"></i>OFERTAS</a>
       </div>
       <hr />
       <?php
