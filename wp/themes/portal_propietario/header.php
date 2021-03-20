@@ -60,7 +60,7 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
           <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
         </div>
         <div class="alertas">
-          <a id="alertas"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
+          <a id="alertas" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
         </div>
         <div class="usuario">
           <a id="usuario" href="/perfil"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
@@ -129,7 +129,7 @@ if (!$creator_of_user) {
       ?>
       <a id="doc" href="/admin-doc"><i class="fas fa-folder"></i>ADMIN DOC</a>
       <a id="doc" href="/admin-inmuebles"><i class="fas fa-building"></i>ADMIN INMUEBLE</a>
-      <a id="doc" href="/admin-doc"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
+      <a id="doc" href="/admin-ofertas"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
     </div>
     <hr />
 

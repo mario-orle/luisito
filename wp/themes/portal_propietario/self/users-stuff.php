@@ -10,11 +10,14 @@ function getAllInmueblesForAdmin() {
 }
 
 function getInmueblesOfUser($user) {
+    return getInmueblesOfUserID($user->ID);
+}
+function getInmueblesOfUserID($id) {
     $inmuebles = get_posts([
         'post_type' => 'inmueble',
         'post_status' => 'publish',
         'numberposts' => -1,
-        'author' => $user->ID
+        'author' => $id
     ]);
     return $inmuebles;
 }
