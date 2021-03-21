@@ -106,7 +106,6 @@ position: absolute;
 width: 100%;
 margin: auto;
 top: 20px;
-z-index: 10;
 }
 
 .formulario input:focus {
@@ -199,6 +198,7 @@ color:black ;
 
 .fotos{
 overflow:auto;
+min-height: 150px;;
 }
 
 .card-scroller{
@@ -275,4 +275,18 @@ background-color:#80b5ea;
 .botons:active {
 position:relative;
 top:1px;
+}
+.first-block label {
+  font-size: 13px;
+}
+.first-block .choices__inner {
+  background-color: transparent;
+  border: none;
+  border-bottom: rgba(255, 255, 255, 0.363) solid 3px;
+  padding-top: 50px;
+  z-index: 100000000000;
+}
+
+.first-block .choices__list--single .choices__item {
+  font-size: 18px;
 }

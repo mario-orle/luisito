@@ -213,6 +213,14 @@ function create_our_pages() {
             'page_template' => 'page-ofertas-recibidas.html.php'
         ));
     }
+    if (!get_page_by_title('logout')) {
+        wp_insert_post(array(
+            'post_title' => 'logout',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-logout.php'
+        ));
+    }
 
     if (!get_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba')) {
         update_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba', '1');

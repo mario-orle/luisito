@@ -63,7 +63,24 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
           <a id="alertas" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario" href="/perfil"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
+          <a id="usuario" onclick="document.querySelector('.usuario .cerrar-sesion').classList.toggle('show')"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
+          <div class="cerrar-sesion">
+            <ul>
+<?php
+if (!current_user_can("administrator")) {
+?>
+              <li><a href="/perfil"><i class="far fa-user-circle"></i> Editar perfil</a></li>
+<?php
+} else {
+?>
+              <li><a href="/perfiladmin"><i class="far fa-user-circle"></i> Editar perfil</a></li>
+<?php
+}
+?>
+
+              <li><a href="/logout"><i class="far fa-times-circle"></i> Cerrar sesión</a></li>
+            </ul>
+          </div>
         </div>
 
       </div>
