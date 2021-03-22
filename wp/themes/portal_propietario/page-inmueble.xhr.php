@@ -50,3 +50,9 @@ if ($_GET['action'] == 'elimina-oferta') {
     }
 
 }
+if ($_GET['action'] == 'elimina-inmueble') {
+    $inmueble_id = $_GET['inmueble_id'];
+    
+    wp_delete_post($inmueble_id);
+
+}

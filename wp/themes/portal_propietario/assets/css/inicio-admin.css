@@ -72,6 +72,9 @@ margin-right: 10px;
   font-weight:normal;
 }
 
+.general a {
+  text-decoration: none;
+}
   .general{
   display: flex;
   justify-content: space-between;

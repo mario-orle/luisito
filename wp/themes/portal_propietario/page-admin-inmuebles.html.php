@@ -31,11 +31,11 @@ foreach (getAllUsersForAdmin() as $user) {
 ?>
         <button type="button" class="collapsible"><?php echo $user->display_name; ?>
             <div class="funciones">
-                <i class="fas fa-edit"></i>
+                <!--<i class="fas fa-edit"></i>
                 <i class="fas fa-folder"></i>
                 <i class="fas fa-money-check-alt"></i>
                 <i class="fas fa-calendar-alt"></i>
-                <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-trash-alt"></i>-->
             </div>
         </button>
         <div class="content">
@@ -54,7 +54,7 @@ foreach (getAllUsersForAdmin() as $user) {
                     <button>
                         <a href="/perfil-inmueble?inmueble_id=<?php echo $inmueble->ID ?>">
                             <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true)?>" alt="Avatar" style="width:100%">
-                            <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                            <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i onclick="deleteInmueble(event, <?php echo $inmueble->ID ?>)" class="fas fa-ban"></i></h3>
                             <h4><b><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 2, ',', '.'); ?> €</b></h4>
                             <p><?php echo get_post_meta($inmueble->ID, 'meta-descripcion', true); ?></p>
                         </a>
@@ -72,6 +72,15 @@ foreach (getAllUsersForAdmin() as $user) {
 }
 ?>
     <script>
+
+function deleteInmueble(e, inmuebleId) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (confirm("¿Seguro que quieres eliminar el inmueble?")) {
+        fetch("/inmueble-xhr?action=elimina-inmueble&inmueble_id=" + inmuebleId).then(res => {window.location.reload()});
+    }
+}
 
 MicroModal.init();
 

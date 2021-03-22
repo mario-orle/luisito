@@ -53,9 +53,22 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 		
     <div class="header">
       <div class="right">
+<?php
+if (!current_user_can("administrator")) {
+?>
         <div class="alerta-asesor">
           <a id="alerta-asesor" href="/alerta-asesor"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asesoramiento.png"></a>
         </div>
+<?php
+} else {
+?>
+
+        <div class="alerta-asesor">
+        </div>
+
+<?php
+} 
+?>
         <div class="mensages">
           <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
         </div>
