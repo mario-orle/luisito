@@ -12,7 +12,7 @@ if ($_GET['action'] == 'get_messages') {
     if (current_user_can("administrator")) {
         $messages = [];
         foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-            if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+            if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
                 $messages[$user->ID] = array();
                 foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
                     $chat = json_decode(wp_unslash($chat_str), true);
