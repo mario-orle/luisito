@@ -200,7 +200,7 @@ foreach ($array_documentos as $user => $documentos) {
             <div class="documentos-descarga">
                 <div class="text-documentos">
                     <h3>
-                        Solicitar Documentos al Cliente:
+                    <i class="fas fa-file-invoice"></i> Solicitar Documentos al Cliente:
                         <button onclick="solicitarDocumento()" class="solicitar-documento">Solicitar Documento</button>
                     </h3>
                     <hr>

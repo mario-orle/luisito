@@ -173,8 +173,8 @@ font-size: 13px;
 }
 
 .formulario textarea:not(:placeholder-shown) {
-width:470px;
-height: 400px;
+width:525px;
+height: 190px;
 padding: 50px 0 0 15px;
 }
 
