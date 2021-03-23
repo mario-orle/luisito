@@ -60,3 +60,8 @@
   .card-wrapper button:hover {
     box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
   }
+
+
+  .card-wrapper a {
+    text-decoration: none;
+  }

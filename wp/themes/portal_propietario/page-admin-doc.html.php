@@ -111,14 +111,15 @@ foreach ($array_documentos as $user => $documentos) {
             $is_checked = true;
         }
         ?>
-                            <div class="fila-documento">
+                            <div class="fila-documento" data-doc-id="<?php echo $documento["id"] ?>">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
                                
                                 <div class="funciones">
-                                    <i class="fas fa-file-download" data-url="<?php echo $documento["file"] ?>" <?php if ($is_checked) echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';?>></i>
+                                    <i class="fas fa-file-download" data-url="<?php echo $documento["file"] ?>" <?php if ($is_checked) {echo 'onclick="window.open(this.getAttribute(\'data-url\'))"';} else {echo "style='opacity: 0;'";}?>></i>
                                     <input type="checkbox" <?php if ($is_checked) echo "checked";?>>
                                     <label for="-"></label>
                                     
+                                    <i class="fas fa-trash" onclick="deleteDoc('<?php echo $documento["id"] ?>', '<?php echo $user; ?>')"></i>
                                 
                                 
                                 </div>
@@ -166,7 +167,7 @@ foreach ($array_documentos as $user => $documentos) {
         if (wp_unslash($documento['status']) == "solicitado-al-asesor") {
 
 ?>
-                            <div class="fila-documento">
+                            <div class="fila-documento" data-doc-id="<?php echo $documento["id"] ?>">
                                 <p><?php echo $documento["nombre"] ?></p>
                                 <div class="btn-container">
 
@@ -229,7 +230,7 @@ foreach ($array_documentos as $user => $documentos) {
         if (wp_unslash($documento["status"]) != "solicitado-al-asesor" && wp_unslash($documento["status"]) != "fichero-anadido") {
 
 ?>
-                            <div class="fila-documento">
+                            <div class="fila-documento" data-doc-id="<?php echo $documento["id"] ?>">
                                 <p><?php echo wp_unslash($documento["nombre"]) ?></p>
                              
                                 <div class="btn-container">
@@ -315,6 +316,16 @@ function solicitarDocumento() {
 
 }
 MicroModal.init();
+
+
+function deleteDoc(docId, userId) {
+    if (confirm("¿Está seguro de querer eliminar el documento?")) {
+
+        fetch("/file-upload?action=delete-documento&doc_id=" + docId + "&user_id=" + userId).then(res => {
+        document.querySelectorAll(".fila-documento[data-doc-id=" + docId + "]").forEach(el => el.remove());
+    });
+    }
+}
 
     </script>
 </main><!-- #main -->

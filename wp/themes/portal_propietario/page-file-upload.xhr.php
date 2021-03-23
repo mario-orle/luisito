@@ -38,3 +38,15 @@ if ($_GET['action'] == 'remove-photo-inmueble') {
         }
     }
 }
+
+if ($_GET['action'] === 'delete-documento') {
+    $user_id = $_GET["user_id"];
+    $doc_id = $_GET["doc_id"];
+
+    foreach (get_user_meta($user_id, 'meta-documento-solicitado-al-cliente') as $old_meta_encoded) {
+        $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+        if ($old_meta["id"] == $doc_id) {
+            delete_user_meta($user_id, 'meta-documento-solicitado-al-cliente', wp_slash($old_meta_encoded));
+        }
+    }
+}

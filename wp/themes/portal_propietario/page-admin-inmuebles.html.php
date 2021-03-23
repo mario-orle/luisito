@@ -27,6 +27,8 @@ get_header();
     <div class="main">
 <?php
 foreach (getAllUsersForAdmin() as $user) {
+    $inmuebles_of_user = getInmueblesOfUser($user);
+    if (count($inmuebles_of_user) > 0) {
     
 ?>
         <button type="button" class="collapsible"><?php echo $user->display_name; ?>
@@ -41,7 +43,6 @@ foreach (getAllUsersForAdmin() as $user) {
         <div class="content">
             <div class="main-up-inmuebles">
 <?php
-    $inmuebles_of_user = getInmueblesOfUser($user);
     if (count($inmuebles_of_user) == 0) {
 ?>
 
@@ -69,6 +70,7 @@ foreach (getAllUsersForAdmin() as $user) {
 
         </div>
 <?php
+    }
 }
 ?>
     <script>
