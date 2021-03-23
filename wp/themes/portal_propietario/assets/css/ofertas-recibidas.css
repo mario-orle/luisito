@@ -1,0 +1,92 @@
+.main h2{
+  color: orange;
+  text-align: left;
+}
+
+.oferta-main{
+  display: flex;
+  width: 100%;
+  margin-bottom: 25px;
+ 
+}
+.oferta-left{
+  width: 400px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+}
+.btn-oferta{
+  display: flex;
+flex-flow: column;
+align-items: center;
+}
+.btn-oferta textarea{
+  width: 300px;
+}
+.btn-oferta input{
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.btn-oferta select{
+  padding: 5px;
+  margin: 5px 0px 5px 0px;
+  
+}
+.oferta-main p{
+  color: black;
+  font-style: italic;
+  text-align: center;
+}
+.oferta-main h3{
+  color: orange;
+  text-align: center;
+}
+.oferta-main select{
+  align-content: center;
+}
+
+
+.aceptar-text{
+  height: 270px;
+}
+.denegada-btn{
+  margin-bottom: 20px;
+}
+.registro-ofertas{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-wrapper{
+    width: 280px;
+    margin-left: 80px;
+    float: right;
+  }
+  .card-wrapper img{
+    margin-top: 8px;
+    border-radius: 5px;
+  }
+  
+  .card-wrapper button{
+    background-color: #434b4d;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .card-wrapper h4, p{
+    color: white;
+  }
+  .card-wrapper p{
+    font-style: italic;
+    color: #c1c1c1;
+  }
+  .card-wrapper h3{
+    color: orange;
+  
+  }
+  
+  .card-wrapper button:hover {
+    box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
+  }
+  

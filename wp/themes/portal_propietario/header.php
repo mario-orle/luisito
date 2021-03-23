@@ -53,17 +53,47 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 		
     <div class="header">
       <div class="right">
+<?php
+if (!current_user_can("administrator")) {
+?>
         <div class="alerta-asesor">
           <a id="alerta-asesor" href="/alerta-asesor"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asesoramiento.png"></a>
         </div>
+<?php
+} else {
+?>
+
+        <div class="alerta-asesor">
+        </div>
+
+<?php
+} 
+?>
         <div class="mensages">
           <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
         </div>
         <div class="alertas">
-          <a id="alertas"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
+          <a id="alertas" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
         </div>
         <div class="usuario">
-          <a id="usuario" href="/perfil"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
+          <a id="usuario" onclick="document.querySelector('.usuario .cerrar-sesion').classList.toggle('show')"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>
+          <div class="cerrar-sesion">
+            <ul>
+<?php
+if (!current_user_can("administrator")) {
+?>
+              <li><a href="/perfil"><i class="far fa-user-circle"></i> Editar perfil</a></li>
+<?php
+} else {
+?>
+              <li><a href="/perfiladmin"><i class="far fa-user-circle"></i> Editar perfil</a></li>
+<?php
+}
+?>
+
+              <li><a href="/logout"><i class="far fa-times-circle"></i> Cerrar sesión</a></li>
+            </ul>
+          </div>
         </div>
 
       </div>
@@ -129,7 +159,7 @@ if (!$creator_of_user) {
       ?>
       <a id="doc" href="/admin-doc"><i class="fas fa-folder"></i>ADMIN DOC</a>
       <a id="doc" href="/admin-inmuebles"><i class="fas fa-building"></i>ADMIN INMUEBLE</a>
-      <a id="doc" href="/admin-doc"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
+      <a id="doc" href="/admin-ofertas"><i class="fas fa-money-check-alt"></i>ADMIN OFERTAS</a>
     </div>
     <hr />
 

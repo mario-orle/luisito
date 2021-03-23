@@ -14,6 +14,7 @@
     font-family: "realwey"!important;
     margin: auto;
     background: #ebedf0;
+    user-select: none;
     }
       
     h2{
@@ -138,4 +139,44 @@
         display: flex;
         align-items: center;
     }
-    
+
+    .header .usuario {
+        position: relative;
+    }
+    .header .usuario a {
+        cursor: pointer;
+    }
+    .header .usuario .cerrar-sesion {
+        display: none;
+        position: absolute;
+        top: 50px;;
+        right: 0;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        width: 150px;
+        user-select: none;
+    }
+    .header .usuario .cerrar-sesion.show {
+        display: block;
+    }
+    .header .usuario .cerrar-sesion ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .header .usuario .cerrar-sesion ul li {
+        list-style: none;
+    }
+    .header .usuario .cerrar-sesion ul li:hover {
+        background-color: #ccc;
+        cursor: pointer;
+    }
+    .header .usuario .cerrar-sesion ul li a {
+        color: #000;
+        text-decoration: none;
+        padding: 5px;
+        display: block;
+    }
+
+    #wpadminbar { display:none !important;}

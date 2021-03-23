@@ -27,36 +27,62 @@ get_header();
     <div class="main">
 <?php
 foreach (getAllUsersForAdmin() as $user) {
-    echo json_encode(getInmueblesOfUser($user));
+    $inmuebles_of_user = getInmueblesOfUser($user);
+    if (count($inmuebles_of_user) > 0) {
+    
 ?>
         <button type="button" class="collapsible"><?php echo $user->display_name; ?>
             <div class="funciones">
-                <i class="fas fa-edit"></i>
+                <!--<i class="fas fa-edit"></i>
                 <i class="fas fa-folder"></i>
                 <i class="fas fa-money-check-alt"></i>
                 <i class="fas fa-calendar-alt"></i>
-                <i class="fas fa-trash-alt"></i>
+                <i class="fas fa-trash-alt"></i>-->
             </div>
         </button>
         <div class="content">
             <div class="main-up-inmuebles">
+<?php
+    if (count($inmuebles_of_user) == 0) {
+?>
+
+                <div>Sin inmuebles</div>
+<?php
+    } else {
+        foreach ($inmuebles_of_user as $inmueble) {
+?>
                 <div class="card-wrapper">
                     <button>
-                        <a href="perfil-inmueble.html">
-                            <img src="../casa1.jpg" alt="Avatar" style="width:100%">
-                            <h3>SE ALQUILA <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-                            <h4><b>145.000€</b></h4>
-                            <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                        <a href="/perfil-inmueble?inmueble_id=<?php echo $inmueble->ID ?>">
+                            <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true)?>" alt="Avatar" style="width:100%">
+                            <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i onclick="deleteInmueble(event, <?php echo $inmueble->ID ?>)" class="fas fa-ban"></i></h3>
+                            <h4><b><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 2, ',', '.'); ?> €</b></h4>
+                            <p><?php echo get_post_meta($inmueble->ID, 'meta-descripcion', true); ?></p>
                         </a>
                     </button>
                 </div>
+<?php
+        }
+
+    }
+?>
             </div>
 
         </div>
 <?php
+    }
 }
 ?>
     <script>
+
+function deleteInmueble(e, inmuebleId) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (confirm("¿Seguro que quieres eliminar el inmueble?")) {
+        fetch("/inmueble-xhr?action=elimina-inmueble&inmueble_id=" + inmuebleId).then(res => {window.location.reload()});
+    }
+}
 
 MicroModal.init();
 

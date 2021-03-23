@@ -117,11 +117,13 @@
 .funciones{
     align-content: center;
     display: flex;
-    width: calc(100% - 770px);
+    width: calc(100% - 740px);
 }
 .funciones i{
     font-size: 25px;
     margin-top: 5px;
+
+    cursor: pointer;
 }
 
 [type="checkbox"]:not(:checked),
@@ -137,7 +139,6 @@
     padding-left: 2.3em;
     font-size: 1.05em;
     line-height: 1.7;
-    cursor: pointer;
     margin-left: 8px;
 }
 
