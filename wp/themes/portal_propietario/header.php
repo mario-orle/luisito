@@ -101,7 +101,7 @@ if (!current_user_can("administrator")) {
 
     </div>
     <div class="menu">
-      <div class="logo" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo.png'?>)"> </div>
+      <div class="logo" onclick="location.href='/inicio'" style="background-image: url(<?php echo get_template_directory_uri() . '/assets/img/logo.png'?>)"> </div>
       <?php
 if (!current_user_can("administrator")) {
       ?>
