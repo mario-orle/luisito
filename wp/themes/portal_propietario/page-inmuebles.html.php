@@ -36,6 +36,7 @@ get_header();
 <main id="primary" class="site-main">
 <div class="main">
       <div class="agregar-wrapper">
+        <div class="box-style">
         <div class="card-agregar">
           <button>
             <a href="/crear-inmueble">
@@ -45,6 +46,7 @@ get_header();
               </div>
             </a>
           </button>
+        </div>
         </div>
       </div>
       <div class="main-up-inmuebles">
