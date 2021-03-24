@@ -213,6 +213,7 @@ get_header();
               id="PR"
               required
               autocomplete="off"
+              onchange="editar(event)"
             />
             <label for="PR">
               <span>PRECIO DE VENTA</span>
@@ -222,13 +223,15 @@ get_header();
       </div>
       <div class="colum-rigth">
         <h3>Resumen Inmueble</h3>
-        
+<?php
+$photos = get_post_meta($inmueble_id, 'meta-photos-inmueble', $movefile);
+if (count($photos) > 0) {
+?>
         <div class="photos splide">
           <div class="splide__track">
             <ul class="splide__list">
 <?php
 
-$photos = get_post_meta($inmueble_id, 'meta-photos-inmueble', $movefile);
 
 
 foreach ($photos as $key => $photo) {
@@ -243,6 +246,10 @@ foreach ($photos as $key => $photo) {
           </div>
         </div>
         <hr />
+
+<?php
+}
+?>
         <form>
           <div class="sec-block formulario">
             <textarea
