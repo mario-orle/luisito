@@ -28,6 +28,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
         //add_user_meta($user->ID, 'meta-oferta-al-cliente', wp_slash(json_encode($data)));
         add_post_meta($_POST['inmueble_id'], 'meta-oferta-al-cliente', wp_slash(json_encode($data)));
     }
+    if ($_POST['action'] == "proponer-cita") {
+        $ofertaid = ($_POST['oferta-id']);
+        $date = $_POST["fecha-cita"];
+        $time = $_POST["hora-cita"];
+        $inmuebleid = $_POST["inmueble_id"];
+
+
+        
+        foreach (get_post_meta($inmuebleid, 'meta-oferta-al-cliente') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $ofertaid) {
+
+                delete_post_meta($inmuebleid, 'meta-documento-solicitado-al-cliente', wp_slash($old_meta_encoded));
+
+                $old_meta["cita"] = $date . " " . $time;
+                $old_meta['status'] = "cita-propuesta";
+                add_post_meta($inmuebleid, 'meta-oferta-al-cliente', wp_slash(json_encode($old_meta)));
+
+            }
+        }
+    }
     wp_redirect("/admin-ofertas");
 
 }
@@ -38,6 +59,11 @@ function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/ofertas-admin.css">';
     echo '<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>';
+    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker.min.css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/datepicker-full.min.js"></script>';
+    echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/locales/es.js"></script>';
+    echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
+    echo '<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>';
 }
 add_action('wp_head', 'myCss');
 get_header();
@@ -78,6 +104,8 @@ if (get_current_user_id() === 1) {
                 </thead>
                 <tbody>
                     <?php
+
+$ofertas = [];
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
     if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
         $asesor = get_user_by('id', get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true));
@@ -86,6 +114,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
             $ofertas_del_inmueble = get_post_meta($inmueble->ID, 'meta-oferta-al-cliente');
             foreach ($ofertas_del_inmueble as $key => $oferta) {
                 $oferta = json_decode(wp_unslash($oferta), true);
+                $ofertas[] = $oferta;
                     ?>
                     <tr>
                         <td><?php echo $user_of_admin->display_name; ?></td>
@@ -95,7 +124,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
                         <td>
 <?php
 
-                if ($oferta["status"] = "respondida-cliente") {
+                if ($oferta["status"] == "respondida-cliente") {
                     $respuesta = $oferta["respuesta"];
                     if ($respuesta == 'aceptar') {
                         
@@ -137,8 +166,19 @@ if (get_current_user_id() === 1) {
 }
 ?>
                         <td>
-                            <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-                            <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
+<?php 
+                if ($oferta["status"] == "respondida-cliente") {
+                    if ($respuesta != 'aceptar') {
+?>
+                            <a id="edit-oferta" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-money-check-alt"></i></a>
+<?php 
+                    } else {
+?>
+                            <a id="edit-cita" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-calendar-alt"></i></a>
+<?php 
+                    }
+                }
+?>
                             <a id="eliminar" onclick="eliminaOferta('<?php echo $oferta["id"] ?>', <?php echo $inmueble->ID ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
@@ -197,7 +237,25 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                 </div>
             </div>
         </div>
+        
+        <div id="modal-ver-oferta" aria-hidden="true" class="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-ver-oferta-asesor">
+                    <header class="modal__header">
+                        <h2 id="modal-ver-oferta-title">
+                            Ver oferta
+                        </h2>
+                        <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                    </header>
+                    <div id="modal-ver-oferta-asesor-content">
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
+
     <script>
 
 MicroModal.init();
@@ -244,6 +302,76 @@ function getInmueblesOfUser(e) {
 
 }
 
+var ofertas = <?php echo json_encode($ofertas); ?>;
+moment.locale("es");
+var datepicker;
+function ver(id) {
+    var oferta = ofertas.find(o => o.id === id);
+console.log(oferta);
+    var container = document.querySelector("#modal-ver-oferta-asesor-content");
+
+    if (oferta.respuesta == "aceptar") {
+
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <form method="POST" onsubmit="onsubmitCita(event)">
+            <p>Aceptada</p>
+            <input type="hidden" value="${id}" name="oferta-id">
+            <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
+            <input type="hidden" name="action" value="proponer-cita">
+            <input type="hidden" name="inmueble_id" value="${oferta.inmueble_id}">
+            <div id="date">
+            </div>
+            <select name='hora-cita' id='timepicker'>
+                <option value="09.00">09:00</option>
+                <option value="09.30">09:30</option>
+                <option value="10.00">10:00</option>
+                <option value="10.30">10:30</option>
+                <option value="11.00">11:00</option>
+                <option value="11.30">11:30</option>
+                <option value="12.00">12:00</option>
+                <option value="12.00">12:30</option>
+                <option value="13.30">13:00</option>
+                <option value="14.00">13:30</option>
+                <option value="14.30">14:00</option>
+                <option value="14.30">14:30</option>
+                <option value="15.00">15:00</option>
+                <option value="15.30">15:30</option>
+                <option value="16.00">16:00</option>
+                <option value="16.30">16:30</option>
+                <option value="17.00">17:00</option>
+                <option value="17.30">17:30</option>
+                <option value="18.00">18:00</option>
+                <option value="18.30">18:30</option>
+                <option value="19.00">19:00</option>
+                <option value="19.30">19:30</option>
+                <option value="20.00">20:00</option>
+                <option value="20.30">20:30</option>
+                <option value="21.00">21:30</option>
+            </select>
+            <button type="submit" id="crear-cita">Proponer cita</button>
+            </form>
+        </div>
+        `;
+        container.querySelector("#date").addEventListener("changeDate", function (e) {
+            document.querySelector("#fecha").value = moment(e.detail.date).format("YYYY-MM-DD");
+        });
+        datepicker = new Datepicker(container.querySelector("#date"), {
+            autohide: true,
+            language: 'es',
+            weekStart: 1,
+        }); 
+    }
+
+    console.log(oferta);
+    MicroModal.show("modal-ver-oferta");
+}
+
+function onsubmitCita(e) {
+
+    if (document.querySelector("#fecha").value == "")
+    e.preventDefault();
+}
 const dataTable = new simpleDatatables.DataTable("table", {
     labels: {
         placeholder: "Buscar...",
@@ -256,6 +384,9 @@ const dataTable = new simpleDatatables.DataTable("table", {
 
 
     </script>
+
+
+
 </main><!-- #main -->
 <div class="main" style="display: none">
 <div class="oferta-main aceptar">
@@ -286,23 +417,7 @@ const dataTable = new simpleDatatables.DataTable("table", {
     </div>
 
 </div>
-<div class="oferta-main">
-    <div class="oferta-left denegar">
-        <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
-        <hr>
-        <p>Calle marineros</p>
-        <p>125.000€\130.000€</p>
-        <div class="btn-oferta denegar-text">
-            <textarea></textarea>
-            <select class="select">
-                <option>Denegar</option>
-            </select>
-            <!-- input opcional en caso de elegir denegar -->
-            <textarea placeholder="Motivo"></textarea>
-            <input type="submit">
-        </div>
-    </div>
-</div>
+
 <div class="oferta-main">
     <div class="oferta-left contraoferta">
         <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
