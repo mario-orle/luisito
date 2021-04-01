@@ -276,7 +276,7 @@ if (!current_user_can('administrator')) {
                     title: citas[k][i].nombre,
                     start: citas[k][i].inicio,
                     end: citas[k][i].fin,
-                    color: colors[k % Object.keys(citas).length],
+                    color: colors[k % colors.length],
                     extendedProps: {
                         id: k,
                         status: citas[k][i].status,
