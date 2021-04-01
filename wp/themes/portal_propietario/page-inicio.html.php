@@ -174,9 +174,10 @@ get_header();
 
         foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
           $cita = json_decode(wp_unslash($meta), true);
-
-          if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
-            $pending_citas++;
+          if (strtotime(wp_unslash($cita["fin"])) < time()) {
+            if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+              $pending_citas++;
+            }
           }
         }
       }
