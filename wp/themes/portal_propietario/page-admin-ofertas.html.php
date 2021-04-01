@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
             $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
             if ($old_meta["id"] == $ofertaid) {
 
-                delete_post_meta($inmuebleid, 'meta-documento-solicitado-al-cliente', wp_slash($old_meta_encoded));
+                delete_post_meta($inmuebleid, 'meta-oferta-al-cliente', wp_slash($old_meta_encoded));
 
                 $old_meta["cita"] = $date . " " . $time;
                 $old_meta['status'] = "cita-propuesta";
@@ -155,6 +155,21 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
                     }
 ?>
 <?php
+} else if ($oferta["status"] == "cita-propuesta") {
+?>
+                            <span>Cita propuesta día <?php echo $oferta["cita"]?></span>
+<?php
+} else if ($oferta["status"] == "respondida-cita") {
+    $respuesta = $oferta["respuesta"];
+    if ($respuesta == 'aceptar') {
+?>
+                            <span>Cita aceptada día <?php echo date_format(new DateTime($oferta['cita']), 'd/m/Y H:i')?></span>
+<?php
+    } else {
+    ?>
+                            <span>Cita rechazada día <?php echo date_format(new DateTime($oferta['cita']), 'd/m/Y H:i')?></span>
+    <?php
+                    }
                 }
 ?>
                         </td>
@@ -167,12 +182,12 @@ if (get_current_user_id() === 1) {
 ?>
                         <td>
 <?php 
-                if ($oferta["status"] == "respondida-cliente") {
+                if ($oferta["status"] == "respondida-cliente" || $oferta["status"] == "respondida-cita") {
                     if ($respuesta != 'aceptar') {
 ?>
                             <a id="edit-oferta" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-money-check-alt"></i></a>
 <?php 
-                    } else {
+                    } else if ($oferta["status"] != "respondida-cita") {
 ?>
                             <a id="edit-cita" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-calendar-alt"></i></a>
 <?php 
@@ -310,12 +325,13 @@ function ver(id) {
 console.log(oferta);
     var container = document.querySelector("#modal-ver-oferta-asesor-content");
 
-    if (oferta.respuesta == "aceptar") {
+    if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
 
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
             <form method="POST" onsubmit="onsubmitCita(event)">
-            <p>Aceptada</p>
+            <p>${oferta.respuesta == 'aceptar' ? "Aceptada" : (oferta.respuesta == 'denegar' ? "Cita rechazada el " + moment(oferta.cita).format("DD/MM/YYYY HH:mm") : "Contraoferta realizada")}</p>
+            ${oferta.respuesta == 'contraoferta' ? "<textarea readonly>" + oferta.propuesta + "</textarea>" : ""}
             <input type="hidden" value="${id}" name="oferta-id">
             <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
             <input type="hidden" name="action" value="proponer-cita">
@@ -323,33 +339,35 @@ console.log(oferta);
             <div id="date">
             </div>
             <select name='hora-cita' id='timepicker'>
-                <option value="09.00">09:00</option>
-                <option value="09.30">09:30</option>
-                <option value="10.00">10:00</option>
-                <option value="10.30">10:30</option>
-                <option value="11.00">11:00</option>
-                <option value="11.30">11:30</option>
-                <option value="12.00">12:00</option>
-                <option value="12.00">12:30</option>
-                <option value="13.30">13:00</option>
-                <option value="14.00">13:30</option>
-                <option value="14.30">14:00</option>
-                <option value="14.30">14:30</option>
-                <option value="15.00">15:00</option>
-                <option value="15.30">15:30</option>
-                <option value="16.00">16:00</option>
-                <option value="16.30">16:30</option>
-                <option value="17.00">17:00</option>
-                <option value="17.30">17:30</option>
-                <option value="18.00">18:00</option>
-                <option value="18.30">18:30</option>
-                <option value="19.00">19:00</option>
-                <option value="19.30">19:30</option>
-                <option value="20.00">20:00</option>
-                <option value="20.30">20:30</option>
-                <option value="21.00">21:30</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:30</option>
             </select>
-            <button type="submit" id="crear-cita">Proponer cita</button>
+            <button type="submit" id="crear-cita">
+            ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta y citar" : "Proponer cita"}
+            </button>
             </form>
         </div>
         `;
@@ -361,6 +379,20 @@ console.log(oferta);
             language: 'es',
             weekStart: 1,
         }); 
+    } else if (oferta.respuesta == 'denegar') {
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <p>Oferta rechazada</p>
+            <textarea>${oferta.motivo}</textarea>
+        </div>
+        `;
+    } else if (oferta.respuesta == 'contraoferta') {
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <p>Contraoferta realizada</p>
+            <textarea>${oferta.propuesta}</textarea>
+        </div>
+        `;
     }
 
     console.log(oferta);

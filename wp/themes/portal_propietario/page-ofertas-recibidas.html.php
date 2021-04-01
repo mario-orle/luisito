@@ -17,21 +17,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $inmueble_id = $_POST["inmueble_id"];
     $oferta_id = $_POST["oferta_id"];
 
-    foreach (get_post_meta($inmueble_id, 'meta-oferta-al-cliente') as $old_meta_encoded) {
-        $meta = json_decode(wp_unslash(($old_meta_encoded)), true);
-        if ($meta["id"] == $oferta_id) {
-            $meta["status"] = "respondida-cliente";
-            $meta["respuesta"] = $_POST["respuesta"];
-            $meta["motivo"] = $_POST["motivo"];
-            $meta["propuesta"] = $_POST["propuesta"];
+    if ($_POST["action"] == "respuesta-cliente") {
+        foreach (get_post_meta($inmueble_id, 'meta-oferta-al-cliente') as $old_meta_encoded) {
+            $meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($meta["id"] == $oferta_id) {
+                $meta["status"] = "respondida-cliente";
+                $meta["respuesta"] = $_POST["respuesta"];
+                $meta["motivo"] = $_POST["motivo"];
+                $meta["propuesta"] = $_POST["propuesta"];
 
 
-            delete_post_meta($inmueble_id, 'meta-oferta-al-cliente', wp_slash($old_meta_encoded));
-            add_post_meta($inmueble_id, 'meta-oferta-al-cliente', wp_slash(json_encode($meta)));
+                delete_post_meta($inmueble_id, 'meta-oferta-al-cliente', wp_slash($old_meta_encoded));
+                add_post_meta($inmueble_id, 'meta-oferta-al-cliente', wp_slash(json_encode($meta)));
 
-            wp_redirect("/ofertas-recibidas");
+                wp_redirect("/ofertas-recibidas");
 
 
+            }
+        }
+    }
+
+    if ($_POST["action"] == "respuesta-cita") {
+        foreach (get_post_meta($inmueble_id, 'meta-oferta-al-cliente') as $old_meta_encoded) {
+            $meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($meta["id"] == $oferta_id) {
+                $meta["status"] = "respondida-cita";
+                $meta["respuesta"] = $_POST["respuesta"];
+
+                delete_post_meta($inmueble_id, 'meta-oferta-al-cliente', wp_slash($old_meta_encoded));
+                add_post_meta($inmueble_id, 'meta-oferta-al-cliente', wp_slash(json_encode($meta)));
+
+                wp_redirect("/ofertas-recibidas");
+
+
+            }
         }
     }
 }
@@ -122,6 +141,42 @@ if ($oferta['status'] === 'respondida-cliente') {
 
 
 <?php
+} else if ($oferta['status'] === 'cita-propuesta' || $oferta['status'] === 'respondida-cita') {
+?>
+    <div class="oferta-left aceptar-text ">
+        <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
+        <p>Cita propuesta: <?php echo date_format(new DateTime($oferta['cita']), 'd/m/Y H:i') ?></p>
+        <p><?php echo number_format($oferta['cantidad'], 0, ',', '.') ?> €</p>
+        <div class="btn-oferta denegada-btn">
+            <form method="POST" class="btn-oferta aceptar-btn">
+                <textarea readonly><?php echo $oferta['descripcion'] ?></textarea>
+                <select class="select" name="respuesta" <?php if ($oferta['status'] === "respondida-cita") { ?> disabled style="background: white;" <?php  } ?>>
+                    <option <?php if ($oferta['respuesta'] == 'aceptar') echo "selected"; ?>  value="aceptar">Aceptar</option>
+                    <option <?php if ($oferta['respuesta'] == 'denegar') echo "selected"; ?>  value="denegar">Denegar</option>
+                </select>
+                 <input type="hidden" value="respuesta-cita" name="action" />
+                <input type="hidden" value="<?php echo $inmueble_id?>" name="inmueble_id" />
+                <input type="hidden" value="<?php echo $oferta['id']?>" name="oferta_id" />
+<?php 
+
+                if ($oferta['status'] === "cita-propuesta") {
+                    if ($oferta['respuesta'] === 'contraoferta') {
+?>
+                        <textarea placeholder="Propuesta" name="propuesta" readonly><?php echo $oferta['propuesta'] ?></textarea>
+
+<?php
+                    }
+?>
+                <input type="submit">
+
+<?php
+                }
+?>
+            </form>
+        </div>
+    </div>
+<?php
+
 } else {
 
 ?>
@@ -137,6 +192,7 @@ if ($oferta['status'] === 'respondida-cliente') {
                                 <option value="denegar">Denegar</option>
                                 <option value="contraoferta">Contra Oferta</option>
                             </select>
+                            <input type="hidden" value="respuesta-cliente" name="action" />
                             <input type="hidden" value="<?php echo $inmueble_id?>" name="inmueble_id" />
                             <input type="hidden" value="<?php echo $oferta['id']?>" name="oferta_id" />
                             <textarea style="display: none" placeholder="Motivo" name="motivo"></textarea>
