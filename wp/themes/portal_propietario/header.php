@@ -35,9 +35,7 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 
 <body <?php body_class(); ?>>
 <script>
-
-
-document.addEventListener('DOMContentLoaded', function () {
+window.initChoices = function () {
   var choicesObjs = document.querySelectorAll('.js-choice,.js-choices');
   var choices = [];
   for (var i = 0; i < choicesObjs.length; i++) {
@@ -46,7 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
       searchEnabled: false,
       shouldSort: false
     }));
-  }}, false);
+  }
+  window.choicesObjs = choices;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  window.initChoices();
+}, false);
+
 
 </script>
 <input 

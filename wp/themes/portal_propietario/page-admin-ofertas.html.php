@@ -220,13 +220,25 @@ function getInmueblesOfUser(e) {
         fetch("/inmueble-xhr?action=inmuebles_of_user&user_id=" + userId)
             .then(res => res.json())
             .then(res => {
+                window.choicesObjs.forEach(el => {
+                    if (el._baseId === "choices--inmueble") {
+                        el.destroy();
+                    }
+                });
                 res.forEach(i => {
                     var option = document.createElement("option")
                     option.value = i.id;
                     option.textContent = i.name;
                     document.querySelector("#inmueble").appendChild(option);
-                }
-            )
+                })
+
+                
+                new Choices(document.querySelector("#inmueble"), {
+                    itemSelectText: 'Click para seleccionar',
+                    searchEnabled: false,
+                    shouldSort: false
+                })
+                
         })
     }
 

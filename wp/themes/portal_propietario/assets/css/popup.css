@@ -180,6 +180,10 @@ Demo Animation Style
 .choices {
     color: #000;
 }
+#modal-crear-oferta-asesor-content .controls {
+    width: calc(100% - 20px);
+
+}
 .controls {
     /*width: calc(100% - 20px);*/
     width: 100%;
