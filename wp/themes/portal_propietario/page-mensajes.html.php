@@ -33,8 +33,15 @@ if (current_user_can("administrator")) {
                 <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
     if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
+        $unread_msgs = 0;
+        foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
+            $chat = json_decode(wp_unslash($chat_str), true);
+            if (!$chat['readed'] && $chat["user"] == "user") {
+            $unread_msgs++;
+            }
+        }
                 ?>
-                <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
+                <div class="contacto <?php if ($unread_msgs > 0) {echo 'unread';} ?>" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
                     <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
                     <div class="contacto-name"><?php echo $user->display_name; ?></div>
                     <div class="contacto-unread"></div>
@@ -93,6 +100,7 @@ function setUserId(uid) {
     }
     if (document.querySelector("#user-" + uid)) {
         document.querySelector("#user-" + uid).classList.add("selected");
+        document.querySelector("#user-" + uid).classList.remove("unread");
     }
     userId = uid;
     cargaMensajes(true);
@@ -142,6 +150,7 @@ function cargaMensajes(firstTime) {
 
 
                 document.querySelector(".mensajes").appendChild(container);
+
                 
             }
             if (estabaAlFinal || firstTime) {
@@ -175,6 +184,8 @@ function enviarMsg() {
 }
 
 ;
+
+document.querySelector(".mensajes-wrapper").classList.remove("unread");
 
 </script>
 

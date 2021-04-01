@@ -42,6 +42,17 @@
     padding: 6px 24px;
 }
 
+.chat .contactos .contacto.unread::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+
 .chat .contactos .contacto:hover {
     background: linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
     background-color: #e9e9e9;

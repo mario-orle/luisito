@@ -8,6 +8,7 @@
  *
  * @package portal_propietario
  */
+require_once "self/users-stuff.php";
 
 $user = wp_get_current_user();
 
@@ -91,8 +92,32 @@ if (!current_user_can("administrator")) {
 
 <?php
 } 
+$unread_msgs = 0;
+if (!current_user_can('administrator')){
+  foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
+    $chat = json_decode(wp_unslash($chat_str), true);
+    if (!$chat['readed'] && $chat["user"] == "admin") {
+      $unread_msgs++;
+    }
+  }
+} else {
+
+  $users_of_admin = get_users(array(
+    'meta_key' => 'meta-gestor-asignado',
+    'meta_value' => get_current_user_id()
+  ));
+
+  foreach ($users_of_admin as $user_of_admin) {
+    foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
+      $chat = json_decode(wp_unslash($chat_str), true);
+      if (!$chat['readed'] && $chat["user"] == "user") {
+        $unread_msgs++;
+      }
+    }
+  }
+}
 ?>
-        <div class="mensages">
+        <div class="mensajes-wrapper <?php if ($unread_msgs > 0) {echo 'unread';} ?>">
           <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
         </div>
         <div class="alertas">

@@ -55,6 +55,20 @@
     width: 30px; 
     margin-top:10px;
     }
+    .mensajes-wrapper.unread {
+        position: relative;
+    }
+    .mensajes-wrapper.unread::after {
+        position: absolute;
+        top: 10px;
+        right: -5px;
+        width: 10px;
+        height: 10px;
+        display: block;
+        background-color: red;
+        border-radius: 100%;
+        content: "";
+    }
     #mensajes{
     display: block;
     }
