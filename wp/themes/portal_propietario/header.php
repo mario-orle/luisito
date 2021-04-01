@@ -41,7 +41,7 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
   id="user-img-perfil" />
 <input 
   type="hidden" 
-  value="<?php echo get_current_user()->display_name; ?>" 
+  value="<?php echo wp_get_current_user()->display_name; ?>" 
   id="real-user-name-and-lastname" />
 <input 
   type="hidden" 

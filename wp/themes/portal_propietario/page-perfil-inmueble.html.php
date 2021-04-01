@@ -287,6 +287,7 @@ foreach ($photos as $key => $photo) {
 
 
             <div class="card">
+              <div class="delete-img" onclick="removeImage('<?php echo $photo['url']?>')"><i class="fas fa-trash"></i></div>
               <img src="<?php echo $photo['url']?>" alt="<?php echo basename($photo['url'])?>" style="width: 100%" />
               <div class="container">
                 <span><b><?php echo basename($photo['url'])?></b></span>
@@ -322,6 +323,18 @@ foreach ($photos as $key => $photo) {
     }));
   }
 
+  function removeImage(url) {
+    if (confirm("¿Está seguro de querer eliminarlo?")) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/file-upload?action=remove-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>&photo_url=" + url);
+
+      xhr.onload = function () {
+        window.location.reload();
+      }
+
+      xhr.send();
+    }
+  }
   
   function editar(e) {
         var input = e.currentTarget;

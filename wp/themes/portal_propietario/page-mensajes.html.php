@@ -32,7 +32,7 @@ if (current_user_can("administrator")) {
             <div class="contactos" data-simplebar>
                 <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
                 ?>
                 <div class="contacto" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
                     <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />

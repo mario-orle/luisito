@@ -71,7 +71,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                 <p id="dni">
                     <?php if (current_user_can('administrator')) { ?>
                     <select class="js-choice" name="owner-tipodocumento" onchange="editar(event)">
-                        <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI") { echo "selected"; } ?> value="DNI">DNI</option>
+                        <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI" || get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "") { echo "selected"; } ?> value="DNI">DNI</option>
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
                     <?php } else { ?>
@@ -104,8 +104,6 @@ $inmuebles = get_posts([
     'author' => $user->ID
     // 'order'    => 'ASC'
 ]);
-
-echo json_encode($inmuebles);
 
 foreach ($inmuebles as $inmueble) {
     echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true);
