@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
     update_user_meta($usuario, 'meta-gestor-asignado', $asesor);
 }
 
+
 get_header();
 ?>
 
@@ -71,14 +72,26 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
             'author' => $user_of_admin->ID
             // 'order'    => 'ASC'
         ]);
+        $doc_ok = true;
+        if (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente')) {
+            foreach (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+                $documento = json_decode(wp_unslash($meta), true);
+                if (wp_unslash($documento["status"]) != 'fichero-anadido') {
+                    $doc_ok = false;
+                }
+            }
+        }
+
+
+
                     ?>
                     <tr>
                         <td><?php echo $user_of_admin->display_name; ?></td>
                         <td><?php echo $user_of_admin->user_email; ?></td>
                         <td><?php echo count($inmuebles); ?></td>
                         <td>
-                            <input type="checkbox" id="test<?php echo $user_of_admin->ID ?>">
-                            <label for="test<?php echo $user_of_admin->ID ?>"></label>
+                            <input type="checkbox" <?php if ($doc_ok) echo "checked";?>>
+                            <label for="-"></label>
                         </td>
                         <?php 
 if (get_current_user_id() === 1) {

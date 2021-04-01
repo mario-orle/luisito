@@ -91,7 +91,7 @@ get_header();
                         <hr>
                     </h3>
                     </div>
-                    <?php
+<?php
 foreach ($array_documentos as $user => $documentos) {
 ?>
                     <div class="usuario">
