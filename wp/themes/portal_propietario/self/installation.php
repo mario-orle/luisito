@@ -222,8 +222,8 @@ function create_our_pages() {
         ));
     }
 
-    if (!get_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba')) {
-        update_user_meta(get_current_user_id(), 'meta-creados-usuarios-prueba', '1');
+    if (!get_user_meta(1, 'meta-creados-usuarios-prueba')) {
+        update_user_meta(1, 'meta-creados-usuarios-prueba', '1');
         $asesor = wp_create_user("asesor@a.com", "1", "asesor@a.com");
 
         $asesor = new WP_User( $asesor );

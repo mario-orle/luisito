@@ -81,7 +81,7 @@ get_header();
         if (count($ofertas) > 0) {
             $oferta = $ofertas[0];
 ?>
-            <h2>Ofertas Recibida</h2>
+            <h2>Ofertas Recibidas</h2>
 
             <div class="oferta-main">
 <?php
