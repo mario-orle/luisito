@@ -75,7 +75,7 @@ function get_all_citas() {
 function get_own_citas() {
     $arr = array();
     
-    foreach (get_user_meta($get_current_user_id(), 'meta-citas-usuario') as $key => $meta) {
+    foreach (get_user_meta(get_current_user_id(), 'meta-citas-usuario') as $key => $meta) {
         $arr[get_current_user_id()][] = json_decode(wp_unslash($meta));
     }
     return $arr;
@@ -85,7 +85,6 @@ if (current_user_can('administrator')) {
     $array_citas = get_all_citas();
 } else {
     $array_citas = get_own_citas();
-
 }
 
 
@@ -269,6 +268,7 @@ if (!current_user_can('administrator')) {
         for (var j = 0; j < Object.keys(citas).length; j++) {
             var k = Object.keys(citas)[j];
             for (var i = 0; i < citas[k].length; i++) {
+                if (!citas[k][i]) continue
                 citasCalendar.push({
                     id: citas[k][i].inicio + citas.fin,
                     title: citas[k][i].nombre,
