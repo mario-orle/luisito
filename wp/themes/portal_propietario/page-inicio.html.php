@@ -172,7 +172,10 @@ get_header();
           if (wp_unslash($documento["status"]) != 'fichero-anadido') {
             $pending_documents++;
           } else {
-            $review_documents++;
+            if (!($documento["revisado"]) ) {
+
+              $review_documents++;
+            }
           }
         }
 
