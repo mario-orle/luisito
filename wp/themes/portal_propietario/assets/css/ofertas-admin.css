@@ -166,7 +166,133 @@ p {
 }
 
 #modal-crear-oferta {
-  background-color: #ccc;
-  height: 500px;
-  top: calc(50% - 250px)
+  height: 450px;
+  top: calc(50% - 220px);
+  background-color:#434b4d;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+  border: 5px #828282 solid;
 }
+
+
+
+
+/* cajas pop ups */
+
+
+
+.main h2{
+  color: orange;
+  text-align: left;
+}
+
+.oferta-main{
+  display: flex;
+  width: 100%;
+  margin-bottom: 25px;
+ 
+}
+.oferta-left{
+  width: 400px;
+  background-color:#434b4d;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+  border: 5px #828282 solid;
+}
+.btn-oferta{
+  display: flex;
+flex-flow: column;
+align-items: center;
+}
+.btn-oferta textarea{
+  width: 300px;
+}
+.btn-oferta input{
+  margin-top: 10px;
+  margin-bottom: 20px;
+    box-shadow:inset 0px 1px 3px 0px #91b8b3;
+    background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+    background-color:#768d87;
+    border-radius:5px;
+    border:1px solid #566963;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:11px 23px;
+    text-decoration:none;
+    text-shadow:0px -1px 0px #2b665e;
+  }
+.btn-oferta input:hover {
+    background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+    background-color:#6c7c7c;
+  }
+.btn-oferta input:active {
+    position:relative;
+    top:1px;
+  }
+
+.btn-oferta select{
+  padding: 5px;
+  margin: 5px 0px 5px 0px;
+  
+}
+.oferta-main p{
+  color: white;
+  font-style: italic;
+  text-align: center;
+}
+.oferta-main h3{
+  color: orange;
+  text-align: center;
+}
+.oferta-main select{
+  align-content: center;
+}
+
+
+.aceptar-text{
+  height: 315px;
+}
+.denegada-btn{
+  margin-bottom: 20px;
+}
+.registro-ofertas{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-wrapper{
+    width: 280px;
+    margin-left: 80px;
+  }
+  .card-wrapper img{
+    margin-top: 8px;
+    border-radius: 5px;
+  }
+  
+  .card-wrapper button{
+    background-color: #434b4d;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .card-wrapper h4, p{
+    color: white;
+  }
+  .card-wrapper p{
+    font-style: italic;
+    color: #c1c1c1;
+  }
+  .card-wrapper h3{
+    color: orange;
+  
+  }
+  
+  .card-wrapper button:hover {
+    box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
+  }
+  

@@ -247,6 +247,94 @@ const dataTable = new simpleDatatables.DataTable("table", {
 
     </script>
 </main><!-- #main -->
+<div class="main">
+<div class="oferta-main aceptar">
+                <div class="oferta-left aceptar-text">
+                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
+                    <hr>
+                    <p>Calle marineros</p>
+                    <p>125.000€\130.000€</p>
+                    <div class="btn-oferta aceptar-btn">
+                        <textarea></textarea>
+                        <select class="select">
+                            <option>Aceptar</option>
+                        </select>
+                        <input type="submit">
+                    </div>
+                </div>
+
+
+                <div class="card-wrapper">
+                    <button>
+                        <a href="perfil-inmueble.html">
+                            <img src="../../casa3.jpg" alt="Avatar" style="width:100%">
+                            <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                            <h4><b>145.000€</b></h4>
+                            <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                        </a>
+                    </button>
+                </div>
+
+            </div>
+            <div class="oferta-main">
+                <div class="oferta-left denegar">
+                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
+                    <hr>
+                    <p>Calle marineros</p>
+                    <p>125.000€\130.000€</p>
+                    <div class="btn-oferta denegar-text">
+                        <textarea></textarea>
+                        <select class="select">
+                            <option>Denegar</option>
+                        </select>
+                        <!-- input opcional en caso de elegir denegar -->
+                        <textarea placeholder="Motivo"></textarea>
+                        <input type="submit">
+                    </div>
+                </div>
+            </div>
+            <div class="oferta-main">
+                <div class="oferta-left contraoferta">
+                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
+                    <hr>
+                    <p>Calle marineros</p>
+                    <p>125.000€\130.000€</p>
+                    <div class="btn-oferta contraoferta-btn">
+                        <textarea></textarea>
+                        <select class="select">
+                            <option>Contra Oferta</option>
+                        </select>
+                        <!-- input opcional en caso de elegir contra oferta -->
+                        <textarea placeholder="Ingrese su Propuesta"></textarea>
+                        <input type="submit">
+                    </div>
+                </div>
+            </div>
+            <div class="oferta-main">
+                <div class="oferta-left denegada ">
+                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
+                    <hr>
+                    <p>Calle marineros</p>
+                    <p>125.000€\130.000€</p>
+                    <div class="btn-oferta denegada-btn">
+                        <textarea></textarea>
+                        <p>Denegada</p>
+                    </div>
+                </div>
+            </div>
+            <div class="oferta-main">
+                <div class="oferta-left aceptar">
+                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
+                    <hr>
+                    <p>Calle marineros</p>
+                    <p>125.000€\130.000€</p>
+                    <div class="btn-oferta  aceptar-btn">
+                        <textarea></textarea>
+                       <p>Aceptada</p>
+
+                    </div>
+                </div>
+          </div>
 
 <?php
 get_footer();

@@ -131,11 +131,11 @@ Demo Animation Style
 .modal.is-open {
     display: block;
     position: fixed;
-    width: 500px;
+    width: 400px;
     height: 300px;
     top: calc(50% - 150px);
     bottom: calc(50% - 150px);
-    left: calc(50% - 250px);
+    left: calc(50% - 210px);
     right: calc(50% - 250px);
     z-index: 500;
 }
@@ -209,11 +209,38 @@ Demo Animation Style
 }
 
 .modal .botons {
-    width: 100%;
-    background: #1f53c5;
-    border: none;
-    padding: 12px;
-    color: white;
-    margin: 16px 0;
-    font-size: 16px;
+      box-shadow:inset 0px 1px 3px 0px #91b8b3;
+      background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+      background-color:#768d87;
+      border-radius:5px;
+      border:1px solid #566963;
+      display:inline-block;
+      cursor:pointer;
+      color:#ffffff;
+      font-family:Arial;
+      font-size:15px;
+      font-weight:bold;
+      padding:11px 23px;
+      text-decoration:none;
+      text-shadow:0px -1px 0px #2b665e;
+      margin-left:40px;
+    }
+
+    .modal .botons:hover {
+      background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+      background-color:#6c7c7c;
+    }
+    .modal .botons:active {
+      position:relative;
+      top:1px;
+    }
+  
+
+.modal .botons:hover {
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
+}
+.modal .botons:active {
+	position:relative;
+	top:1px;
 }

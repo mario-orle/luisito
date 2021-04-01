@@ -32,6 +32,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     margin-bottom: 40px;
+    cursor: pointer;
     }
     
     .header .right {
