@@ -303,3 +303,7 @@ top:1px;
   z-index: 100000000;
   cursor: pointer;
 }
+
+.filepond--label-action {
+    color: #000;
+}

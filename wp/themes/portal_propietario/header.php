@@ -28,9 +28,27 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
 </head>
 
 <body <?php body_class(); ?>>
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  var choicesObjs = document.querySelectorAll('.js-choice,.js-choices');
+  var choices = [];
+  for (var i = 0; i < choicesObjs.length; i++) {
+    choices.push(new Choices(choicesObjs[i], {
+      itemSelectText: 'Click para seleccionar',
+      searchEnabled: false,
+      shouldSort: false
+    }));
+  }}, false);
+
+</script>
 <input 
   type="hidden" 
   value="<?php echo $user->display_name ?>" 

@@ -3,7 +3,6 @@
     max-width: 500px;
     max-height: 100vh;
     border-radius: 4px;
-    overflow-y: auto;
     box-sizing: border-box;
 }
 
@@ -178,9 +177,12 @@ Demo Animation Style
     font-size: 22px;
     margin-bottom: 20px;
 }
-
+.choices {
+    color: #000;
+}
 .controls {
-    width: calc(100% - 20px);
+    /*width: calc(100% - 20px);*/
+    width: 100%;
     background: aliceblue;
     padding: 10px;
     border-radius: 4px;
@@ -243,4 +245,9 @@ Demo Animation Style
 .modal .botons:active {
 	position:relative;
 	top:1px;
+}
+
+
+.modal .choices__inner {
+    width: calc(100% - 15px);
 }
