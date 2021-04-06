@@ -21,8 +21,6 @@ function myCss()
 {
     echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/css/perfil2.css?cb=' . generate_random_string() . '">';
     echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/assets/ext/dropzone.min.css?cb=' . generate_random_string() . '">';
-    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
-    echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
     echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
     echo '<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker.min.css">';
@@ -71,7 +69,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                 <p id="dni">
                     <?php if (current_user_can('administrator')) { ?>
                     <select class="js-choice" name="owner-tipodocumento" onchange="editar(event)">
-                        <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI") { echo "selected"; } ?> value="DNI">DNI</option>
+                        <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI" || get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "") { echo "selected"; } ?> value="DNI">DNI</option>
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
                     <?php } else { ?>
@@ -105,10 +103,7 @@ $inmuebles = get_posts([
     // 'order'    => 'ASC'
 ]);
 
-echo json_encode($inmuebles);
-
 foreach ($inmuebles as $inmueble) {
-    echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true);
 ?>
                     <div class="card-wrapper">
                         <button>

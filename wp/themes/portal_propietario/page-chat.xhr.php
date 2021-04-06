@@ -12,27 +12,27 @@ if ($_GET['action'] == 'get_messages') {
     if (current_user_can("administrator")) {
         $messages = [];
         foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-            if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+            if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
                 $messages[$user->ID] = array();
                 foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
-                    $chat = json_decode(wp_unslash($chat_str), true);
+                    $chat = json_decode(($chat_str), true);
                     if (!$chat['readed'] && $chat["user"] == "user") {
                         $chat['readed'] = true;
                         update_user_meta($user->ID, 'meta-messages-chat', wp_slash(json_encode($chat)), ($chat_str));
                     }
-                    $messages[$user->ID][] = json_decode(wp_unslash($chat_str), true);
+                    $messages[$user->ID][] = json_decode(($chat_str), true);
                 }
             }
         }
     } else {
         $messages[wp_get_current_user()->ID] = array();
         foreach (get_user_meta(wp_get_current_user()->ID, 'meta-messages-chat') as $chat_str) {
-            $chat = json_decode(wp_unslash($chat_str), true);
+            $chat = json_decode(($chat_str), true);
             if (!$chat['readed'] && $chat["user"] == "admin") {
                 $chat['readed'] = true;
                 update_user_meta(wp_get_current_user()->ID, 'meta-messages-chat', wp_slash(json_encode($chat)), ($chat_str));
             }
-            $messages[wp_get_current_user()->ID][] = json_decode(wp_unslash($chat_str), true);
+            $messages[wp_get_current_user()->ID][] = json_decode(($chat_str), true);
         }
         //$messages[wp_get_current_user()->ID] = get_user_meta(wp_get_current_user()->ID, 'meta-messages-chat');
 

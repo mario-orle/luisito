@@ -15,9 +15,6 @@ $logged_user = wp_get_current_user();
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil-inmueble.css?cb=' . generate_random_string() . '">';
-    //echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css">';
-    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
-    echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
 
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker.min.css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/datepicker-full.min.js"></script>';
@@ -287,6 +284,7 @@ foreach ($photos as $key => $photo) {
 
 
             <div class="card">
+              <div class="delete-img" onclick="removeImage('<?php echo $photo['url']?>')"><i class="fas fa-trash"></i></div>
               <img src="<?php echo $photo['url']?>" alt="<?php echo basename($photo['url'])?>" style="width: 100%" />
               <div class="container">
                 <span><b><?php echo basename($photo['url'])?></b></span>
@@ -322,6 +320,18 @@ foreach ($photos as $key => $photo) {
     }));
   }
 
+  function removeImage(url) {
+    if (confirm("¿Está seguro de querer eliminarlo?")) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "/file-upload?action=remove-photo-inmueble&inmueble_id=<?php echo $inmueble->ID ?>&photo_url=" + url);
+
+      xhr.onload = function () {
+        window.location.reload();
+      }
+
+      xhr.send();
+    }
+  }
   
   function editar(e) {
         var input = e.currentTarget;

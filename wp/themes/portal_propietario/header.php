@@ -8,6 +8,7 @@
  *
  * @package portal_propietario
  */
+require_once "self/users-stuff.php";
 
 $user = wp_get_current_user();
 
@@ -28,9 +29,32 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php wp_head(); ?>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
 </head>
 
 <body <?php body_class(); ?>>
+<script>
+window.initChoices = function () {
+  var choicesObjs = document.querySelectorAll('.js-choice,.js-choices');
+  var choices = [];
+  for (var i = 0; i < choicesObjs.length; i++) {
+    choices.push(new Choices(choicesObjs[i], {
+      itemSelectText: 'Click para seleccionar',
+      searchEnabled: false,
+      shouldSort: false
+    }));
+  }
+  window.choicesObjs = choices;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  window.initChoices();
+}, false);
+
+
+</script>
 <input 
   type="hidden" 
   value="<?php echo $user->display_name ?>" 
@@ -41,7 +65,7 @@ $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
   id="user-img-perfil" />
 <input 
   type="hidden" 
-  value="<?php echo get_current_user()->display_name; ?>" 
+  value="<?php echo wp_get_current_user()->display_name; ?>" 
   id="real-user-name-and-lastname" />
 <input 
   type="hidden" 
@@ -68,12 +92,89 @@ if (!current_user_can("administrator")) {
 
 <?php
 } 
+$unread_msgs = 0;
+if (!current_user_can('administrator')){
+  foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
+    $chat = json_decode(wp_unslash($chat_str), true);
+    if (!$chat['readed'] && $chat["user"] == "admin") {
+      $unread_msgs++;
+    }
+  }
+} else {
+
+  $users_of_admin = get_users(array(
+    'meta_key' => 'meta-gestor-asignado',
+    'meta_value' => get_current_user_id()
+  ));
+  $review_documents = [];
+  $citas = 0;
+  $ofertas = 0;
+  foreach ($users_of_admin as $user_of_admin) {
+    foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
+      $chat = json_decode(wp_unslash($chat_str), true);
+      if (!$chat['readed'] && $chat["user"] == "user") {
+        $unread_msgs++;
+      }
+    }
+    foreach (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+      $documento = json_decode(wp_unslash($meta), true);
+
+      if (wp_unslash($documento["status"]) == 'fichero-anadido' && !$documento['revisado']) {
+        $review_documents[] = $documento;
+      }
+    }
+
+    foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
+      $cita = json_decode(wp_unslash($meta), true);
+      if (strtotime(wp_unslash($cita["fin"])) < time()) {
+        if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+          $citas++;
+        }
+      }
+    }
+
+    $ofertas_recibidas = get_all_ofertas();
+    foreach ($ofertas_recibidas as $key => $oferta_recibida) {
+      if ($oferta_recibida["status"] == "respondida-cliente"  || $oferta_recibida["status"] == "respondida-cita" ) {
+        $ofertas++;
+
+      }
+    }
+  }
+}
 ?>
-        <div class="mensages">
+        <div class="mensajes-wrapper <?php if ($unread_msgs > 0) {echo 'unread';} ?>">
           <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
         </div>
         <div class="alertas">
-          <a id="alertas" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
+          <a id="alertas" onclick="document.querySelector('.alertas .alertas-msgs').classList.toggle('show')" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
+          <div class="alertas-msgs">
+            <ul>
+<?php
+if (current_user_can("administrator")) {
+  if (count($review_documents) > 0) {
+    # code...
+?>
+              <li><a href="/admin-doc">Ficheros a revisar pendientes</li>
+<?php
+  }
+  if ($citas > 0) {
+    # code...
+?>
+              <li><a href="/citas">Citas a revisar pendientes</li>
+<?php
+  }
+  if ($ofertas > 0) {
+    # code...
+?>
+              <li><a href="/admin-ofertas">Ofertas pendientes de respuesta</li>
+<?php
+  }
+} 
+?>
+
+            </ul>
+          </div>
         </div>
         <div class="usuario">
           <a id="usuario" onclick="document.querySelector('.usuario .cerrar-sesion').classList.toggle('show')"><img class="real-user-logo-auto" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png"></a>

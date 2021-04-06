@@ -9,10 +9,16 @@
  */
 
 require_once "self/security.php";
+
+
+function generateRandomString($length = 10) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
     $user = get_user_by('id', $_POST['usuario']);
     $data = array();
     if ($_POST['action'] == "crear") {
+        $data['id'] = generateRandomString(30);
         $data['nombre'] = $_POST['nombre'];
         $data['inicio'] = $_POST['inicio'];
         $data['fin'] = $_POST['fin'];
@@ -20,10 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
         $data['comments'] = $_POST['comments'];
         $data['usuario'] = $user->display_name;
         
-        delete_user_meta( $user->ID, 'meta-citas-usuario', $data);
-        add_user_meta($user->ID, 'meta-citas-usuario', $data);
+        delete_user_meta( $user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
+        add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
     }
     if ($_POST['action'] == "actualizar") {
+        $data['id'] = $_POST['cita-id'];
         $data['nombre'] = $_POST['nombre'];
         $data['inicio'] = $_POST['inicio'];
         $data['fin'] = $_POST['fin'];
@@ -32,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
         $data['usuario'] = $user->display_name;
 
         $old_user = get_user_by('id', $_POST['old-usuario']);
+        $old_data['id'] = $_POST['cita-id'];
         $old_data['nombre'] = $_POST['old-nombre'];
         $old_data['inicio'] = $_POST['old-inicio'];
         $old_data['fin'] = $_POST['old-fin'];
@@ -39,10 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
         $old_data['comments'] = $_POST['old-comments'];
         $old_data['usuario'] = $old_user->display_name;
 
-        
-        delete_user_meta( $user->ID, 'meta-citas-usuario', $old_data);
+        foreach (get_user_meta($user->ID, 'meta-citas-usuario') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $old_data["id"]) {
+                delete_user_meta($user->ID, 'meta-citas-usuario', wp_slash($old_meta_encoded));
+            }
+        }
         if ($_POST['status'] != 'eliminada') {
-            add_user_meta( $user->ID, 'meta-citas-usuario', $data);
+            add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
         }
     }
     wp_redirect("/citas");
@@ -52,15 +64,20 @@ $array_citas = array();
 function get_all_citas() {
     $arr = array();
     foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-        if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
-            $arr[$user->ID] = get_user_meta($user->ID, 'meta-citas-usuario');
+        if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
+            foreach (get_user_meta($user->ID, 'meta-citas-usuario') as $key => $meta) {
+                $arr[$user->ID][] = json_decode(wp_unslash($meta));
+            }
         }
     }
     return $arr;
 }
 function get_own_citas() {
     $arr = array();
-    $arr[get_current_user_id()] = get_user_meta(get_current_user_id(), 'meta-citas-usuario');
+    
+    foreach (get_user_meta(get_current_user_id(), 'meta-citas-usuario') as $key => $meta) {
+        $arr[get_current_user_id()][] = json_decode(wp_unslash($meta));
+    }
     return $arr;
 }
 
@@ -68,7 +85,6 @@ if (current_user_can('administrator')) {
     $array_citas = get_all_citas();
 } else {
     $array_citas = get_own_citas();
-
 }
 
 
@@ -80,8 +96,6 @@ function myCss() {
     echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/calendar-locales-all.min.js?cb=' . generate_random_string() . '"></script>';
     echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
     echo '<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>';
-    echo '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">';
-    echo '<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>';
 }
 add_action('wp_head', 'myCss');
 
@@ -141,7 +155,7 @@ if (current_user_can('administrator')) {
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id()) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
                             ?>
                             <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
                             <?php
@@ -182,6 +196,7 @@ if (current_user_can('administrator')) {
                     <form method="POST">
                         <input class="controls" type="text" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
                         <input class="controls" type="text" readonly name="fechas-str">
+                        <input class="controls" type="hidden" readonly name="cita-id">
                         <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
                         <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
  
@@ -253,17 +268,18 @@ if (!current_user_can('administrator')) {
         for (var j = 0; j < Object.keys(citas).length; j++) {
             var k = Object.keys(citas)[j];
             for (var i = 0; i < citas[k].length; i++) {
-
+                if (!citas[k][i]) continue
                 citasCalendar.push({
                     id: citas[k][i].inicio + citas.fin,
                     title: citas[k][i].nombre,
                     start: citas[k][i].inicio,
                     end: citas[k][i].fin,
-                    color: colors[k % Object.keys(citas).length],
+                    color: colors[k % colors.length],
                     extendedProps: {
                         id: k,
                         status: citas[k][i].status,
                         comments: citas[k][i].comments,
+                        cita_id: citas[k][i].id
                     }
                 });
 
@@ -320,6 +336,7 @@ if (current_user_can('administrator')) {
             ?>
             eventClick: function(info) {
                 // change the border color just for fun
+                document.querySelector("#modal-actualizar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
                 document.querySelector("#modal-actualizar-cita [name=nombre]").value = info.event.title;
                 document.querySelector("#modal-actualizar-cita [name=old-nombre]").value = info.event.title;
                 document.querySelector("#modal-actualizar-cita [name=usuario]").value = info.event.extendedProps.id;

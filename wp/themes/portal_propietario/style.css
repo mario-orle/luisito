@@ -21,7 +21,7 @@
     text-align: center; 
     color:white;
     }
-    span{
+    .menu span{
     color:white;
     }
     
@@ -55,6 +55,20 @@
     width: 30px; 
     margin-top:10px;
     }
+    .mensajes-wrapper.unread {
+        position: relative;
+    }
+    .mensajes-wrapper.unread::after {
+        position: absolute;
+        top: 10px;
+        right: -5px;
+        width: 10px;
+        height: 10px;
+        display: block;
+        background-color: red;
+        border-radius: 100%;
+        content: "";
+    }
     #mensajes{
     display: block;
     }
@@ -87,7 +101,7 @@
     font-family: "roboto";
     }
     
-    .menu a, .dropdown-btn, menu span {
+    .menu a, .dropdown-btn, .menu span {
     padding: 6px 8px 6px 8px;
     text-decoration: none;
     font-size: 16px;
@@ -141,13 +155,13 @@
         align-items: center;
     }
 
-    .header .usuario {
+    .header .usuario, .header .alertas {
         position: relative;
     }
-    .header .usuario a {
+    .header .usuario a, .header .alertas a {
         cursor: pointer;
     }
-    .header .usuario .cerrar-sesion {
+    .header .usuario .cerrar-sesion, .header .alertas .alertas-msgs {
         display: none;
         position: absolute;
         top: 50px;;
@@ -158,22 +172,22 @@
         width: 150px;
         user-select: none;
     }
-    .header .usuario .cerrar-sesion.show {
+    .header .usuario .cerrar-sesion.show , .header .alertas .alertas-msgs.show{
         display: block;
     }
-    .header .usuario .cerrar-sesion ul {
+    .header .usuario .cerrar-sesion ul, .header .alertas .alertas-msgs ul {
         list-style: none;
         margin: 0;
         padding: 0;
     }
-    .header .usuario .cerrar-sesion ul li {
+    .header .usuario .cerrar-sesion ul li, .header .alertas .alertas-msgs ul li {
         list-style: none;
     }
-    .header .usuario .cerrar-sesion ul li:hover {
+    .header .usuario .cerrar-sesion ul li:hover, .header .alertas .alertas-msgs ul li:hover {
         background-color: #ccc;
         cursor: pointer;
     }
-    .header .usuario .cerrar-sesion ul li a {
+    .header .usuario .cerrar-sesion ul li a, .header .alertas .alertas-msgs ul li a {
         color: #000;
         text-decoration: none;
         padding: 5px;

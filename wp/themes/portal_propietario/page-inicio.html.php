@@ -62,6 +62,10 @@ get_header();
         }
       }
 
+      $ofertas_recibidas = 0;
+      $ofertas = get_own_ofertas_recibidas();
+      $ofertas_recibidas = count($ofertas);
+
 ?>
     <div class="main">
         <div class="main-container">
@@ -75,7 +79,7 @@ get_header();
                         <a href="#">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
                         <h2>Ofertas Recibidas</h2>
-                        <p>- Ofertas</p>
+                        <p><?php echo $ofertas_recibidas ?> Ofertas</p>
                         </a>
                         </button>
                     </div>
@@ -168,15 +172,19 @@ get_header();
           if (wp_unslash($documento["status"]) != 'fichero-anadido') {
             $pending_documents++;
           } else {
-            $review_documents++;
+            if (!($documento["revisado"]) ) {
+
+              $review_documents++;
+            }
           }
         }
 
         foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
           $cita = json_decode(wp_unslash($meta), true);
-
-          if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
-            $pending_citas++;
+          if (strtotime(wp_unslash($cita["fin"])) < time()) {
+            if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+              $pending_citas++;
+            }
           }
         }
       }
