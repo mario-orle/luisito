@@ -87,6 +87,7 @@ align-items: center;
   }
   .card-wrapper img{
     margin-top: 8px;
+    width: 250px;
     border-radius: 5px;
   }
   

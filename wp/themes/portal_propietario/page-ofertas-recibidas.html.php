@@ -70,7 +70,7 @@ $asesor_id = get_user_meta($user->ID, 'meta-gestor-asignado', true);
 $asesor = get_user_by('id', $asesor_id);
 
 
-$array_ofertas = get_own_ofertas_recibidas();
+$array_ofertas = get_own_ofertas_recibidas($user);
 
 get_header();
 ?>

@@ -104,7 +104,6 @@ $inmuebles = get_posts([
 ]);
 
 foreach ($inmuebles as $inmueble) {
-    echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true);
 ?>
                     <div class="card-wrapper">
                         <button>

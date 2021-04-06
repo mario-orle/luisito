@@ -31,7 +31,7 @@ function getAllUsersForAdmin() {
     }
     return $users;
 }
-function get_own_ofertas_recibidas() {
+function get_own_ofertas_recibidas($user) {
     $arr = array();
     $inmuebles = getInmueblesOfUser($user);
     foreach ($inmuebles as $key => $inmueble) {
