@@ -52,14 +52,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
 
 }
 
-function get_all_documentos_solicitados() {
+$possible_user = $_GET["user"];
+function get_all_documentos_solicitados($possible_user) {
     $arr = array();
     foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
         if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
-            if (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente')) {
-                $arr[$user->ID] = ["name" => $user->display_name, "documentos" => array()];
-                foreach (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
-                    $arr[$user->ID]["documentos"][] = json_decode(wp_unslash($meta), true);
+            if ($possible_user == $user->ID || !isset($possible_user)) {
+                if (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente')) {
+                    $arr[$user->ID] = ["name" => $user->display_name, "documentos" => array()];
+                    foreach (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+                        $arr[$user->ID]["documentos"][] = json_decode(wp_unslash($meta), true);
+                    }
                 }
             }
         }
@@ -67,7 +70,7 @@ function get_all_documentos_solicitados() {
     return $arr;
 }
 
-$array_documentos = get_all_documentos_solicitados();
+$array_documentos = get_all_documentos_solicitados($possible_user);
 
 
 
