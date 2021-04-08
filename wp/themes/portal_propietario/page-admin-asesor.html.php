@@ -75,7 +75,7 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                         <td><?php echo get_user_meta($user_admin->ID, 'meta-disponibilidad', true) ?></td>
                         <td><?php echo count($users_of_admin); ?></td>
                         <td>
-                            <a id="editar" href="/perfiladmin?user=<?php echo $user_admin->ID ?>"><i class="fas fa-key"></i></a>
+                            <a id="editar" href="/perfiladmin?user=<?php echo $user_admin->ID ?>"><i class="fas fa-edit"></i></a>
                             <a id="changeasesor" onclick="changeUsersOfAsesor(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-random"></i></a>
                         </td>
                     </tr>

@@ -63,7 +63,7 @@ get_header();
       }
 
       $ofertas_recibidas = 0;
-      $ofertas = get_own_ofertas_recibidas();
+      $ofertas = get_own_ofertas_recibidas(wp_get_current_user());
       $ofertas_recibidas = count($ofertas);
 
 ?>
