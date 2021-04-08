@@ -63,70 +63,75 @@
     </div>
     <div class="main">
       <div class="perfil-inmueble">
-        <div class="fila inmueble">
+        <div class="inmueble">
           <h3>Información del Inmueble</h3>
+          <hr>
           <div>
-            <label for="tipo-de-inmueble">Tipo de inmueble</label>
-            <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
-              <option>Piso</option>
-              <option>Casa</option>
-              <option>Atico</option>
-              <option>Chalet Independiente</option>
-              <option>Chalet Pareado </option>
-              <option>Chalet Adosado</option>
-              <option>Garaje</option>
-              <option>Trastero</option>
-            </select>
-          </div>
-          <div>
-            <label for="tipo-de-inmueble">Disponibilidad</label>
-            <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
-              <option>Venta</option>
-              <option>Alquiler</option>
-            </select>
-          </div>
-          <div>
-            <input type="text" name="valor" placeholder="valor">
-          </div>
-          <div>
-            <label for="tipo-de-inmueble">Estado</label>
-            <select class="controls js-choices" type="text" name="estado" id="estado">
-              <option>Buen estado</option>
-              <option>A Estrenar</option>
-              <option>A Reformar</option>
-              <option>Reformado</option>
-            </select>
+            <div class="fila">
+              <label for="tipo-de-inmueble">Tipo de inmueble</label>
+              <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
+                <option>Piso</option>
+                <option>Casa</option>
+                <option>Atico</option>
+                <option>Chalet Independiente</option>
+                <option>Chalet Pareado </option>
+                <option>Chalet Adosado</option>
+                <option>Garaje</option>
+                <option>Trastero</option>
+              </select>
+            </div>
+            <div>
+              <label for="tipo-de-inmueble">Disponibilidad</label>
+              <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
+                <option>Venta</option>
+                <option>Alquiler</option>
+              </select>
+            </div>
+            <div>
+              <input type="text" name="valor" placeholder="valor">
+            </div>
+            <div>
+              <label for="tipo-de-inmueble">Estado</label>
+              <select class="controls js-choices" type="text" name="estado" id="estado">
+                <option>Buen estado</option>
+                <option>A Estrenar</option>
+                <option>A Reformar</option>
+                <option>Reformado</option>
+              </select>
+            </div>
           </div>
         </div>
-      
-     
-        
+        <hr>
+
         <div class="fila localizacion">
           <h3>Localización</h3>
-          <div>
-            <input type="text" name="pais" placeholder="pais">
-          </div>
-          <div>
-            <input type="text" name="provincia" placeholder="provincia">
-          </div>
-          <div>
-            <input type="text" name="municipio" placeholder="municipio">
-          </div>
-          <div>
-            <input type="text" name="poblacion" placeholder="población">
-          </div>
+          <hr>
+          <div class="fila">
+            <div>
+              <input type="text" name="pais" placeholder="pais">
+            </div>
+            <div>
+              <input type="text" name="provincia" placeholder="provincia">
+            </div>
+            <div>
+              <input type="text" name="municipio" placeholder="municipio">
+            </div>
+            <div>
+              <input type="text" name="poblacion" placeholder="población">
+            </div>
 
-          <div>
-            <input type="text" name="dirección" placeholder="direccion">
+            <div>
+              <input type="text" name="dirección" placeholder="direccion">
+            </div>
+            <div>
+              <input type="text" name="numero" placeholder="numero">
+            </div>
+            <div>
+              <input type="text" name="codigo-postal" placeholder="codigo postal">
+            </div>
           </div>
-          <div>
-            <input type="text" name="numero" placeholder="numero">
-          </div>
-          <div>
-            <input type="text" name="codigo-postal" placeholder="codigo postal">
-          </div>
-        
-        <div class="fila">
+        </div>
+        <div>
           <label for="tipo-de-via">Tipo de Via</label>
           <select class="controls js-choices" type="text" name="tipo-de-via" id="tipo-de-via">
             <option>Calle</option>
@@ -138,81 +143,93 @@
             <option>Plaza</option>
             <option>Poligono</option>
           </select>
+        </div>
+        <div>
+          <input type="text" name="escalera" placeholder="escalera">
+        </div>
+        <div>
+          <input type="text" name="piso-planta" placeholder="piso/planta">
+        </div>
+        <div>
+          <input type="text" name="puerta" placeholder="puerta">
+        </div>
+      </div>
+      <hr>
+
+      <div class="superficie">
+        <h3>Superficie</h3>
+        <hr>
+        <div class="fila">
           <div>
-            <input type="text" name="escalera" placeholder="escalera">
+            <input type="text" name="superficie-util" placeholder="superficie util">
           </div>
           <div>
-            <input type="text" name="piso-planta" placeholder="piso/planta">
+            <input type="text" name="superficie-construida" placeholder="superficie construida">
           </div>
-          <div>
-            <input type="text" name="puerta" placeholder="puerta">
+          <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
+          <div class="terreno">
+            <input type="text" name="superficie-parcela" placeholder="superficie parcela">
           </div>
         </div>
       </div>
-        <div class="fila superficie">
-          <h3>Superficie</h3>
-            <div>
-              <input type="text" name="superficie-util" placeholder="superficie util">
-            </div>
-            <div>
-              <input type="text" name="superficie-construida" placeholder="superficie construida">
-            </div>
-            <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
-            <div class="terreno">   
-              <input type="text" name="superficie-parcela" placeholder="superficie parcela">
-            </div>
-        </div>
-        <div class="fila divisiones">
-          <h3>Divisiones</h3>
-          <div class="fila">
-            <div>
-              <input type="text" name="habitaciones" placeholder="habitaciones">
-            </div>
-            <div>
-              <input type="text" name="baños" placeholder="baños">
-            </div>
-            <div>
-              <input type="text" name="salones" placeholder="salones">
-            </div>
+      <hr>
+      <div class="divisiones">
+        <h3>Divisiones</h3>
+        <hr>
+        <div class="fila">
+          <div>
+            <input type="text" name="habitaciones" placeholder="habitaciones">
+          </div>
+          <div>
+            <input type="text" name="baños" placeholder="baños">
+          </div>
+          <div>
+            <input type="text" name="salones" placeholder="salones">
           </div>
         </div>
-        <div class="fila descripcion">
-          <h3>Descripción Del Inmueble</h3>
-          <div class="fila">
-            <div>
-              <textarea>Describa su Inmueble</textarea>
-            </div>
+      </div>
+      <hr>
+      <div class="descripcion">
+        <h3>Descripción Del Inmueble</h3>
+        <hr>
+        <div class="fila">
+          <div>
+            <textarea>Describa su Inmueble</textarea>
           </div>
         </div>
-        <div class="fila caracteristicas">
-          <h3>Caracteristicas de la Zona</h3>
-            <div>
-              <input type="checkbox" name="cbox1"><label for="cbox1">Garaje</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox2"><label for="cbox2">Ascensor</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox3"><label for="cbox3">Transporte publico</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox4"><label for="cbox4">Centro Urbano</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox5"><label for="cbox5">Comercio</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox6"><label for="cbox6">farmacia</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox7"><label for="cbox7">Parques y Jardines</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cbox8"><label for="cbox8">Escuelas</label>
-            </div>
+      </div>
+      <hr>
+      <div class="caracteristicas">
+        <h3>Caracteristicas de la Zona</h3>
+        <hr>
+        <div class="fila">
+          <div>
+            <input type="checkbox" name="cbox1"><label for="cbox1">Garaje</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox2"><label for="cbox2">Ascensor</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox3"><label for="cbox3">Transporte publico</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox4"><label for="cbox4">Centro Urbano</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox5"><label for="cbox5">Comercio</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox6"><label for="cbox6">farmacia</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox7"><label for="cbox7">Parques y Jardines</label>
+          </div>
+          <div>
+            <input type="checkbox" name="cbox8"><label for="cbox8">Escuelas</label>
+          </div>
         </div>
-    </div>
-
+      </div>
+      <hr>
       <div class=bg-fotos>
         <div class="btn-imagenes">
           <h2>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
