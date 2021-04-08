@@ -2,273 +2,301 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
-    <link rel="stylesheet" href="perfil-inmueble.css">
-    <link rel="stylesheet" href="css.css">
-    <title>INMUEBLES</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="perfil-inmueble.css">
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+  <title>INMUEBLES</title>
 </head>
 
 <body>
-    <div id="desktop">
-        <div class="header">
-            <div class="right">
-                <div class="alerta-asesor">
-                    <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
-                </div>
-                <div class="mensages">
-                    <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
-                </div>
-                <div class="alertas">
-                    <a id="alertas"><img src="advertencia.png"></a>
-                </div>
-                <div class="usuario">
-                    <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
-                </div>
-
-            </div>
-
-
+  <div id="desktop">
+    <div class="header">
+      <div class="right">
+        <div class="alerta-asesor">
+          <a id="alerta-asesor" href="alerta-asesor.html"><img src="asesoramiento.png"></a>
         </div>
-        <div class="menu">
-          <div class="logo"> </div>
-          <h2>PORTAL PROPIETARIO</h2>
-          <hr />
-          <span>Opciones generales</span>
-          <hr>
-          <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
-          <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
-          <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
-          <a id="mensajes" href="mensajes.html"><i class="far fa-envelope"></i>MENSAJES</a>
-          <hr />
-          <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
-          <hr />
-          <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
-          <hr />
-          <button id="gestiones" class="dropdown-btn">
-              <i class="fa fa-tasks"></i> GESTIONES
-          </button>
-          <div class="dropdown-container">
-              <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
-              <a id="inmuebles" href="ofertas-recibidas.html">OFERTAS</a>
-              <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
-          </div>
-          <hr />
+        <div class="mensages">
+          <a id="mensajes" href="mensajes.html"><img src="email.png"></a>
+        </div>
+        <div class="alertas">
+          <a id="alertas"><img src="advertencia.png"></a>
+        </div>
+        <div class="usuario">
+          <a id="usuario" href="perfil2.html"><img src="perfil.png"></a>
+        </div>
+
       </div>
-        <div class="main">
-            <div class="main-datos">
-                <div class="texto">
-                  <h3>Datos del Inmueble </h3>
-                  <hr />
-                  <div class="datos-inmuebles">
-                    <h4>Piso en Calle Fermin Muruguja, 24(28006)</h4>
-                    <h4>Madrid</h4>
-                    <p>120m2 - 3Hab. - Atico Exterior</p>
-                  </div>
-                </div>
-                <div class="precios">
-                  <div class="venta">
-                    <h1>198.000€</h1>
-                    <p>Precio de Venta</p>
-                  </div>
-                  <div class="valoracion">
-                    <h1>156.000€</h1>
-                    <p>Precio Recomendado</p>
-                  </div>
-                </div>
-              </div>
-            <div class="perfil-inmueble">
-                <div class="colum-left">
-                    <h2>Perfil Inmueble</h2>
-                    <hr>
-                    <div class="img-home">
-                        <img src="casa1.jpg" width="100%">
-                    </div>
-                    <h3>CARACTERISTICAS</h3>
-                    <hr>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="MU" required
-                                autocomplete="off" />
-                            <label for="MU">
-                                <span>Metros Utiles</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="MC" required
-                                autocomplete="off" />
-                            <label for="MC">
-                                <span>Metros Construido</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="AM" required
-                                autocomplete="off" />
-                            <label for="AM">
-                                <span>Amueblado</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="CE" required
-                                autocomplete="off" />
-                            <label for="CE">
-                                <span>Certificado energetico</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="PI" required
-                                autocomplete="off" />
-                            <label for="PI">
-                                <span>Piso</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="AS" required
-                                autocomplete="off" />
-                            <label for="AS">
-                                <span>Ascensor</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="GA" required
-                                autocomplete="off" />
-                            <label for="GA">
-                                <span>Garaje</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="TR" required
-                                autocomplete="off" />
-                            <label for="TR">
-                                <span>Trastero</span>
-                            </label>
-                        </div>
-                    </form>
-                    <form>
-                        <div class="first-block formulario">
-                            <input type="text" name="name" class="question" placeholder="" id="PR" required
-                                autocomplete="off" />
-                            <label for="PR">
-                                <span>PRECIO DE VENTA</span>
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                <div class="colum-rigth">
-                    <h3>Resumen Inmueble</h3>
-                    <img src="casa1.jpg" width="100%">
-                    <hr />
-                    <form>
-                        <div class="sec-block formulario">
-                            <textarea name="message" rows="2" class="question" placeholder="" id="msg" required
-                                autocomplete="off"></textarea></textarea>
-                            <label for="msg">
-                                <span>Describa su Inmueble:</span>
-                            </label>
-                        </div>
-                    </form>
-                </div>
-                
-            </div>
-            <div class=bg-fotos>
-                <div class="btn-imagenes">
-                  <h2>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
-                      value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
-                    <hr />
-                  </h2>
-                  <div class="fotos">
-                    <div class="card-scroller">
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa2.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Lateral casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa3.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Interior casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa4.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Jardin casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                        <div class="container">
-                          <span><b>Frontal casa</b></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
+
 
     </div>
-    <script src="menu.js"></script>
+    <div class="menu">
+      <div class="logo"> </div>
+      <h2>PORTAL PROPIETARIO</h2>
+      <hr />
+      <span>Opciones generales</span>
+      <hr>
+      <a id="inicio" href="index.html"><i class="fas fa-home"></i>INICIO</a>
+      <a id="servicios" href="servicios.html"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
+      <a id="perfil" href="perfil2.html"><i class="fas fa-user-circle"></i>PERFIL</a>
+      <a id="mensajes" href="mensajes.html"><i class="far fa-envelope"></i>MENSAJES</a>
+      <hr />
+      <a id="citas" href="citas.html"><i class="fas fa-calendar-alt"></i>CITAS</a>
+      <hr />
+      <a id="asesor" href="alerta-asesor.html"><i class="fas fa-hands-helping"></i>ASESOR</a>
+      <hr />
+      <button id="gestiones" class="dropdown-btn">
+        <i class="fa fa-tasks"></i> GESTIONES
+      </button>
+      <div class="dropdown-container">
+        <a id="inmuebles" href="inmuebles.html">INMUEBLES</a>
+        <a id="inmuebles" href="ofertas-recibidas.html">OFERTAS</a>
+        <a id="documentacion" href="mis-documentos.html">DOCUMENTACIÓN</a>
+      </div>
+      <hr />
+    </div>
+    <div class="main">
+      <div class="perfil-inmueble">
+        <div class="fila inmueble">
+          <h3>Información del Inmueble</h3>
+          <div>
+            <label for="tipo-de-inmueble">Tipo de inmueble</label>
+            <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
+              <option>Piso</option>
+              <option>Casa</option>
+              <option>Atico</option>
+              <option>Chalet Independiente</option>
+              <option>Chalet Pareado </option>
+              <option>Chalet Adosado</option>
+              <option>Garaje</option>
+              <option>Trastero</option>
+            </select>
+          </div>
+          <div>
+            <label for="tipo-de-inmueble">Disponibilidad</label>
+            <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
+              <option>Venta</option>
+              <option>Alquiler</option>
+            </select>
+          </div>
+          <div>
+            <input type="text" name="valor" placeholder="valor">
+          </div>
+          <div>
+            <label for="tipo-de-inmueble">Estado</label>
+            <select class="controls js-choices" type="text" name="estado" id="estado">
+              <option>Buen estado</option>
+              <option>A Estrenar</option>
+              <option>A Reformar</option>
+              <option>Reformado</option>
+            </select>
+          </div>
+        </div>
+      
+     
+        
+        <div class="fila localizacion">
+          <h3>Localización</h3>
+          <div>
+            <input type="text" name="pais" placeholder="pais">
+          </div>
+          <div>
+            <input type="text" name="provincia" placeholder="provincia">
+          </div>
+          <div>
+            <input type="text" name="municipio" placeholder="municipio">
+          </div>
+          <div>
+            <input type="text" name="poblacion" placeholder="población">
+          </div>
+
+          <div>
+            <input type="text" name="dirección" placeholder="direccion">
+          </div>
+          <div>
+            <input type="text" name="numero" placeholder="numero">
+          </div>
+          <div>
+            <input type="text" name="codigo-postal" placeholder="codigo postal">
+          </div>
+        
+        <div class="fila">
+          <label for="tipo-de-via">Tipo de Via</label>
+          <select class="controls js-choices" type="text" name="tipo-de-via" id="tipo-de-via">
+            <option>Calle</option>
+            <option>Avenida</option>
+            <option>Via</option>
+            <option>Paseo</option>
+            <option>Camino</option>
+            <option>Pasaje</option>
+            <option>Plaza</option>
+            <option>Poligono</option>
+          </select>
+          <div>
+            <input type="text" name="escalera" placeholder="escalera">
+          </div>
+          <div>
+            <input type="text" name="piso-planta" placeholder="piso/planta">
+          </div>
+          <div>
+            <input type="text" name="puerta" placeholder="puerta">
+          </div>
+        </div>
+      </div>
+        <div class="fila superficie">
+          <h3>Superficie</h3>
+            <div>
+              <input type="text" name="superficie-util" placeholder="superficie util">
+            </div>
+            <div>
+              <input type="text" name="superficie-construida" placeholder="superficie construida">
+            </div>
+            <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
+            <div class="terreno">   
+              <input type="text" name="superficie-parcela" placeholder="superficie parcela">
+            </div>
+        </div>
+        <div class="fila divisiones">
+          <h3>Divisiones</h3>
+          <div class="fila">
+            <div>
+              <input type="text" name="habitaciones" placeholder="habitaciones">
+            </div>
+            <div>
+              <input type="text" name="baños" placeholder="baños">
+            </div>
+            <div>
+              <input type="text" name="salones" placeholder="salones">
+            </div>
+          </div>
+        </div>
+        <div class="fila descripcion">
+          <h3>Descripción Del Inmueble</h3>
+          <div class="fila">
+            <div>
+              <textarea>Describa su Inmueble</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="fila caracteristicas">
+          <h3>Caracteristicas de la Zona</h3>
+            <div>
+              <input type="checkbox" name="cbox1"><label for="cbox1">Garaje</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox2"><label for="cbox2">Ascensor</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox3"><label for="cbox3">Transporte publico</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox4"><label for="cbox4">Centro Urbano</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox5"><label for="cbox5">Comercio</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox6"><label for="cbox6">farmacia</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox7"><label for="cbox7">Parques y Jardines</label>
+            </div>
+            <div>
+              <input type="checkbox" name="cbox8"><label for="cbox8">Escuelas</label>
+            </div>
+        </div>
+    </div>
+
+      <div class=bg-fotos>
+        <div class="btn-imagenes">
+          <h2>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
+              value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
+            <hr />
+          </h2>
+          <div class="fotos">
+            <div class="card-scroller">
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa2.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Lateral casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa3.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Interior casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa4.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Jardin casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+              <div class="card">
+                <img src="casa1.jpg" alt="Avatar" style="width:100%">
+                <div class="container">
+                  <span><b>Frontal casa</b></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="select-perfil-inmuebles.js"></script>
+  <script src="menu.js"></script>
 
 </body>
 
