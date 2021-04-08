@@ -127,7 +127,7 @@
 }
 
 .chat .mensajes-enviar .mensajes .mensaje .author {
-    display: flex;
+    display: none;
     align-items: center;
     flex-flow: row-reverse;
     margin: 5px;
@@ -152,6 +152,9 @@
     border-radius: 10px;
     padding: 10px 20px;
     min-width: 60%;
+}
+.chat .mensajes-enviar .mensajes .mensaje.user .mensaje-txt{
+    background-color: aquamarine;
 }
 
 .chat .mensajes-enviar .enviar {

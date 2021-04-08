@@ -59,97 +59,69 @@
             <hr />
         </div>
         <div class="main">
-            <h2>Ofertas Recibida</h2>
-
-            <div class="oferta-main aceptar">
-                <div class="oferta-left aceptar-text">
-                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
-                    <p>16/03/2021 </p>
-                    <p>125.000€\130.000€</p>
-                    <div class="btn-oferta aceptar-btn">
-                        <textarea></textarea>
-                        <select class="select">
-                            <option>Aceptar</option>
-                        </select>
-                        <input type="submit">
+            <div class="ofertas-recibidas">
+                <h2>Ofertas Recibidas <i class="fas fa-house-user"></i></h2>
+                <hr>
+                <div class="espacio-caja">
+                    <button type="button" class="collapsible">OFERTA 1</button>
+                    <div class="content">
+                        <table>
+                            <tr>
+                                <th>Nombre:</th>
+                                <td>Carolina gutierrez</td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda:</th>
+                                <td>Caller Marineros</td>
+                            </tr>
+                            <tr>
+                                <th>Oferta:</th>
+                                <td>Compra</td>
+                            </tr>
+                            <tr>
+                                <th>Precio:</th>
+                                <td>152.000€</td>
+                            </tr>
+                        </table>
+                        <div class="funciones">
+                            <button>Aceptar</button>
+                            <button>Cancelar</button>
+                            <button>Contra oferta</button>
+                        </div>
                     </div>
                 </div>
-
-
-                <div class="card-wrapper">
-                    <button>
-                        <a href="perfil-inmueble.html">
-                            <img src="casa3.jpg" alt="Avatar" style="width:100%">
-                            <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
-                            <h4><b>145.000€</b></h4>
-                            <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
-                        </a>
-                    </button>
-                </div>
-
-            </div>
-            <div class="oferta-main">
-                <div class="oferta-left denegar">
-                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
-                    <p>16/03/2021 </p>
-                    <p>125.000€\130.000€</p>
-                    <div class="btn-oferta denegar-text">
-                        <textarea></textarea>
-                        <select class="select">
-                            <option>Denegar</option>
-                        </select>
-                        <!-- input opcional en caso de elegir denegar -->
-                        <textarea placeholder="Motivo"></textarea>
-                        <input type="submit">
-                    </div>
-                </div>
-            </div>
-            <div class="oferta-main">
-                <div class="oferta-left contraoferta">
-                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
-                    <p>16/03/2021 </p>
-                    <p>125.000€\130.000€</p>
-                    <div class="btn-oferta contraoferta-btn">
-                        <textarea></textarea>
-                        <select class="select">
-                            <option>Contra Oferta</option>
-                        </select>
-                        <!-- input opcional en caso de elegir contra oferta -->
-                        <textarea placeholder="Ingrese su Propuesta"></textarea>
-                        <input type="submit">
-                    </div>
-                </div>
-            </div>
-            <div class="oferta-main">
-                <div class="oferta-left denegada ">
-                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
-                    <p>16/03/2021 </p>
-                    <p>125.000€\130.000€</p>
-                    <div class="btn-oferta denegada-btn">
-                        <textarea></textarea>
-                        <p>Denegada</p>
-                    </div>
-                </div>
-            </div>
-            <div class="oferta-main">
-                <div class="oferta-left aceptar">
-                    <h3>Precio de Oferta <i class="fas fa-home"></i></h3>
-                    <p>16/03/2021 </p>
-                    <p>125.000€\130.000€</p>
-                    <div class="btn-oferta  aceptar-btn">
-                        <textarea></textarea>
-                       <p>Aceptada</p>
-
+                <div class="espacio-caja">
+                    <button type="button" class="collapsible">OFERTA 2</button>
+                    <div class="content">
+                        <table>
+                            <tr>
+                                <th>Nombre:</th>
+                                <td>Arturo Perez Reverte</td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda:</th>
+                                <td>Caller Marelino parrondo</td>
+                            </tr>
+                            <tr>
+                                <th>Oferta:</th>
+                                <td>Alquiler</td>
+                            </tr>
+                            <tr>
+                                <th>Precio:</th>
+                                <td>750€</td>
+                            </tr>
+                        </table>
+                        <div class="funciones alquiler">
+                            <button>Aceptar</button>
+                            <button>Cancelar</button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-        </div>
 
 
-
-        <div id="mobile">
-
+            <script src="collapse-ofertas.js"></script>
             <script src="menu.js"></script>
 
 </body>
