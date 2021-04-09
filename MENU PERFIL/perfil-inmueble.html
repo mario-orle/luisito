@@ -69,40 +69,40 @@
           <hr>
           <div class="fila">
             <div>
-            <label for="tipo-de-inmueble">Tipo de inmueble</label>
-            <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
-              <option>Piso</option>
-              <option>Casa</option>
-              <option>Atico</option>
-              <option>Chalet Independiente</option>
-              <option>Chalet Pareado </option>
-              <option>Chalet Adosado</option>
-              <option>Garaje</option>
-              <option>Trastero</option>
-            </select>
-          </div>
-          <div>
-            <label for="tipo-de-inmueble">Disponibilidad</label>
-            <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
-              <option>Venta</option>
-              <option>Alquiler</option>
-            </select>
-          </div>
-          <div>
-            <label for="valor">Valor</label>
-            <input type="text" name="valor" placeholder="valor">
-          </div>
-          <div>
-            <label for="tipo-de-inmueble">Estado</label>
-            <select class="controls js-choices" type="text" name="estado" id="estado">
-              <option>Buen estado</option>
-              <option>A Estrenar</option>
-              <option>A Reformar</option>
-              <option>Reformado</option>
-            </select>
+              <label for="tipo-de-inmueble">Tipo de inmueble</label>
+              <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
+                <option>Piso</option>
+                <option>Casa</option>
+                <option>Atico</option>
+                <option>Chalet Independiente</option>
+                <option>Chalet Pareado </option>
+                <option>Chalet Adosado</option>
+                <option>Garaje</option>
+                <option>Trastero</option>
+              </select>
+            </div>
+            <div>
+              <label for="tipo-de-inmueble">Disponibilidad</label>
+              <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
+                <option>Venta</option>
+                <option>Alquiler</option>
+              </select>
+            </div>
+            <div>
+              <label for="valor">Valor</label>
+              <input type="text" name="valor" placeholder="valor">
+            </div>
+            <div>
+              <label for="tipo-de-inmueble">Estado</label>
+              <select class="controls js-choices" type="text" name="estado" id="estado">
+                <option>Buen estado</option>
+                <option>A Estrenar</option>
+                <option>A Reformar</option>
+                <option>Reformado</option>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
 
         <hr>
 
@@ -126,8 +126,20 @@
               <label for="poblacion">Población</label>
               <input type="text" name="poblacion" placeholder="población">
             </div>
-
             <div>
+              <label for="tipo-de-via">Tipo de Via</label>
+              <select class="controls js-choices" type="text" name="tipo-de-via" id="tipo-de-via">
+                <option>Calle</option>
+                <option>Avenida</option>
+                <option>Via</option>
+                <option>Paseo</option>
+                <option>Camino</option>
+                <option>Pasaje</option>
+                <option>Plaza</option>
+                <option>Poligono</option>
+              </select>
+            </div>
+            <div class="direccion">
               <label for="direccion">Dirección</label>
               <input type="text" name="dirección" placeholder="direccion">
             </div>
@@ -139,35 +151,20 @@
               <label for="codigo-postal">Codigo Postal</label>
               <input type="text" name="codigo-postal" placeholder="codigo postal">
             </div>
-          
-
-          <div>
-            <label for="tipo-de-via">Tipo de Via</label>
-            <select class="controls js-choices" type="text" name="tipo-de-via" id="tipo-de-via">
-              <option>Calle</option>
-              <option>Avenida</option>
-              <option>Via</option>
-              <option>Paseo</option>
-              <option>Camino</option>
-              <option>Pasaje</option>
-              <option>Plaza</option>
-              <option>Poligono</option>
-            </select>
-          </div>
-          <div>
-            <label for="escalera">Escalera</label>
-            <input type="text" name="escalera" placeholder="escalera">
-          </div>
-          <div>
-            <label for="piso-planta">Piso-planta</label>
-            <input type="text" name="piso-planta" placeholder="piso/planta">
-          </div>
-          <div>
-            <label for="puerta">Puerta</label>
-            <input type="text" name="puerta" placeholder="puerta">
+            <div>
+              <label for="escalera">Escalera</label>
+              <input type="text" name="escalera" placeholder="escalera">
+            </div>
+            <div>
+              <label for="piso-planta">Piso-planta</label>
+              <input type="text" name="piso-planta" placeholder="piso/planta">
+            </div>
+            <div>
+              <label for="puerta">Puerta</label>
+              <input type="text" name="puerta" placeholder="puerta">
+            </div>
           </div>
         </div>
-</div>
         <hr>
 
         <div class="superficie">
@@ -255,7 +252,7 @@
         <div class="funciones-buton">
           <h2>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
               value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
-            <hr/>
+            <hr />
           </h2>
           <div class="fotos">
             <div class="card-scroller">
