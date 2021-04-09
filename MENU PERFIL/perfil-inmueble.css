@@ -22,8 +22,14 @@
     width: 250px !important;
     min-height: 25px !important;
 }
+.localizacion{
+    width: 100%;
+}
 .localizacion .fila{
     width: 100%;
+}
+.fila input{
+    width: 100px;
 }
 .caracteristicas .fila{
    width: 100%;
