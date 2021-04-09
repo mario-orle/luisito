@@ -1,6 +1,6 @@
 .perfil-inmueble{
     width: calc(100% - 15px);
-    height: 1400px;
+    height: 1210px;
     padding: 15px;
     background: #777;
     border-radius: 5px;
@@ -17,40 +17,45 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    text-align: left;
     
 }
 .fila > div {
     width: 250px;
-    height: 80px;
+    height: 50px;
     padding: 10px;
-
 }
-.localizacion .fila > div .choices__inner{
-    width: 200px !important;
-    min-height: 25px !important;
-}
-.localizacion .fila .direccion{
-    width: 515px;
-}
-.localizacion .fila .direccion input{
-    width: 413px;
-}
-
 .inmueble .choices__inner{
     width: 250px !important;
     min-height: 25px !important;
 }
 .localizacion{
     width: 100%;
-    height: 350px;
+    height: 245px;
 }
-
-.localizacion .choices__inner{
+.localizacion .fila .direccion{
+    width: 515px;
+}
+.localizacion .fila .direccion input{
+    flex-grow: 2;
+    width: 415px;
+}
+.localizacion .fila .choices__inner{
     width: 150px !important;
     min-height: 25px !important;
+}
+.descripcion{
+   width: 100%;
+   margin-bottom: 120px;
+}
+.descripcion .fila textarea{
+    width: 1100px;
+    height: 150px;
 }
 
 .caracteristicas .fila{
    width: 100%;
-   height: 100px;
+   height: 140;
 }
