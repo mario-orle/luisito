@@ -63,10 +63,12 @@
     </div>
     <div class="main">
       <div class="perfil-inmueble">
+        <h2>Perfil Inmueble</h2>
         <div class="inmueble">
           <h3>Información del Inmueble</h3>
           <hr>
           <div class="fila">
+            <div>
             <label for="tipo-de-inmueble">Tipo de inmueble</label>
             <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
               <option>Piso</option>
@@ -87,6 +89,7 @@
             </select>
           </div>
           <div>
+            <label for="valor">Valor</label>
             <input type="text" name="valor" placeholder="valor">
           </div>
           <div>
@@ -99,6 +102,7 @@
             </select>
           </div>
         </div>
+      </div>
 
         <hr>
 
@@ -107,28 +111,35 @@
           <hr>
           <div class="fila">
             <div>
+              <label for="pais">Pais</label>
               <input type="text" name="pais" placeholder="pais">
             </div>
             <div>
+              <label for="provincia">Provincia</label>
               <input type="text" name="provincia" placeholder="provincia">
             </div>
             <div>
+              <label for="municipio">Municipio</label>
               <input type="text" name="municipio" placeholder="municipio">
             </div>
             <div>
+              <label for="poblacion">Población</label>
               <input type="text" name="poblacion" placeholder="población">
             </div>
 
             <div>
+              <label for="direccion">Dirección</label>
               <input type="text" name="dirección" placeholder="direccion">
             </div>
             <div>
+              <label for="numero">Numero</label>
               <input type="text" name="numero" placeholder="numero">
             </div>
             <div>
+              <label for="codigo-postal">Codigo Postal</label>
               <input type="text" name="codigo-postal" placeholder="codigo postal">
             </div>
-          </div>
+          
 
           <div>
             <label for="tipo-de-via">Tipo de Via</label>
@@ -144,16 +155,19 @@
             </select>
           </div>
           <div>
+            <label for="escalera">Escalera</label>
             <input type="text" name="escalera" placeholder="escalera">
           </div>
           <div>
+            <label for="piso-planta">Piso-planta</label>
             <input type="text" name="piso-planta" placeholder="piso/planta">
           </div>
           <div>
+            <label for="puerta">Puerta</label>
             <input type="text" name="puerta" placeholder="puerta">
           </div>
         </div>
-
+</div>
         <hr>
 
         <div class="superficie">
@@ -161,13 +175,16 @@
           <hr>
           <div class="fila">
             <div>
+              <label for="superficie-util">Superficie Util</label>
               <input type="text" name="superficie-util" placeholder="superficie util">
             </div>
             <div>
+              <label for="superficie-construida">Superficie Construida</label>
               <input type="text" name="superficie-construida" placeholder="superficie construida">
             </div>
             <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
             <div class="terreno">
+              <label for="superficie-parcela">Superficie Parcela</label>
               <input type="text" name="superficie-parcela" placeholder="superficie parcela">
             </div>
           </div>
@@ -178,12 +195,15 @@
           <hr>
           <div class="fila">
             <div>
+              <label for="habitaciones">Habitaciones</label>
               <input type="text" name="habitaciones" placeholder="habitaciones">
             </div>
             <div>
+              <label for="baños">Baños</label>
               <input type="text" name="baños" placeholder="baños">
             </div>
             <div>
+              <label for="salones">Salones</label>
               <input type="text" name="salones" placeholder="salones">
             </div>
           </div>
@@ -232,10 +252,10 @@
       </div>
       <hr>
       <div class=bg-fotos>
-        <div class="btn-imagenes">
+        <div class="funciones-buton">
           <h2>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
               value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
-            <hr />
+            <hr/>
           </h2>
           <div class="fotos">
             <div class="card-scroller">
