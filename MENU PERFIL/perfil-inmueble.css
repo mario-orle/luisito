@@ -1,3 +1,4 @@
+/* Primer contenedor */
 .box{
     display: flex;
     width: calc(100% - 15px);
@@ -8,7 +9,9 @@
     padding: 10px;
     background: #777;
     border-radius: 5px;
-    border: 2px solid rgb(185, 185, 185);
+    border: 5px solid rgb(185, 185, 185);
+    -webkit-box-shadow: 0px 0px 10px 0px #000000; 
+    box-shadow: 0px 0px 10px 0px #000000;
 }
 .resumen-inmueble h3{
     color: orange;
@@ -29,41 +32,60 @@
     display: flex;
     flex-flow: column;
     justify-content: space-around;
+    margin-left:50px;
 }
 .precio{
     width: calc(100% - 15px);
-    padding: 25px;
+    padding: 15px;
     background: #777;
-    border-radius: 5px;
-    border: 2px solid rgb(185, 185, 185);
+    border-radius: 15px;
+    border: 5px solid rgb(185, 185, 185);
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 0px 0px 6px #000000;
+    color: white;
+    -webkit-box-shadow: 0px 0px 10px 0px #000000; 
+    box-shadow: 0px 0px 10px 0px #000000;
+   
+}
+.precio p{
+    font-size: 14px;
+    font-style: bold;
+    color: orange;
+    text-align: center;
+
 }
 .recomendado{
     width: calc(100% - 15px);
-    padding: 25px;
+    padding: 15px;
     background: #777;
-    border-radius: 5px;
-    border: 2px solid rgb(185, 185, 185);
+    border-radius: 15px;
+    border: 5px solid rgb(185, 185, 185);
+    font-size: 28px;
+    text-align: center;
+    color: white;
+    -webkit-box-shadow: 0px 0px 10px 0px #000000; 
+    box-shadow: 0px 0px 10px 0px #000000;
+    text-shadow: 0px 0px 6px #000000;
+}
+.recomendado p{
+    font-size: 14px;
+    font-style: bold;
+    color: orange;
+    text-align: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* segundo contenedor */
 
 .perfil-inmueble{
-    width: calc(100% - 15px);
-    height: 1210px;
+    width: calc(100% - 35px);
     padding: 15px;
     background: #777;
     border-radius: 5px;
     border: 2px solid rgb(185, 185, 185);
+    -webkit-box-shadow: 0px 0px 10px 0px #000000; 
+    box-shadow: 0px 0px 10px 0px #000000;
+    margin-bottom: 25px;
 }
 .perfil-inmueble h2{
     color: orange;
@@ -76,8 +98,6 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between;
-    align-content: center;
     text-align: left;
     
 }
@@ -85,14 +105,24 @@
     width: 250px;
     height: 50px;
     padding: 10px;
+  
 }
+.fila > div input{
+    width: 140px;
+    height: 35px;
+}
+
+#valor{
+    display: flex;
+}
+
 .inmueble .choices__inner{
     width: 250px !important;
     min-height: 25px !important;
 }
 .localizacion{
     width: 100%;
-    height: 245px;
+   
 }
 .localizacion .fila .direccion{
     width: 515px;
@@ -110,15 +140,53 @@
    margin-bottom: 120px;
 }
 .descripcion .fila textarea{
-    width: 1100px;
+    width: 1070px;
     height: 150px;
 }
 
-.caracteristicas .fila{
-   width: 100%;
-   height: 140;
-}
 
+.caracteristicas .fila > div input {
+    width: 40px;
+    height: 0px;
+}
+.fotos {
+    width: calc(100% - 15px);
+    display: flex;
+ 
+   
+}
+.bg-fotos h2{
+    color: orange;
+    text-align: left;
+}
+.card-scroller{
+    width:100%;
+    height: 250pxlll;
+    display: flex;
+    overflow: scroll;
+}
+.card{
+    width: 30%;
+    padding: 10px;
+    margin-left: 5px;
+   
+ }
+  .card img{
+    margin-top: 8px;
+    border-radius: 5px;
+  }
+  .card{
+    background-color: #434b4d;
+    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .card p{
+    color: white;
+    font-style: italic
+  }
+  
 
 
 
