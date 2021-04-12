@@ -62,56 +62,62 @@
       <hr />
     </div>
     <div class="main">
-      <div class="resumen-inmueble">
-        <dic class="left">
+      <div class="box">
+        <div class="resumen-inmueble">
           <h3>Resumen Inmueble</h3>
-          <div class="slider">
-            <ul>
-              <li>
-                <img src="casa1.jpg" alt="">
-              </li>
-              <li>
-                <img src="casa2.jpg" alt="">
-              </li>
-              <li>
-                <img src="casa3.jpg" alt="">
-              </li>
-              <li>
-                <img src="casa4.jpg" alt="">
-              </li>
-            </ul>
-          </div>
-          <div class="info">
-            <div class="fila-res">
-              <div>
-                <label for="calle">Calle</label>
-                <input type="text" name="calle" placeholder="calle">
+          <hr>
+          <div class="derecha">
+            <div class="slider">
+              <ul>
+                <li>
+                  <img src="casa1.jpg" alt="">
+                </li>
+                <li>
+                  <img src="casa2.jpg" alt="">
+                </li>
+                <li>
+                  <img src="casa3.jpg" alt="">
+                </li>
+                <li>
+                  <img src="casa4.jpg" alt="">
+                </li>
+              </ul>
+            </div>
+            <div class="info">
+              <div class="fila-res">
+                <div>
+                  <label for="calle">Calle</label>
+                  <input type="text"  id="calle" name="calle" placeholder="calle">
+                </div>
+                <div>
+                  <label for="planta">Planta</label>
+                  <input type="text"  id="planta" name="planta" placeholder="planta">
+                </div>
+                <div>
+                  <label for="numero">Numero</label>
+                  <input type="text" id="numero" name="numero" placeholder="numero">
+                </div>
+                <div>
+                  <label for="codigo">Codigo postal</label>
+                  <input type="text" id="codigo" name="codigo" placeholder="codigo postal">
+                </div>
+                <div>
+                  <label for="mentros2">Mentros2 Utiles</label>
+                  <input type="text" id="mentros2" name="mentros2" placeholder="mentros2">
+                </div>
               </div>
-              <div>
-                <label for="planta">Planta</label>
-                <input type="text" name="planta" placeholder="planta">
-              </div>
-              <div>
-                <label for="numero">Numero</label>
-                <input type="text" name="numero" placeholder="numero">
-              </div>
-              <div>
-                <label for="codigo">Codigo postal</label>
-                <input type="text" name="codigo" placeholder="codigo postal">
-              </div>
-              <label for="mentros2">Mentros2 Utiles</label>
-              <input type="text" name="mentros2" placeholder="mentros2">
             </div>
           </div>
-        </dic>
-        <div class="right">
+        </div>
+
+        <div class="izquierda">
           <div class="precio">
             <label for="precio-inm">Precio</label>
-            <input type="text" name="precio-inm" placeholder="precio-inm">
+            <input type="text" id="precio-inm" name="precio-inm" placeholder="precio-inm">
           </div>
           <div class="recomendado">
             <label for="precio-rec">Precio Recomendado</label>
-            <input type="text" name="precio-rec" placeholder="precio-rec">
+            <input type="text" id="precio-rec" name="precio-rec" placeholder="precio-rec">
           </div>
         </div>
       </div>
@@ -143,7 +149,7 @@
             </div>
             <div>
               <label for="valor">Valor</label>
-              <input type="text" name="valor" placeholder="valor">
+              <input type="text" id="valor"name="valor" placeholder="valor">
             </div>
             <div>
               <label for="tipo-de-inmueble">Estado</label>
@@ -163,19 +169,19 @@
           <div class="fila">
             <div>
               <label for="pais">Pais</label>
-              <input type="text" name="pais" placeholder="pais">
+              <input type="text" id="pais" name="pais" placeholder="pais">
             </div>
             <div>
               <label for="provincia">Provincia</label>
-              <input type="text" name="provincia" placeholder="provincia">
+              <input type="text" id="provincia" name="provincia" placeholder="provincia">
             </div>
             <div>
               <label for="municipio">Municipio</label>
-              <input type="text" name="municipio" placeholder="municipio">
+              <input type="text" id="municipio" name="municipio" placeholder="municipio">
             </div>
             <div>
               <label for="poblacion">Población</label>
-              <input type="text" name="poblacion" placeholder="población">
+              <input type="text"  id="poblacion" name="poblacion" placeholder="población">
             </div>
             <div>
               <label for="tipo-de-via">Tipo de Via</label>
@@ -192,27 +198,27 @@
             </div>
             <div class="direccion">
               <label for="direccion">Dirección</label>
-              <input type="text" name="dirección" placeholder="direccion">
+              <input type="text" id="direccion" name="direccion" placeholder="direccion">
             </div>
             <div>
               <label for="numero">Numero</label>
-              <input type="text" name="numero" placeholder="numero">
+              <input type="text" id="numero" name="numero" placeholder="numero">
             </div>
             <div>
               <label for="codigo-postal">Codigo Postal</label>
-              <input type="text" name="codigo-postal" placeholder="codigo postal">
+              <input type="text"id="codigo-postal" name="codigo-postal" placeholder="codigo postal">
             </div>
             <div>
               <label for="escalera">Escalera</label>
-              <input type="text" name="escalera" placeholder="escalera">
+              <input type="text" id="escalera" name="escalera" placeholder="escalera">
             </div>
             <div>
               <label for="piso-planta">Piso-planta</label>
-              <input type="text" name="piso-planta" placeholder="piso/planta">
+              <input type="text" id="piso-planta" name="piso-planta" placeholder="piso/planta">
             </div>
             <div>
               <label for="puerta">Puerta</label>
-              <input type="text" name="puerta" placeholder="puerta">
+              <input type="text" id="puerta" name="puerta" placeholder="puerta">
             </div>
           </div>
         </div>
@@ -223,16 +229,16 @@
           <div class="fila">
             <div>
               <label for="superficie-util">Superficie Util</label>
-              <input type="text" name="superficie-util" placeholder="superficie util">
+              <input type="text" id="superficie-util" name="superficie-util" placeholder="superficie util">
             </div>
             <div>
               <label for="superficie-construida">Superficie Construida</label>
-              <input type="text" name="superficie-construida" placeholder="superficie construida">
+              <input type="text" id="superficie-construida"  name="superficie-construida" placeholder="superficie construida">
             </div>
             <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
             <div class="terreno">
               <label for="superficie-parcela">Superficie Parcela</label>
-              <input type="text" name="superficie-parcela" placeholder="superficie parcela">
+              <input type="text" id="superficie-parcela" name="superficie-parcela" placeholder="superficie parcela">
             </div>
           </div>
         </div>
@@ -243,15 +249,15 @@
           <div class="fila">
             <div>
               <label for="habitaciones">Habitaciones</label>
-              <input type="text" name="habitaciones" placeholder="habitaciones">
+              <input type="text" id="habitaciones" name="habitaciones" placeholder="habitaciones">
             </div>
             <div>
               <label for="baños">Baños</label>
-              <input type="text" name="baños" placeholder="baños">
+              <input type="text" id="baños" name="baños" placeholder="baños">
             </div>
             <div>
               <label for="salones">Salones</label>
-              <input type="text" name="salones" placeholder="salones">
+              <input type="text" id="salones" name="salones" placeholder="salones">
             </div>
           </div>
         </div>
@@ -271,28 +277,28 @@
           <hr>
           <div class="fila">
             <div>
-              <input type="checkbox" name="cbox1"><label for="cbox1">Garaje</label>
+              <input type="checkbox" id="cbox1" name="cbox1"><label for="cbox1">Garaje</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox2"><label for="cbox2">Ascensor</label>
+              <input type="checkbox" id="cbox2"  name="cbox2"><label for="cbox2">Ascensor</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox3"><label for="cbox3">Transporte publico</label>
+              <input type="checkbox" id="cbox3" name="cbox3"><label for="cbox3">Transporte publico</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox4"><label for="cbox4">Centro Urbano</label>
+              <input type="checkbox" id="cbox4" name="cbox4"><label for="cbox4">Centro Urbano</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox5"><label for="cbox5">Comercio</label>
+              <input type="checkbox" id="cbox5" name="cbox5"><label for="cbox5">Comercio</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox6"><label for="cbox6">farmacia</label>
+              <input type="checkbox" id="cbox6" name="cbox6"><label for="cbox6">farmacia</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox7"><label for="cbox7">Parques y Jardines</label>
+              <input type="checkbox" id="cbox7" name="cbox7"><label for="cbox7">Parques y Jardines</label>
             </div>
             <div>
-              <input type="checkbox" name="cbox8"><label for="cbox8">Escuelas</label>
+              <input type="checkbox" id="cbox8" name="cbox8"><label for="cbox8">Escuelas</label>
             </div>
           </div>
         </div>
