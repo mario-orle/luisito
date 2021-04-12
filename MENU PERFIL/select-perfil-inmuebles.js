@@ -5,7 +5,8 @@ window.initChoices = function () {
       choices.push(new Choices(choicesObjs[i], {
         itemSelectText: 'Click para seleccionar',
         searchEnabled: false,
-        shouldSort: false
+        shouldSort: false,
+        position: 'bottom'
       }));
     }
     window.choicesObjs = choices;

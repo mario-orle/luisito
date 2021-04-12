@@ -129,7 +129,7 @@ get_header();
 ?>
                             <div class="card-wrapper">
                              <button>
-                                <a href="perfil-inmueble.html">
+                                <a href="/perfil-inmueble">
                                 <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>" alt="Avatar" style="width:100%">
                                 <div class="box-text">
                                   <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>

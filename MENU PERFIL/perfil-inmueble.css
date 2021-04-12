@@ -102,13 +102,17 @@
     
 }
 .fila > div {
-    width: 250px;
+    width: 23%;
     height: 50px;
-    padding: 10px;
+    padding: 1%;
   
 }
+
+.fila > div label{
+    display: block;
+}
 .fila > div input{
-    width: 140px;
+    width: 100%;
     height: 35px;
 }
 #valor{
@@ -118,7 +122,7 @@
     width: 100%;
 }
 .inmueble .choices__inner{
-    width: 250px !important;
+    width: calc(100% - 17px)!important;
     min-height: 25px !important;
 }
 .localizacion{
@@ -126,14 +130,10 @@
    
 }
 .localizacion .fila .direccion{
-    width: 515px;
-}
-.localizacion .fila .direccion input{
-    flex-grow: 2;
-    width: 415px;
+    width: 48%;
 }
 .localizacion .fila .choices__inner{
-    width: 150px !important;
+    width: calc(100% - 17px)!important;
     min-height: 25px !important;
 }
 .superficie{
