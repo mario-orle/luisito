@@ -211,11 +211,10 @@ table {
 }
 
 .modal.modal-cita.is-open {
-    background: #ddd;
-    border-radius: 4px;
-    font-family: 'calibri';
-    color: white;
-    box-shadow: 7px 13px 37px #000;
+    background-color:#ddd;;
+  border-radius: 5px;
+  box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+  border: 5px #828282 solid;
     width: 500px;
     height: 350px;
     top: calc(50% - 175px);

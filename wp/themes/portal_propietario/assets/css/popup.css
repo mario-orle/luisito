@@ -1,7 +1,7 @@
 .modal__container {
     padding: 30px;
     max-width: 500px;
-    max-height: 100vh;
+    max-height: 73vh;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -137,10 +137,20 @@ Demo Animation Style
     left: calc(50% - 210px);
     right: calc(50% - 250px);
     z-index: 500;
+    background-color:#434b4d;
+    border-radius: 5px;
+    box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
+    border: 5px #828282 solid;
 }
 
+
+#modal-cambiar-usuario-asesor .modal__container{
+    max-width: 400px;
+    max-height: 42vh;
+}
 .modal[aria-hidden="false"] .modal__overlay {
     animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+    
 }
 
 .modal[aria-hidden="false"] .modal__container {
@@ -185,8 +195,7 @@ Demo Animation Style
 
 }
 .controls {
-    /*width: calc(100% - 20px);*/
-    width: 100%;
+    width: calc(100% - 20px);
     background: aliceblue;
     padding: 10px;
     border-radius: 4px;

@@ -62,10 +62,12 @@
       <hr />
     </div>
     <div class="main">
+
+      <hr>
       <div class="box">
+
         <div class="resumen-inmueble">
           <h3>Resumen Inmueble</h3>
-          <hr>
           <div class="derecha">
             <div class="slider">
               <ul>
@@ -86,23 +88,23 @@
             <div class="info">
               <div class="fila-res">
                 <div>
-                  <label for="calle">Calle</label>
-                  <input type="text"  id="calle" name="calle" placeholder="calle">
+                  <label for="calle">CALLE</label>
+                  <input type="text" id="calle" name="calle" placeholder="calle">
                 </div>
                 <div>
-                  <label for="planta">Planta</label>
-                  <input type="text"  id="planta" name="planta" placeholder="planta">
+                  <label for="planta">PLANTA</label>
+                  <input type="text" id="planta" name="planta" placeholder="planta">
                 </div>
                 <div>
-                  <label for="numero">Numero</label>
+                  <label for="numero">NUMERO</label>
                   <input type="text" id="numero" name="numero" placeholder="numero">
                 </div>
                 <div>
-                  <label for="codigo">Codigo postal</label>
+                  <label for="codigo">C.POSTAL</label>
                   <input type="text" id="codigo" name="codigo" placeholder="codigo postal">
                 </div>
                 <div>
-                  <label for="metros2">M2 Utiles</label>
+                  <label for="metros2">M2 UTILES</label>
                   <input type="text" id="metros2" name="metros2" placeholder="m2">
                 </div>
               </div>
@@ -158,7 +160,23 @@
             </div>
             <div>
               <label for="valor">Valor</label>
-              <input type="text" id="valor"name="valor" placeholder="valor">
+              <input type="text" id="valor" name="valor" placeholder="valor">
+            </div>
+            <div>
+              <label for="habitaciones">Habitaciones</label>
+              <input type="text" id="habitaciones" name="habitaciones" placeholder="habitaciones">
+            </div>
+            <div>
+              <label for="baños">Baños</label>
+              <input type="text" id="baños" name="baños" placeholder="baños">
+            </div>
+            <div>
+              <label for="salones">Salones</label>
+              <input type="text" id="salones" name="salones" placeholder="salones">
+            </div>
+            <div>
+              <label for="terrazas">Terrazas</label>
+              <input type="text" id="terrazas" name="terrazas" placeholder="terrazas">
             </div>
           </div>
         </div>
@@ -181,7 +199,7 @@
             </div>
             <div>
               <label for="poblacion">Población</label>
-              <input type="text"  id="poblacion" name="poblacion" placeholder="población">
+              <input type="text" id="poblacion" name="poblacion" placeholder="población">
             </div>
             <div>
               <label for="tipo-de-via">Tipo de Via</label>
@@ -202,7 +220,7 @@
             </div>
             <div>
               <label for="codigo-postal">Codigo Postal</label>
-              <input type="text"id="codigo-postal" name="codigo-postal" placeholder="codigo postal">
+              <input type="text" id="codigo-postal" name="codigo-postal" placeholder="codigo postal">
             </div>
             <div>
               <label for="numero">Numero</label>
@@ -233,7 +251,8 @@
             </div>
             <div>
               <label for="superficie-construida">Superficie Construida</label>
-              <input type="text" id="superficie-construida"  name="superficie-construida" placeholder="superficie construida">
+              <input type="text" id="superficie-construida" name="superficie-construida"
+                placeholder="superficie construida">
             </div>
             <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
             <div class="terreno">
@@ -242,31 +261,13 @@
             </div>
           </div>
         </div>
-        <hr>
-        <div class="divisiones">
-          <h3>Divisiones</h3>
-          <hr>
-          <div class="fila">
-            <div>
-              <label for="habitaciones">Habitaciones</label>
-              <input type="text" id="habitaciones" name="habitaciones" placeholder="habitaciones">
-            </div>
-            <div>
-              <label for="baños">Baños</label>
-              <input type="text" id="baños" name="baños" placeholder="baños">
-            </div>
-            <div>
-              <label for="salones">Salones</label>
-              <input type="text" id="salones" name="salones" placeholder="salones">
-            </div>
-          </div>
-        </div>
+
         <hr>
         <div class="descripcion">
           <h3>Descripción Del Inmueble</h3>
           <hr>
           <div class="fila descripcion">
-              <textarea>Describa su Inmueble</textarea>
+            <textarea>Describa su Inmueble</textarea>
           </div>
         </div>
         <hr>
@@ -278,7 +279,7 @@
               <input type="checkbox" id="cbox1" name="cbox1"><label for="cbox1">Garaje</label>
             </div>
             <div>
-              <input type="checkbox" id="cbox2"  name="cbox2"><label for="cbox2">Ascensor</label>
+              <input type="checkbox" id="cbox2" name="cbox2"><label for="cbox2">Ascensor</label>
             </div>
             <div>
               <input type="checkbox" id="cbox3" name="cbox3"><label for="cbox3">Transporte publico</label>
@@ -302,81 +303,265 @@
         </div>
       </div>
       <hr>
+
+      <div class="funciones-buton">
+        <h2>Fotografias</h2>
+        <div class="boton">
+        <div>
+          <input class="botons " type="submit" value="EDITAR">
+        </div>
+        <div>
+          <input class="botons" type="submit" value="EXAMINAR">
+        </div>
+        <div>
+          <input class="botons " type="submit" value="GUARDAR">
+        </div>
+      </div>
+      </div>
+      <hr />
       <div class=bg-fotos>
-        <div class="funciones-buton">
-          <h2>Fotografias <input class="botons editar" type="submit" value="EDITAR"> <input class="botons" type="submit"
-              value="EXAMINAR"> <input class="botons guardar" type="submit" value="GUARDAR">
-            <hr />
-          </h2>
-          <div class="fotos">
-            <div class="card-scroller">
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa2.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Lateral casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa3.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Interior casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa4.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Jardin casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
-              <div class="card">
-                <img src="casa1.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                  <span><b>Frontal casa</b></span>
-                </div>
-              </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
             </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa1.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa2.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa3.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa4.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa4.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+      </div>
+      <div class=bg-fotos>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa1.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa2.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa3.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa4.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa4.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+      </div>
+      <div class=bg-fotos>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa1.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa2.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa3.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa4.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
+          </div>
+        </div>
+        <div class="card-ft">
+          <div class="iconos">
+            <div class="icn-move">
+              <i class="fas fa-bars"></i>
+            </div>
+            <div class="icn-move">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+          <div class="card-img">
+            <img src="casa4.jpg" width="100%">
+          </div>
+          <div class="card-text">
+            <input type="text" id="name-img" name="name-img" placeholder="TITULO">
           </div>
         </div>
       </div>
