@@ -1,7 +1,7 @@
 .modal__container {
     padding: 30px;
     max-width: 500px;
-    max-height: 100vh;
+    max-height: 73vh;
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -141,6 +141,7 @@ Demo Animation Style
 
 .modal[aria-hidden="false"] .modal__overlay {
     animation: mmfadeIn .3s cubic-bezier(0.0, 0.0, 0.2, 1);
+    
 }
 
 .modal[aria-hidden="false"] .modal__container {
@@ -185,8 +186,7 @@ Demo Animation Style
 
 }
 .controls {
-    /*width: calc(100% - 20px);*/
-    width: 100%;
+    width: calc(100% - 20px);
     background: aliceblue;
     padding: 10px;
     border-radius: 4px;
