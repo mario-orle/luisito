@@ -179,6 +179,35 @@
    padding: 10px;
     
 }
+
+.funciones-buton{
+    display: flex;
+    width:calc(100% - 35px);
+    align-items: center;
+    justify-content: space-between;
+}
+.boton{
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+}
+.botons{
+    width: 100px;
+    box-shadow: 0px 0px 0px 2px #777;
+    background: linear-gradient(to bottom, rgb(128, 123, 123) 5%, rgb(65, 54, 54) 100%);
+    background-color: #4c5463;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 5px 15px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #283966;
+}
+.funciones-buton h2{
+color: orange;
+text-align: left;
+}
 .card-ft{
     width: 200px;
     display: flex;
