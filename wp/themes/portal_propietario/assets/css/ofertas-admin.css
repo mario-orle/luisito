@@ -168,7 +168,7 @@ p {
 #modal-crear-oferta {
   height: 470px;
   top: calc(50% - 220px);
-  background-color:#434b4d;
+  background-color:#ddd;;
   border-radius: 5px;
   box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
   border: 5px #828282 solid;
