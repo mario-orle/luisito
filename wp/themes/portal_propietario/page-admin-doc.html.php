@@ -268,7 +268,6 @@ foreach ($array_documentos as $user => $documentos) {
                 </div>
             </div>
         
-    </div>
     <div id="modal-crear-solicitud-documento" aria-hidden="true" class="modal modal-solicitud-documento">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-crear-solicitud-documento">
@@ -301,6 +300,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
 
             </div>
         </div>
+    </div>
     </div>
     <script>
 function toggle(id) {
