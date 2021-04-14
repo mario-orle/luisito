@@ -90,7 +90,6 @@ get_header();
                         <th>Usuario </th>
                         <th>Inmueble </th>
                         <th>Oferta realizada </th>
-                        <th>Descripción Oferta </th>
                         <th>Estado Oferta </th>
 <?php 
 if (get_current_user_id() === 1) {
@@ -120,7 +119,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
                         <td><?php echo $user_of_admin->display_name; ?></td>
                         <td><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true); ?></td>
                         <td><?php echo number_format($oferta["cantidad"], 0, ',', '.'); ?> €</td>
-                        <td><?php echo $oferta["descripcion"]; ?></td>
+                        
                         <td>
 <?php
 
@@ -488,7 +487,6 @@ const dataTable = new simpleDatatables.DataTable("table", {
         <div class="btn-oferta  aceptar-btn">
             <textarea></textarea>
             <p>Aceptada</p>
-
         </div>
     </div>
 </div>
