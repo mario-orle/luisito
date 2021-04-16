@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 require_once "self/security.php";
+
 if ($_GET['action'] == 'get_messages') {
     if (current_user_can("administrator")) {
         $messages = [];
@@ -16,10 +17,11 @@ if ($_GET['action'] == 'get_messages') {
                 $messages[$user->ID] = array();
                 foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
                     $chat = json_decode(($chat_str), true);
-                    if (!$chat['readed'] && $chat["user"] == "user") {
+                    // el admin solo leerá al leerlos de verdad
+                    /*if (!$chat['readed'] && $chat["user"] == "user") {
                         $chat['readed'] = true;
                         update_user_meta($user->ID, 'meta-messages-chat', wp_slash(json_encode($chat)), ($chat_str));
-                    }
+                    }*/
                     $messages[$user->ID][] = json_decode(($chat_str), true);
                 }
             }
@@ -38,6 +40,25 @@ if ($_GET['action'] == 'get_messages') {
 
     }
     echo json_encode($messages);
+}
+
+if ($_GET['action'] == 'read_messages') {
+    if (current_user_can("administrator")) {
+        $userId = $_GET["user-id"];
+        $messages = [];
+        foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+            if ($user->ID == $userId) {
+            foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
+                    $chat = json_decode(($chat_str), true);
+                    // el admin solo leerá al leerlos de verdad
+                    if (!$chat['readed'] && $chat["user"] == "user") {
+                        $chat['readed'] = true;
+                        update_user_meta($user->ID, 'meta-messages-chat', wp_slash(json_encode($chat)), ($chat_str));
+                    }
+                }
+            }
+        }
+    }
 }
 
 if ($_GET['action'] == 'put_messages') {
