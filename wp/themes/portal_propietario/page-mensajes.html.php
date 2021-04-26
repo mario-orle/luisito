@@ -158,6 +158,10 @@ function cargaMensajes(firstTime) {
             } else {
                 simpleBarMsgs.getScrollElement().scrollTop = estabaEnTop;
             }
+
+            var xhr2 = new XMLHttpRequest();
+            xhr2.open("GET", "/chat-xhr?action=read_messages&user-id=" + userId);
+            xhr2.send();
         }
     }
     xhr.send();
