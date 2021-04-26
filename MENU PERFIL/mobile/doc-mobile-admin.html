@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="doc-mobile.css">
+  <link rel="stylesheet" href="style-web.css">
+
+  <title>DOCUMENTOS</title>
+</head>
+
+<body>
+  <div class="header">
+    <a href="index-mobile.html"> <img src="logo.png"  width="100%"></a>
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="index-mobile-admin.html">INICIO</a>
+        <a href="chat-mobile-admin.html">CHAT</a>
+        <a href="citas-admin.html">CITAS</a>
+        <a href="ofertas-admin.html">OFERTAS</a>
+        <a href="doc-mobile-admin.html">DOCUMENTOS</a>
+        <a href="usuario-admin.html">USUARIOS</a>
+      </div>
+    </div>
+    <span onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div class="bg-image"></div>
+  <div class="main">
+    <div class="main-documentos">
+      <div class="documentos">
+        <div class="text-documentos">
+          <h2>Documentos <i class="fas fa-file"></i>
+            <hr />
+          </h2>
+          <div class="stilo-contenedor">
+            <button type="button" class="collapsible">Documentos Recibidos</button>
+            <div class="content">
+              <div class="fila-documento">
+                <p>Certificado_de_eficiencia_energetica.pdf</p><input class="botons" type="submit" value="GUARDAR">
+              </div>
+              <div class="fila-documento">
+                <p>Book_de_fotos_profesional.zip</p><input class="botons" type="submit" value="GUARDAR">
+              </div>
+              <div class="fila-documento">
+                <p>Celula_de_habitabilidad.pdf</p><input class="botons" type="submit" value="GUARDAR">
+              </div>
+              <div class="fila-documento">
+                <p>Nota_simple_e_informe_juridico.pdf</p><input class="botons" type="submit" value="GUARDAR">
+              </div>
+            </div>
+          </div>
+          <div class="stilo-contenedor">
+            <button type="button" class="collapsible">Documentos Necesarios</button>
+            <div class="content">
+              <div class="fila-documento">
+                <p>Certificado_de_eficiencia_energetica.pdf</p><input class="botons" type="submit" value="CARGAR"><input
+                  class="botons" type="submit" value="SOLICITAR">
+              </div>
+              <div class="fila-documento">
+                <p>Book_de_fotos_profesional.zip</p><input class="botons" type="submit" value="CARGAR"><input
+                  class="botons" type="submit" value="SOLICITAR">
+              </div>
+              <div class="fila-documento">
+                <p>Celula_de_habitabilidad.pdf</p><input class="botons" type="submit" value="CARGAR"><input
+                  class="botons" type="submit" value="SOLICITAR">
+              </div>
+              <div class="fila-documento">
+                <p>Nota_simple_e_informe_juridico.pdf</p><input class="botons" type="submit" value="CARGAR"><input
+                  class="botons" type="submit" value="SOLICITAR">
+              </div>
+            </div>
+          </div>
+          <div class="stilo-contenedor">
+            <button type="button" class="collapsible">Documentos Solicitados</button>
+            <div class="content">
+              <div class="fila-documento">
+                <p>Certificado_de_eficiencia_energetica.pdf</p>
+              </div>
+              <div class="fila-documento">
+                <p>Book_de_fotos_profesional.zip</p>
+              </div>
+              <div class="fila-documento">
+                <p>Celula_de_habitabilidad.pdf</p>
+              </div>
+              <div class="fila-documento">
+                <p>Nota_simple_e_informe_juridico.pdf</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="collapse.js"></script>
+  <script src="menu.js "></script>
+</body>
