@@ -115,7 +115,7 @@ get_header();
     <div class="fila">
       <div>
         <label for="tipo-de-inmueble">Tipo de inmueble</label>
-        <select class="controls js-choices" onchange="editar(event)" name="inmueble-tipo" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true); ?>">
+        <select class="controls js-choices" onchange="editarTipoInmueble(event)" name="inmueble-tipo" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true); ?>">
           <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Piso") echo "selected"; ?> value="Piso">Piso</option>
           <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Casa") echo "selected"; ?> value="Casa">Casa</option> 
           <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Atico") echo "selected"; ?> value="Atico">Atico</option>          
@@ -127,10 +127,10 @@ get_header();
         </select>
       </div>
       <div>
-        <label for="tipo-de-inmueble">Disponibilidad</label>
-        <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
-          <option>Venta</option>
-          <option>Alquiler</option>
+        <label for="inmueble-destino">Disponibilidad</label>
+        <select class="controls js-choices" type="text" name="inmueble-destino" id="inmueble-destino" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?>">
+          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-destino', true) == "Venta") echo "selected"; ?>>Venta</option>
+          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-destino', true) == "Alquiler") echo "selected"; ?>>Alquiler</option>
         </select>
       </div>
       <div>
@@ -143,8 +143,12 @@ get_header();
         </select>
       </div>
       <div>
-        <label for="valor">Valor</label>
-        <input type="number" id="valor" name="inmueble-valor" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-valor', true);?>">
+        <label for="inmueble-equipamiento">Disponibilidad</label>
+        <select class="controls js-choices" type="text" name="inmueble-equipamiento" id="inmueble-equipamiento" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true); ?>">
+          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true) == "Amueblado") echo "selected"; ?>>Amueblado</option>
+          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true) == "Semi-Amueblado") echo "selected"; ?>>Semi-Amueblado</option>
+          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true) == "Sin Amueblar") echo "selected"; ?>>Sin Amueblar</option>
+        </select>
       </div>
       <div>
         <label for="habitaciones">Habitaciones</label>
@@ -239,7 +243,7 @@ get_header();
           placeholder="superficie construida">
       </div>
       <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
-      <div class="terreno">
+      <div class="terreno solochalet">
         <label for="superficie-parcela">Superficie Parcela</label>
         <input type="number" id="superficie-parcela" onchange="editar(event)" name="inmueble-superficie-parcela" placeholder="superficie parcela" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-superficie-parcela', true); ?>">
       </div>
@@ -268,20 +272,20 @@ get_header();
     <h3>Caracteristicas de la Zona</h3>
     <hr>
     <div class="fila">
-      <div>
+      <div class="solochalet solopiso">
         <input type="checkbox" id="cbox1" name="inmueble-garaje" onchange="editarCheck(event)" 
           <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-garaje', true) == "on" ) { ?> checked <?php }?>>
         <label for="cbox1">Garaje</label>
       </div>
-      <div>
+      <div class="solopiso">
         <input type="checkbox" id="cbox2" name="inmueble-ascensor" onchange="editarCheck(event)" 
           <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-ascensor', true) == "on" ) { ?> checked <?php }?>>
         <label for="cbox2">Ascensor</label>
       </div>
-      <div>
-        <input type="checkbox" id="cbox3" name="inmueble-transporte" onchange="editarCheck(event)" 
-          <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-transporte', true) == "on" ) { ?> checked <?php }?>>
-        <label for="cbox3">Transporte publico</label>
+      <div class="solopiso">
+        <input type="checkbox" id="cbox3" name="inmueble-trastero" onchange="editarCheck(event)" 
+          <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-trastero', true) == "on" ) { ?> checked <?php }?>>
+        <label for="cbox3">Trastero</label>
       </div>
       <div>
         <input type="checkbox" id="cbox4" name="inmueble-centrourbano" onchange="editarCheck(event)" 
@@ -432,6 +436,30 @@ foreach ($photos as $key => $photo) {
     input.style.filter = "blur(1px)";
     input.setAttribute("readonly", "true");
 
+  }
+
+  function editarTipoInmueble(e) {
+    document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
+    document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
+    if (e.detail.value === "Piso" || e.detail.value === "Atico") {
+      document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
+    } else if (e.detail.value === "Casa" || e.detail.value.indexOf("Chalet") === 0) {
+      document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
+    }
+
+    editar(e);
+  }
+  var tipoPiso = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>";
+
+  updateTipoPiso(tipoPiso);
+  function updateTipoPiso(tipoPiso) {
+    document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
+    document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
+    if (tipoPiso === "Piso" || tipoPiso === "Atico") {
+      document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
+    } else if (tipoPiso === "Casa" || tipoPiso.indexOf("Chalet") === 0) {
+      document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
+    }
   }
 
   function editar(e) {

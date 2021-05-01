@@ -75,13 +75,8 @@ get_header();
           <p><input validators="numeric" placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
         </div>
-        <div class="tab">Superficie y características inmueble:
-          <p><input validators="numeric" placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
-          <p><input validators="numeric" placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles" type="number"></p>
-          <p><input validators="numeric" placeholder="Habitaciones..." oninput="this.className = ''" name="inmueble-habitaciones" type="number" min="1" max="10"></p>
-        </div>
         <div class="tab" >Situación Inmueble:
-          <p><select class="js-choice" name="inmueble-tipo">
+          <p><select onchange="changeTipo(event)" class="js-choice" name="inmueble-tipo">
             <option value="">Tipo de inmueble</option>
             <option value="Piso">Piso</option>
             <option value="Casa">Casa</option> 
@@ -94,11 +89,10 @@ get_header();
             </select></p>
           <p><select class="js-choice" name="inmueble-estado">
             <option value="">Estado Inmueble</option>
-            <option value="Entrar a vivir">Entrar a vivir</option>
-            <option value="Recién reformado">Recién reformado</option>           
-            <option value="Regular">Regular</option>
-            <option value="Deficiente">Deficiente</option>
-            <option value="Ruinoso">Ruinoso</option>
+            <option value="Buen estado">Buen estado</option>
+            <option value="A Estrenar">A Estrenar</option>           
+            <option value="A Reformar">A Reformar</option>
+            <option value="Reformado">Reformado</option>
             </select></p>
           <p><select class="js-choice" name="inmueble-equipamiento">
             <option value="">Equipamiento</option>
@@ -112,6 +106,15 @@ get_header();
             <option value="Alquiler">Alquiler</option>           
             </select></p>
           <p><input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
+        </div>
+        <div class="tab">Superficie y características inmueble:
+          <p><input validators="numeric" placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
+          <p><input validators="numeric" placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles" type="number"></p>
+          <p class="solochalet solopiso"><input class="not-required" placeholder="Habitaciones..." oninput="this.className = ''" name="inmueble-habitaciones" type="number" min="1" max="10"></p>
+          <p class="solochalet"><input class="not-required" placeholder="Superficie Parcela ..." oninput="this.className = ''" name="inmueble-superficie-parcela" type="number"></p>
+          <p><label for="garaje">Garaje</label><input name="inmueble-garaje" id="garaje" class="not-required" type="checkbox"></p>
+          <p class="solopiso"><label for="ascensor">Ascensor</label><input class="not-required" name="inmueble-ascensor" id="ascensor" type="checkbox"></p>
+          <p class="solopiso"><label for="trastero">Trastero</label><input class="not-required" name="inmueble-trastero" id="trastero" type="checkbox"></p>
         </div>
         <div class="tab">Precio estimado y foto principal
           <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="inmueble-precioestimado" type="number"></p>
@@ -184,6 +187,17 @@ get_header();
     
     reader.readAsDataURL(foto.files[0]); // convert to base64 string
   }
+  }
+
+  function changeTipo(e) {
+    document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
+    document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
+    if (e.detail.value === "Piso" || e.detail.value === "Atico") {
+      document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
+    } else if (e.detail.value === "Casa" || e.detail.value.indexOf("Chalet") === 0) {
+      document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
+
+    }
   }
 </script>
 <?php
