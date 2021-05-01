@@ -56,3 +56,10 @@ if ($_GET['action'] == 'elimina-inmueble') {
     wp_delete_post($inmueble_id);
 
 }
+if ($_GET['action'] == 'actualiza-imagenes') {
+    $inmueble_id = $_GET['inmueble_id'];
+    
+    delete_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo');
+    update_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', wp_slash($_POST['metavalue']));
+
+}

@@ -130,12 +130,12 @@ get_header();
 ?>
                             <div class="card-wrapper">
                              <button>
-                                <a href="/perfil-inmueble">
+                                <a href="/perfil-inmueble?inmueble_id=<?php echo $inmueble->ID ?>">
                                 <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>" alt="Avatar" style="width:100%">
                                 <div class="box-text">
-                                  <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+                                  <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?></h3>
                                   <h4><b><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?></b></h4>
-                                  <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>
+                                  <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true); ?></p>
                                 </div>
                                </a>
                               </button>

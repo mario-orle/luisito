@@ -19,6 +19,7 @@ if ($_GET['action'] == 'upload-photo-inmueble') {
 
     if ( $movefile ) {
         $movefile['validated'] = false;
+        $movefile['name'] = basename($movefile["url"]);
 
         add_post_meta($inmueble_id, 'meta-photos-inmueble', $movefile);
         echo json_encode($movefile);
