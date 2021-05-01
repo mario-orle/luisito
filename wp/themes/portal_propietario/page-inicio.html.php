@@ -57,7 +57,8 @@ get_header();
       $array_citas = get_own_citas();
 
       foreach ($array_citas as $i => $cita) {
-        if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+        $cita = json_decode(wp_unslash($cita), true);
+        if (wp_unslash($cita["status"]) != 'aceptada-cliente' && wp_unslash($cita["status"]) != 'rechazada-cliente' && wp_unslash($cita["status"]) != 'realizada' && wp_unslash($cita["status"]) != 'descartada') {
           $pending_citas++;
         }
       }

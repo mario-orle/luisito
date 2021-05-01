@@ -14,7 +14,7 @@ require_once "self/security.php";
 function generateRandomString($length = 10) {
     return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = get_user_by('id', $_POST['usuario']);
     $data = array();
     if ($_POST['action'] == "crear") {
@@ -56,6 +56,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
         if ($_POST['status'] != 'eliminada') {
             add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
         }
+    }
+    if ($_POST['action'] == "confirmar" && !current_user_can("administrator")) {
+        $user = wp_get_current_user();
+
+        $data['id'] = $_POST['cita-id'];
+        
+        $data['status'] = $_POST['status'];
+        
+
+        foreach (get_user_meta($user->ID, 'meta-citas-usuario') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $data["id"]) {
+                delete_user_meta($user->ID, 'meta-citas-usuario', wp_slash($old_meta_encoded));
+            }
+        }
+        $old_meta['status'] = $_POST['status'];
+        add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($old_meta)));
+        
     }
     wp_redirect("/citas");
 }
@@ -185,7 +203,7 @@ if (current_user_can('administrator')) {
 <?php
 } else {
 ?>
-                        Ver cita
+                        Confirmar cita
 <?php
 }
 ?>
@@ -215,6 +233,8 @@ if (current_user_can('administrator')) {
                         <select class="controls js-choices" name="status">
                             <option value="creada">Creada</option>
                             <option value="fecha-cambiada">Fecha cambiada</option>
+                            <option value="aceptada-cliente">Aceptada por cliente</option>
+                            <option value="rechazada-cliente">Rechazada por cliente</option>
                             <option value="realizada">Realizada</option>
                             <option value="descartada">Descartada</option>
                             <option value="eliminada">Eliminada</option>
@@ -223,7 +243,10 @@ if (current_user_can('administrator')) {
 } else {
 ?>
                         <input type="hidden" name="usuario">
-                        <input type="hidden" name="status">
+                        <select class="controls js-choices" name="status">
+                            <option value="aceptada-cliente">Aceptar</option>
+                            <option value="rechazada-cliente">Rechazar</option>
+                        </select>
 <?php
 }
 ?>
@@ -235,14 +258,38 @@ if (current_user_can('administrator')) {
                         <input class="controls" type="hidden" name="old-status">
                         <input class="controls" type="hidden" name="old-comments">
 
-                        <?php
-if (current_user_can('administrator')) {
-                        ?>
                         <input style="display: none" name="action" value="actualizar" />
                         <input class="botons" type="submit" value="Actualizar" />
-                        <?php
-}
-                        ?>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-confirmar-cita" aria-hidden="true" class="modal modal-cita">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-confirmar-cita">
+                <header class="modal__header">
+                    <h2 id="modal-confirmar-cita-title">
+                        Confirmar cita
+                    </h2>
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-confirmar-cita-content">
+                    <form method="POST">
+                        <input class="controls" type="text" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
+                        <input class="controls" type="text" readonly name="fechas-str">
+                        <textarea class="controls" readonly name="comments"></textarea>
+
+                        <input type="hidden" name="cita-id">
+                        <input type="hidden" name="action" value="confirmar">
+                        <select class="controls js-choices" name="status">
+                            <option value="aceptada-cliente">Aceptar</option>
+                            <option value="rechazada-cliente">Rechazar</option>
+                        </select>
+
+                        <input class="botons" type="submit" value="Confirmar" />
                     </form>
                 </div>
 
@@ -274,7 +321,7 @@ if (!current_user_can('administrator')) {
                     title: citas[k][i].nombre,
                     start: citas[k][i].inicio,
                     end: citas[k][i].fin,
-                    color: colors[k % colors.length],
+                    color: colors[k % colors.length],// + (citas[k][i].status === 'rechazada-cliente' ? "66": "ff"),
                     extendedProps: {
                         id: k,
                         status: citas[k][i].status,
@@ -336,6 +383,8 @@ if (current_user_can('administrator')) {
             ?>
             eventClick: function(info) {
                 // change the border color just for fun
+<?php if (current_user_can('administrator')) { ?>
+
                 document.querySelector("#modal-actualizar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
                 document.querySelector("#modal-actualizar-cita [name=nombre]").value = info.event.title;
                 document.querySelector("#modal-actualizar-cita [name=old-nombre]").value = info.event.title;
@@ -351,6 +400,19 @@ if (current_user_can('administrator')) {
                 document.querySelector("#modal-actualizar-cita [name=comments]").value = info.event.extendedProps.comments;
                 document.querySelector("#modal-actualizar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
                 MicroModal.show('modal-actualizar-cita'); 
+<?php
+} else {
+?>
+                document.querySelector("#modal-confirmar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
+                document.querySelector("#modal-confirmar-cita [name=nombre]").value = info.event.title;
+                document.querySelector("#modal-confirmar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
+                document.querySelector("#modal-confirmar-cita [name=comments]").value = info.event.extendedProps.comments;
+
+                MicroModal.show('modal-confirmar-cita'); 
+
+<?php
+}
+?>
             },
             events: citasCalendar
         });
