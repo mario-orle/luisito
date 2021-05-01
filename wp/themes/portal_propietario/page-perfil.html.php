@@ -76,7 +76,7 @@ get_header();
               <option value="NIE">NIE</option>           
             </select>
           </p>
-          <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''" name="owner-numdocumento"></p>
+          <p><input validators="dni" placeholder="Numero del documento y Letra..." oninput="this.className = ''" name="owner-numdocumento"></p>
 
         </div>
         <div class="tab">Contacto:
