@@ -11,13 +11,15 @@ require_once "self/security.php";
 if ($_GET['action'] == 'update_metadata') {
     $inmueble_id = $_GET['inmueble_id'];
     $user_id = $_GET['user_id'];
-
-    
-    if (strpos($key, 'inmueble-owner') === 0) {
-        update_user_meta($user_id, 'meta-' . $_POST['metaname'], wp_slash($_POST['metavalue']));
-    } else {
-        update_post_meta($inmueble_id, 'meta-' . $_POST['metaname'], wp_slash($_POST['metavalue']));
+    if (!current_user_can("administrator") && !get_post_meta($inmueble_id, 'old-meta-' . $_POST['metaname'])) {
+        update_post_meta($inmueble_id, 
+            'old-meta-' . $_POST['metaname'], 
+            get_post_meta($inmueble_id, 'meta-' . $_POST['metaname'], true)
+        );
+    } else if (current_user_can("administrator")) {
+        delete_post_meta($inmueble_id, 'old-meta-' . $_POST['metaname']);
     }
+    update_post_meta($inmueble_id, 'meta-' . $_POST['metaname'], wp_slash($_POST['metavalue']));
 }
 
 if ($_GET['action'] == 'inmuebles_of_user') {

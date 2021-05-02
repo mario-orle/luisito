@@ -33,6 +33,76 @@ function myCss() {
     echo '<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>';
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">';
 }
+
+function selectPerfilCreate($field, $inmueble, $values, $label = '', $fn = "editar") {
+  if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true)) {
+
+?>
+  <label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
+  <select class="controls js-choices" onchange="<?php echo $fn ?>(event)" name="inmueble-<?php echo $field ?>" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true); ?>">
+<?php
+foreach ($values as $key => $value) {
+?>
+    <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true) == $value) echo "selected='selected'"; ?> value="<?php echo $value ?>"><?php echo $value ?></option>
+<?php
+}
+?>
+  </select>
+  <div class="undoer">
+    <label >
+        Valor anterior
+    </label>
+    <label style="background-color: #fff; padding: 10px;"> 
+      <?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true) ?>
+
+    </label>
+
+
+    <i onclick="undoSelect(event, '<?php echo $field ?>', '<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true);?>')" class="fas fa-undo" title="Recuperar valor anterior"></i>
+    <i onclick="removeUndoSelect(event, '<?php echo $field ?>')" class="fas fa-trash" title="Descartar valor anterior"></i>
+  </div>
+<?php
+  } else {
+?>
+  <label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
+  <select class="controls js-choices" onchange="<?php echo $fn ?>(event)" name="inmueble-<?php echo $field ?>" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true); ?>">
+<?php
+foreach ($values as $key => $value) {
+?>
+    <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true) == $value) echo "selected='selected'"; ?> value="<?php echo $value ?>"><?php echo $value ?></option>
+<?php
+}
+?>
+  </select>
+<?php
+  }
+}
+
+function fieldPerfilCreate($field, $inmueble, $type, $label = '') {
+  if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true)) {
+
+?>
+<label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
+<input placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="<?php echo $field; ?>" name="inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true);?>">
+<div class="undoer">
+  <label for="old-<?php echo $field; ?>">
+      Valor anterior
+  </label>
+  <input placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="old-<?php echo $field; ?>" name="old-inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true);?>">
+  <i onclick="undo(event, '<?php echo $field ?>', '<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true);?>')" class="fas fa-undo" title="Recuperar valor anterior"></i>
+  <i onclick="removeUndo(event, '<?php echo $field ?>')" class="fas fa-trash" title="Descartar valor anterior"></i>
+</div>
+<?php
+  } else {
+
+?>
+<label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
+<input placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="<?php echo $field; ?>" name="inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true);?>">
+<?php
+  }
+
+}
+
 add_action('wp_head', 'myCss');
 
 $inmueble_id = ($_GET["inmueble_id"]);
@@ -94,7 +164,20 @@ get_header();
       <h3><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 0, ',', '.'); ?>€</h3>
       <p>PRECIO DE VENTA</p>
     </div>
+<?php 
+if (current_user_can("administrator")) {
+?>
+    <div class="recomendado" onclick="setPrecioRecomendado()" style="cursor: pointer;">
+
+<?php
+} else {
+
+?>
     <div class="recomendado">
+
+<?php
+}
+?>
     <?php if (!empty(get_post_meta($inmueble->ID, 'meta-inmueble-preciorecomendado', true))) { ?>
     
       <h3><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-preciorecomendado', true), 0, ',', '.'); ?>€</h3>
@@ -114,57 +197,46 @@ get_header();
   <div class="inmueble">
     <div class="fila">
       <div>
-        <label for="tipo-de-inmueble">Tipo de inmueble</label>
-        <select class="controls js-choices" onchange="editarTipoInmueble(event)" name="inmueble-tipo" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true); ?>">
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Piso") echo "selected"; ?> value="Piso">Piso</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Casa") echo "selected"; ?> value="Casa">Casa</option> 
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Atico") echo "selected"; ?> value="Atico">Atico</option>          
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Chalet Independiente") echo "selected"; ?> value="Chalet Independiente">Chalet Independiente</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Chalet Pareado") echo "selected"; ?> value="Chalet Pareado">Chalet Pareado</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Chalet Adosado") echo "selected"; ?> value="Chalet Adosado">Chalet Adosado</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Garaje") echo "selected"; ?> value="Garaje">Garaje</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) == "Trastero") echo "selected"; ?> value="Trastero">Trastero</option>
-        </select>
+
+<?php 
+  selectPerfilCreate("tipo", $inmueble, ["Piso", "Casa", "Atico", "Chalet Independiente", "Chalet Pareado", "Chalet Adosado", "Garaje", "Trastero"], "Tipo de inmueble", "editarTipoInmueble");
+?>
+
       </div>
       <div>
-        <label for="inmueble-destino">Disponibilidad</label>
-        <select class="controls js-choices" type="text" name="inmueble-destino" id="inmueble-destino" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?>">
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-destino', true) == "Venta") echo "selected"; ?>>Venta</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-destino', true) == "Alquiler") echo "selected"; ?>>Alquiler</option>
-        </select>
+<?php 
+  selectPerfilCreate("destino", $inmueble, ["Venta", "Alquiler"], "Disponibilidad");
+?>
       </div>
       <div>
-        <label for="tipo-de-inmueble">Estado</label>
-        <select class="controls js-choices" type="text" onchange="editar(event)" name="inmueble-estado" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true); ?>">>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-estado', true) == "Buen estado") echo "selected"; ?> value="Buen estado">Buen estado</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-estado', true) == "A Estrenar") echo "selected"; ?> value="A Estrenar">A Estrenar</option>           
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-estado', true) == "A Reformar") echo "selected"; ?> value="A Reformar">A Reformar</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-estado', true) == "Reformado") echo "selected"; ?> value="Reformado">Reformado</option>
-        </select>
+<?php 
+  selectPerfilCreate("estado", $inmueble, ["Buen estado", "A Estrenar", "A Reformar", "Reformado"], "Estado");
+?>
       </div>
       <div>
-        <label for="inmueble-equipamiento">Disponibilidad</label>
-        <select class="controls js-choices" type="text" name="inmueble-equipamiento" id="inmueble-equipamiento" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true); ?>">
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true) == "Amueblado") echo "selected"; ?>>Amueblado</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true) == "Semi-Amueblado") echo "selected"; ?>>Semi-Amueblado</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-equipamiento', true) == "Sin Amueblar") echo "selected"; ?>>Sin Amueblar</option>
-        </select>
+<?php 
+  selectPerfilCreate("equipamiento", $inmueble, ["Amueblado", "Semi-Amueblado", "Sin Amueblar"], "Equipamiento");
+?>
       </div>
-      <div>
-        <label for="habitaciones">Habitaciones</label>
-        <input type="number" id="habitaciones" name="inmueble-habitaciones" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-habitaciones', true);?>">
+      <div class="solochalet solopiso">
+<?php 
+  fieldPerfilCreate("habitaciones", $inmueble, "number");
+?>
       </div>
-      <div>
-        <label for="baños">Baños</label>
-        <input type="number" id="baños" name="inmueble-baños" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-baños', true);?>">
+      <div class="solochalet solopiso">
+<?php 
+  fieldPerfilCreate("baños", $inmueble, "number");
+?>
       </div>
-      <div>
-        <label for="salones">Salones</label>
-        <input type="number" id="salones" name="inmueble-salones" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-salones', true);?>">
+      <div class="solochalet solopiso">
+<?php 
+  fieldPerfilCreate("salones", $inmueble, "number");
+?>
       </div>
-      <div>
-        <label for="terrazas">Terrazas</label>
-        <input type="number" id="terrazas" name="inmueble-terrazas" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-terrazas', true);?>">
+      <div class="solochalet solopiso">
+<?php 
+  fieldPerfilCreate("terrazas", $inmueble, "number");
+?>
       </div>
     </div>
   </div>
@@ -174,57 +246,59 @@ get_header();
     <hr>
     <div class="fila">
       <div>
-        <label for="pais">Pais</label>
-        <input type="text" id="pais" name="inmueble-pais" placeholder="pais" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-pais', true);?>">
+<?php 
+  fieldPerfilCreate("pais", $inmueble, "text");
+?>
       </div>
       <div>
-        <label for="provincia">Provincia</label>
-        <input type="text" id="provincia" name="inmueble-provincia" placeholder="provincia" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true);?>">
+<?php 
+  fieldPerfilCreate("provincia", $inmueble, "text");
+?>
       </div>
       <div>
-        <label for="municipio">Municipio</label>
-        <input type="text" id="municipio" name="inmueble-municipio" onchange="editar(event)" placeholder="municipio" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true);?>">
+<?php 
+  fieldPerfilCreate("municipio", $inmueble, "text");
+?>
       </div>
       <div>
-        <label for="poblacion">Población</label>
-        <input type="text" id="poblacion" name="inmueble-poblacion" placeholder="población" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-poblacion', true);?>">
+<?php 
+  fieldPerfilCreate("poblacion", $inmueble, "text");
+?>
       </div>
       <div>
-        <label for="tipo-de-via">Tipo de Via</label>
-        <select class="controls js-choices" type="text" name="inmueble-tipo-de-via" id="tipo-de-via" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true); ?>">
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Calle") echo "selected"; ?> value="Calle">Calle</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Avenida") echo "selected"; ?> value="Avenida">Avenida</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Via") echo "selected"; ?> value="Via">Via</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Paseo") echo "selected"; ?> value="Paseo">Paseo</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Camino") echo "selected"; ?> value="Camino">Camino</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Pasaje") echo "selected"; ?> value="Pasaje">Pasaje</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Plaza") echo "selected"; ?> value="Plaza">Plaza</option>
-          <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-tipo-de-via', true) == "Poligono") echo "selected"; ?> value="Poligono">Poligono</option>
-        </select>
+<?php 
+  selectPerfilCreate("tipo-de-via", $inmueble, ["Calle", "Avenida", "Via", "Paseo", "Camino", "Pasaje", "Plaza", "Poligono"], "Tipo de Via");
+?>
       </div>
       <div class="direccion">    
-        <label for="direccion">Dirección</label>
-        <input type="text" id="direccion" name="inmueble-direccion" placeholder="direccion" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true);?>">
+<?php 
+  fieldPerfilCreate("direccion", $inmueble, "text");
+?>
+      </div>
+      <div> 
+<?php 
+  fieldPerfilCreate("codigo-postal", $inmueble, "text", "Código Postal");
+?>
       </div>
       <div>
-        <label for="codigo-postal">Codigo Postal</label>
-        <input type="text" id="codigo-postal" name="inmueble-codigo-postal" placeholder="codigo postal" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-codigo-postal', true);?>">
+<?php 
+  fieldPerfilCreate("numero", $inmueble, "text", "Número");
+?>
       </div>
       <div>
-        <label for="numero">Numero</label>
-        <input type="text" id="numero" name="inmueble-numero" placeholder="numero" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-numero', true);?>">
+<?php 
+  fieldPerfilCreate("escalera", $inmueble, "text");
+?>
       </div>
       <div>
-        <label for="escalera">Escalera</label>
-        <input type="text" id="escalera" name="inmueble-escalera" placeholder="escalera" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-escalera', true);?>">
+<?php 
+  fieldPerfilCreate("piso-planta", $inmueble, "text");
+?>
       </div>
       <div>
-        <label for="piso-planta">Piso-planta</label>
-        <input type="text" id="piso-planta" name="inmueble-piso-planta" placeholder="piso/planta" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-piso-planta', true);?>">
-      </div>
-      <div>
-        <label for="puerta">Puerta</label>
-        <input type="text" id="puerta" name="inmueble-puerta" placeholder="puerta" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-puerta', true);?>">
+<?php 
+  fieldPerfilCreate("puerta", $inmueble, "text");
+?>
       </div>
     </div>
   </div>
@@ -234,18 +308,20 @@ get_header();
     <hr>
     <div class="fila">
       <div>
-        <label for="superficie-util">Superficie Util</label>
-        <input type="number" id="superficie-util" name="inmueble-m2utiles" onchange="editar(event)" placeholder="superficie util" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true); ?>">
+<?php 
+  fieldPerfilCreate("m2utiles", $inmueble, "number", "Superficie Útil");
+?>
       </div>
       <div>
-        <label for="superficie-construida">Superficie Construida</label>
-        <input type="number" id="superficie-construida" onchange="editar(event)" name="inmueble-m2construidos" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true); ?>"
-          placeholder="superficie construida">
+<?php 
+  fieldPerfilCreate("m2construidos", $inmueble, "number", "Superficie Construida");
+?>
       </div>
       <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
       <div class="terreno solochalet">
-        <label for="superficie-parcela">Superficie Parcela</label>
-        <input type="number" id="superficie-parcela" onchange="editar(event)" name="inmueble-superficie-parcela" placeholder="superficie parcela" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-superficie-parcela', true); ?>">
+<?php 
+  fieldPerfilCreate("superficie-parcela", $inmueble, "number", "Superficie Parcela");
+?>
       </div>
     </div>
   </div>
@@ -255,16 +331,45 @@ get_header();
     <h3>Descripción Del Inmueble</h3>
     <hr>
     <div class="fila descripcion">
-      <textarea
-        name="inmueble-descripcion"
-        rows="2"
-        class="question"
-        placeholder="Describa su inmueble"
-        id="msg"
-        required
-        autocomplete="off"
-        onchange="editar(event)"
-      ><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true); ?></textarea>
+        <textarea
+          name="inmueble-descripcion"
+          rows="2"
+          class="question"
+          placeholder="Describa su inmueble"
+          id="msg"
+          required
+          autocomplete="off"
+          onchange="editar(event)"
+        ><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true); ?></textarea>
+<?php
+if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-inmueble-descripcion', true)) {
+?>
+        <div class="undoer">
+          <label for="old-<?php echo $field; ?>">
+              Valor anterior
+          </label>
+          <textarea
+                name="old-inmueble-descripcion"
+                rows="2"
+                class="question"
+                placeholder="Describa su inmueble"
+                id="msg"
+                required
+                autocomplete="off"
+                onchange="editar(event)"
+          ><?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-descripcion', true); ?></textarea>
+
+          <i onclick="undo(event, 'descripcion', '<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-descripcion', true);?>')" class="fas fa-undo" title="Recuperar valor anterior"></i>
+          <i onclick="removeUndo(event, 'descripcion')" class="fas fa-trash" title="Descartar valor anterior"></i>
+        </div>
+      
+
+<?php
+}
+
+
+
+?>
     </div>
   </div>
   <hr>
@@ -382,10 +487,10 @@ foreach ($photos as $key => $photo) {
 
 <script>
   moment.locale("es");
-  var choicesObjs = document.querySelectorAll('.js-choice');
-  var choices = [];
+  var choicesObjs = document.querySelectorAll('.js-choice, .js-choices');
+  var choicesElements = {};
   for (var i = 0; i < choicesObjs.length; i++) {
-    choices.push(new Choices(choicesObjs[i], {
+    choicesElements[choicesObjs[i].name] = (new Choices(choicesObjs[i], {
       itemSelectText: 'Click para seleccionar',
       searchEnabled: false,
       shouldSort: false
@@ -441,9 +546,9 @@ foreach ($photos as $key => $photo) {
   function editarTipoInmueble(e) {
     document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
     document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
-    if (e.detail.value === "Piso" || e.detail.value === "Atico") {
+    if (e.target.value === "Piso" || e.target.value === "Atico") {
       document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
-    } else if (e.detail.value === "Casa" || e.detail.value.indexOf("Chalet") === 0) {
+    } else if (e.target.value === "Casa" || e.target.value.indexOf("Chalet") === 0) {
       document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
     }
 
@@ -656,6 +761,29 @@ foreach ($photos as $key => $photo) {
       }
       xhr.send(formData);
     }
+
+
+    function undo(e, field, oldValue) {
+      e.currentTarget.parentElement.remove();
+      document.querySelector("[name='inmueble-" + field + "']").value = oldValue;
+      document.querySelector("[name='inmueble-" + field + "']").dispatchEvent(new Event("change"));
+    }
+    function removeUndo(e, field) {
+      e.currentTarget.parentElement.remove();
+      document.querySelector("[name='inmueble-" + field + "']").dispatchEvent(new Event("change"));
+
+    }
+
+function undoSelect(e, field, oldValue) {
+  e.currentTarget.parentElement.remove();
+  choicesElements["inmueble-" + field].setChoiceByValue(oldValue);
+  document.querySelector("[name='inmueble-" + field + "']").dispatchEvent(new Event("change"));
+}
+function removeUndoSelect(e, field) {
+  e.currentTarget.parentElement.remove();
+  document.querySelector("[name='inmueble-" + field + "']").dispatchEvent(new Event("change"));
+
+}
 </script>
 <?php
 get_footer();
