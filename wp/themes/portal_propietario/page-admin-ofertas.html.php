@@ -182,11 +182,11 @@ if (get_current_user_id() === 1) {
                         <td>
 <?php 
                 if ($oferta["status"] == "respondida-cliente" || $oferta["status"] == "respondida-cita") {
-                    if ($respuesta != 'aceptar') {
+                    if ($respuesta == 'contraoferta') {
 ?>
                             <a id="edit-oferta" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-money-check-alt"></i></a>
 <?php 
-                    } else if ($oferta["status"] != "respondida-cita") {
+                    } else if ($oferta["status"] != "respondida-cita" && $respuesta != 'denegar') {
 ?>
                             <a id="edit-cita" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-calendar-alt"></i></a>
 <?php 
@@ -321,7 +321,12 @@ moment.locale("es");
 var datepicker;
 function ver(id) {
     var oferta = ofertas.find(o => o.id === id);
-console.log(oferta);
+    var popup = document.querySelector("#modal-ver-oferta");
+    popup.classList.remove("contraoferta");
+    popup.classList.remove("denegar");
+    popup.classList.remove("aceptar");
+    popup.classList.add(oferta.respuesta);
+    
     var container = document.querySelector("#modal-ver-oferta-asesor-content");
 
     if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
@@ -439,7 +444,7 @@ const dataTable = new simpleDatatables.DataTable("table", {
     <div class="card-wrapper">
         <button>
             <a href="perfil-inmueble.html">
-                <img src="../../casa3.jpg" alt="Avatar" style="width:100%">
+                <img alt="Avatar" style="width:100%">
                 <h3><b>SE ALQUILA</b> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
                 <h4><b>145.000€</b></h4>
                 <p>Casa moderna con piscina, zona ajardina, garaje con 3 plazas.</p>

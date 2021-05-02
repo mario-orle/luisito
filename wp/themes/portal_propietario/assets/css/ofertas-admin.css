@@ -188,6 +188,11 @@ p {
   border: 5px #828282 solid;
 }
 
+#modal-ver-oferta.contraoferta {
+  height: 600px;
+  top: calc(50% - 300px);
+}
+
 #modal-ver-oferta p{
   height: auto;
 }

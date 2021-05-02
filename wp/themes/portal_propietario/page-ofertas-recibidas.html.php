@@ -89,7 +89,7 @@ foreach ($array_ofertas as $inmueble_id => $ofertas) {
         # code...
 ?>
         <div class="espacio-caja">
-            <button type="button" class="collapsible">OFERTA 1</button>
+            <button type="button" class="collapsible">OFERTA</button>
             <div class="content">
                 <table>
                     <tr>
@@ -181,7 +181,6 @@ if ($oferta['status'] === 'creada') {
 ?>
                 </div>
             </div>
-        </div>
 <?php
     }
 }
