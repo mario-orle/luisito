@@ -23,6 +23,9 @@ function myCss() {
     echo '<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>';
     
     echo '<script src="https://unpkg.com/filepond/dist/filepond.js"></script>';
+    echo '<script src="https://unpkg.com/filepond-plugin-image-crop/dist/filepond-plugin-image-crop.js"></script>';
+    echo '<script src="https://unpkg.com/filepond-plugin-image-transform/dist/filepond-plugin-image-transform.js"></script>';
+    
     echo '<script src="https://unpkg.com/filepond-plugin-file-rename/dist/filepond-plugin-file-rename.js"></script>';
     echo '<script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>';
     echo '<link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">';
@@ -638,9 +641,13 @@ foreach ($photos as $key => $photo) {
       imageValidateSizeLabelExpectedMinResolution: "La resolución mínima es {minResolution}",
       imageValidateSizeLabelExpectedMaxResolution: "La resolución máxima es {maxResolution}",
     });
+    FilePond.registerPlugin(FilePondPluginImageTransform);
     FilePond.registerPlugin(FilePondPluginImagePreview);
+    FilePond.registerPlugin(FilePondPluginImageCrop);
     FilePond.setOptions({
       server: '/file-upload?action=upload-photo-inmueble&inmueble_id=<?php echo $_GET["inmueble_id"] ?>',
+      allowImageCrop: true,
+      imageCropAspectRatio: "16:10"
     });
     function createElementFromHTML(htmlString) {
       var div = document.createElement('div');

@@ -101,14 +101,21 @@ if (!current_user_can('administrator')){
     }
   }
 } else {
-
-  $users_of_admin = get_users(array(
-    'meta_key' => 'meta-gestor-asignado',
-    'meta_value' => get_current_user_id()
-  ));
+  if (get_current_user_id() === 1) {
+    $users_of_admin = get_users(array(
+      "role" => "subscriber"
+    ));
+  } else {
+    $users_of_admin = get_users(array(
+      'meta_key' => 'meta-gestor-asignado',
+      'meta_value' => get_current_user_id()
+    ));
+  }
   $review_documents = [];
   $citas = 0;
   $ofertas = 0;
+  $servicios = [];
+
   foreach ($users_of_admin as $user_of_admin) {
     foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
       $chat = json_decode(wp_unslash($chat_str), true);
@@ -140,6 +147,18 @@ if (!current_user_can('administrator')){
 
       }
     }
+    $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
+    $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
+    $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
+    $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
+
+    $servicios[$user_of_admin->display_name] = [
+      'Notario ' => $servicio_notario, 
+      'Certificado Energético' => $servicio_certificado, 
+      'Nota Simple' => $servicio_nota_simple, 
+      'Reportaje Fotográfico' => $servicio_reportaje, 
+    ];
+
   }
 }
 ?>
@@ -155,20 +174,30 @@ if (current_user_can("administrator")) {
   if (count($review_documents) > 0) {
     # code...
 ?>
-              <li><a href="/admin-doc">Ficheros a revisar pendientes</li>
+              <li><a href="/admin-doc">Ficheros a revisar pendientes</a></li>
 <?php
   }
   if ($citas > 0) {
     # code...
 ?>
-              <li><a href="/citas">Citas a revisar pendientes</li>
+              <li><a href="/citas">Citas a revisar pendientes</a></li>
 <?php
   }
   if ($ofertas > 0) {
     # code...
 ?>
-              <li><a href="/admin-ofertas">Ofertas pendientes de respuesta</li>
+              <li><a href="/admin-ofertas">Ofertas pendientes de respuesta</a></li>
 <?php
+  }
+  foreach ($servicios as $name_user => $servicio) {
+    foreach ($servicio as $name => $solicitado) {
+      # code...
+      if ($solicitado === "solicitado") {
+?>
+        <li><?php echo $name_user ?> ha solicitado <?php echo $name ?></li>
+<?php
+      }
+    }
   }
 } 
 ?>
