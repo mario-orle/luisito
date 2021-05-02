@@ -148,7 +148,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
 ?>
 
                             <input disabled type="checkbox" id="test<?php echo $user_of_admin->ID ?>">
-                            <label style="background-color: yellow" for="test<?php echo $user_of_admin->ID ?>"></label>
+                            <label class="warning" for="test<?php echo $user_of_admin->ID ?>"></label>
 
 <?php
                     }

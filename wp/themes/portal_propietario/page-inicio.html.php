@@ -76,7 +76,7 @@ get_header();
           <hr>
                 <div class="estadisticas">
                     <div class="visualizaciones">
-                        <button onclick="location.href='#'">
+                        <button onclick="location.href='/ofertas-recibidas'">
                         <a href="#">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
                         <h2>Ofertas Recibidas</h2>

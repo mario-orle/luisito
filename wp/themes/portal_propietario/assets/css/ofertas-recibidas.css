@@ -1,119 +1,139 @@
-.main h2{
-  color: orange;
+
+
+.ofertas-recibidas{
+  background-color: white;
+  -webkit-box-shadow: inset 0px 0px 5px 0px #000000; 
+  box-shadow: inset 0px 0px 5px 0px #000000;
+  height: auto;
+  padding: 10px;
+  margin-top: 50px;
+  border-radius: 5px;
+}
+.ofertas-recibidas h2{
+  margin-bottom: 0;
   text-align: left;
+  color: orange;
 }
 
-.oferta-main{
-  display: flex;
+
+
+.collapsible {
+  background-color: #777;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
   width: 100%;
-  margin-bottom: 25px;
- 
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+
 }
-.oferta-left{
-  width: 400px;
-  background-color:#434b4d;
+
+.collapsible:hover{
+    background-color: orange;
+}
+.espacio-caja{
+    margin-bottom: 10px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  padding: 0 18px;
+  background-color: #f1f1f1;
+  margin-bottom: 8px;
+  border-bottom: 5px solid #FF9800;
+  border-radius: 0px 0px 10px 10px;
+}
+.content i{
+    color: rgb(56, 56, 56);
+}
+.funciones{
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+}
+.alquiler{
+  display: flex;
+  width: 250px;
+  justify-content: space-around;
+}
+
+.funciones button {
+	box-shadow: 0px 0px 0px 2px #777;
+	background:linear-gradient(to bottom, rgb(128, 123, 123) 5%, rgb(65, 54, 54) 100%);
+	background-color:#4c5463;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:5px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+}
+.funciones button:hover {
+	background:linear-gradient(to bottom, #213247 5%, #2e384b 100%);
+	background-color:#1e2f44;
+}
+.funciones button:active {
+	position:relative;
+	top:1px;
+}
+.pop-up.active {
+  display: flex;
+  right: 50px;
+}
+
+.pop-up{
+  position: fixed;
+  display: none;
+  flex-flow: column;
+  padding: 10px;
+  width: 250px;
+  margin-top: 10px;
+  background-color: #434b4d;
   border-radius: 5px;
   box-shadow: inset 0px 0px 6px 0px rgba(0,0,0,0.8);
   border: 5px #828282 solid;
+ align-items: center;
 }
-.btn-oferta{
-  display: flex;
-flex-flow: column;
-align-items: center;
+.pop-up input{
+  margin-bottom:10px;
 }
-.btn-oferta textarea{
-  width: 300px;
-  height: 155px;
-}
-
-.btn-oferta input{
-  margin-top: 10px;
-  margin-bottom: 20px;
-    box-shadow:inset 0px 1px 3px 0px #91b8b3;
-    background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-    background-color:#768d87;
-    border-radius:5px;
-    border:1px solid #566963;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:15px;
-    font-weight:bold;
-    padding:11px 23px;
-    text-decoration:none;
-    text-shadow:0px -1px 0px #2b665e;
-    
-  }
-.btn-oferta input:hover {
-    background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-    background-color:#6c7c7c;
-  }
-.btn-oferta input:active {
-    position:relative;
-    top:1px;
-  }
-.btn-oferta select{
-  padding: 5px;
-  margin: 5px 0px 5px 0px;
-  
-}
-.oferta-main p{
-  color: white;
-  font-style: italic;
-  text-align: center;
-}
-.oferta-main h3{
+.pop-up h4{
+  padding: 0px;
   color: orange;
-  text-align: center;
 }
-.oferta-main select{
-  align-content: center;
+.pop-up button{
+  box-shadow: 0px 0px 0px 2px #777;
+	background:linear-gradient(to bottom, rgb(128, 123, 123) 5%, rgb(65, 54, 54) 100%);
+	background-color:#4c5463;
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:5px 15px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
+  margin-top: 10px;
+
+}
+.pop-up button:hover {
+	background:linear-gradient(to bottom, #213247 5%, #2e384b 100%);
+	background-color:#1e2f44;
+}
+.pop-up button:active {
+	position:relative;
+	top:1px;
 }
 
 
-.aceptar-text{
-  height: 300px;
-}
-.denegada-btn{
-  margin-bottom: 20px;
-}
-.registro-ofertas{
-  display: flex;
-  justify-content: space-between;
-}
-
-.card-wrapper{
-    width: 280px;
-    margin-left: 80px;
-    float: right;
-  }
-  .card-wrapper img{
-    margin-top: 8px;
-    width: 250px;
-    border-radius: 5px;
-  }
-  
-  .card-wrapper button{
-    background-color: #434b4d;
-    box-shadow: 0 8px 16px 0 rgb(0, 0, 0);
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .card-wrapper h4, p{
-    color: white;
-  }
-  .card-wrapper p{
-    font-style: italic;
-    color: #c1c1c1;
-  }
-  .card-wrapper h3{
-    color: orange;
-  
-  }
-  
-  .card-wrapper button:hover {
-    box-shadow: 0px 0px 16px 0 rgba(255, 166, 0, 0.616);
-  }
   

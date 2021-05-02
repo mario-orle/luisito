@@ -65,6 +65,11 @@
         -webkit-transition: all .275s;
         transition: all .275s;
       }
+      [type="checkbox"]:not(:checked) + label.warning:before,
+      [type="checkbox"]:checked + label.warning:before {
+        background: yellow;
+      }
+      
     
       [type="checkbox"]:checked + label:before{
         background: green;
