@@ -83,7 +83,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     <input type="text" name="owner-phone" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-phone', true) ?>" onchange="editar(event)" />
                 </p>
                 <p>Email: 
-                    <input type="text" name="owner-email" style="width: 75%;" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-email', true) ?>" onchange="editar(event)" />    
+                    <input type="text" name="owner-email" style="width: 75%;" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-email', true) ?>" readonly />    
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contraseña </h4>
