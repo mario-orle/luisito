@@ -58,11 +58,11 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                 <hr>
                 <h4 style="color:aliceblue;">Información personal </h4>
                 <p>
-                    <input type="text" name="owner-display-name" class="editor" value="<?php echo $user->display_name ?>" onchange="editar(event)" />
+                    <input type="text" placeholder="Nombre y Apellidos..." name="owner-display-name" class="editor" value="<?php echo $user->display_name ?>" onchange="editar(event)" />
                     
                 </p>
                 <p id="fecha-nacimiento">
-                    <input type="text" id="datepicker" class="editor">
+                    <input type="text"placeholder="Fecha de Nacimiento..." id="datepicker" class="editor">
                     <input type="hidden" name="owner-birth-date" value="<?php echo get_user_meta($user->ID, 'meta-owner-birth-date', true) ?>">
                     
                 </p>
