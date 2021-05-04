@@ -397,7 +397,13 @@ input.editor {
     width: 70px;
     height: 40px;
     margin-bottom: 0;
+    position: relative;
+    left: -10px;
 }
+.cr-slider {
+    padding-top: 45px !important;
+}
+
 
 #dni .choices .choices__inner {
     min-height: auto;
