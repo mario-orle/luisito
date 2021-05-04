@@ -56,7 +56,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     <input type="file" accept="image/x-png,image/gif,image/jpeg" name="foto-perfil" id="uploader" style="display: none;" />
                 </div>
                 <hr>
-                <h4 style="color:aliceblue;">Información personal </h4>
+                <h4 style="color:orange;">Información personal </h4>
                 <p>
                     <input type="text" placeholder="Nombre y Apellidos..." name="owner-display-name" class="editor" value="<?php echo $user->display_name ?>" onchange="editar(event)" />
                     
@@ -79,7 +79,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     <?php } ?>
                 </p>
                 <hr>
-                <h4 style="color:aliceblue;">Contacto</h4>
+                <h4 style="color:orange;">Contacto</h4>
                 <p>Tlfn: 
                     <input type="text" name="owner-phone" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-phone', true) ?>" onchange="editar(event)" />
                 </p>
@@ -87,7 +87,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     <input type="text" name="owner-email" style="width: 75%;" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-email', true) ?>" readonly />    
                 </p>
                 <hr>
-                <h4 style="color:aliceblue;">Contraseña </h4>
+                <h4 style="color:orange;">Contraseña </h4>
                 <button onclick="showEditarPassword()">Cambiar contraseña</button>
 
                 <hr>

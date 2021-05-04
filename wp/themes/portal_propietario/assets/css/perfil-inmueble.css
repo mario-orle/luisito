@@ -279,11 +279,13 @@ animation: cambio 15s infinite alternate linear;
 .slider li {
 width: 100%;
 list-style: none;
+
 }
 
 .slider img {
 width: 100%;
 max-width: 500px;
+height: 240px;
 }
 
 /* Base for label styling */

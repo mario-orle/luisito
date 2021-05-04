@@ -92,7 +92,7 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                 <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
                     <header class="modal__header">
                         <h2 id="modal-cambiar-usuario-asesor-title">
-                            Cambiar todos los usuarios de asesor
+                            Cambiar Cartera Clientes
                         </h2>
                         <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                     </header>

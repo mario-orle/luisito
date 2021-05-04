@@ -122,7 +122,7 @@ foreach ($array_documentos as $user => $documentos) {
                                     <input type="checkbox" <?php if ($is_checked) echo "checked";?>>
                                     <label for="-"></label>
                                     
-                                    <i class="fas fa-trash" onclick="deleteDoc('<?php echo $documento["id"] ?>', '<?php echo $user; ?>')"></i>
+                                    <i class="fas fa-trash-alt" onclick="deleteDoc('<?php echo $documento["id"] ?>', '<?php echo $user; ?>')"></i>
                                 
                                 
                                 </div>
