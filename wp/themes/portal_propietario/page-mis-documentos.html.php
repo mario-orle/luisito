@@ -146,15 +146,16 @@ foreach ($array_documentos as $i => $documento) {
         } else if (wp_unslash($documento["status"]) == 'solicitado-al-asesor') {
 ?>
                             <form method="POST" enctype="multipart/form-data">
+                                <input class="botons" disabled type="submit" value="ENVIAR">
                                 <input type="hidden" name="id" value="<?php echo wp_unslash($documento["id"])?>" />
                                 <input type="hidden" name="nombre" value="<?php echo wp_unslash($documento["nombre"])?>" />
                                 <input type="hidden" name="file" value="<?php echo wp_unslash($documento["file"])?>" />
                                 <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
                                 <input type="hidden" name="action" value="cargar" />
-                                <label for="uploader-<?php echo $i ?>"><input tye="button" class="botons" onclick="this.parentElement.click()" >CARGAR</button></label>
-                                <input name="documento" onchange="this.parentElement.submit()" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
+                                <label for="uploader-<?php echo $i ?>"><button class="botons" type="button" onclick="this.parentElement.click()">CARGAR</button></label>
+                                <input name="documento" onchange="this.parentElement.querySelector('label button').textContent = 'CAMBIAR'; this.parentElement.querySelector('input.botons').removeAttribute('disabled')" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
                             </form>
-                                <input class="botons" type="submit" disabled value="SOLICITADO...">
+                                <input class="botons" type="button" disabled value="SOLICITADO...">
 <?php
 
 
