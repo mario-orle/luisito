@@ -20,6 +20,13 @@ if (current_user_can('administrator') && !empty($_GET['user'])) {
 $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 //si ha sido creado por otro usuario, al inicio
 
+require_once 'self/mobile-detect.php';
+$detect = new Mobile_Detect();
+if ($detect->isMobile()) {
+  require_once 'mbl/header-mbl.html.php';
+
+} else {
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -299,3 +306,7 @@ if (!$creator_of_user) {
     </div>
 
 	</header><!-- #masthead -->
+<?php
+}
+
+?>

@@ -42,7 +42,17 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
         }
                 ?>
                 <div class="contacto <?php if ($unread_msgs > 0) {echo 'unread';} ?>" id="user-<?php echo $user->ID ?>" onclick="setUserId(<?php echo $user->ID ?>)">
+<?php
+if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
+?>
+                    <img class="contacto-img" src="<?php echo get_user_meta($user->ID, 'meta-foto-perfil', true) ?>" />
+<?php
+} else {
+?>
                     <img class="contacto-img" src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" />
+<?php
+}
+?>
                     <div class="contacto-name"><?php echo $user->display_name; ?></div>
                     <div class="contacto-unread"></div>
                 </div>
