@@ -232,6 +232,15 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('usuarios-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'usuarios-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-usuario-admin-mbl.html.php'
+        ));
+    }
+
     if (!get_user_meta(1, 'meta-creados-usuarios-prueba')) {
         update_user_meta(1, 'meta-creados-usuarios-prueba', '1');
         $asesor = wp_create_user("asesor@a.com", "1", "asesor@a.com");

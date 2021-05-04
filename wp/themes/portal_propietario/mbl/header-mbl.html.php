@@ -76,7 +76,7 @@ function closeNav() {
 if (!current_user_can("administrator")) {
 ?>
       <div class="overlay-content">
-        <a href="index-mobile.html">INICIO</a>
+        <a href="/">INICIO</a>
         <a href="/mensajes-mbl">CHAT</a>
         <a href="citas.html">CITAS</a>
         <a href="ofertas.html">OFERTAS</a>
@@ -87,12 +87,12 @@ if (!current_user_can("administrator")) {
 } else {
 ?>
       <div class="overlay-content">
-        <a href="index-mobile-admin.html">INICIO</a>
+        <a href="/">INICIO</a>
         <a href="/mensajes-mbl">CHAT</a>
         <a href="citas-admin.html">CITAS</a>
         <a href="ofertas-admin.html">OFERTAS</a>
         <a href="doc-mobile-admin.html">DOCUMENTOS</a>
-        <a href="usuario-admin-mbl.html">USUARIOS</a>
+        <a href="/usuarios-mbl">USUARIOS</a>
       </div>
 
 <?php

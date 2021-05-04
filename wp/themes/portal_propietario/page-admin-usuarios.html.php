@@ -91,7 +91,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
                             <input type="checkbox" <?php if ($doc_ok) echo "checked";?>>
                             <label for="-"></label>
                         </td>
-                        <?php 
+<?php 
 if (get_current_user_id() === 1) {
 ?>
                         <td><?php echo $asesor->display_name ?></td>
