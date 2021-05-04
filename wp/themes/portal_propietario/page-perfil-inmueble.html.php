@@ -123,15 +123,29 @@ get_header();
   <div class="resumen-inmueble">
     <h3>Resumen Inmueble</h3>
     <div class="derecha">
-      <div class="slider">
-        <ul>
-          <li>
+      <div class="slider splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+<?php
+
+
+$photosRaw = get_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', true);
+
+$photos = json_decode(wp_unslash($photosRaw), true);
+
+foreach ($photos as $key => $photo) {
+?>
+          <li class="splide__slide">
             <img
-              src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>"
+              src="<?php echo $photo['url']?>"
             />
           </li>
-        </ul>
-      </div>
+<?php
+}
+?>
+            </ul>
+          </div>
+        </div>
 
 
 
@@ -444,10 +458,6 @@ if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-
 
 <?php
 
-$photosRaw = get_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', true);
-
-$photos = json_decode(wp_unslash($photosRaw), true);
-
 foreach ($photos as $key => $photo) {
 ?>
 
@@ -687,14 +697,14 @@ foreach ($photos as $key => $photo) {
     }
 
     pond.onprocessfiles = updateImgs;
-/*
+
     new Splide( '.splide', {
       rewind: true,
       autoplay: true,
       cover: true,
       fixedHeight: 300
     } ).mount();
-*/
+
 
     function setPrecioRecomendado() {
       var newValue = prompt("Introduzca valoración");

@@ -63,5 +63,11 @@ if ($_GET['action'] == 'actualiza-imagenes') {
     
     delete_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo');
     update_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', wp_slash($_POST['metavalue']));
+    $photosRaw = get_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', true);
+    
+    $photos = json_decode(wp_unslash($photosRaw), true);
+    if (count($photos) > 0) {
+        update_post_meta($inmueble_id, 'meta-inmueble-foto-principal', $photos[0]["url"]);
+    }
 
 }

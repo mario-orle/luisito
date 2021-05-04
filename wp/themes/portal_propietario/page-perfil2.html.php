@@ -304,6 +304,9 @@ function editarDni(e) {
                     onClick: function(){} // Callback after click
                 }).showToast();
                 document.querySelector(".fakeimg-perfil img").style.filter = "none";
+                setTimeout(() => {
+                    window.location.reload();
+                }, 500);
             }
 
             var formData = new FormData();

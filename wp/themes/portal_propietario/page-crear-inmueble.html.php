@@ -31,14 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       foreach ($_POST as $key => $value) {
         update_post_meta($inmueble_id, 'meta-' . $key, wp_slash($value));
       }
-
-      if ( ! function_exists( 'wp_handle_upload' ) ) require_once( ABSPATH . 'wp-admin/includes/file.php' );
-
-      $upload_overrides = array( 'test_form' => false );
-      $movefile = wp_handle_upload( $_FILES['inmueble-foto-principal'], $upload_overrides );
-
-      update_post_meta($inmueble_id, 'meta-inmueble-foto-principal', wp_slash($movefile['url']));
-
       
     }
     
@@ -118,13 +110,6 @@ get_header();
         </div>
         <div class="tab">Precio estimado y foto principal
           <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="inmueble-precioestimado" type="number"></p>
-          <p>
-            <input oninput="this.className = ''" name="inmueble-foto-principal" id="foto" type="file"  accept="image/x-png,image/gif,image/jpeg" style="display:none;">
-            <label for="foto">Haga click para elegir una fotografía</label>
-            <div id="foto-preview" style="display: none;">
-              <img src="" />
-            </div>
-          </p>
         </div>
         <div style="overflow:auto;">
           <div style="float:right;">

@@ -123,6 +123,7 @@ Demo Animation Style
 .modal.is-open {
     background: transparent!important;
     border: none!important;
+    box-shadow: none!important;
     display: block;
 }
 
