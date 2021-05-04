@@ -121,6 +121,8 @@ Demo Animation Style
 }
 
 .modal.is-open {
+    background: transparent!important;
+    border: none!important;
     display: block;
 }
 
@@ -172,6 +174,7 @@ Demo Animation Style
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10000;
 }
 
 .modal h4 {
