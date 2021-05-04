@@ -201,10 +201,12 @@ foreach ($array_documentos as $user => $documentos) {
             </div>
             <div class="documentos-descarga">
                 <div class="text-documentos">
+                    <div class="tittle">
                     <h3>
                     <i class="fas fa-file-invoice"></i> Solicitar Documentos al Cliente:
-                        <button onclick="solicitarDocumento()" class="solicitar-documento">Solicitar Documento</button>
                     </h3>
+                    <button onclick="solicitarDocumento()" class="solicitar-documento">Solicitar Documento</button>
+                    </div>
                     <hr>
                     </div>
 <?php
