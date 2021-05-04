@@ -72,10 +72,11 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI" || get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "") { echo "selected"; } ?> value="DNI">DNI</option>
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
+                    <input type="text" name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editarDni(event)" >
                     <?php } else { ?>
                         <label><?php echo get_user_meta($user->ID, 'meta-owner-tipodocumento', true) ?: "DNI" ?>
+                        <label><?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?: "-" ?>
                     <?php } ?>
-                    <input type="text" name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editar(event)" >
                 </p>
                 <hr>
                 <h4 style="color:aliceblue;">Contacto</h4>
@@ -182,6 +183,45 @@ function editarPassword(e) {
         input.style.filter = "blur(1px)";
         input.setAttribute("readonly", "true");
     }
+}
+
+// Acepta NIEs (Extranjeros con X, Y o Z al principio)
+function validateDNI(dni) {
+    var numero, let, letra;
+    var expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
+
+    dni = dni.toUpperCase();
+
+    if(expresion_regular_dni.test(dni) === true){
+        numero = dni.substr(0,dni.length-1);
+        numero = numero.replace('X', 0);
+        numero = numero.replace('Y', 1);
+        numero = numero.replace('Z', 2);
+        let = dni.substr(dni.length-1, 1);
+        numero = numero % 23;
+        letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+        letra = letra.substring(numero, numero+1);
+        if (letra != let) {
+            //alert('Dni erroneo, la letra del NIF no se corresponde');
+            return false;
+        }else{
+            //alert('Dni correcto');
+            return true;
+        }
+    }else{
+        //alert('Dni erroneo, formato no válido');
+        return false;
+    }
+}
+
+function editarDni(e) {
+    if (validateDNI(e.target.value)) {
+        editar(e);
+
+    } else {
+        alert("DNI o NIE no válido");
+    }
+
 }
 
     function editar(e) {

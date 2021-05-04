@@ -170,6 +170,8 @@ function cargaMensajes(firstTime) {
 function enviarMsg() {
     var txt = document.querySelector("#msg");
 
+    if (!txt.value.trim()) return;
+
     var fd = new FormData();
     fd.append("message", txt.value);
 

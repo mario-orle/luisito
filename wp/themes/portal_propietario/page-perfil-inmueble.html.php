@@ -280,7 +280,7 @@ if (current_user_can("administrator")) {
       </div>
       <div> 
 <?php 
-  fieldPerfilCreate("codigo-postal", $inmueble, "text", "Código Postal");
+  fieldPerfilCreate("codigopostal", $inmueble, "text", "Código Postal");
 ?>
       </div>
       <div>
