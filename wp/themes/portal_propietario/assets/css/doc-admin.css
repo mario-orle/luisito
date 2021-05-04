@@ -57,6 +57,8 @@ text-shadow: 0px 1px 0px #283966;
     text-decoration: none;
     text-shadow: 0px 1px 0px #283966;
     margin-left: 25px;
+    overflow: hidden;
+    text-overflow: hidden;
 }
 .main .btn-container .botons i{
     margin-left: 4px;
