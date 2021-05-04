@@ -8,14 +8,16 @@ async function taka() {
         resources: 'usable',
     };
 
-    var allFiles = fs.readdirSync(process.cwd() + "/version\ admin/");
+    var allFiles = fs.readdirSync(process.cwd() + "/mobile/");
 
     var allHTML = allFiles.filter(f => f.endsWith(".html"));
 
     for (let i = 0; i < allHTML.length; i++) {
         const htmlFile = allHTML[i];
 
-        const dom = await JSDOM.fromFile(process.cwd() + '/version\ admin/' + htmlFile, options);
+        console.log(allHTML[i]);
+        const dom = await JSDOM.fromFile(process.cwd() + '/mobile/' + htmlFile, options);
+        console.log("bbbb");
 
         const contentDiv = dom.window.document.querySelector("DIV.main");
 

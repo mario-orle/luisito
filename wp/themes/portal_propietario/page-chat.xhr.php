@@ -22,7 +22,15 @@ if ($_GET['action'] == 'get_messages') {
                         $chat['readed'] = true;
                         update_user_meta($user->ID, 'meta-messages-chat', wp_slash(json_encode($chat)), ($chat_str));
                     }*/
-                    $messages[$user->ID][] = json_decode(($chat_str), true);
+                    $chat_msg = json_decode(($chat_str), true);
+                    if ($chat["user"] == "admin") {
+                        $adminAssigned = get_user_meta($user->ID, 'meta-gestor-asignado', true);
+                        $chat_msg["photo"] = get_user_meta($adminAssigned, 'meta-foto-perfil', true);
+                    } else {
+                        $chat_msg["photo"] = get_user_meta($user->ID, 'meta-foto-perfil', true);
+                    }
+
+                    $messages[$user->ID][] = $chat_msg;
                 }
             }
         }

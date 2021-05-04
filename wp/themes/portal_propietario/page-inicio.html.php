@@ -9,6 +9,15 @@
  */
 
 require_once "self/security.php";
+
+require_once 'self/mobile-detect.php';
+$detect = new Mobile_Detect();
+if ($detect->isMobile()) {
+  require_once 'mbl/page-index-mobile.html.php';
+
+} else {
+
+
 function myCss() {
     if (current_user_can('administrator')){
         echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/inicio-admin.css?cb=' . generate_random_string() . '">';
@@ -249,3 +258,4 @@ get_header();
 
 <?php
 get_footer();
+}
