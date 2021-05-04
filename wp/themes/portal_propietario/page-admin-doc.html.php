@@ -182,8 +182,8 @@ foreach ($array_documentos as $user => $documentos) {
                                         <input type="hidden" name="file" value="<?php echo wp_unslash($documento["file"])?>" />
                                         <input type="hidden" name="status" value="<?php echo wp_unslash($documento["status"])?>" />
                                         <input type="hidden" name="action" value="cargar" />
-                                        <label class="botons" for="uploader-<?php echo $i ?>">CARGAR</label>
-                                        <input name="documento" onchange="this.parentElement.querySelector('label').textContent = 'CAMBIAR'; this.parentElement.querySelector('input.botons').removeAttribute('disabled')" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
+                                        <label for="uploader-<?php echo $i ?>"><button class="botons" type="button" onclick="this.parentElement.click()">CARGAR</button></label>
+                                        <input name="documento" onchange="this.parentElement.querySelector('label button').textContent = 'CAMBIAR'; this.parentElement.querySelector('input.botons').removeAttribute('disabled')" style="display: none;" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint, text/plain, application/pdf, image/*" type="file" id="uploader-<?php echo $i ?>" />
                                     </form>
                                 </div>
                             </div>
