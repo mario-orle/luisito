@@ -112,7 +112,7 @@ foreach ($inmuebles as $inmueble) {
                                 <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>">
                                 <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
                                 <h4><b><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 2, ",", "."); ?> €</b></h4>
-                                <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-comentarios', true) ?:  "Sin descripción"; ?></p>
+                                <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true) ?:  "Sin descripción"; ?></p>
                             </a>
                         </button>
                     </div>
