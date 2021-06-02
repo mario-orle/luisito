@@ -69,7 +69,7 @@ function closeNav() {
 <?php wp_body_open(); ?>
 
 <div class="header">
-    <a href="index-mobile.html"> <img src="<?php echo get_template_directory_uri() . '/assets/img/logo.png'?>"  width="100%"></a>
+    <a href="/"> <img src="<?php echo get_template_directory_uri() . '/assets/img/logo.png'?>"  width="100%"></a>
     <div id="myNav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 <?php 
@@ -78,7 +78,7 @@ if (!current_user_can("administrator")) {
       <div class="overlay-content">
         <a href="/">INICIO</a>
         <a href="/mensajes-mbl">CHAT</a>
-        <a href="citas.html">CITAS</a>
+        <a href="/citas-mbl">CITAS</a>
         <a href="ofertas.html">OFERTAS</a>
         <a href="inmuebles-mbl.html">INMUEBLES</a>
         <a href="doc-mobile.html">DOCUMENTOS</a>
@@ -89,9 +89,9 @@ if (!current_user_can("administrator")) {
       <div class="overlay-content">
         <a href="/">INICIO</a>
         <a href="/mensajes-mbl">CHAT</a>
-        <a href="citas-admin.html">CITAS</a>
-        <a href="ofertas-admin.html">OFERTAS</a>
-        <a href="doc-mobile-admin.html">DOCUMENTOS</a>
+        <a href="/citas-admin-mbl">CITAS</a>
+        <a href="/ofertas-admin-mbl">OFERTAS</a>
+        <a href="/doc-mbl-admin">DOCUMENTOS</a>
         <a href="/usuarios-mbl">USUARIOS</a>
       </div>
 

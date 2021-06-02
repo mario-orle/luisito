@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 
+require_once __DIR__ . "/../self/security.php";
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/chat-mobile.css">';

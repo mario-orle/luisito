@@ -21,14 +21,16 @@ get_header();
 <main id="primary" class="site-main">
     <div class="main">
         <div class="ofertas-recibidas">
-            <h2>Ofertas Recibidas <i class="fas fa-house-user"></i></h2>
+            <h2>Ofertas Realizadas <i class="fas fa-house-user"></i></h2>
             <hr>
 
 <?php
 
 $ofertas = [];
-       $asesor = get_user_by('id', get_user_meta(get_current_user_id(), 'meta-gestor-asignado', true));
-        $inmuebles_del_cliente = getInmueblesOfUser(wp_get_current_user());
+foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+    if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
+        $asesor = get_user_by('id', get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true));
+        $inmuebles_del_cliente = getInmueblesOfUser($user_of_admin);
         foreach ($inmuebles_del_cliente as $inmueble) {
             $ofertas_del_inmueble = get_post_meta($inmueble->ID, 'meta-oferta-al-cliente');
             foreach ($ofertas_del_inmueble as $key => $oferta) {
@@ -76,6 +78,8 @@ $ofertas = [];
 <?php
             }
         }
+    }
+}
 ?>
 
         </div>

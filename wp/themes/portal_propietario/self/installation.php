@@ -241,6 +241,51 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('doc-mbl-admin')) {
+        wp_insert_post(array(
+            'post_title' => 'doc-mbl-admin',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-doc-mobile-admin.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('ofertas-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'ofertas-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-ofertas.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('ofertas-admin-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'ofertas-admin-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-ofertas-admin.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('citas-admin-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'citas-admin-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-citas-admin.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('citas-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'citas-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-citas.html.php'
+        ));
+    }
+
     if (!get_user_meta(1, 'meta-creados-usuarios-prueba')) {
         update_user_meta(1, 'meta-creados-usuarios-prueba', '1');
         $asesor = wp_create_user("asesor@a.com", "1", "asesor@a.com");

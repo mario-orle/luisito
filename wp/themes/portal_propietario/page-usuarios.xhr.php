@@ -53,3 +53,9 @@ if ($_GET['action'] == 'update_password') {
     }
 
 }
+if ($_GET['action'] == 'delete-user') {
+    require_once( ABSPATH.'wp-admin/includes/user.php' );
+
+    $user_id = $_GET['user_id'];
+    wp_delete_user($user_id);
+}

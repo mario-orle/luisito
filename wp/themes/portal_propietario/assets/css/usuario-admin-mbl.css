@@ -53,8 +53,39 @@ margin-bottom: 0;
       color: grey;
   }
 
-  .pop-asesor{
+  .pop-asesor, .pop-oferta{
     width: calc(100% - 42px);
+    display:none;
+  }
+
+  .pop-asesor.is-open, .pop-oferta.is-open {
+      display: block;
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+        width: 100%;
+  }
+  .pop-asesor .modal__overlay, .pop-oferta .modal__overlay {
+    display: block;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #6666;
+    width: 100%;
+
+  }
+  .pop-asesor .modal__container, .pop-oferta .modal__container {
+    padding: 10px;
     background: #777;
     border-radius: 5px;
     border: 5px ridge;

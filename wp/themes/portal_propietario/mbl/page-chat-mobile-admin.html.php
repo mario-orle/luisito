@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 
+require_once __DIR__ . "/../self/security.php";
 
 ?>
 

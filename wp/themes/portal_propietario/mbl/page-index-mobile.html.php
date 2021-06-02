@@ -13,10 +13,55 @@ function myCss() {
 }
 add_action('wp_head', 'myCss');
 
+require_once __DIR__ . "/../self/security.php";
 
 get_header();
 
-if (!current_user_can("administrator")) {
+if (!current_user_can("administrator")) {$unread_msgs = 0;
+    foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
+      $chat = json_decode(wp_unslash($chat_str), true);
+      if (!$chat['readed'] && $chat["user"] == "admin") {
+        $unread_msgs++;
+      }
+    }
+    function get_own_documentos_solicitados() {
+      $arr = array();
+      foreach (get_user_meta(get_current_user_id(), 'meta-documento-solicitado-al-cliente') as $meta) {
+          $arr[] = json_decode(wp_unslash($meta), true);
+      }
+      return $arr;
+    }
+    function get_own_citas() {
+      return get_user_meta(get_current_user_id(), 'meta-citas-usuario');
+    }
+    
+    $pending_documents = 0;
+    $array_documentos = get_own_documentos_solicitados();
+    foreach ($array_documentos as $i => $documento) {
+      if (wp_unslash($documento["status"]) != 'fichero-anadido') {
+        $pending_documents++;
+      }
+    }
+
+    $pending_citas = 0;
+    $array_citas = get_own_citas();
+
+    foreach ($array_citas as $i => $cita) {
+      $cita = json_decode(wp_unslash($cita), true);
+      if (wp_unslash($cita["status"]) != 'aceptada-cliente' && wp_unslash($cita["status"]) != 'rechazada-cliente' && wp_unslash($cita["status"]) != 'realizada' && wp_unslash($cita["status"]) != 'descartada') {
+        $pending_citas++;
+      }
+    }
+
+    $ofertas_recibidas = 0;
+    $ofertas = get_own_ofertas_recibidas(wp_get_current_user());
+    $ofertas_recibidas = count($ofertas);
+
+    $inmuebles = get_posts(array(
+        'post_type' => 'inmueble',
+        'author' => get_current_user_id()
+    ));
+    $count_inmuebles = count($inmuebles);
 ?>
 
 <main id="primary" class="site-main">
@@ -28,7 +73,7 @@ if (!current_user_can("administrator")) {
                 </a>
                 <div class="btn-text"><a href="citas.html">
                         <h2>Citas pendientes</h2>
-                        <p>7 Documentos</p>
+                        <p><?php echo $pending_citas; ?> citas</p>
                     </a>
 
                 </div>
@@ -40,7 +85,7 @@ if (!current_user_can("administrator")) {
                 </a>
                 <div class="btn-text"><a href="doc-mobile.html">
                         <h2>Doc Pendientes</h2>
-                        <p>7 Documentos</p>
+                        <p><?php echo $pending_documents ?> Documentos</p>
                     </a>
 
                 </div>
@@ -52,7 +97,7 @@ if (!current_user_can("administrator")) {
                 </a>
                 <div class="btn-text"><a href="chat-mobile.html">
                         <h2>Mensajes sin leer</h2>
-                        <p>2 Mensajes</p>
+                        <p><?php echo $unread_msgs ?> Mensajes</p>
                     </a>
 
                 </div>
@@ -64,7 +109,7 @@ if (!current_user_can("administrator")) {
                 </a>
                 <div class="btn-text"><a href="ofertas.html">
                         <h2>Ofertas Recibidas</h2>
-                        <p>2 Ofertas</p>
+                        <p><?php echo $ofertas_recibidas ?> Ofertas</p>
                     </a>
 
                 </div>
@@ -76,7 +121,7 @@ if (!current_user_can("administrator")) {
                 </a>
                 <div class="btn-text"><a href="inmuebles-mbl.html">
                         <h2>Inmuebles</h2>
-                        <p>4 Inmuebles</p>
+                        <p><?php echo $count_inmuebles ?> Inmuebles</p>
                     </a>
 
                 </div>
@@ -94,66 +139,118 @@ if (!current_user_can("administrator")) {
 <?php
 
 } else {
+  if (get_current_user_id() === 1) {
+    $users_of_admin = get_users(array(
+      "role" => "subscriber"
+    ));
+  } else {
+    $users_of_admin = get_users(array(
+      'meta_key' => 'meta-gestor-asignado',
+      'meta_value' => get_current_user_id()
+    ));
+  }
+  $unread_msgs = 0;
+  $pending_documents = 0;
+  $review_documents = 0;
+  $num_documents = 0;
+  $pending_citas = 0;
+
+  $ofertas_recibidas = 0;
+  $ofertas = get_all_ofertas();
+  $ofertas_recibidas = count($ofertas);
+
+  foreach ($users_of_admin as $user_of_admin) {
+    foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
+      $chat = json_decode(wp_unslash($chat_str), true);
+      if (!$chat['readed'] && $chat["user"] == "user") {
+        $unread_msgs++;
+      }
+    }
+
+    foreach (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+      $documento = json_decode(wp_unslash($meta), true);
+
+      if (wp_unslash($documento["status"]) != 'fichero-anadido') {
+        $pending_documents++;
+      } else {
+        if (!($documento["revisado"]) ) {
+
+          $review_documents++;
+        }
+      }
+
+      $num_documents++;
+    }
+
+    foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
+      $cita = json_decode(wp_unslash($meta), true);
+      if (strtotime(wp_unslash($cita["fin"])) < time()) {
+        if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+          $pending_citas++;
+        }
+      }
+    }
+  }
 ?>
 
 <main id="primary" class="site-main">
     <div class="main">
         <div class="btn citas">
             <button>
-                <a href="citas-admin.html">
+                <a href="/citas-admin-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="citas-admin.html">
+                <div class="btn-text"><a href="/citas-admin-mbl">
                         <h2>Citas pendientes</h2>
-                        <p>7 Citas</p>
+                        <p><?php echo $pending_citas ?> Citas</p>
                     </a>
 
                 </div>
                 <div class="btn pendientes">
                 </div>
             </button><button>
-                <a href="doc-mobile-admin.html">
+                <a href="/doc-mbl-admin">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="doc-mobile-admin.html">
+                <div class="btn-text"><a href="/doc-mbl-admin">
                         <h2>Documentos</h2>
-                        <p>7 Documentos</p>
+                        <p><?php echo $num_documents ?> Documentos</p>
                     </a>
 
                 </div>
                 <div class="btn chat">
                 </div>
             </button><button>
-                <a href="chat-mobile-admin.html">
+                <a href="/mensajes-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="chat-mobile-admin.html">
+                <div class="btn-text"><a href="/mensajes-mbl">
                         <h2>Mensajes</h2>
-                        <p>2 Mensajes</p>
+                        <p><?php echo $unread_msgs ?> Mensajes</p>
                     </a>
 
                 </div>
                 <div class="btn ofertas">
                 </div>
             </button><button>
-                <a href="ofertas-admin-mbl.html">
+                <a href="/ofertas-admin-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>etiquetas-de-precio.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="ofertas-admin-mbl.html">
+                <div class="btn-text"><a href="/ofertas-admin-mbl">
                         <h2>Ofertas</h2>
-                        <p>2 Ofertas</p>
+                        <p><?php echo $ofertas_recibidas ?> Ofertas</p>
                     </a>
 
                 </div>
                 <div class="btn usuarios">
                 </div>
             </button><button>
-                <a href="usuario-admin-mbl.html">
+                <a href="/usuarios-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="usuario-admin-mbl.html">
+                <div class="btn-text"><a href="/usuarios-mbl">
                         <h2>Usuarios</h2>
-                        <p>15 usuarios</p>
+                        <p><?php echo count($users_of_admin) ?> usuarios</p>
                     </a>
 
                 </div>

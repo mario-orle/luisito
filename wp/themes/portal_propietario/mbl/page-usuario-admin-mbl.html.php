@@ -14,11 +14,33 @@ function myCss() {
 }
 add_action('wp_head', 'myCss');
 
+function generateRandomString($length = 10) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
-    $usuario = $_POST["usuario"];
-    $asesor = $_POST["nuevoasesor"];
-    update_user_meta($usuario, 'meta-gestor-asignado', $asesor);
+    $action = $_POST["action"];
+    if ($action === "cambia-asesor") {
+
+        $usuario = $_POST["usuario"];
+        $asesor = $_POST["nuevoasesor"];
+        update_user_meta($usuario, 'meta-gestor-asignado', $asesor);
+    }
+
+    if ($action === "oferta") {
+        $usuario = $_POST["usuario"];
+
+        $data['id'] = generateRandomString(30);
+        $data['user_id'] = ($_POST['usuario']);
+        $data['inmueble_id'] = ($_POST['inmueble_id']);
+        $data['status'] = "creada";
+        $data['cantidad'] = ($_POST['cantidad']);
+        $data['descripcion'] = "";
+        $data['created'] = date("c");
+        
+        //add_user_meta($user->ID, 'meta-oferta-al-cliente', wp_slash(json_encode($data)));
+        add_post_meta($_POST['inmueble_id'], 'meta-oferta-al-cliente', wp_slash(json_encode($data)));
+    }
 }
 
 
@@ -84,9 +106,9 @@ if (get_current_user_id() === 1) {
                     </table>
                     <div class="funciones">
                         <!-- popup al pulsar sale la documentacion del cliente -->
-                        <a id="documentacion" href="doc-mobile.html"><i class="far fa-address-card"></i></a>
+                        <a id="documentacion" href="/doc-mbl-admin?user=<?php echo $user_of_admin->ID ?>"><i class="far fa-address-card"></i></a>
                         <!-- popup al pulsar ve listado inmuebles del cliente -->
-                        <a id="inmuebles" href="inmuebles-mbl.html"><i class="fas fa-home"></i></a>
+                        <a id="inmuebles" href="/inmuebles-mbl?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-home"></i></a>
                         <!-- pop up cambio de usuario a otro asesor -->
 <?php 
 if (get_current_user_id() === 1) {
@@ -96,9 +118,9 @@ if (get_current_user_id() === 1) {
 }
 ?>
                         <!-- pop up listado inmubles con listado de usuario mas precio de oferta -->
-                        <a id="oferta" href="#"><i class="fas fa-dollar-sign"></i></a>
+                        <a id="oferta" onclick="creaOferta(<?php echo $user_of_admin->ID ?>)" href="#"><i class="fas fa-dollar-sign"></i></a>
                         <!-- eliminar es eliminar xD -->
-                        <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
+                        <a id="eliminar" onclick="eliminaUser(<?php echo $user_of_admin->ID ?>)"  href="#"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -110,11 +132,15 @@ if (get_current_user_id() === 1) {
         </div>
 
         <br>
-        <div class="pop-asesor" id="pop-asesor">
-            <form method="POST">
-                <label for="usuario">Selecione Asesor</label>
-                <input type="hidden" name="usuario">
-                <select name="nuevoasesor" id="nuevoasesor">
+        <div class="pop-asesor modal" id="pop-asesor">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
+
+                <form method="POST">
+                    <label for="usuario">Selecione Asesor</label>
+                    <input type="hidden" name="usuario">
+                    <input type="hidden" name="action" value="cambia-asesor">
+                    <select name="nuevoasesor" id="nuevoasesor">
 <?php
 foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
 ?>
@@ -122,15 +148,21 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
 <?php
 }
 ?>
-                </select>
-                <input type="submit" value="Submit">
-            </form>
+                    </select>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            </div>
         </div>
         <br>
         <div class="pop-oferta" id="pop-oferta">
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
             <form>
-                <label for="usuario">Selecione Inmueble</label>
-                <select name="usuario" id="usuarios">
+                <label for="inmueble">Selecione Inmueble</label>
+                <input type="hidden" name="usuario">
+                <input type="hidden" name="action" value="oferta">
+                <select name="inmueble_id" id="inmueble">
                     <option value="home">Inmueble 1</option>
                     <option value="home">Inmueble 2</option>
                     <option value="home">Inmueble 3</option>
@@ -138,10 +170,12 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
                 </select>
                 <br>
                 <label for="oferta">Ingrese Cantidad</label>
-                <input type="text" name="oferta" id="oferta" placeholder="Precio">
+                <input type="text" name="cantidad" id="oferta" placeholder="Precio">
                 <br>
                 <input type="submit" value="Submit">
             </form>
+            </div>
+            </div>
         </div>
         <br>
 
@@ -155,6 +189,35 @@ MicroModal.init();
 function changeAsesorOfUser(userId) {
     document.querySelector(".pop-asesor").querySelector("[name='usuario']").value = userId;
     MicroModal.show("pop-asesor");
+}
+
+function creaOferta(userId) {
+    if (userId) {
+        fetch("/inmueble-xhr?action=inmuebles_of_user&user_id=" + userId)
+            .then(res => res.json())
+            .then(res => {
+                document.querySelector("#inmueble").innerHTML = "";
+                res.forEach(i => {
+                    var option = document.createElement("option")
+                    option.value = i.id;
+                    option.textContent = i.name;
+                    document.querySelector("#inmueble").appendChild(option);
+                })
+                document.querySelector(".pop-oferta").querySelector("[name='usuario']").value = userId;
+                MicroModal.show("pop-oferta");
+        })
+
+    }
+}
+
+function eliminaUser(userId) {
+    if (userId && confirm("Esta acción no se puede deshacer. ¿Está seguro?")) {
+        fetch("/usuarios-xhr?action=delete-user&user_id=" + userId)
+            .then(res => {
+                window.location.reload();
+        })
+
+    }
 }
     </script>
 </main><!-- #main -->
