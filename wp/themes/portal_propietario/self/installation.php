@@ -250,6 +250,15 @@ function create_our_pages() {
         ));
     }
 
+    if (!get_page_by_title('doc-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'doc-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-doc-mobile.html.php'
+        ));
+    }
+
     if (!get_page_by_title('ofertas-mbl')) {
         wp_insert_post(array(
             'post_title' => 'ofertas-mbl',
@@ -283,6 +292,15 @@ function create_our_pages() {
             'post_status' => 'publish',
             'post_type' => 'page',
             'page_template' => 'mbl/page-citas.html.php'
+        ));
+    }
+
+    if (!get_page_by_title('inmuebles-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'inmuebles-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-inmuebles-mbl.html.php'
         ));
     }
 

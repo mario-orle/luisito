@@ -79,9 +79,9 @@ if (!current_user_can("administrator")) {
         <a href="/">INICIO</a>
         <a href="/mensajes-mbl">CHAT</a>
         <a href="/citas-mbl">CITAS</a>
-        <a href="ofertas.html">OFERTAS</a>
-        <a href="inmuebles-mbl.html">INMUEBLES</a>
-        <a href="doc-mobile.html">DOCUMENTOS</a>
+        <a href="/ofertas">OFERTAS</a>
+        <a href="/inmuebles-mbl">INMUEBLES</a>
+        <a href="/doc-mbl">DOCUMENTOS</a>
       </div>
 <?php
 } else {

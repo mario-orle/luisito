@@ -68,10 +68,10 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
     <div class="main">
         <div class="btn citas">
             <button>
-                <a href="citas.html">
+                <a href="/citas-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="citas.html">
+                <div class="btn-text"><a href="/citas-mbl">
                         <h2>Citas pendientes</h2>
                         <p><?php echo $pending_citas; ?> citas</p>
                     </a>
@@ -80,10 +80,10 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 <div class="btn pendientes">
                 </div>
             </button><button>
-                <a href="doc-mobile.html">
+                <a href="/doc-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="doc-mobile.html">
+                <div class="btn-text"><a href="/doc-mbl">
                         <h2>Doc Pendientes</h2>
                         <p><?php echo $pending_documents ?> Documentos</p>
                     </a>
@@ -92,10 +92,10 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 <div class="btn chat">
                 </div>
             </button><button>
-                <a href="chat-mobile.html">
+                <a href="/mensajes-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="chat-mobile.html">
+                <div class="btn-text"><a href="/mensajes-mbl">
                         <h2>Mensajes sin leer</h2>
                         <p><?php echo $unread_msgs ?> Mensajes</p>
                     </a>
@@ -104,10 +104,10 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 <div class="btn ofertas">
                 </div>
             </button><button>
-                <a href="ofertas.html">
+                <a href="/ofertas-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>etiquetas-de-precio.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="ofertas.html">
+                <div class="btn-text"><a href="/ofertas-mbl">
                         <h2>Ofertas Recibidas</h2>
                         <p><?php echo $ofertas_recibidas ?> Ofertas</p>
                     </a>
@@ -116,10 +116,10 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 <div class="btn inmueble">
                 </div>
             </button><button>
-                <a href="inmuebles-mbl.html">
+                <a href="/inmuebles-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asequible.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="inmuebles-mbl.html">
+                <div class="btn-text"><a href="/inmuebles-mbl">
                         <h2>Inmuebles</h2>
                         <p><?php echo $count_inmuebles ?> Inmuebles</p>
                     </a>
