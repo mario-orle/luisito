@@ -158,7 +158,7 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
         <div class="pop-oferta" id="pop-oferta">
             <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
-            <form>
+            <form method="POST">
                 <label for="inmueble">Selecione Inmueble</label>
                 <input type="hidden" name="usuario">
                 <input type="hidden" name="action" value="oferta">
