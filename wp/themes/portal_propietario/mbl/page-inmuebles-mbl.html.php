@@ -75,7 +75,7 @@ foreach ($inmuebles as $inmueble) {
 
 <!-- Pop ups para las diferentes funciones -->
 
-<div class="descripcion" id="descripcion-<?php echo $inmueble_id ?>" style="display: none; position: fixed; top: 10px; left: 10px; right: 10px; bottom: 10px; z-index:5;">
+<div onclick="document.querySelector('#descripcion-<?php echo $inmueble_id ?>').style.display = 'none';" class="descripcion" id="descripcion-<?php echo $inmueble_id ?>" style="display: none; position: fixed; top: 10px; left: 10px; right: 10px; bottom: 10px; z-index:5;">
             <div class="perfil-inmueble">
                 <h2>Perfil Inmueble</h2>
                 <h3>INFORMACIÓN DEL INMUEBLE</h3>
@@ -245,27 +245,28 @@ foreach ($inmuebles as $inmueble) {
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="bg-slider">
-            <div class="slider">
-                <ul>
+
+            <div class="bg-slider">
+                <div class="slider">
+                    <ul>
 
 
-<?php
+    <?php
 
-$photosRaw = get_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', true);
+    $photosRaw = get_post_meta($inmueble_id, 'meta-inmueble-imagenes-metainfo', true);
 
-$photos = json_decode(wp_unslash($photosRaw), true);
-foreach ($photos as $key => $photo) {
-?>
+    $photos = json_decode(wp_unslash($photosRaw), true);
+    foreach ($photos as $key => $photo) {
+    ?>
 
-                    <li>
-                        <img src="<?php echo $photo['url']?>" alt="<?php echo ($photo['name'])?>">
-                    </li>
-<?php
-}
-?>
-                </ul>
+                        <li>
+                            <img src="<?php echo $photo['url']?>" alt="<?php echo ($photo['name'])?>">
+                        </li>
+    <?php
+    }
+    ?>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

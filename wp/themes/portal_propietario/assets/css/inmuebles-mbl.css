@@ -236,4 +236,14 @@ text-align: left;
 }
 
  
- 
+.descripcion  {
+    overflow: auto;
+    font-size: 12px;
+}
+
+.descripcion .fila > div, .descripcion .localizacion .fila .direccion {
+    width: 40%;
+}
+.descripcion .fila label {
+    white-space: nowrap;
+}
