@@ -153,7 +153,7 @@ if ($oferta['status'] === 'creada') {
                             </tr>
                             <tr>
                                 <th>Propuesta:</th>
-                                <td><?php echo number_format($oferta["propuesta"], 0, ',', '.'); ?></td>
+                                <td><?php echo number_format($oferta["propuesta"], 0, ',', '.'); ?> €</td>
                             </tr>
 <?php
     } 
