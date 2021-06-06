@@ -75,7 +75,7 @@ foreach ($inmuebles as $inmueble) {
 
 <!-- Pop ups para las diferentes funciones -->
 
-<div onclick="document.querySelector('#descripcion-<?php echo $inmueble_id ?>').style.display = 'none';" class="descripcion" id="descripcion-<?php echo $inmueble_id ?>" style="display: none; position: fixed; top: 10px; left: 10px; right: 10px; bottom: 10px; z-index:5;">
+<div onclick="document.querySelector('#descripcion-<?php echo $inmueble_id ?>').style.display = 'none';" class="descripcion" id="descripcion-<?php echo $inmueble_id ?>" style="display: none; position: fixed; top: 110px; left: 10px; right: 10px; bottom: 10px; z-index:5;">
             <div class="perfil-inmueble">
                 <h2>Perfil Inmueble</h2>
                 <h3>INFORMACIÓN DEL INMUEBLE</h3>
