@@ -10,6 +10,14 @@
 require_once __DIR__ . "/../self/security.php";
 
 function myCss() {
+    echo '<script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>';
+    echo '<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>';
+    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/css/datepicker.min.css">';
+    echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/datepicker-full.min.js"></script>';
+    echo '<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.1.2/dist/js/locales/es.js"></script>';
+    echo '<script src="'.get_bloginfo('stylesheet_directory').'/assets/ext/moment.min.js?cb=' . generate_random_string() . '"></script>';
+    echo '<script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>';
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/ofertas.css">';
 }
 add_action('wp_head', 'myCss');
@@ -54,23 +62,89 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
                                 <th>Oferta:</th>
                                 <td><?php echo number_format($oferta["cantidad"], 0, ',', '.'); ?> €</td>
                             </tr>
+                            <?php
+if ($oferta['status'] === 'creada') {
+?>
+
+                            <tr>
+                                <th>Estado:</th>
+                                <td>En espera de respuesta</td>
+                            </tr>
+
+
+<?php 
+} else if ($oferta['status'] === 'cita-propuesta') {
+?>
+    
+                            <tr>
+                                <th>Estado:</th>
+                                <td>Oferta aceptada, cita propuesta</td>
+                            </tr>
                             <tr>
                                 <th>Cita:</th>
-                                <td><?php echo $oferta["cita"]?></td>
+                                <td><?php if ($oferta["cita"]) {echo date_format(new DateTime($oferta['cita']), 'd/m/Y');}?></td>
                             </tr>
                             <tr>
                                 <th>Hora:</th>
-                                <td><?php echo date_format(new DateTime($oferta['cita']), 'H:i')?></td>
+                                <td><?php if ($oferta["cita"]) {echo date_format(new DateTime($oferta['cita']), 'H:i');}?></td>
                             </tr>
+
+<?php 
+} else {
+    if ($oferta['respuesta'] === 'denegar') {
+?>
+
+                            <tr>
+                                <th>Estado:</th>
+                                <td>Denegada</td>
+                            </tr>
+                        
+
+
+<?php
+    } else if ($oferta['respuesta'] === 'aceptar') { 
+?>
+
+                            <tr>
+                                <th>Estado:</th>
+                                <td>Aceptada</td>
+                            </tr>
+
+
+<?php
+    } else if ($oferta['respuesta'] === 'contraoferta') {
+?>
+  
+                            <tr>
+                                <th>Estado:</th>
+                                <td>Contraofertada</td>
+                            </tr>
+                            <tr>
+                                <th>Propuesta:</th>
+                                <td><?php echo number_format($oferta["propuesta"], 0, ',', '.'); ?></td>
+                            </tr>
+<?php
+    } 
+}
+?>
                         </tbody>
                     </table>
                     <div class="funciones">
-                        <!-- popup al pulsar el checke mostando las opciones aceptar denegar o contraoferta -->
-                        <a id="edit-oferta" href="#"><i class="fas fa-money-check-alt"></i></a>
-                        <!-- popup calendario para modificar feche de cita -->
-                        <a id="edit-cita" href="#"><i class="fas fa-calendar-alt"></i></a>
+<?php 
+                if ($oferta["status"] == "respondida-cliente" || $oferta["status"] == "respondida-cita") {
+                    if ($respuesta == 'contraoferta') {
+?>
+                            <a id="edit-oferta" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-money-check-alt"></i></a>
+<?php 
+                    } else if ($oferta["status"] != "respondida-cita" && $respuesta != 'denegar') {
+?>
+                            <a id="edit-cita" onclick="ver('<?php echo $oferta["id"] ?>')" href="#"><i class="fas fa-calendar-alt"></i></a>
+<?php 
+                    }
+                }
+?>
                         <!-- eliminar es eliminar xD -->
-                        <a id="eliminar" href="#"><i class="fas fa-trash-alt"></i></a>
+                        <a id="eliminar" onclick="eliminaOferta('<?php echo $oferta["id"] ?>', <?php echo $inmueble->ID ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </div>
             </div>
@@ -82,6 +156,17 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
 }
 ?>
 
+        </div>
+    </div>
+
+    <div id="modal-ver-oferta" aria-hidden="true" class="modal">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-ver-oferta-asesor">
+                <div id="modal-ver-oferta-asesor-content">
+
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -99,6 +184,109 @@ for (i = 0; i < coll.length; i++) {
       content.style.display = "block";
     }
   });
+}
+
+
+
+MicroModal.init();
+
+function eliminaOferta(ofertaId, inmuebleId) {
+    if (confirm("¿Seguro que desea eliminar la oferta?"))
+    fetch('/inmueble-xhr?action=elimina-oferta&oferta_id=' + ofertaId + '&inmueble_id=' + inmuebleId)
+        .then(res =>  window.location.reload());
+}
+
+var ofertas = <?php echo json_encode($ofertas); ?>;
+moment.locale("es");
+var datepicker;
+function ver(id) {
+    var oferta = ofertas.find(o => o.id === id);
+    var popup = document.querySelector("#modal-ver-oferta");
+    popup.classList.remove("contraoferta");
+    popup.classList.remove("denegar");
+    popup.classList.remove("aceptar");
+    popup.classList.add(oferta.respuesta);
+    
+    var container = document.querySelector("#modal-ver-oferta-asesor-content");
+
+    if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
+
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <form method="POST" onsubmit="onsubmitCita(event)">
+            <p>${oferta.respuesta == 'aceptar' ? "Aceptada" : (oferta.respuesta == 'denegar' ? "Cita rechazada el " + moment(oferta.cita).format("DD/MM/YYYY HH:mm") : "Contraoferta realizada")}</p>
+            ${oferta.respuesta == 'contraoferta' ? "<textarea readonly>" + oferta.propuesta + "</textarea>" : ""}
+            <input type="hidden" value="${id}" name="oferta-id">
+            <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
+            <input type="hidden" name="action" value="proponer-cita">
+            <input type="hidden" name="inmueble_id" value="${oferta.inmueble_id}">
+            <div id="date">
+            </div>
+            <select name='hora-cita' id='timepicker'>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:30</option>
+            </select>
+            <button type="submit" id="crear-cita">
+            ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta y citar" : "Proponer cita"}
+            </button>
+            </form>
+        </div>
+        `;
+        container.querySelector("#date").addEventListener("changeDate", function (e) {
+            document.querySelector("#fecha").value = moment(e.detail.date).format("YYYY-MM-DD");
+        });
+        datepicker = new Datepicker(container.querySelector("#date"), {
+            autohide: true,
+            language: 'es',
+            weekStart: 1,
+        }); 
+    } else if (oferta.respuesta == 'denegar') {
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <p>Oferta rechazada</p>
+            <textarea>${oferta.motivo}</textarea>
+        </div>
+        `;
+    } else if (oferta.respuesta == 'contraoferta') {
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <p>Contraoferta realizada</p>
+            <textarea>${oferta.propuesta}</textarea>
+        </div>
+        `;
+    }
+
+    console.log(oferta);
+    MicroModal.show("modal-ver-oferta");
+}
+
+function onsubmitCita(e) {
+
+if (document.querySelector("#fecha").value == "")
+e.preventDefault();
 }
     </script>
 </main><!-- #main -->

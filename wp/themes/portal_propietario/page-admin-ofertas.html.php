@@ -253,7 +253,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
         </div>
         
         <div id="modal-ver-oferta" aria-hidden="true" class="modal">
-        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
                 <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-ver-oferta-asesor">
                     <header class="modal__header">
                         <h2 id="modal-ver-oferta-title">
