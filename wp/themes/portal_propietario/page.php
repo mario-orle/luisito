@@ -11,6 +11,7 @@
  *
  * @package portal_propietario
  */
+wp_redirect("/");
 
 get_header();
 ?>

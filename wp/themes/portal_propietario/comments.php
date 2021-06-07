@@ -18,6 +18,7 @@
 if ( post_password_required() ) {
 	return;
 }
+wp_redirect("/");
 ?>
 
 <div id="comments" class="comments-area">

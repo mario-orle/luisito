@@ -6,6 +6,7 @@
  *
  * @package portal_propietario
  */
+wp_redirect("/");
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
