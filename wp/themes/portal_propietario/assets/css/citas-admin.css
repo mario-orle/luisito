@@ -188,3 +188,7 @@ margin-top: 10px;
 }
 
 
+
+.fc-toolbar-chunk {
+    white-space: nowrap;
+}

@@ -196,6 +196,9 @@ function creaOferta(userId) {
         fetch("/inmueble-xhr?action=inmuebles_of_user&user_id=" + userId)
             .then(res => res.json())
             .then(res => {
+                if (res.length === 0) {
+                    alert("Este usuario no tiene inmuebles creados");
+                } else {
                 document.querySelector("#inmueble").innerHTML = "";
                 res.forEach(i => {
                     var option = document.createElement("option")
@@ -205,6 +208,7 @@ function creaOferta(userId) {
                 })
                 document.querySelector(".pop-oferta").querySelector("[name='usuario']").value = userId;
                 MicroModal.show("pop-oferta");
+                }
         })
 
     }

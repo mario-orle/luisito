@@ -233,3 +233,7 @@ table {
 .modal.modal-cita.is-open input.controls {
     width: calc(100% - 20px);
 }
+
+.fc-toolbar-chunk {
+    white-space: nowrap;
+}

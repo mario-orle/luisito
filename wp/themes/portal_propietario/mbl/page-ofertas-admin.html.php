@@ -23,6 +23,49 @@ function myCss() {
 add_action('wp_head', 'myCss');
 
 
+
+function generateRandomString($length = 10) {
+    return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
+    $user = get_user_by('id', $_POST['usuario']);
+    $data = array();
+    if ($_POST['action'] == "crear") {
+        $data['id'] = generateRandomString(30);
+        $data['user_id'] = ($_POST['usuario']);
+        $data['inmueble_id'] = ($_POST['inmueble_id']);
+        $data['status'] = ($_POST['status']);
+        $data['cantidad'] = ($_POST['cantidad']);
+        $data['descripcion'] = ($_POST['descripcion']);
+        $data['created'] = date("c");
+        
+        //add_user_meta($user->ID, 'meta-oferta-al-cliente', wp_slash(json_encode($data)));
+        add_post_meta($_POST['inmueble_id'], 'meta-oferta-al-cliente', wp_slash(json_encode($data)));
+    }
+    if ($_POST['action'] == "proponer-cita") {
+        $ofertaid = ($_POST['oferta-id']);
+        $date = $_POST["fecha-cita"];
+        $time = $_POST["hora-cita"];
+        $inmuebleid = $_POST["inmueble_id"];
+
+
+        
+        foreach (get_post_meta($inmuebleid, 'meta-oferta-al-cliente') as $old_meta_encoded) {
+            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
+            if ($old_meta["id"] == $ofertaid) {
+
+                delete_post_meta($inmuebleid, 'meta-oferta-al-cliente', wp_slash($old_meta_encoded));
+
+                $old_meta["cita"] = $date . " " . $time;
+                $old_meta['status'] = "cita-propuesta";
+                add_post_meta($inmuebleid, 'meta-oferta-al-cliente', wp_slash(json_encode($old_meta)));
+
+            }
+        }
+    }
+    wp_redirect("/admin-ofertas");
+
+}
 get_header();
 ?>
 
@@ -178,10 +221,10 @@ for (i = 0; i < coll.length; i++) {
   coll[i].addEventListener("click", function() {
     this.classList.toggle("active");
     var content = this.nextElementSibling;
-    if (content.style.display === "block") {
+    if (content.style.display === "flex") {
       content.style.display = "none";
     } else {
-      content.style.display = "block";
+      content.style.display = "flex";
     }
   });
 }

@@ -27,6 +27,7 @@ get_header();
 <?php 
 if (current_user_can("administrator") && (!isset($_GET["user"]) || empty($_GET["user"]))) {
     require "page-chat-mobile-admin.html.php";
+    die();
 }
 
 ?>

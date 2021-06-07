@@ -56,7 +56,6 @@ margin-bottom: 0;
 
 
   .perfil-inmueble{
-    width: calc(100% - 42px);
     background: #777;
     border-radius: 5px;
     border: 5px ridge;
@@ -89,7 +88,7 @@ margin-bottom: 0;
 }
 
 .fila > div input{
-    width: 100%;
+    width: 90%;
     height: 35px;
 }
 #valor{
@@ -135,7 +134,6 @@ margin-bottom: 0;
     align-items: center;
 }
 .descripcion{
-   width: 100%;
 }
 .descripcion .fila textarea{
     width: 100%;
@@ -191,7 +189,6 @@ text-align: left;
 /* contrastar con mario si esto va a ser util o una puta mierda */
 
 .bg-slider{
-    width: calc(100% - 42px);
     background: #777;
     border-radius: 5px;
     border: 5px ridge;
@@ -208,7 +205,7 @@ text-align: left;
 .slider ul {
 	display: flex;
 	padding: 0;
-	width: 400%;
+    overflow-x: auto;
 }
 
 .slider li {
@@ -217,7 +214,7 @@ text-align: left;
 }
 
 .slider img {
-	width: 100%;
+	width: 150px;
 }
 
  
@@ -227,7 +224,11 @@ text-align: left;
 }
 
 .descripcion .fila > div, .descripcion .localizacion .fila .direccion {
-    width: 40%;
+    width: 44%;
+}
+
+.caracteristicas .fila > div {
+    width: 47%;
 }
 .descripcion .fila label {
     white-space: nowrap;

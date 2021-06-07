@@ -34,3 +34,13 @@
     width: 100%;
     z-index: 5;
 }
+.main-contact .contact.unread::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    background-color: red;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}

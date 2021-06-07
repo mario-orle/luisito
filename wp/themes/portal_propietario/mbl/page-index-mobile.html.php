@@ -55,7 +55,9 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
 
     $ofertas_recibidas = 0;
     $ofertas = get_own_ofertas_recibidas(wp_get_current_user());
-    $ofertas_recibidas = count($ofertas);
+    foreach ($ofertas as $user => $ofertas_arr) {
+      $ofertas_recibidas += count($ofertas_arr);
+    }
 
     $inmuebles = get_posts(array(
         'post_type' => 'inmueble',
