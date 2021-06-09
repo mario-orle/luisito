@@ -61,6 +61,7 @@ get_header();
     <form id="regForm" method="POST" enctype="multipart/form-data">
       <h1>Inmueble</h1>
         <div class="tab">Localización Inmueble:
+          <p><input placeholder="CCAA..." oninput="this.className = ''" name="inmueble-ccaa"></p>
           <p><input placeholder="Provincia..." oninput="this.className = ''" name="inmueble-provincia"></p>
           <p><input placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></p>
           <p><input placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></p>
@@ -108,7 +109,7 @@ get_header();
           <p class="solopiso"><label for="ascensor">Ascensor</label><input class="not-required" name="inmueble-ascensor" id="ascensor" type="checkbox"></p>
           <p class="solopiso"><label for="trastero">Trastero</label><input class="not-required" name="inmueble-trastero" id="trastero" type="checkbox"></p>
         </div>
-        <div class="tab">Precio estimado y foto principal
+        <div class="tab">Precio estimado
           <p><input placeholder="Precio estimado..." oninput="this.className = ''" name="inmueble-precioestimado" type="number"></p>
         </div>
         <div style="overflow:auto;">

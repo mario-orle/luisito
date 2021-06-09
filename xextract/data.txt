@@ -1,0 +1,1956 @@
+[
+  {
+    "value": "2",
+    "name": "Andalucía",
+    "graph": {
+      "title": {
+        "text": "€/m2"
+      },
+      "size": {
+        "height": 400
+      },
+      "grid": {
+        "focus": {
+          "show": false
+        }
+      },
+      "padding": {
+        "left": 40
+      },
+      "data": {
+        "x": "x",
+        "columns": [
+          [
+            "x",
+            "Ene 2006",
+            "Feb 2006",
+            "Mar 2006",
+            "Abr 2006",
+            "Mayo 2006",
+            "Jun 2006",
+            "Jul 2006",
+            "Ago 2006",
+            "Sep 2006",
+            "Oct 2006",
+            "Nov 2006",
+            "Dic 2006",
+            "Ene 2007",
+            "Feb 2007",
+            "Mar 2007",
+            "Abr 2007",
+            "Mayo 2007",
+            "Jun 2007",
+            "Jul 2007",
+            "Ago 2007",
+            "Sep 2007",
+            "Oct 2007",
+            "Nov 2007",
+            "Dic 2007",
+            "Ene 2008",
+            "Feb 2008",
+            "Mar 2008",
+            "Abr 2008",
+            "Mayo 2008",
+            "Jun 2008",
+            "Jul 2008",
+            "Ago 2008",
+            "Sep 2008",
+            "Oct 2008",
+            "Nov 2008",
+            "Dic 2008",
+            "Ene 2009",
+            "Feb 2009",
+            "Mar 2009",
+            "Abr 2009",
+            "Mayo 2009",
+            "Jun 2009",
+            "Jul 2009",
+            "Ago 2009",
+            "Sep 2009",
+            "Oct 2009",
+            "Nov 2009",
+            "Dic 2009",
+            "Ene 2010",
+            "Feb 2010",
+            "Mar 2010",
+            "Abr 2010",
+            "Mayo 2010",
+            "Jun 2010",
+            "Jul 2010",
+            "Ago 2010",
+            "Sep 2010",
+            "Oct 2010",
+            "Nov 2010",
+            "Dic 2010",
+            "Ene 2011",
+            "Feb 2011",
+            "Mar 2011",
+            "Abr 2011",
+            "Mayo 2011",
+            "Jun 2011",
+            "Jul 2011",
+            "Ago 2011",
+            "Sep 2011",
+            "Oct 2011",
+            "Nov 2011",
+            "Dic 2011",
+            "Ene 2012",
+            "Feb 2012",
+            "Mar 2012",
+            "Abr 2012",
+            "Mayo 2012",
+            "Jun 2012",
+            "Jul 2012",
+            "Ago 2012",
+            "Sep 2012",
+            "Oct 2012",
+            "Nov 2012",
+            "Dic 2012",
+            "Ene 2013",
+            "Feb 2013",
+            "Mar 2013",
+            "Abr 2013",
+            "Mayo 2013",
+            "Jun 2013",
+            "Jul 2013",
+            "Ago 2013",
+            "Sep 2013",
+            "Oct 2013",
+            "Nov 2013",
+            "Dic 2013",
+            "Ene 2014",
+            "Feb 2014",
+            "Mar 2014",
+            "Abr 2014",
+            "Mayo 2014",
+            "Jun 2014",
+            "Jul 2014",
+            "Ago 2014",
+            "Sep 2014",
+            "Oct 2014",
+            "Nov 2014",
+            "Dic 2014",
+            "Ene 2015",
+            "Feb 2015",
+            "Mar 2015",
+            "Abr 2015",
+            "Mayo 2015",
+            "Jun 2015",
+            "Jul 2015",
+            "Ago 2015",
+            "Sep 2015",
+            "Oct 2015",
+            "Nov 2015",
+            "Dic 2015",
+            "Ene 2016",
+            "Feb 2016",
+            "Mar 2016",
+            "Abr 2016",
+            "Mayo 2016",
+            "Jun 2016",
+            "Jul 2016",
+            "Ago 2016",
+            "Sep 2016",
+            "Oct 2016",
+            "Nov 2016",
+            "Dic 2016",
+            "Ene 2017",
+            "Feb 2017",
+            "Mar 2017",
+            "Abr 2017",
+            "Mayo 2017",
+            "Jun 2017",
+            "Jul 2017",
+            "Ago 2017",
+            "Sep 2017",
+            "Oct 2017",
+            "Nov 2017",
+            "Dic 2017",
+            "Ene 2018",
+            "Feb 2018",
+            "Mar 2018",
+            "Abr 2018",
+            "Mayo 2018",
+            "Jun 2018",
+            "Jul 2018",
+            "Ago 2018",
+            "Sep 2018",
+            "Oct 2018",
+            "Nov 2018",
+            "Dic 2018",
+            "Ene 2019",
+            "Feb 2019",
+            "Mar 2019",
+            "Abr 2019",
+            "Mayo 2019",
+            "Jun 2019",
+            "Jul 2019",
+            "Ago 2019",
+            "Sep 2019",
+            "Oct 2019",
+            "Nov 2019",
+            "Dic 2019",
+            "Ene 2020",
+            "Feb 2020",
+            "Mar 2020",
+            "Abr 2020",
+            "Mayo 2020",
+            "Jun 2020",
+            "Jul 2020",
+            "Ago 2020",
+            "Sep 2020",
+            "Oct 2020",
+            "Nov 2020",
+            "Dic 2020",
+            "Ene 2021",
+            "Feb 2021",
+            "Mar 2021",
+            "Abr 2021",
+            "Mayo 2021"
+          ],
+          [
+            "España",
+            1975,
+            1972,
+            1951,
+            1934,
+            1937,
+            1953,
+            1961,
+            1960,
+            1974,
+            1976,
+            1986,
+            1986,
+            1980,
+            1984,
+            2023,
+            2015,
+            2044,
+            2053,
+            2045,
+            2026,
+            2022,
+            2039,
+            2046,
+            2023,
+            2011,
+            2009,
+            2019,
+            2023,
+            2013,
+            2008,
+            1979,
+            1953,
+            1946,
+            1938,
+            1943,
+            1921,
+            1921,
+            1918,
+            1927,
+            1921,
+            1913,
+            1901,
+            1897,
+            1883,
+            1878,
+            1878,
+            1879,
+            1873,
+            1873,
+            1871,
+            1888,
+            1898,
+            1909,
+            1910,
+            1931,
+            1924,
+            1927,
+            1943,
+            1960,
+            1963,
+            1963,
+            1963,
+            1984,
+            1983,
+            1984,
+            1982,
+            1976,
+            1965,
+            1942,
+            1940,
+            1935,
+            1913,
+            1902,
+            1877,
+            1858,
+            1846,
+            1828,
+            1816,
+            1800,
+            1771,
+            1740,
+            1742,
+            1734,
+            1712,
+            1687,
+            1682,
+            1676,
+            1663,
+            1658,
+            1648,
+            1644,
+            1630,
+            1623,
+            1611,
+            1608,
+            1606,
+            1603,
+            1602,
+            1574,
+            1555,
+            1567,
+            1563,
+            1562,
+            1550,
+            1543,
+            1546,
+            1559,
+            1563,
+            1554,
+            1549,
+            1551,
+            1548,
+            1552,
+            1547,
+            1544,
+            1526,
+            1522,
+            1525,
+            1526,
+            1528,
+            1524,
+            1526,
+            1527,
+            1524,
+            1516,
+            1515,
+            1509,
+            1512,
+            1497,
+            1496,
+            1506,
+            1521,
+            1524,
+            1522,
+            1530,
+            1537,
+            1535,
+            1543,
+            1564,
+            1551,
+            1534,
+            1544,
+            1555,
+            1557,
+            1570,
+            1590,
+            1607,
+            1612,
+            1619,
+            1635,
+            1650,
+            1661,
+            1666,
+            1666,
+            1684,
+            1685,
+            1686,
+            1694,
+            1703,
+            1709,
+            1712,
+            1733,
+            1738,
+            1749,
+            1735,
+            1741,
+            1761,
+            1763,
+            1758,
+            1752,
+            1758,
+            1753,
+            1730,
+            1650,
+            1677,
+            1735,
+            1742,
+            1752,
+            1769,
+            1779,
+            1786,
+            1771,
+            1784,
+            1794,
+            1805
+          ]
+        ],
+        "colors": {
+          "España": "#B1D004"
+        }
+      },
+      "line": {
+        "connectNull": true
+      },
+      "axis": {
+        "x": {
+          "height": 50,
+          "type": "category",
+          "tick": {
+            "rotate": -40,
+            "fit": true,
+            "culling": {
+              "max": 15
+            },
+            "centered": true,
+            "multiline": false
+          }
+        },
+        "y": {
+          "min": 0,
+          "max": 2500,
+          "tick": {
+            "values": [
+              0,
+              500,
+              1000,
+              1500,
+              2000,
+              2500
+            ]
+          }
+        }
+      },
+      "legend": {
+        "hide": true
+      },
+      "point": {
+        "r": 0,
+        "focus": {
+          "expand": {
+            "r": 5
+          }
+        }
+      },
+      "tooltip": {
+        "format": []
+      },
+      "bindto": "#chart-espaasaleall-years"
+    },
+    "children": [
+      {
+        "value": "25",
+        "name": "Almería",
+        "children": [
+          {
+            "value": "562",
+            "name": "Almería",
+            "children": [
+              {
+                "value": "8540",
+                "name": "Altamira - Oliveros - Barrio Alto"
+              },
+              {
+                "value": "8665",
+                "name": "Barrio San Luis - Los Molinos"
+              },
+              {
+                "value": "8921",
+                "name": "Castell del Rey"
+              },
+              {
+                "value": "9011",
+                "name": "Centro"
+              },
+              {
+                "value": "9094",
+                "name": "Centro Rambla - Plaza de Toros"
+              },
+              {
+                "value": "9138",
+                "name": "Ciudad Jardín - Tagarete"
+              },
+              {
+                "value": "9265",
+                "name": "El Alquián - San Miguel"
+              },
+              {
+                "value": "9385",
+                "name": "El Toyo"
+              },
+              {
+                "value": "9425",
+                "name": "Esperanza - Quemadero"
+              },
+              {
+                "value": "9612",
+                "name": "La Cañada - Costacabana - Loma Cabrera"
+              },
+              {
+                "value": "9619",
+                "name": "La Chanca - Pescadería"
+              },
+              {
+                "value": "9871",
+                "name": "Los Ángeles - Cruz de Caravaca - Piedras Redondas"
+              },
+              {
+                "value": "10093",
+                "name": "Nueva Andalucía - Regiones"
+              },
+              {
+                "value": "10419",
+                "name": "Retamar"
+              },
+              {
+                "value": "10857",
+                "name": "Vega de Acá - Nueva Almería - Cortijo Grande"
+              },
+              {
+                "value": "10884",
+                "name": "Villablanca - Torrecárdenas"
+              },
+              {
+                "value": "10920",
+                "name": "Zapillo"
+              }
+            ],
+            "graph": {
+              "title": {
+                "text": "€/m2"
+              },
+              "size": {
+                "height": 400
+              },
+              "grid": {
+                "focus": {
+                  "show": false
+                }
+              },
+              "padding": {
+                "left": 40
+              },
+              "data": {
+                "x": "x",
+                "columns": [
+                  [
+                    "x",
+                    "Ene 2006",
+                    "Feb 2006",
+                    "Mar 2006",
+                    "Abr 2006",
+                    "Mayo 2006",
+                    "Jun 2006",
+                    "Jul 2006",
+                    "Ago 2006",
+                    "Sep 2006",
+                    "Oct 2006",
+                    "Nov 2006",
+                    "Dic 2006",
+                    "Ene 2007",
+                    "Feb 2007",
+                    "Mar 2007",
+                    "Abr 2007",
+                    "Mayo 2007",
+                    "Jun 2007",
+                    "Jul 2007",
+                    "Ago 2007",
+                    "Sep 2007",
+                    "Oct 2007",
+                    "Nov 2007",
+                    "Dic 2007",
+                    "Ene 2008",
+                    "Feb 2008",
+                    "Mar 2008",
+                    "Abr 2008",
+                    "Mayo 2008",
+                    "Jun 2008",
+                    "Jul 2008",
+                    "Ago 2008",
+                    "Sep 2008",
+                    "Oct 2008",
+                    "Nov 2008",
+                    "Dic 2008",
+                    "Ene 2009",
+                    "Feb 2009",
+                    "Mar 2009",
+                    "Abr 2009",
+                    "Mayo 2009",
+                    "Jun 2009",
+                    "Jul 2009",
+                    "Ago 2009",
+                    "Sep 2009",
+                    "Oct 2009",
+                    "Nov 2009",
+                    "Dic 2009",
+                    "Ene 2010",
+                    "Feb 2010",
+                    "Mar 2010",
+                    "Abr 2010",
+                    "Mayo 2010",
+                    "Jun 2010",
+                    "Jul 2010",
+                    "Ago 2010",
+                    "Sep 2010",
+                    "Oct 2010",
+                    "Nov 2010",
+                    "Dic 2010",
+                    "Ene 2011",
+                    "Feb 2011",
+                    "Mar 2011",
+                    "Abr 2011",
+                    "Mayo 2011",
+                    "Jun 2011",
+                    "Jul 2011",
+                    "Ago 2011",
+                    "Sep 2011",
+                    "Oct 2011",
+                    "Nov 2011",
+                    "Dic 2011",
+                    "Ene 2012",
+                    "Feb 2012",
+                    "Mar 2012",
+                    "Abr 2012",
+                    "Mayo 2012",
+                    "Jun 2012",
+                    "Jul 2012",
+                    "Ago 2012",
+                    "Sep 2012",
+                    "Oct 2012",
+                    "Nov 2012",
+                    "Dic 2012",
+                    "Ene 2013",
+                    "Feb 2013",
+                    "Mar 2013",
+                    "Abr 2013",
+                    "Mayo 2013",
+                    "Jun 2013",
+                    "Jul 2013",
+                    "Ago 2013",
+                    "Sep 2013",
+                    "Oct 2013",
+                    "Nov 2013",
+                    "Dic 2013",
+                    "Ene 2014",
+                    "Feb 2014",
+                    "Mar 2014",
+                    "Abr 2014",
+                    "Mayo 2014",
+                    "Jun 2014",
+                    "Jul 2014",
+                    "Ago 2014",
+                    "Sep 2014",
+                    "Oct 2014",
+                    "Nov 2014",
+                    "Dic 2014",
+                    "Ene 2015",
+                    "Feb 2015",
+                    "Mar 2015",
+                    "Abr 2015",
+                    "Mayo 2015",
+                    "Jun 2015",
+                    "Jul 2015",
+                    "Ago 2015",
+                    "Sep 2015",
+                    "Oct 2015",
+                    "Nov 2015",
+                    "Dic 2015",
+                    "Ene 2016",
+                    "Feb 2016",
+                    "Mar 2016",
+                    "Abr 2016",
+                    "Mayo 2016",
+                    "Jun 2016",
+                    "Jul 2016",
+                    "Ago 2016",
+                    "Sep 2016",
+                    "Oct 2016",
+                    "Nov 2016",
+                    "Dic 2016",
+                    "Ene 2017",
+                    "Feb 2017",
+                    "Mar 2017",
+                    "Abr 2017",
+                    "Mayo 2017",
+                    "Jun 2017",
+                    "Jul 2017",
+                    "Ago 2017",
+                    "Sep 2017",
+                    "Oct 2017",
+                    "Nov 2017",
+                    "Dic 2017",
+                    "Ene 2018",
+                    "Feb 2018",
+                    "Mar 2018",
+                    "Abr 2018",
+                    "Mayo 2018",
+                    "Jun 2018",
+                    "Jul 2018",
+                    "Ago 2018",
+                    "Sep 2018",
+                    "Oct 2018",
+                    "Nov 2018",
+                    "Dic 2018",
+                    "Ene 2019",
+                    "Feb 2019",
+                    "Mar 2019",
+                    "Abr 2019",
+                    "Mayo 2019",
+                    "Jun 2019",
+                    "Jul 2019",
+                    "Ago 2019",
+                    "Sep 2019",
+                    "Oct 2019",
+                    "Nov 2019",
+                    "Dic 2019",
+                    "Ene 2020",
+                    "Feb 2020",
+                    "Mar 2020",
+                    "Abr 2020",
+                    "Mayo 2020",
+                    "Jun 2020",
+                    "Jul 2020",
+                    "Ago 2020",
+                    "Sep 2020",
+                    "Oct 2020",
+                    "Nov 2020",
+                    "Dic 2020",
+                    "Ene 2021",
+                    "Feb 2021",
+                    "Mar 2021",
+                    "Abr 2021",
+                    "Mayo 2021"
+                  ],
+                  [
+                    "Almería",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    1619,
+                    1659,
+                    1704,
+                    1725,
+                    1720,
+                    1743,
+                    1722,
+                    1825,
+                    1701,
+                    1657,
+                    2306,
+                    2303,
+                    2278,
+                    2249,
+                    2251,
+                    2235,
+                    2204,
+                    2188,
+                    1702,
+                    1682,
+                    2190,
+                    2149,
+                    2137,
+                    2087,
+                    1691,
+                    1688,
+                    1623,
+                    1620,
+                    1681,
+                    1681,
+                    1685,
+                    1683,
+                    1659,
+                    1702,
+                    1685,
+                    1685,
+                    1670,
+                    1726,
+                    1726,
+                    1713,
+                    1704,
+                    1694,
+                    1695,
+                    1666,
+                    1658,
+                    1656,
+                    1631,
+                    1621,
+                    1623,
+                    1622,
+                    1614,
+                    1603,
+                    1592,
+                    1604,
+                    1602,
+                    1610,
+                    1588,
+                    1573,
+                    1543,
+                    1513,
+                    1484,
+                    1466,
+                    1471,
+                    1463,
+                    1461,
+                    1427,
+                    1421,
+                    1415,
+                    1414,
+                    1421,
+                    1418,
+                    1418,
+                    1422,
+                    1411,
+                    1363,
+                    1344,
+                    1343,
+                    1319,
+                    1299,
+                    1300,
+                    1297,
+                    1281,
+                    1265,
+                    1276,
+                    1296,
+                    1293,
+                    1261,
+                    1245,
+                    1240,
+                    1228,
+                    1249,
+                    1240,
+                    1228,
+                    1207,
+                    1213,
+                    1224,
+                    1229,
+                    1222,
+                    1213,
+                    1216,
+                    1232,
+                    1233,
+                    1242,
+                    1220,
+                    1202,
+                    1185,
+                    1177,
+                    1172,
+                    1157,
+                    1150,
+                    1143,
+                    1144,
+                    1156,
+                    1154,
+                    1147,
+                    1137,
+                    1141,
+                    1131,
+                    1139,
+                    1129,
+                    1124,
+                    1116,
+                    1112,
+                    1121,
+                    1130,
+                    1138,
+                    1134,
+                    1126,
+                    1131,
+                    1139,
+                    1152,
+                    1156,
+                    1158,
+                    1161,
+                    1167,
+                    1155,
+                    1154,
+                    1142,
+                    1154,
+                    1177,
+                    1176,
+                    1188,
+                    1184,
+                    1184,
+                    1180,
+                    1181,
+                    1176,
+                    1176,
+                    1174,
+                    1178,
+                    1181,
+                    1148,
+                    1153,
+                    1175,
+                    1184,
+                    1198,
+                    1196,
+                    1190,
+                    1192,
+                    1183,
+                    1192,
+                    1191,
+                    1183
+                  ]
+                ],
+                "colors": {
+                  "Almería": "#B1D004"
+                }
+              },
+              "line": {
+                "connectNull": true
+              },
+              "axis": {
+                "x": {
+                  "height": 50,
+                  "type": "category",
+                  "tick": {
+                    "rotate": -40,
+                    "fit": true,
+                    "culling": {
+                      "max": 15
+                    },
+                    "centered": true,
+                    "multiline": false
+                  }
+                },
+                "y": {
+                  "min": 0,
+                  "max": 2500,
+                  "tick": {
+                    "values": [
+                      0,
+                      500,
+                      1000,
+                      1500,
+                      2000,
+                      2500
+                    ]
+                  }
+                }
+              },
+              "legend": {
+                "hide": true
+              },
+              "point": {
+                "r": 0,
+                "focus": {
+                  "expand": {
+                    "r": 5
+                  }
+                }
+              },
+              "tooltip": {
+                "format": []
+              },
+              "bindto": "#chart-almerasaleall-years"
+            }
+          },
+          {
+            "value": "123",
+            "name": "Abla"
+          },
+          {
+            "value": "127",
+            "name": "Abrucena"
+          },
+          {
+            "value": "145",
+            "name": "Adra"
+          },
+          {
+            "value": "256",
+            "name": "Albanchez"
+          },
+          {
+            "value": "282",
+            "name": "Alboloduy"
+          },
+          {
+            "value": "291",
+            "name": "Albox"
+          },
+          {
+            "value": "343",
+            "name": "Alcolea"
+          },
+          {
+            "value": "360",
+            "name": "Alcontar"
+          },
+          {
+            "value": "375",
+            "name": "Alcudia de Monteagud"
+          },
+          {
+            "value": "490",
+            "name": "Alhabia"
+          },
+          {
+            "value": "491",
+            "name": "Alhama de Almería"
+          },
+          {
+            "value": "504",
+            "name": "Alicun"
+          },
+          {
+            "value": "565",
+            "name": "Almocita"
+          },
+          {
+            "value": "615",
+            "name": "Alsodux"
+          },
+          {
+            "value": "684",
+            "name": "Antas"
+          },
+          {
+            "value": "731",
+            "name": "Arboleas"
+          },
+          {
+            "value": "812",
+            "name": "Armuña de Almanzora"
+          },
+          {
+            "value": "947",
+            "name": "Bacares"
+          },
+          {
+            "value": "972",
+            "name": "Balanegra"
+          },
+          {
+            "value": "1083",
+            "name": "Bayarcal"
+          },
+          {
+            "value": "1084",
+            "name": "Bayarque"
+          },
+          {
+            "value": "1105",
+            "name": "Bédar"
+          },
+          {
+            "value": "1114",
+            "name": "Beires"
+          },
+          {
+            "value": "1167",
+            "name": "Benahadux"
+          },
+          {
+            "value": "1236",
+            "name": "Benitagla"
+          },
+          {
+            "value": "1237",
+            "name": "Benizalon"
+          },
+          {
+            "value": "1242",
+            "name": "Bentarique"
+          },
+          {
+            "value": "1270",
+            "name": "Berja"
+          },
+          {
+            "value": "1552",
+            "name": "Cabo de Gata"
+          },
+          {
+            "value": "1773",
+            "name": "Canjayar"
+          },
+          {
+            "value": "1789",
+            "name": "Cantoria"
+          },
+          {
+            "value": "1821",
+            "name": "Carboneras"
+          },
+          {
+            "value": "2073",
+            "name": "Castro de Filabres"
+          },
+          {
+            "value": "2210",
+            "name": "Chercos"
+          },
+          {
+            "value": "2229",
+            "name": "Chirivel"
+          },
+          {
+            "value": "2298",
+            "name": "Cobdar"
+          },
+          {
+            "value": "2499",
+            "name": "Cuevas del Almanzora"
+          },
+          {
+            "value": "2521",
+            "name": "Dalias"
+          },
+          {
+            "value": "2525",
+            "name": "Darrical"
+          },
+          {
+            "value": "2644",
+            "name": "El Ejido"
+          },
+          {
+            "value": "2795",
+            "name": "Enix"
+          },
+          {
+            "value": "2940",
+            "name": "Felix"
+          },
+          {
+            "value": "2961",
+            "name": "Fiñana"
+          },
+          {
+            "value": "2962",
+            "name": "Fines"
+          },
+          {
+            "value": "2984",
+            "name": "Fondón"
+          },
+          {
+            "value": "3173",
+            "name": "Gador"
+          },
+          {
+            "value": "3251",
+            "name": "Garrucha"
+          },
+          {
+            "value": "3284",
+            "name": "Gérgal"
+          },
+          {
+            "value": "3566",
+            "name": "Huécija"
+          },
+          {
+            "value": "3574",
+            "name": "Huércal de Almería"
+          },
+          {
+            "value": "3575",
+            "name": "Huércal-Overa"
+          },
+          {
+            "value": "3634",
+            "name": "Illar"
+          },
+          {
+            "value": "3645",
+            "name": "Instinción"
+          },
+          {
+            "value": "3905",
+            "name": "La Mojonera"
+          },
+          {
+            "value": "4089",
+            "name": "Laroya"
+          },
+          {
+            "value": "4123",
+            "name": "Las Tres Villas"
+          },
+          {
+            "value": "4137",
+            "name": "Laujar de Andarax"
+          },
+          {
+            "value": "4221",
+            "name": "Lijar"
+          },
+          {
+            "value": "4319",
+            "name": "Los Gallardos"
+          },
+          {
+            "value": "4363",
+            "name": "Lubrín"
+          },
+          {
+            "value": "4364",
+            "name": "Lucainena de las Torres"
+          },
+          {
+            "value": "4365",
+            "name": "Lucar"
+          },
+          {
+            "value": "4398",
+            "name": "Macael"
+          },
+          {
+            "value": "4531",
+            "name": "Maria"
+          },
+          {
+            "value": "4758",
+            "name": "Mojácar"
+          },
+          {
+            "value": "5039",
+            "name": "Nacimiento"
+          },
+          {
+            "value": "5158",
+            "name": "Nijar"
+          },
+          {
+            "value": "5228",
+            "name": "Ohanes"
+          },
+          {
+            "value": "5288",
+            "name": "Olula de Castro"
+          },
+          {
+            "value": "5289",
+            "name": "Olula del Río"
+          },
+          {
+            "value": "5337",
+            "name": "Oria"
+          },
+          {
+            "value": "5398",
+            "name": "Padules"
+          },
+          {
+            "value": "5448",
+            "name": "Palomares"
+          },
+          {
+            "value": "5494",
+            "name": "Partaloa"
+          },
+          {
+            "value": "5507",
+            "name": "Paterna del Río"
+          },
+          {
+            "value": "5517",
+            "name": "Pechina"
+          },
+          {
+            "value": "5945",
+            "name": "Pulpi"
+          },
+          {
+            "value": "5951",
+            "name": "Purchena"
+          },
+          {
+            "value": "6025",
+            "name": "Ragol"
+          },
+          {
+            "value": "6147",
+            "name": "Rioja"
+          },
+          {
+            "value": "6217",
+            "name": "Roquetas de Mar"
+          },
+          {
+            "value": "6413",
+            "name": "San Juan de los Terreros"
+          },
+          {
+            "value": "6666",
+            "name": "Santa Cruz"
+          },
+          {
+            "value": "6704",
+            "name": "Santa Fe de Mondújar"
+          },
+          {
+            "value": "6886",
+            "name": "Senés"
+          },
+          {
+            "value": "6898",
+            "name": "Seron"
+          },
+          {
+            "value": "6934",
+            "name": "Sierro"
+          },
+          {
+            "value": "6986",
+            "name": "Somontin"
+          },
+          {
+            "value": "7001",
+            "name": "Sorbas"
+          },
+          {
+            "value": "7045",
+            "name": "Sufli"
+          },
+          {
+            "value": "7059",
+            "name": "Tabernas"
+          },
+          {
+            "value": "7060",
+            "name": "Taberno"
+          },
+          {
+            "value": "7067",
+            "name": "Tahal"
+          },
+          {
+            "value": "7146",
+            "name": "Terque"
+          },
+          {
+            "value": "7171",
+            "name": "Tijola"
+          },
+          {
+            "value": "7452",
+            "name": "Turre"
+          },
+          {
+            "value": "7453",
+            "name": "Turrillas"
+          },
+          {
+            "value": "7469",
+            "name": "Uleila del Campo"
+          },
+          {
+            "value": "7495",
+            "name": "Urracal"
+          },
+          {
+            "value": "7786",
+            "name": "Velefique"
+          },
+          {
+            "value": "7787",
+            "name": "Vélez Blanco"
+          },
+          {
+            "value": "7789",
+            "name": "Vélez Rubio"
+          },
+          {
+            "value": "7813",
+            "name": "Vera"
+          },
+          {
+            "value": "7832",
+            "name": "Viator"
+          },
+          {
+            "value": "7834",
+            "name": "Vícar"
+          },
+          {
+            "value": "8213",
+            "name": "Villaricos"
+          },
+          {
+            "value": "8479",
+            "name": "Zurgena"
+          }
+        ],
+        "graph": {
+          "title": {
+            "text": "€/m2"
+          },
+          "size": {
+            "height": 400
+          },
+          "grid": {
+            "focus": {
+              "show": false
+            }
+          },
+          "padding": {
+            "left": 40
+          },
+          "data": {
+            "x": "x",
+            "columns": [
+              [
+                "x",
+                "Ene 2006",
+                "Feb 2006",
+                "Mar 2006",
+                "Abr 2006",
+                "Mayo 2006",
+                "Jun 2006",
+                "Jul 2006",
+                "Ago 2006",
+                "Sep 2006",
+                "Oct 2006",
+                "Nov 2006",
+                "Dic 2006",
+                "Ene 2007",
+                "Feb 2007",
+                "Mar 2007",
+                "Abr 2007",
+                "Mayo 2007",
+                "Jun 2007",
+                "Jul 2007",
+                "Ago 2007",
+                "Sep 2007",
+                "Oct 2007",
+                "Nov 2007",
+                "Dic 2007",
+                "Ene 2008",
+                "Feb 2008",
+                "Mar 2008",
+                "Abr 2008",
+                "Mayo 2008",
+                "Jun 2008",
+                "Jul 2008",
+                "Ago 2008",
+                "Sep 2008",
+                "Oct 2008",
+                "Nov 2008",
+                "Dic 2008",
+                "Ene 2009",
+                "Feb 2009",
+                "Mar 2009",
+                "Abr 2009",
+                "Mayo 2009",
+                "Jun 2009",
+                "Jul 2009",
+                "Ago 2009",
+                "Sep 2009",
+                "Oct 2009",
+                "Nov 2009",
+                "Dic 2009",
+                "Ene 2010",
+                "Feb 2010",
+                "Mar 2010",
+                "Abr 2010",
+                "Mayo 2010",
+                "Jun 2010",
+                "Jul 2010",
+                "Ago 2010",
+                "Sep 2010",
+                "Oct 2010",
+                "Nov 2010",
+                "Dic 2010",
+                "Ene 2011",
+                "Feb 2011",
+                "Mar 2011",
+                "Abr 2011",
+                "Mayo 2011",
+                "Jun 2011",
+                "Jul 2011",
+                "Ago 2011",
+                "Sep 2011",
+                "Oct 2011",
+                "Nov 2011",
+                "Dic 2011",
+                "Ene 2012",
+                "Feb 2012",
+                "Mar 2012",
+                "Abr 2012",
+                "Mayo 2012",
+                "Jun 2012",
+                "Jul 2012",
+                "Ago 2012",
+                "Sep 2012",
+                "Oct 2012",
+                "Nov 2012",
+                "Dic 2012",
+                "Ene 2013",
+                "Feb 2013",
+                "Mar 2013",
+                "Abr 2013",
+                "Mayo 2013",
+                "Jun 2013",
+                "Jul 2013",
+                "Ago 2013",
+                "Sep 2013",
+                "Oct 2013",
+                "Nov 2013",
+                "Dic 2013",
+                "Ene 2014",
+                "Feb 2014",
+                "Mar 2014",
+                "Abr 2014",
+                "Mayo 2014",
+                "Jun 2014",
+                "Jul 2014",
+                "Ago 2014",
+                "Sep 2014",
+                "Oct 2014",
+                "Nov 2014",
+                "Dic 2014",
+                "Ene 2015",
+                "Feb 2015",
+                "Mar 2015",
+                "Abr 2015",
+                "Mayo 2015",
+                "Jun 2015",
+                "Jul 2015",
+                "Ago 2015",
+                "Sep 2015",
+                "Oct 2015",
+                "Nov 2015",
+                "Dic 2015",
+                "Ene 2016",
+                "Feb 2016",
+                "Mar 2016",
+                "Abr 2016",
+                "Mayo 2016",
+                "Jun 2016",
+                "Jul 2016",
+                "Ago 2016",
+                "Sep 2016",
+                "Oct 2016",
+                "Nov 2016",
+                "Dic 2016",
+                "Ene 2017",
+                "Feb 2017",
+                "Mar 2017",
+                "Abr 2017",
+                "Mayo 2017",
+                "Jun 2017",
+                "Jul 2017",
+                "Ago 2017",
+                "Sep 2017",
+                "Oct 2017",
+                "Nov 2017",
+                "Dic 2017",
+                "Ene 2018",
+                "Feb 2018",
+                "Mar 2018",
+                "Abr 2018",
+                "Mayo 2018",
+                "Jun 2018",
+                "Jul 2018",
+                "Ago 2018",
+                "Sep 2018",
+                "Oct 2018",
+                "Nov 2018",
+                "Dic 2018",
+                "Ene 2019",
+                "Feb 2019",
+                "Mar 2019",
+                "Abr 2019",
+                "Mayo 2019",
+                "Jun 2019",
+                "Jul 2019",
+                "Ago 2019",
+                "Sep 2019",
+                "Oct 2019",
+                "Nov 2019",
+                "Dic 2019",
+                "Ene 2020",
+                "Feb 2020",
+                "Mar 2020",
+                "Abr 2020",
+                "Mayo 2020",
+                "Jun 2020",
+                "Jul 2020",
+                "Ago 2020",
+                "Sep 2020",
+                "Oct 2020",
+                "Nov 2020",
+                "Dic 2020",
+                "Ene 2021",
+                "Feb 2021",
+                "Mar 2021",
+                "Abr 2021",
+                "Mayo 2021"
+              ],
+              [
+                "Almería provincia",
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                1745,
+                1702,
+                1684,
+                1698,
+                1761,
+                1721,
+                1617,
+                1554,
+                1626,
+                1560,
+                1691,
+                1715,
+                1702,
+                1689,
+                1660,
+                1662,
+                1696,
+                1684,
+                1678,
+                1668,
+                1669,
+                1673,
+                1660,
+                1669,
+                1658,
+                1643,
+                1781,
+                1775,
+                1764,
+                1726,
+                1741,
+                1741,
+                1755,
+                1729,
+                1593,
+                1555,
+                1684,
+                1665,
+                1664,
+                1644,
+                1525,
+                1512,
+                1487,
+                1468,
+                1489,
+                1516,
+                1500,
+                1481,
+                1468,
+                1459,
+                1461,
+                1464,
+                1446,
+                1489,
+                1516,
+                1520,
+                1524,
+                1506,
+                1497,
+                1471,
+                1457,
+                1455,
+                1439,
+                1433,
+                1435,
+                1422,
+                1412,
+                1400,
+                1391,
+                1367,
+                1364,
+                1353,
+                1338,
+                1335,
+                1305,
+                1299,
+                1277,
+                1266,
+                1279,
+                1278,
+                1275,
+                1264,
+                1248,
+                1222,
+                1221,
+                1229,
+                1222,
+                1209,
+                1200,
+                1188,
+                1183,
+                1176,
+                1139,
+                1120,
+                1137,
+                1123,
+                1117,
+                1114,
+                1114,
+                1120,
+                1124,
+                1122,
+                1129,
+                1130,
+                1123,
+                1120,
+                1132,
+                1129,
+                1101,
+                1103,
+                1103,
+                1083,
+                1074,
+                1063,
+                1082,
+                1088,
+                1087,
+                1080,
+                1084,
+                1066,
+                1052,
+                1059,
+                1053,
+                1058,
+                1058,
+                1052,
+                1045,
+                1051,
+                1055,
+                1056,
+                1057,
+                1057,
+                1082,
+                1066,
+                1075,
+                1074,
+                1066,
+                1058,
+                1050,
+                1082,
+                1082,
+                1078,
+                1071,
+                1065,
+                1071,
+                1074,
+                1088,
+                1087,
+                1081,
+                1072,
+                1076,
+                1073,
+                1072,
+                1064,
+                1072,
+                1081,
+                1074,
+                1086,
+                1089,
+                1080,
+                1075,
+                1078,
+                1075,
+                1071,
+                1078,
+                1083,
+                1077,
+                1026,
+                1025,
+                1041,
+                1054,
+                1059,
+                1061,
+                1075,
+                1081,
+                1063,
+                1063,
+                1070,
+                1076
+              ]
+            ],
+            "colors": {
+              "Almería provincia": "#B1D004"
+            }
+          },
+          "line": {
+            "connectNull": true
+          },
+          "axis": {
+            "x": {
+              "height": 50,
+              "type": "category",
+              "tick": {
+                "rotate": -40,
+                "fit": true,
+                "culling": {
+                  "max": 15
+                },
+                "centered": true,
+                "multiline": false
+              }
+            },
+            "y": {
+              "min": 0,
+              "max": 2000,
+              "tick": {
+                "values": [
+                  0,
+                  500,
+                  1000,
+                  1500,
+                  2000
+                ]
+              }
+            }
+          },
+          "legend": {
+            "hide": true
+          },
+          "point": {
+            "r": 0,
+            "focus": {
+              "expand": {
+                "r": 5
+              }
+            }
+          },
+          "tooltip": {
+            "format": []
+          },
+          "bindto": "#chart-almera-provinciasaleall-years"
+        }
+      },
+      {
+        "value": "33",
+        "name": "Cádiz"
+      },
+      {
+        "value": "38",
+        "name": "Córdoba"
+      },
+      {
+        "value": "41",
+        "name": "Granada"
+      },
+      {
+        "value": "44",
+        "name": "Huelva"
+      },
+      {
+        "value": "46",
+        "name": "Jaén"
+      },
+      {
+        "value": "53",
+        "name": "Málaga"
+      },
+      {
+        "value": "63",
+        "name": "Sevilla"
+      }
+    ]
+  },
+  {
+    "value": "3",
+    "name": "Aragón"
+  },
+  {
+    "value": "4",
+    "name": "Asturias"
+  },
+  {
+    "value": "5",
+    "name": "Baleares"
+  },
+  {
+    "value": "6",
+    "name": "Canarias"
+  },
+  {
+    "value": "7",
+    "name": "Cantabria"
+  },
+  {
+    "value": "8",
+    "name": "Castilla y León"
+  },
+  {
+    "value": "9",
+    "name": "Castilla-La Mancha"
+  },
+  {
+    "value": "10",
+    "name": "Cataluña"
+  },
+  {
+    "value": "11",
+    "name": "Ceuta"
+  },
+  {
+    "value": "12",
+    "name": "Comunitat Valenciana"
+  },
+  {
+    "value": "13",
+    "name": "Euskadi"
+  },
+  {
+    "value": "14",
+    "name": "Extremadura"
+  },
+  {
+    "value": "15",
+    "name": "Galicia"
+  },
+  {
+    "value": "16",
+    "name": "La Rioja"
+  },
+  {
+    "value": "17",
+    "name": "Madrid Comunidad"
+  },
+  {
+    "value": "18",
+    "name": "Melilla"
+  },
+  {
+    "value": "19",
+    "name": "Murcia Región"
+  },
+  {
+    "value": "20",
+    "name": "Navarra"
+  }
+]

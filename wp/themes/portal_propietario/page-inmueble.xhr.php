@@ -71,3 +71,10 @@ if ($_GET['action'] == 'actualiza-imagenes') {
     }
 
 }
+
+
+if ($_GET['action'] == 'get_ccaa') {
+    require_once "self/graph-stuff.php";
+
+    echo taka();
+}
