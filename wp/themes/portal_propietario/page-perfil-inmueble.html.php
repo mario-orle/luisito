@@ -12,6 +12,7 @@
 require_once "self/security.php";
 
 $logged_user = wp_get_current_user();
+require_once "self/graph-stuff.php";
 
 function myCss() {
     echo '<link rel="stylesheet" type="text/css" href="'.get_bloginfo('stylesheet_directory').'/assets/css/perfil-inmueble.css?cb=' . generate_random_string() . '">';
@@ -73,6 +74,50 @@ foreach ($values as $key => $value) {
 foreach ($values as $key => $value) {
 ?>
     <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true) == $value) echo "selected='selected'"; ?> value="<?php echo $value ?>"><?php echo $value ?></option>
+<?php
+}
+?>
+  </select>
+<?php
+  }
+}
+
+
+function selectLocationCreate($field, $inmueble, $values, $label = '', $fn = "editar") {
+  if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true)) {
+?>
+  <label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
+  <select class="controls js-choices" onchange="<?php echo $fn ?>(event)" name="inmueble-<?php echo $field ?>" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true); ?>">
+<?php
+foreach ($values as $key => $value) {
+?>
+    <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true) == $value["id"]) echo "selected='selected'"; ?> value="<?php echo $value["id"] ?>"><?php echo $value["name"] ?></option>
+<?php
+}
+?>
+  </select>
+  <div class="undoer">
+    <label >
+        Valor anterior
+    </label>
+    <label style="background-color: #fff; padding: 10px;"> 
+      <?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true) ?>
+
+    </label>
+
+
+    <i onclick="undoSelect(event, '<?php echo $field ?>', '<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true);?>')" class="fas fa-undo" title="Recuperar valor anterior"></i>
+    <i onclick="removeUndoSelect(event, '<?php echo $field ?>')" class="fas fa-trash" title="Descartar valor anterior"></i>
+  </div>
+<?php
+  } else {
+?>
+  <label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
+  <select class="controls js-choices" onchange="<?php echo $fn ?>(event)" name="inmueble-<?php echo $field ?>" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true); ?>">
+<?php
+foreach ($values as $key => $value) {
+?>
+    <option <?php if (get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true) == $value["id"]) echo "selected='selected'"; ?> value="<?php echo $value["id"] ?>"><?php echo $value["name"] ?></option>
 <?php
 }
 ?>
@@ -264,22 +309,26 @@ if (current_user_can("administrator")) {
     <div class="fila">
       <div>
 <?php 
-  fieldPerfilCreate("pais", $inmueble, "text");
+  $ccaas = (getCCAA());
+  selectLocationCreate("ccaa", $inmueble, $ccaas, "CCAA", "editarLocalizacion");
 ?>
       </div>
       <div>
 <?php 
-  fieldPerfilCreate("provincia", $inmueble, "text");
+  $provincias = (getPROVINCIA(get_post_meta($inmueble->ID, 'meta-inmueble-ccaa', true)));
+  selectLocationCreate("provincia", $inmueble, $provincias, "Provincia", "editarLocalizacion");
 ?>
       </div>
       <div>
 <?php 
-  fieldPerfilCreate("municipio", $inmueble, "text");
+  $municipios = (getMUNICIPIO(get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true)));
+  selectLocationCreate("municipio", $inmueble, $municipios, "Municipio", "editarLocalizacion");
 ?>
       </div>
       <div>
 <?php 
-  fieldPerfilCreate("poblacion", $inmueble, "text");
+  $poblaciones = (getPOBLACION(get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true)));
+  selectLocationCreate("poblacion", $inmueble, $poblaciones, "Población", "editarLocalizacion");
 ?>
       </div>
       <div>
@@ -580,7 +629,13 @@ foreach ($photos as $key => $photo) {
     }
   }
 
-  function editar(e) {
+  function editarLocalizacion(e) {
+    editar(e, function () {
+      window.location.reload();
+    })
+  }
+
+  function editar(e, fnCb) {
     var input = e.currentTarget;
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>");
@@ -594,7 +649,7 @@ foreach ($photos as $key => $photo) {
     xhr.onload = function() {
         input.style.filter = "none";
         input.removeAttribute("readonly");
-        
+        if (fnCb) fnCb()
         Toastify({
             text: "Dato actualizado",
             duration: 3000,

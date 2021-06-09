@@ -121,7 +121,7 @@ margin-top: 75px;
 .estadisticas-sub{
 display: flex;
 justify-content: space-around;
-align-items: center;
+align-items: flex-start;
 width: 100%;
 margin-top: 65px;
 }
@@ -132,9 +132,10 @@ margin-top: 65px;
 
 .main-up-inmuebles {
   font-size: 20px;
-  padding: 20px;
   display: flex;
+  flex-flow: column;
   font-family: "roboto ";
+  width: 370px;
 }
 .card-wrapper {
   width: 350px;
@@ -190,17 +191,25 @@ p {
 
 .precio-medio{
 padding: 10px;
+padding-top: 20px;
 background-color: white; 
-width: 450px;
+width: calc(100% - 390px);
 border-bottom: 5px solid #ffa600;
 border-radius: 6px;
 text-align: center;
 box-shadow: 0 4px 8px 0 black;
+height: 100%;
+}
+.precio-medio p {
+  color: #333;
 }
 .precio-medio img{
 width: 400px;
 padding: 10px;
 margin-top: 10px;
+}
+.precio-medio canvas {
+  margin: 20px;
 }
 
  

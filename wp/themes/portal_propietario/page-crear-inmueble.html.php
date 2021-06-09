@@ -61,10 +61,10 @@ get_header();
     <form id="regForm" method="POST" enctype="multipart/form-data">
       <h1>Inmueble</h1>
         <div class="tab">Localización Inmueble:
-          <p><input placeholder="CCAA..." oninput="this.className = ''" name="inmueble-ccaa"></p>
-          <p><input placeholder="Provincia..." oninput="this.className = ''" name="inmueble-provincia"></p>
-          <p><input placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></p>
-          <p><input placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></p>
+          <p><select placeholder="CCAA..." oninput="this.className = ''" name="inmueble-ccaa"></select></p>
+          <p><select placeholder="Provincia..." oninput="this.className = ''" name="inmueble-provincia"></select></p>
+          <p><select placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></select></p>
+          <p><select class="not-required" placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></select></p>
           <p><input validators="numeric" placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
         </div>
@@ -161,7 +161,7 @@ get_header();
     });
   }
   
-  var foto = document.querySelector("#foto");
+  /*var foto = document.querySelector("#foto");
   foto.onchange = function () {
     if (foto.files && foto.files[0]) {
     var reader = new FileReader();
@@ -173,7 +173,7 @@ get_header();
     
     reader.readAsDataURL(foto.files[0]); // convert to base64 string
   }
-  }
+  }*/
 
   function changeTipo(e) {
     document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
@@ -185,6 +185,84 @@ get_header();
 
     }
   }
+
+  let el, el2, el3, el4, choiceFirstLevel, choiceSecondLevel, choiceThirdLevel, choiceFourthLevel;
+  fetch("/inmueble-xhr?action=get_ccaa").then(res => res.json()).then(res => {
+
+    el = document.querySelector("select[name=inmueble-ccaa]");
+    const choices = res.map((it, idx) => ({value: it.id, label: it.name, id: it.id}));
+    choices.unshift({value: '', label: 'CCAA'});
+    choiceFirstLevel = new Choices(el, {
+      itemSelectText: 'CCAA',
+      searchEnabled: true,
+      shouldSort: false,
+      choices
+    });
+
+    el.addEventListener('choice', function (event) {
+      fetch("/inmueble-xhr?action=get_provincia&id=" + event.detail.choice.value).then(res => res.json()).then(res => {
+        el2 = document.querySelector("select[name=inmueble-provincia]");
+        const choices2 = res.map((it, idx) => ({value: it.id, label: it.name, id: it.id}));
+        choices2.unshift({value: '', label: 'Provincia'});
+
+        if (choiceSecondLevel) choiceSecondLevel.destroy();
+        if (choiceThirdLevel) choiceThirdLevel.destroy();
+        if (choiceFourthLevel) choiceFourthLevel.destroy();
+
+        choiceSecondLevel = new Choices(el2, {
+          itemSelectText: 'Provincia',
+          searchEnabled: true,
+          shouldSort: false,
+          choices: choices2
+        });
+        el2.addEventListener('choice', function (event2) {
+          fetch("/inmueble-xhr?action=get_municipio&id=" + event2.detail.choice.value).then(res => res.json()).then(res => {
+            el3 = document.querySelector("select[name=inmueble-municipio]");
+            const choices3 = res.map((it, idx) => ({value: it.id, label: it.name, id: it.id}));
+            choices3.unshift({value: '', label: 'Municipio'});
+
+            if (choiceThirdLevel) choiceThirdLevel.destroy();
+            if (choiceFourthLevel) choiceFourthLevel.destroy();
+
+            choiceThirdLevel = new Choices(el3, {
+              itemSelectText: 'Municipio',
+              searchEnabled: true,
+              shouldSort: false,
+              choices: choices3
+            });
+
+            el3.addEventListener('choice', function (event3) {
+              fetch("/inmueble-xhr?action=get_poblacion&id=" + event3.detail.choice.value).then(res => res.json()).then(res => {
+                el4 = document.querySelector("select[name=inmueble-poblacion]");
+                if (res.length) {
+                  el4.parentElement.style.display = "block";
+                  const choices4 = res.map((it, idx) => ({value: it.id, label: it.name, id: it.id}));
+                  choices4.unshift({value: '', label: 'Población'});
+
+                  if (choiceFourthLevel) choiceFourthLevel.destroy();
+
+                  choiceFourthLevel = new Choices(el4, {
+                    itemSelectText: 'Población',
+                    searchEnabled: true,
+                    shouldSort: false,
+                    choices: choices4
+                  });
+                } else {
+                  el4.parentElement.style.display = "none";
+                }
+              });
+            })
+          });
+
+        });
+
+
+      });
+
+    });
+
+
+  });
 </script>
 <?php
 get_footer();

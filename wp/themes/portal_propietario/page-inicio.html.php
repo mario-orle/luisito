@@ -130,12 +130,23 @@ get_header();
             <div class="estadisticas-sub">
                 <div class="precio-medio">
                     <p>Precio Medio de Venta en la Zona</p>
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>grafica.png" width="100%">
+                    <canvas id="main-graph"></canvas>
                 </div>
                        <div class="main-up-inmuebles">
 <?php 
     $inmuebles_of_user = getInmueblesOfUser(wp_get_current_user());
+    $inmuebles_loc_ids = [];
     foreach($inmuebles_of_user as $inmueble) {
+      $inmuebles_loc_ids[] = [
+        "ccaa" => get_post_meta($inmueble->ID, 'meta-inmueble-ccaa', true),
+        "provincia" => get_post_meta($inmueble->ID, 'meta-inmueble-provincia', true),
+        "municipio" => get_post_meta($inmueble->ID, 'meta-inmueble-municipio', true),
+        "poblacion" => get_post_meta($inmueble->ID, 'meta-inmueble-poblacion', true),
+        "precioestimado" => get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true),
+        "preciorecomendado" => get_post_meta($inmueble->ID, 'meta-inmueble-preciorecomendado', true),
+        "metros" => get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true),
+      ];
+
 ?>
                             <div class="card-wrapper">
                              <button>
@@ -143,7 +154,7 @@ get_header();
                                 <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>" alt="Avatar" style="width:100%">
                                 <div class="box-text">
                                   <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?></h3>
-                                  <h4><b><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?></b></h4>
+                                  <h4><b><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 2, ",", "."); ?> €</b></h4>
                                   <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true); ?></p>
                                 </div>
                                </a>
@@ -157,6 +168,108 @@ get_header();
               </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    var inmueblesLocIds = <?php echo json_encode($inmuebles_loc_ids); ?>;
+    const requests = inmueblesLocIds.map(inmuebleData => {
+      const mostSpecific = inmuebleData.poblacion || inmuebleData.municipio || inmuebleData.provincia || inmuebleData.ccaa;
+
+      return fetch("/inmueble-xhr?action=get_graph&id=" + mostSpecific).then(res => res.json())
+
+    });
+    var colors = ["#007bff","#6610f2", "#6f42c1","#e83e8c","#dc3545","#fd7e14"," #ffc107"," #28a745","#20c997", "#17a2b8","#fff","#6c757d","#343a40"," #007bff","#6c757d", "#343a40","#007bff","#6c757d","#28a745","#17a2b8","#dc3545"," #f8f9fa"," #343a40"];
+
+    let counter = 0;
+    Promise.all(requests).then(async res => {
+      const datasets = [];
+      res.forEach(r => {
+        r.forEach(ds => {
+          const name = ds.name + ' (' + ds.level + ')';
+          if (datasets.some(d => d.label ===  name)) return;
+          datasets.push({
+            label: name,
+            backgroundColor: colors[(counter) % colors.length],
+            borderColor: colors[(counter) % colors.length],
+            data: ds.graph.data.columns[1],
+            pointRadius: 1
+          });
+          counter++;
+        });
+      })
+      let lengthColumn = res[0][0].graph.data.columns[0].length;
+
+      const precios = inmueblesLocIds.map((inmuebleData, idx) => {
+        const datasetEstimados = {
+          label: 'Precio estimado inm.' + (idx + 1),
+          backgroundColor: colors[(counter) % colors.length],
+          borderColor: colors[(counter) % colors.length],
+          data: new Array(lengthColumn).fill(inmuebleData.precioestimado / inmuebleData.metros),
+          pointRadius: 1
+        }
+        datasets.push(datasetEstimados);
+        counter++;
+
+        if (inmuebleData.preciorecomendado) {
+
+          const datasetrecomendado = {
+            label: 'Precio recomendado inm.' + (idx + 1),
+            backgroundColor: colors[(counter) % colors.length],
+            borderColor: colors[(counter) % colors.length],
+            data: new Array(lengthColumn).fill(inmuebleData.preciorecomendado / inmuebleData.metros),
+            pointRadius: 1
+          }
+          datasets.push(datasetrecomendado);
+          counter++
+        }
+
+      });
+
+      const data = {
+        labels: res[0][0].graph.data.columns[0],
+        datasets
+      };
+      var formatter = new Intl.NumberFormat('de-DE', {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      });
+
+      const config = {
+        type: 'line',
+        data,
+        options: {
+          plugins: {
+            legend: {
+              display: true,
+              align: 'start',
+              labels: {
+                boxWidth: 10
+              }
+            },
+            tooltip: {
+              intersect: false,
+              interaction: {
+                mode: 'x'
+              },
+              callbacks: {
+                label: function(data) {
+                  console.log(arguments);
+                  //var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || 'Other';
+                  //var label = data.labels[tooltipItem.index];
+                  return data.dataset.label + ": " + formatter.format(data.raw) + "€";
+                }
+              }
+            }
+          }
+        }
+      };
+      var myChart = new Chart(
+        document.getElementById("main-graph"),
+        config
+      );
+    });
+    
+    </script>
 
 <?php
     } else {
@@ -251,6 +364,7 @@ get_header();
         </div>
       </div>
     </div>
+
         <?php 
         }
         ?>

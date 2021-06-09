@@ -19,6 +19,18 @@ if ($_GET['action'] == 'update_metadata') {
     } else if (current_user_can("administrator")) {
         delete_post_meta($inmueble_id, 'old-meta-' . $_POST['metaname']);
     }
+    if ($_POST["metaname"] == "inmueble-ccaa") {
+        delete_post_meta($inmueble_id, 'meta-inmueble-provincia');
+        delete_post_meta($inmueble_id, 'meta-inmueble-municipio');
+        delete_post_meta($inmueble_id, 'meta-inmueble-poblacion');
+    }
+    if ($_POST["metaname"] == "inmueble-provincia") {
+        delete_post_meta($inmueble_id, 'meta-inmueble-municipio');
+        delete_post_meta($inmueble_id, 'meta-inmueble-poblacion');
+    }
+    if ($_POST["metaname"] == "inmueble-municipio") {
+        delete_post_meta($inmueble_id, 'meta-inmueble-poblacion');
+    }
     update_post_meta($inmueble_id, 'meta-' . $_POST['metaname'], wp_slash($_POST['metavalue']));
 }
 
@@ -75,6 +87,23 @@ if ($_GET['action'] == 'actualiza-imagenes') {
 
 if ($_GET['action'] == 'get_ccaa') {
     require_once "self/graph-stuff.php";
+    echo json_encode(getCCAA());
+}
+if ($_GET['action'] == 'get_provincia') {
+    require_once "self/graph-stuff.php";
+    echo json_encode(getPROVINCIA($_GET["id"]));
+}
+if ($_GET['action'] == 'get_municipio') {
+    require_once "self/graph-stuff.php";
+    echo json_encode(getMUNICIPIO($_GET["id"]));
+}
 
-    echo taka();
+if ($_GET['action'] == 'get_poblacion') {
+    require_once "self/graph-stuff.php";
+    echo json_encode(getPOBLACION($_GET["id"]));
+}
+
+if ($_GET['action'] == 'get_graph') {
+    require_once "self/graph-stuff.php";
+    echo json_encode(getGraphDataById($_GET["id"]));
 }

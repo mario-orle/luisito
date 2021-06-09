@@ -46,7 +46,7 @@ function validateForm() {
 
     document.querySelectorAll(".error-span-msg").forEach(n => n.remove());
 
-    y = x[currentTab].querySelectorAll("input, select");
+    y = x[currentTab].querySelectorAll("input[name], select[name]");
     // A loop that checks every input field in the current tab:
     for (i = 0; i < y.length; i++) {
 
@@ -62,6 +62,8 @@ function validateForm() {
         if (y[i].getAttribute("validators") && y[i].getAttribute("validators").indexOf("numeric") > -1) {
             constraints["numericality"] = { message: "Debe ser numérico" };
         }
+        console.log(y[i]);
+        console.log(y[i].value);
         var validationResult = validate.single(y[i].value, constraints);
         // If a field is empty...
         if (validationResult) {
@@ -103,6 +105,7 @@ function validateForm() {
             }
         }
     }
+    console.log("aaa");
     // If the valid status is true, mark the step as finished and valid:
     if (valid) {
         document.getElementsByClassName("step")[currentTab].className += " finish";

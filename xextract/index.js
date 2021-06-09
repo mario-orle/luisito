@@ -45,7 +45,7 @@ const randomDelay = () => {
   return 2000 + (2000 * Math.random()); 
 }
 const longRandomDelay = () => {
-  return (60 * 1000) + (60000 * Math.random()); 
+  return (2 * 60 * 1000) + (60000 * Math.random()); 
 }
 
 const getGraphData = async (page) => {
@@ -88,7 +88,7 @@ let resLevel1 = readFile();;
   }
   writeFile(resLevel1);
   for (let i = 0; i < resLevel1.length; i++) {
-    console.log(resLevel1[i].name);
+    console.log(resLevel1[i].name, new Date().toISOString());
     await page.select('[name=location_level_1]', resLevel1[i].value);
     await delay(randomDelay());
     if (!resLevel1[i].graph) {
@@ -104,7 +104,7 @@ let resLevel1 = readFile();;
 
 
     for (let j = 0; j < resLevel1[i].children.length; j++) {
-      console.log(resLevel1[i].children[j].name);
+      console.log(resLevel1[i].children[j].name, new Date().toISOString());
       await page.select('[name=location_level_2]', resLevel1[i].children[j].value);
       await delay(randomDelay());
 
@@ -121,7 +121,7 @@ let resLevel1 = readFile();;
       }
 
       for (let k = 0; k < resLevel1[i].children[j].children.length; k++) {
-        console.log(resLevel1[i].children[j].children[k].name);
+        console.log(resLevel1[i].children[j].children[k].name, new Date().toISOString());
         if (resLevel1[i].children[j].children[k].graph && resLevel1[i].children[j].children[k].children) continue;
         await page.select('[name=location_level_3]', resLevel1[i].children[j].children[k].value);
         await delay(randomDelay());
@@ -139,7 +139,7 @@ let resLevel1 = readFile();;
           writeFile(resLevel1);
         }
         for (let l = 0; l < resLevel1[i].children[j].children[k].children.length; l++) {
-          console.log(resLevel1[i].children[j].children[k].children[l].name);
+          console.log(resLevel1[i].children[j].children[k].children[l].name, new Date().toISOString());
 
           if (!resLevel1[i].children[j].children[k].children[l].graph) {
             await page.select('[name=location_level_4]', resLevel1[i].children[j].children[k].children[l].value);
