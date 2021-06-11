@@ -88,7 +88,7 @@ let resLevel1 = readFile();;
   }
   writeFile(resLevel1);
   for (let i = 0; i < resLevel1.length; i++) {
-    if (resLevel1[i].name !== "Navarra") continue
+    if (resLevel1[i].name !== "Melilla") continue
     console.log(resLevel1[i].name, new Date().toISOString());
     await page.select('[name=location_level_1]', resLevel1[i].value);
     await delay(randomDelay());
