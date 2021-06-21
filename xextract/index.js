@@ -87,8 +87,10 @@ let resLevel1 = readFile();;
     resLevel1 = await page.evaluate(extractFromSelects("[name=location_level_1]"), "[name=location_level_1]");
   }
   writeFile(resLevel1);
+  var pasado = false;
   for (let i = 0; i < resLevel1.length; i++) {
-    if (resLevel1[i].name !== "Melilla") continue
+    if (resLevel1[i].name == "Madrid Comunidad" ) { pasado = true }
+    if (!pasado) continue
     console.log(resLevel1[i].name, new Date().toISOString());
     await page.select('[name=location_level_1]', resLevel1[i].value);
     await delay(randomDelay());
@@ -121,9 +123,9 @@ let resLevel1 = readFile();;
         writeFile(resLevel1);
       }
 
-      for (let k = 0; k < resLevel1[i].children[j].children.length; k++) {
+      for (let k = 0; k < Math.min(5, resLevel1[i].children[j].children.length); k++) {
         console.log(resLevel1[i].children[j].children[k].name, new Date().toISOString());
-        if (resLevel1[i].children[j].children[k].graph && resLevel1[i].children[j].children[k].children) continue;
+        //if (resLevel1[i].children[j].children[k].graph && resLevel1[i].children[j].children[k].children) continue;
         await page.select('[name=location_level_3]', resLevel1[i].children[j].children[k].value);
         await delay(randomDelay());
 

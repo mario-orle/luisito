@@ -256,7 +256,7 @@ get_header();
                   console.log(arguments);
                   //var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || 'Other';
                   //var label = data.labels[tooltipItem.index];
-                  return data.dataset.label + ": " + formatter.format(data.raw) + "€";
+                  return data.dataset.label + ": " + formatter.format(data.raw) + "€/m2";
                 }
               }
             }
