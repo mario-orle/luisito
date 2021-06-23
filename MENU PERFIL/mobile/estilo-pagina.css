@@ -1,0 +1,17 @@
+
+.wrapper{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    background-color: whitesmoke;
+    border: 2px solid silver;
+    margin: 1em;
+}
+.wrapper h1{
+    margin: 1em 0;
+    color: #024959;
+}
+.wrapper p{
+    margin-bottom: 1em;
+}
+.mySlides {display:none;}
