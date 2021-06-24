@@ -31,16 +31,30 @@
 
     <div class="bg-image"></div>
     <div class="main">
+        <div class="posicion">
+            <div class="caja-volver">
+                <div class="volver">
+                    <a href="inmuebles-mbl.html">Volver inmuebles</a>
+                </div>
+            </div>
+        </div>
         <section class="wrapper">
+
             <section class="paginacion">
                 <ul>
-                    <li><a href="pagina-1.html">1.Datos básicos</a></li>
-                    <li><a href="pagina-2.html">2.Detalles</a></li>
-                    <li><a href="pagina-3.html">3.Fotos</a></li>
+                    <li class="selected"><a href="pagina-1.html">Datos</a></li>
+                    <li><a href="pagina-2.html">Detalles</a></li>
+                    <li><a href="pagina-3.html">Fotos</a></li>
                 </ul>
             </section>
-            <h1>1.Datos básicos</h1>
-
+            <div class="position">
+                <h1>Datos básicos</h1>
+                <div class="boton-siguiente">
+                    <form action="pagina-2.html">
+                        <input type="submit" value="Siguiente" />
+                    </form>
+                </div>
+            </div>
             <div class="localizacion">
                 <div class="fila">
                     <div>
@@ -60,8 +74,17 @@
                         <input type="text" id="poblacion" name="poblacion" placeholder="población">
                     </div>
                     <div>
-                        <label for="via">Tipo de Via</label>
-                        <input type="text" id="tipo-de-via" name="via" placeholder="Tipo de via">
+                        <label for="tipo-de-via">Tipo de Via</label>
+                        <select class="controls js-choices" type="text" name="tipo-de-via" id="tipo-de-via">
+                            <option>Calle</option>
+                            <option>Avenida</option>
+                            <option>Via</option>
+                            <option>Paseo</option>
+                            <option>Camino</option>
+                            <option>Pasaje</option>
+                            <option>Plaza</option>
+                            <option>Poligono</option>
+                        </select>
                     </div>
                     <div class="direccion">
                         <label for="direccion">Dirección</label>
@@ -89,12 +112,17 @@
                     </div>
                 </div>
             </div>
+            <div class="boton-siguiente">
+                <form action="pagina-2.html">
+                    <input type="submit" value="Siguiente" />
+                </form>
+            </div>
         </section>
+
+
 
     </div>
 
 
-    <script src="select-perfil-inmuebles.js"></script>
-    <script src="collapse-inmueble.js"></script>
     <script src="menu.js "></script>
 </body>

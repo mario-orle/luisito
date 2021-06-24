@@ -32,24 +32,71 @@
 
     <div class="bg-image"></div>
     <div class="main">
+        <div class="posicion">
+            <div class="caja-volver">
+                <div class="volver">
+                    <a href="inmuebles-mbl.html">Volver inmuebles</a>
+                </div>
+            </div>
+        </div>
         <section class="wrapper">
             <section class="paginacion">
                 <ul>
-                    <li><a href="pagina-1.html">1.Datos básicos</a></li>
-                    <li><a href="pagina-2.html">2.Detalles</a></li>
-                    <li><a href="pagina-3.html">3.Fotos</a></li>
+                    <li><a href="pagina-1.html">Datos</a></li>
+                    <li class="selected"><a href="pagina-2.html">Detalles</a></li>
+                    <li><a href="pagina-3.html">Fotos</a></li>
                 </ul>
             </section>
-            <h1>2.Detalles</h1>
+            <h1>Detalles</h1>
             <div class="inmueble">
                 <div class="fila">
                     <div>
-                        <label for="Estado">Estado</label>
-                        <input type="text" id="estado" name="estado" placeholder="Estado">
+                        <label for="tipo-de-inmueble">Tipo de inmueble</label>
+                        <select class="controls js-choices" type="text" name="tipo-inmueble" id="tipo-de-inmueble">
+                            <option>Piso</option>
+                            <option>Casa</option>
+                            <option>Atico</option>
+                            <option>Chalet Independiente</option>
+                            <option>Chalet Pareado </option>
+                            <option>Chalet Adosado</option>
+                            <option>Garaje</option>
+                            <option>Trastero</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="tipo-de-inmueble">Disponibilidad</label>
+                        <select class="controls js-choices" type="text" name="disponibilidad" id="disponibilidad">
+                            <option>Venta</option>
+                            <option>Alquiler</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="tipo-de-inmueble">Estado</label>
+                        <select class="controls js-choices" type="text" name="estado" id="estado">
+                            <option>Buen estado</option>
+                            <option>A Estrenar</option>
+                            <option>A Reformar</option>
+                            <option>Reformado</option>
+                        </select>
                     </div>
                     <div>
                         <label for="valor">Valor</label>
                         <input type="text" id="valor" name="valor" placeholder="valor">
+                    </div>
+                    <div>
+                        <label for="superficie-util">Superficie Util</label>
+                        <input type="text" id="superficie-util" name="superficie-util" placeholder="superficie util">
+                    </div>
+                    <div>
+                        <label for="superficie-construida">Superficie Construida</label>
+                        <input type="text" id="superficie-construida" name="superficie-construida"
+                            placeholder="superficie construida">
+                    </div>
+                    <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
+                    <div class="terreno">
+                        <label for="superficie-parcela">Superficie Parcela</label>
+                        <input type="text" id="superficie-parcela" name="superficie-parcela"
+                            placeholder="superficie parcela">
                     </div>
                     <div>
                         <label for="habitaciones">Habitaciones</label>
@@ -67,15 +114,54 @@
                         <label for="terrazas">Terrazas</label>
                         <input type="text" id="terrazas" name="terrazas" placeholder="terrazas">
                     </div>
+                    <div>
+                        <label for="garaje">Garaje</label>
+                        <input type="text" id="garaje" name="garaje" placeholder="garaje">
+                    </div>
+                    <div>
+                        <label for="trastero">trastero</label>
+                        <input type="text" id="trastero" name="trastero" placeholder="trastero">
+                    </div>
+                    <div class="fila descripcion">
+                        <textarea>Describa su Inmueble</textarea>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox1" name="cbox1"><label for="cbox1">Garaje</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox2" name="cbox2"><label for="cbox2">Ascensor</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox3" name="cbox3"><label for="cbox3">Transporte publico</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox4" name="cbox4"><label for="cbox4">Centro Urbano</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox5" name="cbox5"><label for="cbox5">Comercio</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox6" name="cbox6"><label for="cbox6">farmacia</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox7" name="cbox7"><label for="cbox7">Parques y Jardines</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="cbox8" name="cbox8"><label for="cbox8">Escuelas</label>
+                    </div>
                 </div>
             </div>
         </section>
+        <div class="boton-siguiente">
+            <form action="pagina-3.html">
+                <input type="submit" value="Siguiente" />
+            </form>
+        </div>
 
     </div>
     </div>
 
 
-    <script src="select-perfil-inmuebles.js"></script>
-    <script src="collapse-inmueble.js"></script>
+
     <script src="menu.js "></script>
 </body>

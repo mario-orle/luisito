@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+    <link rel="stylesheet" href="estilo-pagina.css">
+    <link rel="stylesheet" href="perfil-mbl.css">
+    <link rel="stylesheet" href="style-web.css">
+    <title>AGREGAR INMUEBLES</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="index-mobile.html"> <img src="logo.png" width="100%"></a>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="index-mobile.html">INICIO</a>
+                <a href="chat-mobile.html">CHAT</a>
+                <a href="citas.html">CITAS</a>
+                <a href="ofertas.html">OFERTAS</a>
+                <a href="inmuebles-mbl.html">INMUEBLES</a>
+                <a href="doc-mobile.html">DOCUMENTOS</a>
+            </div>
+        </div>
+        <span onclick="openNav()">&#9776;</span>
+    </div>
+
+    <div class="bg-image"></div>
+    <div class="main">
+        <div class="posicion">
+            <div class="caja-volver">
+                <div class="volver">
+                    <a href="index-mobile.html">Volver Inicio</a>
+                </div>
+            </div>
+        </div>
+        <section class="wrapper">
+            <div class="position">
+                <h1>Datos Perfil</h1>
+                <div class="boton-siguiente">
+                    <form action="pagina-2.html">
+                        <input type="submit" value="Siguiente" />
+                    </form>
+                </div>
+            </div>
+
+            <form id="regForm" action="perfil2.html">
+                <div class="tab">Identificación Usuario:
+                    <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="nombre"></p>
+                    <p>Tipo de documento:
+                        <select name="transporte">
+                            <option>DNI</option>
+                            <option>NIE</option>
+                            <option>PASAPORTE</option>
+                        </select>
+                    </p>
+                    <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''"
+                            name="N documento"></p>
+                </div>
+                <div class="tab">Contacto:
+                    <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
+                    <p><input placeholder="Telefono..." oninput="this.className = ''" name="telefono"></p>
+                </div>
+                <div class="tab">Fecha de Nacimiento:
+                    <p><input placeholder="Dia" oninput="this.className = ''" name="dia"></p>
+                    <p><input placeholder="Mes" oninput="this.className = ''" name="mes"></p>
+                    <p><input placeholder="Año" oninput="this.className = ''" name="año"></p>
+                </div>
+            </form>
+
+            <div class="boton-siguiente">
+                <form action="pagina-2.html">
+                    <input type="submit" value="Siguiente" />
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="perfil.js "></script>
+    <script src="menu.js "></script>
+</body>
