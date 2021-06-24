@@ -1,0 +1,15 @@
+.tab {
+  width: 95%;
+  display: flex;
+  flex-flow: column;
+  white-space: none;
+  margin: 2px;
+}
+.tab input {
+  width: 95%;
+  padding: 5px;
+}
+.tab input[type="date"] {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
