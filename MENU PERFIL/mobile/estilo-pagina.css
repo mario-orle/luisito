@@ -15,6 +15,12 @@
 .wrapper p {
   margin-bottom: 1em;
 }
+.boton-siguiente {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
 
 .paginacion ul {
   width: 100%;
@@ -44,6 +50,13 @@
   text-decoration: none;
   color: white;
 }
+.desplegable select {
+  width: 94%;
+  flex-flow: column;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 5px;
+}
 .localizacion {
   width: 100%;
 }
@@ -64,6 +77,11 @@
   padding: 5px;
   margin-bottom: 10px;
 }
+.fila textarea {
+  width: 94%;
+  height: 50px;
+  padding-left: 0px;
+}
 
 .mySlides {
   display: none;
@@ -71,7 +89,7 @@
 .posicion {
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .caja-volver {
   position: relative;
