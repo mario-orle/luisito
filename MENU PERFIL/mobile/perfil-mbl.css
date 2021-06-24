@@ -9,6 +9,9 @@
   width: 95%;
   padding: 5px;
 }
+.tab select {
+  width: 56%;
+}
 .tab input[type="date"] {
   margin-bottom: 15px;
   margin-top: 15px;

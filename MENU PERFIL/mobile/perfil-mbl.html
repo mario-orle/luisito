@@ -37,7 +37,7 @@
         <section class="wrapper">
             <h1>Datos Perfil</h1>
             <form id="regForm" action="perfil-mbl.html">
-                <div class="tab">Identificación Usuario:
+                <div class="tab">Nombre y Apellidos:
                     <p><input placeholder="Nombre y Apellidos..." oninput="this.className = ''" name="nombre"></p>
                     <p>Tipo de documento:
                         <select name="tipo-documento">
@@ -46,8 +46,9 @@
                             <option>PASAPORTE</option>
                         </select>
                     </p>
+                    <label for="documento-de-identidad">Numero del documento y Letra</label>
                     <p><input placeholder="Numero del documento y Letra..." oninput="this.className = ''"
-                            name="N documento"></p>
+                            name="N documento" id="documento-de-identidad"></p>
                 </div>
                 <div class="tab">
                     <label for="email">E-mail</label>
@@ -62,7 +63,7 @@
             </form>
 
             <div class="boton-siguiente">
-                <form action="pagina-2.html">
+                <form action="index-mobile.html">
                     <input type="submit" value="Guardar" />
                 </form>
             </div>
