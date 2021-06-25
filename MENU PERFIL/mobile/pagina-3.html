@@ -19,6 +19,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div class="overlay-content">
                 <a href="index-mobile.html">INICIO</a>
+                <a href="perfil-mbl.html">PERFIL</a>
                 <a href="chat-mobile.html">CHAT</a>
                 <a href="citas.html">CITAS</a>
                 <a href="ofertas.html">OFERTAS</a>
@@ -62,11 +63,13 @@
                 <button class="button black display-left" onclick="plusDivs(-1)">&#10094;</button>
                 <button class="button black display-right" onclick="plusDivs(1)">&#10095;</button>
             </div>
-            <form action="/action_page.php">
-                <label for="myfile">Selecione Fotos:</label>
-                <input type="file" id="myfile" name="myfile" multiple><br><br>
-                <input type="submit" value="Cargar">
-            </form>
+            <div class="fotografias">
+                <form action="/action_page.php">
+                    <label for="myfile">Selecione Fotos:</label>
+                    <input type="file" id="myfile" name="myfile" multiple>
+                    <input type="submit" value="Cargar">
+                </form>
+            </div>
             <div class="boton-siguiente">
                 <form action="pagina-2.html">
                     <input type="submit" value="Guardar" />
