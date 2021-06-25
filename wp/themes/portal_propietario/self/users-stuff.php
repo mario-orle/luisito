@@ -37,7 +37,7 @@ function get_own_ofertas_recibidas($user) {
     foreach ($inmuebles as $key => $inmueble) {
         
         foreach (get_post_meta($inmueble->ID, 'meta-oferta-al-cliente') as $meta) {
-            if (count($meta) > 0) {
+            if (($meta)) {
                 if (!$arr[$inmueble->ID]) {
                     $arr[$inmueble->ID] = [];
                 }

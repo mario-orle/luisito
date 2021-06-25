@@ -64,6 +64,16 @@ function getPOBLACION($id) {
 
 function getGraphDataById($id) {
 
+  $requests = json_decode(file_get_contents(__DIR__ . "/requests.json"), true);
+  if (in_array($id, $requests)) {
+    // ya lo tenemos añadido
+  } else {
+    $requests[] = $id;
+  }
+
+  file_put_contents(__DIR__ . "/requests.json", json_encode($requests));
+
+
   $raw = returnFullDataOfGraph();
   $graphData = json_decode($raw, true);
   $acc = [];
