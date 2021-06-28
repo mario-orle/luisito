@@ -107,3 +107,35 @@ if ($_GET['action'] == 'get_graph') {
     require_once "self/graph-stuff.php";
     echo json_encode(getGraphDataById($_GET["id"]));
 }
+
+if ($_GET['action'] == 'get_idealistas') {
+
+    $args = array(
+        'post_type' => 'inmueble',
+        'posts_per_page' => -1
+    );
+    $posts = get_posts($args);
+    $ret = [];
+    foreach ($posts as $key => $post) {
+        $anadir = false;
+        $ofertas = get_post_meta($post->ID, 'meta-oferta-al-cliente');
+        if (count($ofertas) > 0) {
+            $anadir = true;
+            foreach ($ofertas as $key2 => $oferta) {
+                # code...
+                $meta = json_decode(wp_unslash(($oferta)), true);
+                if ($meta["status"] == "respondida-cita") {
+                    $anadir = false;
+                }
+            }
+        } else {
+            $anadir = true;
+        }
+        if ($anadir && get_post_meta($post->ID, "meta-inmueble-urlidealista", true)) {
+            $ret[] = get_post_meta($post->ID, "meta-inmueble-urlidealista", true);
+        }
+        # code...
+    }
+    echo json_encode($ret);
+
+}

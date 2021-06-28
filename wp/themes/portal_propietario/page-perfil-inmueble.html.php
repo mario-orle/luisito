@@ -485,6 +485,14 @@ if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-
       </div>
     </div>
   </div>
+
+  <hr>
+  <div class="caracteristicas">
+    <h3>URL Idealista</h3>
+    <div class="fila">
+<?php fieldPerfilCreate("urlidealista", $inmueble, "text", "Url Idealista", "editarUrlIdealista"); ?>
+    </div>
+  </div>
 </div>
 <hr>
 
