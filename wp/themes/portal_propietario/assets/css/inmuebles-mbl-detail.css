@@ -146,3 +146,24 @@
 .choices {
   max-width: 90%;
 }
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding: 10px;
+}
+.check > div {
+  width: 80%;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.check > div label {
+  min-width: 60%;
+}
+.card-ft {
+  padding: 10px;
+}

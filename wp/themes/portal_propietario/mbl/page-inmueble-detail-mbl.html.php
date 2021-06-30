@@ -443,18 +443,20 @@ function menu(section) {
     }
 }
 
-
-//updateTipoPiso(tipoPiso);
+var tipoPiso = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>";
+updateTipoPiso(tipoPiso);
   function updateTipoPiso(tipoPiso) {
     document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
     document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
     if (tipoPiso === "Piso" || tipoPiso === "Atico") {
       document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
+      document.querySelector(".check").querySelectorAll('.solopiso').forEach(e => e.style.display='flex'); 
     } else if (tipoPiso === "Casa" || tipoPiso.indexOf("Chalet") === 0) {
       document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
+      document.querySelector(".check").querySelectorAll('.solochalet').forEach(e => e.style.display='flex'); 
     }
   }
-  document.querySelectorAll('input').forEach(e => e.setAttribute("readonly", "true"));
+  //document.querySelectorAll('input').forEach(e => e.setAttribute("readonly", "true"));
 
   moment.locale("es");
   var choicesObjs = document.querySelectorAll('.js-choice, .js-choices');
@@ -463,7 +465,8 @@ function menu(section) {
     choicesElements[choicesObjs[i].name] = (new Choices(choicesObjs[i], {
       itemSelectText: 'Click para seleccionar',
       searchEnabled: false,
-      shouldSort: false
+      shouldSort: false,
+      position: 'bottom'
     }));
   }
 
@@ -518,23 +521,13 @@ function menu(section) {
     document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
     if (e.target.value === "Piso" || e.target.value === "Atico") {
       document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
+      document.querySelector(".check").querySelectorAll('.solopiso').forEach(e => e.style.display='flex'); 
     } else if (e.target.value === "Casa" || e.target.value.indexOf("Chalet") === 0) {
       document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
+      document.querySelector(".check").querySelectorAll('.solochalet').forEach(e => e.style.display='flex'); 
     }
 
     editar(e);
-  }
-  var tipoPiso = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>";
-
-  updateTipoPiso(tipoPiso);
-  function updateTipoPiso(tipoPiso) {
-    document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
-    document.querySelectorAll('.solopiso').forEach(e => e.style.display='none');
-    if (tipoPiso === "Piso" || tipoPiso === "Atico") {
-      document.querySelectorAll('.solopiso').forEach(e => e.style.display='block'); 
-    } else if (tipoPiso === "Casa" || tipoPiso.indexOf("Chalet") === 0) {
-      document.querySelectorAll('.solochalet').forEach(e => e.style.display='block'); 
-    }
   }
 
   function editarLocalizacion(e) {

@@ -68,7 +68,7 @@ foreach ($inmuebles as $inmueble) {
                         </tbody>
                     </table>
                     <div class="funciones">
-                        <a id="descripcion" onclick="document.querySelector('#descripcion-<?php echo $inmueble_id ?>').style.display = 'block';" href="#"><i class="far fa-address-card"></i></a>
+                        <a id="descripcion" href="/inmueble-mbl-detail?inmueble_id=<?php echo $inmueble->ID ?>"><i class="far fa-address-card"></i></a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@ foreach ($inmuebles as $inmueble) {
 
         
     <script>
-
+/*
 updateTipoPiso(tipoPiso);
   function updateTipoPiso(tipoPiso) {
     document.querySelectorAll('.solochalet').forEach(e => e.style.display='none');
@@ -92,7 +92,7 @@ updateTipoPiso(tipoPiso);
     }
   }
   document.querySelectorAll('input').forEach(e => e.setAttribute("readonly", "true"));
-
+*/
     </script>
 </main><!-- #main -->
 
