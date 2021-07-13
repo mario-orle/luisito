@@ -337,7 +337,7 @@ if (!current_user_can('administrator')) {
                 var td2 = document.createElement("td");
                 td2.textContent = citas[k][i].nombre;
                 var td3 = document.createElement("td");
-                td3.innerHTML = '<i class="fas fa-circle" style="color:green"></i> ' + citas[k][i].status;
+                td3.innerHTML = '<i class="fas fa-circle" style="color:green"></i> ' + (citas[k][i].status || 'creada');
 
                 tr.appendChild(td1);
                 tr.appendChild(td2);

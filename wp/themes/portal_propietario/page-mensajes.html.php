@@ -172,7 +172,18 @@ function cargaMensajes(firstTime) {
             var xhr2 = new XMLHttpRequest();
             xhr2.open("GET", "/chat-xhr?action=read_messages&user-id=" + userId);
             xhr2.send();
+
+            for (var i = 0; i < Object.keys(msgs).length; i++) {   
+                var userId2 = Object.keys(msgs)[i];
+                if (msgs[userId2].some(m => !m.readed && m.user !== "admin")) {
+                    document.querySelector("#user-" + userId2).classList.add("unread");
+                } else {
+                    document.querySelector("#user-" + userId2).classList.remove("unread");
+
+                }
+            }
         }
+
     }
     xhr.send();
 }
