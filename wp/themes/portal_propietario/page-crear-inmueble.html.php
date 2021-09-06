@@ -66,7 +66,13 @@ get_header();
           <p><select placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></select></p>
           <p><select class="not-required" placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></select></p>
           <p><input validators="numeric" placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
+        </div>
+        <div class="tab">Localización Inmueble:
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
+          <p><input placeholder="Número..." oninput="this.className = ''" name="inmueble-numero" ></p>
+          <p><input placeholder="Escalera..." oninput="this.className = ''" name="inmueble-escalera" ></p>
+          <p><input placeholder="Piso/planta..." oninput="this.className = ''" name="inmueble-piso-planta"></p>
+          <p><input placeholder="Puerta..." oninput="this.className = ''" name="inmueble-puerta"></p>
         </div>
         <div class="tab" >Situación Inmueble:
           <p><select onchange="changeTipo(event)" class="js-choice" name="inmueble-tipo">
@@ -120,6 +126,7 @@ get_header();
         </div>
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>

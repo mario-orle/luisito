@@ -7,6 +7,10 @@ Description: portal_propietario
 Version: 1.0
 */
 
+a {
+  text-decoration: none;
+}
+
 @media (min-width: 768px) {
 .header{
     position: fixed;

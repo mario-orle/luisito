@@ -438,6 +438,7 @@ input.editor {
 }
 
 .card-wrapper {
+    width: 300px;
     padding: 10px;
 }
 

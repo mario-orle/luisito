@@ -198,23 +198,23 @@ foreach ($photos as $key => $photo) {
         <div class="fila-res">
           <div>
             <label for="calle">CALLE</label>
-            <input type="text" id="calle" name="calle" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true);?>">
+            <input readonly type="text" id="calle" name="calle" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-direccion', true);?>">
           </div>
           <div>
             <label for="planta">PLANTA</label>
-            <input type="text" id="planta" name="planta" placeholder="planta" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-piso-planta', true);?>">
+            <input readonly type="text" id="planta" name="planta" placeholder="planta" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-piso-planta', true);?>">
           </div>
           <div>
             <label for="numero">NUMERO</label>
-            <input type="text" name="numero" placeholder="numero" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-numero', true);?>">
+            <input readonly type="text" name="numero" placeholder="numero" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-numero', true);?>">
           </div>
           <div>
             <label for="codigo">C.POSTAL</label>
-            <input type="text" id="codigo" name="codigo" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-codigopostal', true);?>">
+            <input readonly type="text" id="codigo" name="codigo" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-codigopostal', true);?>">
           </div>
           <div>
             <label for="metros2">M2 UTILES</label>
-            <input type="text" id="metros2" name="metros2" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2construidos', true);?>m2">
+            <input readonly type="text" id="metros2" name="metros2" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-m2utiles', true);?>m2">
           </div>
         </div>
       </div>
@@ -487,14 +487,6 @@ if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-
   </div>
 
   <hr>
-  <div class="caracteristicas">
-    <h3>URL Idealista</h3>
-    <div class="fila">
-<?php fieldPerfilCreate("urlidealista", $inmueble, "text", "Url Idealista", "editarUrlIdealista"); ?>
-    </div>
-  </div>
-</div>
-<hr>
 
 <div class="funciones-buton">
   <h2>Fotografias</h2>
@@ -667,6 +659,21 @@ foreach ($photos as $key => $photo) {
             stopOnFocus: true, // Prevents dismissing of toast on hover
             onClick: function(){} // Callback after click
         }).showToast();
+        if (input.getAttribute("name") == "inmueble-codigopostal") {
+          document.getElementById("codigo").value = input.value;
+        }
+        if (input.getAttribute("name") == "inmueble-numero") {
+          document.querySelector("[name='numero']").value = input.value;
+        }
+        if (input.getAttribute("name") == "inmueble-m2utiles") {
+          document.getElementById("metros2").value = input.value;
+        }
+        if (input.getAttribute("name") == "inmueble-piso-planta") {
+          document.getElementById("planta").value = input.value;
+        }
+        if (input.getAttribute("name") == "inmueble-direccion") {
+          document.getElementById("calle").value = input.value;
+        }
 
     }.bind(input);
     xhr.send(formData);

@@ -61,6 +61,7 @@ if ($_GET['action'] == 'delete-user') {
 }
 
 if ($_GET['action'] == 'inicio_data') {
+    require_once "self/users-stuff.php";
     if (!current_user_can('administrator')){
         $unread_msgs = 0;
         foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
