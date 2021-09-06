@@ -74,7 +74,9 @@ get_header();
 
       $ofertas_recibidas = 0;
       $ofertas = get_own_ofertas_recibidas(wp_get_current_user());
-      $ofertas_recibidas = count($ofertas);
+      foreach ($ofertas as $user => $ofertas_arr) {
+        $ofertas_recibidas += count($ofertas_arr);
+      }
 
 ?>
     <div class="main">
@@ -89,7 +91,7 @@ get_header();
                         <a href="#">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
                         <h2>Ofertas Recibidas</h2>
-                        <p><?php echo $ofertas_recibidas ?> Ofertas</p>
+                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas</p>
                         </a>
                         </button>
                     </div>
@@ -98,7 +100,7 @@ get_header();
                         <a href="/mensajes">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
                         <h2>Mensajes sin Leer</h2>
-                        <p><?php echo $unread_msgs ?> Mensajes Sin Leer</p>
+                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes Sin Leer</p>
                         </a>
                         </button>
                     </div>
@@ -107,7 +109,7 @@ get_header();
                         <a href="/citas">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                         <h2>Citas por Confirmar</h2>
-                        <p><?php echo $pending_citas ?> Citas sin Confirmar</p>
+                        <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas sin Confirmar</p>
                         </a>
                         </button>
                     </div>
@@ -116,7 +118,7 @@ get_header();
                         <a href="/mis-documentos">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
                         <h2>Doc Requeridos</h2>
-                        <p><?php echo $pending_documents ?> Doc Requeridos</p>
+                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> Doc Requeridos</p>
                         </a>
                         </button>
                     </div>
@@ -330,7 +332,7 @@ get_header();
               <a href="/admin-doc">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
               <h2>Doc Pendientes</h2>
-              <p><?php echo $pending_documents ?> Documentos</p>
+              <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
               </a>
             </button>
           </div>
@@ -339,7 +341,7 @@ get_header();
               <a href="/admin-doc">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/docs.png" width="100%">
               <h2>Doc Revisar</h2>
-              <p><?php echo $review_documents ?> Documentos</p>
+              <p><span id="review_documents"><?php echo $review_documents ?></span> Documentos</p>
               </a>
             </button>
           </div>
@@ -348,7 +350,7 @@ get_header();
               <a href="/mensajes">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/email2.png" width="100%">
               <h2>Chat Pendientes</h2>
-              <p><?php echo $unread_msgs ?> Mensajes sin leer</p>
+              <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes sin leer</p>
               </a>
             </button>
           </div>
@@ -357,7 +359,7 @@ get_header();
               <a href="/citas">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/cita.png" width="100%">
               <h2>Citas Sin Actualizar</h2>
-              <p><?php echo $pending_citas ?> Citas pendientes</p>
+              <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas pendientes</p>
               </a>
             </button>
           </div>
@@ -369,6 +371,29 @@ get_header();
         }
         ?>
 </main><!-- #main -->
+
+<script>
+  function update() {
+    fetch('/usuarios-xhr?action=inicio_data').then(res => res.json()).then(res => {
+      Object.keys(res).map(id => {
+        document.querySelector("#" + id).innerHTML = res[id];
+
+      });
+
+      if (res.unread_msgs > 0) {
+        document.querySelector('.mensajes-wrapper').classList.add('unread');
+      } else {
+        document.querySelector('.mensajes-wrapper').classList.remove('unread');
+
+      }
+
+      setTimeout(() => {
+        update();
+      }, 10000);
+    });
+  }
+  update();
+</script>
 
 <?php
 get_footer();

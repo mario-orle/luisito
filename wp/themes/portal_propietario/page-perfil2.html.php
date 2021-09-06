@@ -13,8 +13,12 @@ require_once "self/security.php";
 
 $user = wp_get_current_user();
 
-if (current_user_can('administrator') && !empty($_GET['user'])) {
-    $user = get_user_by('ID', $_GET['user']);
+if (!empty($_GET['user'])) {
+    $user_id = $_GET['user'];
+}
+
+if (current_user_can('administrator') && !empty($user_id)) {
+    $user = get_user_by('ID', $user_id);
 }
 
 function myCss()
@@ -305,7 +309,7 @@ function editarDni(e) {
                 }).showToast();
                 document.querySelector(".fakeimg-perfil img").style.filter = "none";
                 setTimeout(() => {
-                    window.location.reload();
+                    location.href = "/perfil?user=<?php echo $user_id; ?>";
                 }, 500);
             }
 
