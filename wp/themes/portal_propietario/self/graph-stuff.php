@@ -62,24 +62,41 @@ function getPOBLACION($id) {
   return $acc;
 }
 
-function getGraphDataById($id) {
-
-  $requests = json_decode(file_get_contents(__DIR__ . "/requests.json"), true);
-  if (in_array($id, $requests)) {
-    // ya lo tenemos añadido
-  } else {
-    $requests[] = $id;
+function saveGraphDataById($id, $data) {
+  $raw = returnFullDataOfGraph();
+  $graphData = json_decode($raw, true);
+  copy(__DIR__ . "/data.json", __DIR__ . "/data" . date("Y-m-d") . ".json");
+  foreach ($graphData as $key => $first_level) {
+    if ($first_level["value"] == $id) {
+      $first_level = $data;
+    }
+    foreach ($first_level["children"] as $key => $second_level) {
+      if ($second_level["value"] == $id) {
+        $second_level = $data;
+      }
+      foreach ($second_level["children"] as $key => $third_level) {
+        if ($third_level["value"] == $id) {
+          $third_level = $data;
+        }
+        foreach ($third_level["children"] as $key => $fourth_level) {
+          
+          if ($fourth_level["value"] == $id) {
+            $fourth_level = $data;
+          }
+        }
+      }
+    }
   }
+  file_put_contents(__DIR__ . "/data.json", json_encode($graphData));
+}
 
-  file_put_contents(__DIR__ . "/requests.json", json_encode($requests));
-
-
+function getGraphDataById($id) {
   $raw = returnFullDataOfGraph();
   $graphData = json_decode($raw, true);
   $acc = [];
   foreach ($graphData as $key => $first_level) {
     if ($first_level["value"] == $id) {
-      return [["name" => $first_level['name'], 'graph' => $first_level['graph']], 'level' => 'CCAA'];
+      return [["name" => $first_level['name'], 'graph' => $first_level['graph'], 'level' => 'CCAA']];
     }
     foreach ($first_level["children"] as $key => $second_level) {
       if ($second_level["value"] == $id) {
