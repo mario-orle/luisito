@@ -24,7 +24,8 @@
             "properties": {
               "x": {
                 "type": "string",
-                "title": "Fecha"
+                "title": "Fecha",
+                "format": "mesano"
               },
               "y": {
                 "type": "number",

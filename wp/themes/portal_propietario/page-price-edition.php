@@ -114,10 +114,35 @@ const options = {
     no_aditional_properties: true,
     disable_edit_json: true,
     disable_properties: true,
-    form_name_root: ultimoElemento.name
+    form_name_root: ultimoElemento.name,
+    show_errors: 'always'
 }
 const editor = new JSONEditor(container, options)
+JSONEditor.defaults.custom_validators.push(function(schema, value, path) {
+  var errors = [];
+  if(schema.format==="mesano") {
 
+    const [mes, ano] = value.split(' ');
+    const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'Mayo', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+    
+
+    if (!meses.includes(mes)) {
+        errors.push({
+            path: path,
+            property: 'format',
+            message: 'El mes debe especificarse como \'' + meses.join('\', \'') + '\''
+        });
+    }
+    if (!(ano.length === 4 && !Number.isNaN(ano))) {
+        errors.push({
+            path: path,
+            property: 'format',
+            message: 'El año debe especificarse con 4 cifras'
+        });
+    }
+  }
+  return errors;
+});
 function editarCCAA(e) {
     var params = new URLSearchParams(location.search);
     params.set('ccaa', e.detail.value);
@@ -146,7 +171,11 @@ function editarPoblacion(e) {
 }
 
 function guarda() {
-    console.log(editor.getValue());
+    const errors = editor.validate();
+    if (errors.length) {
+        alert('Hay errores en los datos, por favor, revise');
+        return;
+    }
     fetch('', {
         method: 'POST',
         headers: {
@@ -154,7 +183,7 @@ function guarda() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(editor.getValue())
-    }).then(res => res.text()).then(res => console.log(res));;
+    }).then(res => res.text());
 
 }
 

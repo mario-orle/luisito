@@ -114,7 +114,6 @@ function saveGraphDataById($id, $data) {
     $graphToWrite[$key1] = $first_levelToWrite;
 
   }
-  var_dump($graphToWrite);
   file_put_contents(__DIR__ . "/data.json", json_encode($graphToWrite));
 }
 
