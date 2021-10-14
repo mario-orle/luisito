@@ -305,8 +305,12 @@ align-items: center;
     color: white;
   }
   .card-wrapper p{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     font-style: italic;
     color: #c1c1c1;
+    width: 290px;
   }
   .card-wrapper h3{
     color: orange;

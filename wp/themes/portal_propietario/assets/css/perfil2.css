@@ -460,7 +460,11 @@ p {
 }
 
 .card-wrapper p {
-    font-style: italic
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-style: italic;
+    width: 290px;
 }
 
 .card-wrapper h3 {
@@ -497,7 +501,7 @@ p {
 }
 
 .card-wrapper img {
-    width: 338px;
+    width: 300px;
     height: 190px;
 }
 

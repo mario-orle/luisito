@@ -168,7 +168,11 @@ p {
 }
 
 .card-wrapper p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   font-style: italic
+  width: 290px;
 }
 
 .card-wrapper h3 {

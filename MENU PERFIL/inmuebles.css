@@ -61,7 +61,11 @@
   color: white;
 }
 .card-wrapper p{
-  font-style: italic
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+    width: 290px;
+    font-style: italic
 }
 .card-wrapper h3{
   color: orange;
