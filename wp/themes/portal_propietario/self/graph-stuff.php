@@ -70,41 +70,51 @@ function saveGraphDataById($id, $data) {
   foreach ($graphData as $key1 => $first_level) {
     $first_levelToWrite = [];
     if ($first_level["value"] == $id) {
+      $data["value"] = $id;
       $first_levelToWrite = $data;
     } else {
       $first_levelToWrite = $first_level;
+      $first_levelToWrite['children'] = [];
     }
     foreach ($first_level["children"] as $key2 => $second_level) {
       $second_levelToWrite = [];
       if ($second_level["value"] == $id) {
+        $data["value"] = $id;
         $second_levelToWrite = $data;
       } else {
         $second_levelToWrite = $second_level;
+        $second_levelToWrite['children'] = [];
       }
       foreach ($second_level["children"] as $key3 => $third_level) {
         $third_levelToWrite = [];
         if ($third_level["value"] == $id) {
+          $data["value"] = $id;
           $third_levelToWrite = $data;
         } else {
           $third_levelToWrite = $third_level;
+          $third_levelToWrite['children'] = [];
         }
         foreach ($third_level["children"] as $key4 => $fourth_level) {
           $fourth_levelToWrite = [];
             
           if ($fourth_level["value"] == $id) {
+            $data["value"] = $id;
             $fourth_levelToWrite = $data;
           } else {
             $fourth_levelToWrite = $fourth_level;
           }
-          $third_levelToWrite[$key4] = $fourth_levelToWrite;
+          //$third_levelToWrite[$key4] = $fourth_levelToWrite;
+          $third_levelToWrite['children'][] = $fourth_levelToWrite;
         }
-        $second_levelToWrite[$key3] = $third_levelToWrite;
+        //$second_levelToWrite[$key3] = $third_levelToWrite;
+        $second_levelToWrite['children'][] = $third_levelToWrite;
       }
-      $first_levelToWrite[$key2] = $second_levelToWrite;
+      $first_levelToWrite['children'][] = $second_levelToWrite;
     }
     $graphToWrite[$key1] = $first_levelToWrite;
 
   }
+  var_dump($graphToWrite);
   file_put_contents(__DIR__ . "/data.json", json_encode($graphToWrite));
 }
 

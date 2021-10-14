@@ -105,7 +105,7 @@ if ($_GET['action'] == 'inicio_data') {
             $ofertas_recibidas += count($ofertas_arr);
         }
 
-        json_encode([
+        echo json_encode([
             "unread_msgs" => $unread_msgs,
             "pending_documents" => $pending_documents,
             "pending_citas" => $pending_citas,

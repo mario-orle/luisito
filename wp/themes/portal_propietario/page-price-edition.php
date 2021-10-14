@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
 
     $entityBody = file_get_contents('php://input');
 
-    saveGraphDataById($poblacionelegida ?: $municipioelegido ?: $provinciaelegida ?: $ccaaelegida, json_decode($entityBody));
+    saveGraphDataById($poblacionelegida ?: $municipioelegido ?: $provinciaelegida ?: $ccaaelegida, json_decode($entityBody, true));
 
 }
 
