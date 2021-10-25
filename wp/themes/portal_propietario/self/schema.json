@@ -13,11 +13,11 @@
       "readonly": true
     },
     "graph": {
-      "title": "",
+      "title": "Gráfico",
       "type": "object",
       "properties": {
         "data": {
-          "title": "Datos gráfico",
+          "title": "Lista de datos del gráfico",
           "type": "array",
           "items": {
             "type": "object",

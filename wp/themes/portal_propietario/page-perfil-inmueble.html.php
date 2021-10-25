@@ -183,6 +183,7 @@ foreach ($photos as $key => $photo) {
           <li class="splide__slide">
             <img
               src="<?php echo $photo['url']?>"
+              style="width: 350px; height: auto; max-height: 250px"
             />
           </li>
 <?php
@@ -770,9 +771,7 @@ foreach ($photos as $key => $photo) {
 
     new Splide( '.splide', {
       rewind: true,
-      autoplay: true,
-      cover: true,
-      fixedHeight: 300
+      autoplay: true
     } ).mount();
 
 

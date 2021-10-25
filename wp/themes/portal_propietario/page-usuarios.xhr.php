@@ -166,3 +166,7 @@ if ($_GET['action'] == 'inicio_data') {
 
 
 }
+
+if ($_GET['action'] == 'read-servicio') {
+    delete_user_meta($_GET['user_id'], $_GET['usermeta']);
+}

@@ -137,6 +137,7 @@ margin-top: 65px;
   flex-wrap: wrap;
   font-family: "roboto ";
   width: 100%;
+  margin-bottom: 22px;
 }
 .card-wrapper {
   width: 350px;
@@ -171,8 +172,7 @@ p {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-style: italic
-  width: 290px;
+  font-style: italic;
 }
 
 .card-wrapper h3 {
@@ -198,8 +198,8 @@ p {
 padding: 10px;
 padding-top: 20px;
 background-color: white; 
-width: 100%;
-border-bottom: 5px solid #ffa600;
+width: calc(100% - 20px);
+border: 5px ridge;
 border-radius: 6px;
 text-align: center;
 box-shadow: 0 4px 8px 0 black;
