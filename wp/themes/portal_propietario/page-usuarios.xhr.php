@@ -8,6 +8,7 @@
  * @package portal_propietario
  */
 require_once "self/security.php";
+require_once "self/users-stuff.php";
 if ($_GET['action'] == 'check-email') {
     $email = $_GET['email'];
     echo email_exists($email);
@@ -126,6 +127,10 @@ if ($_GET['action'] == 'inicio_data') {
         $pending_documents = 0;
         $review_documents = 0;
         $pending_citas = 0;
+
+        $ofertas_recibidas = 0;
+        $ofertas = get_all_ofertas();
+        $ofertas_recibidas = count($ofertas);
         foreach ($users_of_admin as $user_of_admin) {
             foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
                 $chat = json_decode(wp_unslash($chat_str), true);
@@ -160,7 +165,9 @@ if ($_GET['action'] == 'inicio_data') {
             "unread_msgs" => $unread_msgs,
             "pending_documents" => $pending_documents,
             "pending_citas" => $pending_citas,
-            "review_documents" => $review_documents
+            "review_documents" => $review_documents,
+            "ofertas_recibidas" => $ofertas_recibidas,
+            "num_usuarios" => count($users_of_admin)
         ]);
     }
 
