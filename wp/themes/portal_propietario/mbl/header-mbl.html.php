@@ -94,6 +94,7 @@ if (!current_user_can("administrator")) {
         <a href="/ofertas-admin-mbl">OFERTAS</a>
         <a href="/doc-mbl-admin">DOCUMENTOS</a>
         <a href="/usuarios-mbl">USUARIOS</a>
+        <a href="/admin-alertas-mbl">ALERTAS</a>
         <a href="/logout">LOGOUT</a>
       </div>
 

@@ -12,7 +12,7 @@ require_once "self/security.php";
 
 require_once 'self/mobile-detect.php';
 $detect = new Mobile_Detect();
-if ($detect->isMobile()) {
+if ($detect->isMobile() || 1) {
   require_once 'mbl/page-index-mobile.html.php';
 
 } else {
@@ -375,7 +375,9 @@ get_header();
   function update() {
     fetch('/usuarios-xhr?action=inicio_data').then(res => res.json()).then(res => {
       Object.keys(res).map(id => {
-        document.querySelector("#" + id).innerHTML = res[id];
+        if (document.querySelector("#" + id)) {
+          document.querySelector("#" + id).innerHTML = res[id];
+        }
 
       });
 

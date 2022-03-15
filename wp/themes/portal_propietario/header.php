@@ -249,7 +249,6 @@ if (!current_user_can("administrator")) {
       <a id="inicio" href="/inicio"><i class="fas fa-home"></i>INICIO</a>
       <a id="servicios" href="/servicios+"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
       <a id="perfil" href="/perfil"><i class="fas fa-user-circle"></i>PERFIL</a>
-      <a id="mensajes" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
       <hr />
       <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>CITAS</a>
       <hr />
@@ -276,7 +275,6 @@ if (!current_user_can("administrator")) {
     <span>Opciones generales</span>
     <hr>
     <a id="inicio" href="/inicio"><i class="fas fa-home"></i>INICIO</a>
-    <a id="mensajes" href="/mensajes"><i class="far fa-envelope"></i>MENSAJES</a>
     <a id="perfil" href="/perfiladmin"><i class="far fa-user-circle"></i>PERFIL</a>
     <hr />
 
@@ -287,6 +285,7 @@ if (!current_user_can("administrator")) {
     <div class="dropdown-container">
       <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
       <a id="admin-usuarios" href="/admin-usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+      <a id="admin-alertas" href="/admin-alertas"><i class="fas fa-exclamation-triangle"></i>ADMIN ALERTAS</a>
       <?php
 if (!$creator_of_user) {
       ?>

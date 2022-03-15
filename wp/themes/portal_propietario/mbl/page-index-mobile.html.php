@@ -17,7 +17,8 @@ require_once __DIR__ . "/../self/security.php";
 
 get_header();
 
-if (!current_user_can("administrator")) {$unread_msgs = 0;
+if (!current_user_can("administrator")) {
+    $unread_msgs = 0;
     foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
       $chat = json_decode(wp_unslash($chat_str), true);
       if (!$chat['readed'] && $chat["user"] == "admin") {
@@ -75,7 +76,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/citas-mbl">
                         <h2>Citas pendientes</h2>
-                        <p><?php echo $pending_citas; ?> citas</p>
+                        <p><span id="pending_citas"><?php echo $pending_citas; ?></span> citas</p>
                     </a>
 
                 </div>
@@ -87,7 +88,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/doc-mbl">
                         <h2>Doc Pendientes</h2>
-                        <p><?php echo $pending_documents ?> Documentos</p>
+                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
                     </a>
 
                 </div>
@@ -99,7 +100,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/mensajes-mbl">
                         <h2>Mensajes sin leer</h2>
-                        <p><?php echo $unread_msgs ?> Mensajes</p>
+                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes</p>
                     </a>
 
                 </div>
@@ -111,7 +112,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/ofertas-mbl">
                         <h2>Ofertas Recibidas</h2>
-                        <p><?php echo $ofertas_recibidas ?> Ofertas</p>
+                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas</p>
                     </a>
 
                 </div>
@@ -204,7 +205,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/citas-admin-mbl">
                         <h2>Citas pendientes</h2>
-                        <p><?php echo $pending_citas ?> Citas</p>
+                        <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas</p>
                     </a>
 
                 </div>
@@ -215,8 +216,8 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/doc-mbl-admin">
-                        <h2>Documentos</h2>
-                        <p><?php echo $num_documents ?> Documentos</p>
+                        <h2>Doc Pendientes</h2>
+                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
                     </a>
 
                 </div>
@@ -228,7 +229,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/mensajes-mbl">
                         <h2>Mensajes</h2>
-                        <p><?php echo $unread_msgs ?> Mensajes</p>
+                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes</p>
                     </a>
 
                 </div>
@@ -240,7 +241,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/ofertas-admin-mbl">
                         <h2>Ofertas</h2>
-                        <p><?php echo $ofertas_recibidas ?> Ofertas</p>
+                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas</p>
                     </a>
 
                 </div>
@@ -252,7 +253,7 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
                 </a>
                 <div class="btn-text"><a href="/usuarios-mbl">
                         <h2>Usuarios</h2>
-                        <p><?php echo count($users_of_admin) ?> usuarios</p>
+                        <p><span id="num_usuarios"><?php echo count($users_of_admin) ?></span> usuarios</p>
                     </a>
 
                 </div>
@@ -267,3 +268,29 @@ if (!current_user_can("administrator")) {$unread_msgs = 0;
 
 <?php
 }
+?>
+
+<script>
+  function update() {
+    fetch('/usuarios-xhr?action=inicio_data').then(res => res.json()).then(res => {
+      Object.keys(res).map(id => {
+        if (document.querySelector("#" + id)) {
+          document.querySelector("#" + id).innerHTML = res[id];
+        }
+      });
+
+      /*if (res.unread_msgs > 0) {
+        document.querySelector('.mensajes-wrapper').classList.add('unread');
+      } else {
+        document.querySelector('.mensajes-wrapper').classList.remove('unread');
+
+      }*/
+
+      setTimeout(() => {
+        update();
+      }, 10000);
+    });
+  }
+  update();
+</script>
+<?php

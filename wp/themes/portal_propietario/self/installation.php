@@ -328,6 +328,22 @@ function create_our_pages() {
             'page_template' => 'page-price-edition.html.php'
         ));
     }
+    if (!get_page_by_title('admin-alertas')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-alertas',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'page-admin-alertas.html.php'
+        ));
+    }
+    if (!get_page_by_title('admin-alertas-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-alertas-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-admin-alertas.html.php'
+        ));
+    }
     
     if (!get_user_meta(1, 'meta-creados-usuarios-prueba')) {
         update_user_meta(1, 'meta-creados-usuarios-prueba', '1');

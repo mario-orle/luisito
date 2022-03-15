@@ -53,7 +53,6 @@ get_header();
 ?>
 
 <main id="primary" class="site-main" style="padding-left: 300px; padding-top: 150px;">
-    <div id="editor" />
     <div>
 <?php 
     $ccaas = (getCCAA());
@@ -87,23 +86,16 @@ get_header();
     </div>
 <?php } ?>
 <?php if ($ccaaelegida) { ?>
+    <button type="button" class="savebutton" onclick="guarda()">Guardar</button>
     <div id="editor"></div>
-    <button type="button" onclick="guarda()">Guardar</button>
+    <button type="button" class="savebutton" onclick="guarda()">Guardar</button>
 <?php } ?>
-<style>
-    #editor input {
-        width: 96%;
-        padding: 20px;
-        display: block;
-        font-size: 1.5em;
-    }
-</style>
 <script>
 
 const datosElegidos = <?php echo json_encode(getGraphDataById($poblacionelegida ?: $municipioelegido ?: $provinciaelegida ?: $ccaaelegida)); ?>;
 const ultimoElemento = datosElegidos[datosElegidos.length - 1];
 const schema = <?php echo returnFullDataOfSchema(); ?>;
-const container = document.getElementById("editor")
+const container = document.getElementById("editor");
 const options = {
     startval: ultimoElemento,
     schema,
@@ -190,5 +182,46 @@ function guarda() {
 </script>
 </main><!-- #main -->
 
+<style>
+.je-indented-panel {
+    border: none!important;
+    border-left: none!important;
+}
+#editor > .je-object__container {
+    border: 5px ridge;
+    background: #acacac;
+}
+.je-child-editor-holder {
+    background: #fff;
+    padding: 10px;
+    border: 2px ridge;
+}
+
+#editor input {
+    width: 94%;
+    padding: 18px;
+    display: block;
+}
+.savebutton {
+    display: block;
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+    width: 170px;
+    margin-top: 15px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: 10px;
+    box-shadow: 0px 0px 0px 2px #777;
+    background: linear-gradient(to bottom, rgb(128, 123, 123) 5%, rgb(65, 54, 54) 100%);
+    background-color: #4c5463;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 5px 15px;
+    text-shadow: 0px 1px 0px #283966;
+    height: 30px;
+}
+</style>
 <?php
 get_footer();
