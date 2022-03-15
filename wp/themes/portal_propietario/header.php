@@ -170,7 +170,7 @@ if (!current_user_can('administrator')){
 }
 ?>
         <div class="mensajes-wrapper <?php if ($unread_msgs > 0) {echo 'unread';} ?>">
-          <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email.png"></a>
+          <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsapp.png"></a>
         </div>
         <div class="alertas">
           <a id="alertas" onclick="document.querySelector('.alertas .alertas-msgs').classList.toggle('show')" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
