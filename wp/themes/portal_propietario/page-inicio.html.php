@@ -12,7 +12,7 @@ require_once "self/security.php";
 
 require_once 'self/mobile-detect.php';
 $detect = new Mobile_Detect();
-if ($detect->isMobile() || 1) {
+if ($detect->isMobile()) {
   require_once 'mbl/page-index-mobile.html.php';
 
 } else {
