@@ -175,5 +175,9 @@ if ($_GET['action'] == 'inicio_data') {
 }
 
 if ($_GET['action'] == 'read-servicio') {
+    update_user_meta($_GET['user_id'], $_GET['usermeta'], 'leido');
+}
+
+if ($_GET['action'] == 'delete-servicio') {
     delete_user_meta($_GET['user_id'], $_GET['usermeta']);
 }

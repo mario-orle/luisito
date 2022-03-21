@@ -20,6 +20,7 @@ if (current_user_can('administrator') && !empty($_GET['user'])) {
 $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 //si ha sido creado por otro usuario, al inicio
 
+
 require_once 'self/mobile-detect.php';
 $detect = new Mobile_Detect();
 if ($detect->isMobile()) {
@@ -123,57 +124,78 @@ if (!current_user_can('administrator')){
   $ofertas = 0;
   $servicios = [];
 
-  foreach ($users_of_admin as $user_of_admin) {
-    foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
-      $chat = json_decode(wp_unslash($chat_str), true);
-      if (!$chat['readed'] && $chat["user"] == "user") {
-        $unread_msgs++;
-      }
-    }
-    foreach (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
-      $documento = json_decode(wp_unslash($meta), true);
+  if ($pagename !== 'admin-alertas') {
 
-      if (wp_unslash($documento["status"]) == 'fichero-anadido' && !$documento['revisado']) {
-        $review_documents[] = $documento;
-      }
-    }
-
-    foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
-      $cita = json_decode(wp_unslash($meta), true);
-      if (strtotime(wp_unslash($cita["fin"])) < time()) {
-        if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
-          $citas++;
+    foreach ($users_of_admin as $user_of_admin) {
+      foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
+        $chat = json_decode(wp_unslash($chat_str), true);
+        if (!$chat['readed'] && $chat["user"] == "user") {
+          $unread_msgs++;
         }
       }
-    }
+      foreach (get_user_meta($user_of_admin->ID, 'meta-documento-solicitado-al-cliente') as $meta) {
+        $documento = json_decode(wp_unslash($meta), true);
 
-    $ofertas_recibidas = get_all_ofertas();
-    foreach ($ofertas_recibidas as $key => $oferta_recibida) {
-      if ($oferta_recibida["status"] == "respondida-cliente"  || $oferta_recibida["status"] == "respondida-cita" ) {
-        $ofertas++;
-
+        if (wp_unslash($documento["status"]) == 'fichero-anadido' && !$documento['revisado']) {
+          $review_documents[] = $documento;
+        }
       }
+
+      foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
+        $cita = json_decode(wp_unslash($meta), true);
+        if (strtotime(wp_unslash($cita["fin"])) < time()) {
+          if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
+            $citas++;
+          }
+        }
+      }
+
+      $ofertas_recibidas = get_all_ofertas();
+      foreach ($ofertas_recibidas as $key => $oferta_recibida) {
+        if ($oferta_recibida["status"] == "respondida-cliente"  || $oferta_recibida["status"] == "respondida-cita" ) {
+          $ofertas++;
+
+        }
+      }
+      $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
+      $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
+      $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
+      $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
+
+      $servicios[$user_of_admin->display_name] = [
+        'Notario' => $servicio_notario, 
+        'Certificado Energético' => $servicio_certificado, 
+        'Nota Simple' => $servicio_nota_simple, 
+        'Reportaje Fotográfico' => $servicio_reportaje, 
+      ];
+
     }
-    $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
-    $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
-    $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
-    $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
-
-    $servicios[$user_of_admin->display_name] = [
-      'Notario ' => $servicio_notario, 
-      'Certificado Energético' => $servicio_certificado, 
-      'Nota Simple' => $servicio_nota_simple, 
-      'Reportaje Fotográfico' => $servicio_reportaje, 
-    ];
-
   }
 }
+$asesor_id = get_user_meta(get_current_user_id(), 'meta-gestor-asignado', true);
+
+if (!current_user_can("administrator")) {
 ?>
+
         <div class="mensajes-wrapper <?php if ($unread_msgs > 0) {echo 'unread';} ?>">
-          <a id="mensajes" href="/mensajes"><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsapp.png"></a>
+          <a id="mensajes" href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>" target="_blank">
+            <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsapp.png">
+          </a>
         </div>
+<?php
+}
+?>
+<script>
+  function showAlertasIfAlgo() {
+    if (document.querySelectorAll('.alertas .alertas-msgs ul li').length > 0) {
+      document.querySelector('.alertas .alertas-msgs').classList.toggle('show');
+    }
+  }
+</script>
         <div class="alertas">
-          <a id="alertas" onclick="document.querySelector('.alertas .alertas-msgs').classList.toggle('show')" ><img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png"></a>
+          <a id="alertas" onclick="showAlertasIfAlgo()">
+            <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>advertencia.png">
+          </a>
           <div class="alertas-msgs">
             <ul>
 <?php
@@ -201,7 +223,7 @@ if (current_user_can("administrator")) {
       # code...
       if ($solicitado === "solicitado") {
 ?>
-        <li><?php echo $name_user ?> ha solicitado <?php echo $name ?></li>
+        <li><a href="/admin-alertas"><?php echo $name_user ?> ha solicitado <?php echo $name ?></a></li>
 <?php
       }
     }

@@ -82,6 +82,7 @@ if (!current_user_can("administrator")) {
         <a href="/ofertas-mbl">OFERTAS</a>
         <a href="/inmuebles-mbl">INMUEBLES</a>
         <a href="/doc-mbl">DOCUMENTOS</a>
+        <a href="/servicios+-mbl">SERVICIOS +</a>
         <a href="/logout">LOGOUT</a>
       </div>
 <?php

@@ -49,11 +49,13 @@ get_header();
                 <tbody>
                     <?php
 foreach ($users_of_admin as $user_of_admin) {
+
     $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
     $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
     $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
     $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
-    if ($servicio_notario === 'solicitado') {
+    if ($servicio_notario === 'solicitado' || $servicio_notario === 'leido') {
+        update_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', 'leido');
 
                     ?>
                     <tr>
@@ -68,7 +70,8 @@ foreach ($users_of_admin as $user_of_admin) {
 
                     <?php
     }
-    if ($servicio_certificado === 'solicitado') {
+    if ($servicio_certificado === 'solicitado' || $servicio_certificado === 'leido') {
+        update_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', 'leido');
 
                     ?>
                     <tr>
@@ -83,7 +86,8 @@ foreach ($users_of_admin as $user_of_admin) {
 
                     <?php
     }
-    if ($servicio_nota_simple === 'solicitado') {
+    if ($servicio_nota_simple === 'solicitado' || $servicio_nota_simple === 'leido') {
+        update_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', 'leido');
 
                     ?>
                     <tr>
@@ -98,7 +102,8 @@ foreach ($users_of_admin as $user_of_admin) {
 
                     <?php
     }
-    if ($servicio_reportaje === 'solicitado') {
+    if ($servicio_reportaje === 'solicitado' || $servicio_reportaje === 'leido') {
+        update_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', 'leido');
 
                     ?>
                     <tr>
