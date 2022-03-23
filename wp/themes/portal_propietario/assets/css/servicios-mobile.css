@@ -6,6 +6,11 @@
     text-align: center;
 }
 
+.main-container h1 {
+    color: grey;
+    text-align: center;
+}
+
 .main-container h2 {
     color: black;
     text-align: left;
@@ -15,8 +20,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 50%;
+    width: 80%;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .servicios-plus h2 {
@@ -30,7 +36,6 @@
     background-color: white;
     border-radius: 6px;
     border: 1px solid white;
-    display: inline-block;
     cursor: pointer;
     color: #666666;
     font-weight: bold;
@@ -39,6 +44,13 @@
     text-shadow: 0px 1px 0px #ffffff;
     border-bottom: 5px solid orange;
     height: 250px;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .servicios-plus button:hover {

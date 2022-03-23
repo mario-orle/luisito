@@ -8,7 +8,7 @@
  * @package portal_propietario
  */
 
-require_once __DIR__ . "/../self/security.php";
+require_once "self/security.php";
 
 
 function generateRandomString($length = 10) {
@@ -337,7 +337,7 @@ if (!current_user_can('administrator')) {
                 var td2 = document.createElement("td");
                 td2.textContent = citas[k][i].nombre;
                 var td3 = document.createElement("td");
-                td3.innerHTML = '<i class="fas fa-circle" style="color:green"></i> ' + citas[k][i].status;
+                td3.innerHTML = '<i class="fas fa-circle" style="color:green"></i> ' + (citas[k][i].status || 'creada');
 
                 tr.appendChild(td1);
                 tr.appendChild(td2);
@@ -361,11 +361,11 @@ if (current_user_can('administrator')) {
 
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridWeek',
+            initialView: 'timeGridWeek',
             headerToolbar: {
                 left: 'prev,next today',
-                center: '',
-                right: 'dayGridMonth,dayGridWeek,timeGridDay'
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             locale: 'es',
             <?php

@@ -212,6 +212,18 @@ if (!current_user_can("administrator")) {
                 <div class="btn pendientes">
                 </div>
             </button><button>
+                <a href="/citas-admin-mbl">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
+                </a>
+                <div class="btn-text"><a href="/citas-admin-mbl">
+                        <h2>Citas pendientes</h2>
+                        <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas</p>
+                    </a>
+
+                </div>
+                <div class="btn pendientes">
+                </div>
+            </button><button>
                 <a href="/doc-mbl-admin">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
