@@ -49,7 +49,6 @@ function validateForm() {
     y = x[currentTab].querySelectorAll("input[name], select[name]");
     // A loop that checks every input field in the current tab:
     for (i = 0; i < y.length; i++) {
-        console.log(y[i].name);
         if (y[i].name.indexOf('search_terms') > -1) {
             continue;
         }
