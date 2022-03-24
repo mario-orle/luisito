@@ -75,12 +75,20 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/citas-mbl">
-                        <h2>Citas pendientes</h2>
+                        <h2>Agenda de Citas</h2>
                         <p><span id="pending_citas"><?php echo $pending_citas; ?></span> citas</p>
                     </a>
 
                 </div>
                 <div class="btn pendientes">
+                </div>
+            </button><button>
+                <a href="/servicios-mbl">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
+                </a>
+                <div class="btn-text"><a href="/servicios-mbl">
+                        <h2>Servicios +</h2>
+                    </a>
                 </div>
             </button><button>
                 <a href="/doc-mbl">
@@ -93,18 +101,6 @@ if (!current_user_can("administrator")) {
 
                 </div>
                 <div class="btn chat">
-                </div>
-            </button><button>
-                <a href="/mensajes-mbl">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
-                </a>
-                <div class="btn-text"><a href="/mensajes-mbl">
-                        <h2>Mensajes sin leer</h2>
-                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes</p>
-                    </a>
-
-                </div>
-                <div class="btn ofertas">
                 </div>
             </button><button>
                 <a href="/ofertas-mbl">
@@ -200,18 +196,6 @@ if (!current_user_can("administrator")) {
     <div class="main">
         <div class="btn citas">
             <button>
-                <a href="/citas-admin-mbl">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                </a>
-                <div class="btn-text"><a href="/citas-admin-mbl">
-                        <h2>Citas pendientes</h2>
-                        <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas</p>
-                    </a>
-
-                </div>
-                <div class="btn pendientes">
-                </div>
-            </button><button>
                 <a href="/citas-admin-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                 </a>
