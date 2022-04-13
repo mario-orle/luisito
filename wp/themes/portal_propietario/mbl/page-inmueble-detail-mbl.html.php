@@ -264,47 +264,55 @@ get_header();
 ?>
                         </div>
                         <div>
-                            <label for="valor">Valor</label>
-                            <input type="text" id="valor" name="valor" placeholder="valor">
+<?php 
+  fieldPerfilCreate("valor", $inmueble, "text");
+?>
                         </div>
                         <div>
-                            <label for="superficie-util">Superficie Util</label>
-                            <input type="text" id="superficie-util" name="superficie-util" placeholder="superficie util">
+<?php 
+  fieldPerfilCreate("superficie-util", $inmueble, "text", "Superficie Útil");
+?>
                         </div>
                         <div>
-                            <label for="superficie-construida">Superficie Construida</label>
-                            <input type="text" id="superficie-construida" name="superficie-construida"
-                                placeholder="superficie construida">
+<?php 
+  fieldPerfilCreate("superficie-construida", $inmueble, "text", "Superficie Construida");
+?>
                         </div>
                         <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
                         <div class="terreno">
-                            <label for="superficie-parcela">Superficie Parcela</label>
-                            <input type="text" id="superficie-parcela" name="superficie-parcela"
-                                placeholder="superficie parcela">
+<?php 
+  fieldPerfilCreate("superficie-parcela", $inmueble, "text", "Superficie Parcela");
+?>
                         </div>
                         <div>
-                            <label for="habitaciones">Habitaciones</label>
-                            <input type="text" id="habitaciones" name="habitaciones" placeholder="habitaciones">
+<?php 
+  fieldPerfilCreate("habitaciones", $inmueble, "text", "Habitaciones");
+?>
                         </div>
                         <div>
-                            <label for="baños">Baños</label>
-                            <input type="text" id="baños" name="baños" placeholder="baños">
+<?php 
+  fieldPerfilCreate("baños", $inmueble, "text", "Baños");
+?>
                         </div>
                         <div>
-                            <label for="salones">Salones</label>
-                            <input type="text" id="salones" name="salones" placeholder="salones">
+<?php 
+  fieldPerfilCreate("salones", $inmueble, "text", "Salones");
+?>
                         </div>
                         <div>
-                            <label for="terrazas">Terrazas</label>
-                            <input type="text" id="terrazas" name="terrazas" placeholder="terrazas">
+<?php 
+  fieldPerfilCreate("terrazas", $inmueble, "text", "Terrazas");
+?>
                         </div>
                         <div>
-                            <label for="garaje">Garaje</label>
-                            <input type="text" id="garaje" name="garaje" placeholder="garaje">
+<?php 
+  fieldPerfilCreate("garaje", $inmueble, "text", "Garaje");
+?>
                         </div>
                         <div>
-                            <label for="trastero">trastero</label>
-                            <input type="text" id="trastero" name="trastero" placeholder="trastero">
+<?php 
+  fieldPerfilCreate("trastero", $inmueble, "text", "Trastero");
+?>
                         </div>
                         <div class="fila descripcion">
                             <textarea>Describa su Inmueble</textarea>
