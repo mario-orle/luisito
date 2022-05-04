@@ -153,10 +153,14 @@ if (!current_user_can("administrator")) {
   $review_documents = 0;
   $num_documents = 0;
   $pending_citas = 0;
+  $servicios = [];
+  $total_servicios = 0;
 
   $ofertas_recibidas = 0;
   $ofertas = get_all_ofertas();
   $ofertas_recibidas = count($ofertas);
+
+
 
   foreach ($users_of_admin as $user_of_admin) {
     foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
@@ -189,6 +193,27 @@ if (!current_user_can("administrator")) {
         }
       }
     }
+    $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
+    $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
+    $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
+    $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
+
+    $servicios[$user_of_admin->display_name] = [
+      'Notario' => $servicio_notario, 
+      'Certificado Energético' => $servicio_certificado, 
+      'Nota Simple' => $servicio_nota_simple, 
+      'Reportaje Fotográfico' => $servicio_reportaje, 
+    ];
+
+
+
+    foreach ($servicios as $name_user => $servicio) {
+      foreach ($servicio as $name => $solicitado) {
+        if ($solicitado === "solicitado") {
+          $total_servicios++;
+        }
+      }
+    }
   }
 ?>
 
@@ -212,7 +237,7 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/doc-mbl-admin">
-                        <h2>Doc Pendientes</h2>
+                        <h2>Servicios +</h2>
                         <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
                     </a>
 
@@ -220,12 +245,12 @@ if (!current_user_can("administrator")) {
                 <div class="btn chat">
                 </div>
             </button><button>
-                <a href="/mensajes-mbl">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
+                <a href="/admin-alertas-mbl">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="/mensajes-mbl">
+                <div class="btn-text"><a href="/admin-alertas-mbl">
                         <h2>Mensajes</h2>
-                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes</p>
+                        <p><span id="unread_msgs"><?php echo $total_servicios ?></span> Alertas</p>
                     </a>
 
                 </div>

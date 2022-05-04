@@ -155,7 +155,7 @@ get_header();
         <div class="posicion">
             <div class="caja-volver">
                 <div class="volver">
-                    <a onclick="history.back()">Volver inmuebles</a>
+                    <a href="/inmuebles-mbl">Volver inmuebles</a>
                 </div>
             </div>
         </div>
