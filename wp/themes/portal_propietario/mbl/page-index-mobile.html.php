@@ -247,7 +247,7 @@ if (!current_user_can("administrator")) {
                 </a>
                 <div class="btn-text"><a href="/admin-alertas-mbl">
                         <h2>Servicios +</h2>
-                        <p><span id="unread_msgs"><?php echo $total_servicios ?></span> Alertas</p>
+                        <p><span id="total_servicios"><?php echo $total_servicios ?></span> Alertas</p>
                     </a>
 
                 </div>
