@@ -249,7 +249,7 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/admin-alertas-mbl">
-                        <h2>Mensajes</h2>
+                        <h2>Alertas</h2>
                         <p><span id="unread_msgs"><?php echo $total_servicios ?></span> Alertas</p>
                     </a>
 
