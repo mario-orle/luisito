@@ -198,22 +198,19 @@ if (!current_user_can("administrator")) {
     $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
     $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
 
-    $servicios[$user_of_admin->display_name] = [
-      'Notario' => $servicio_notario, 
-      'Certificado Energético' => $servicio_certificado, 
-      'Nota Simple' => $servicio_nota_simple, 
-      'Reportaje Fotográfico' => $servicio_reportaje, 
-    ];
-
-
-
-    foreach ($servicios as $name_user => $servicio) {
-      foreach ($servicio as $name => $solicitado) {
-        if ($solicitado === "solicitado") {
-          $total_servicios++;
-        }
-      }
+    if ($servicio_notario === "solicitado") {
+      $total_servicios++;
     }
+    if ($servicio_certificado === "solicitado") {
+      $total_servicios++;
+    }
+    if ($servicio_nota_simple === "solicitado") {
+      $total_servicios++;
+    }
+    if ($servicio_reportaje === "solicitado") {
+      $total_servicios++;
+    }
+
   }
 ?>
 
@@ -237,7 +234,7 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/doc-mbl-admin">
-                        <h2>Servicios +</h2>
+                        <h2>Doc Pendientes</h2>
                         <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
                     </a>
 
@@ -249,7 +246,7 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/admin-alertas-mbl">
-                        <h2>Alertas</h2>
+                        <h2>Servicios +</h2>
                         <p><span id="unread_msgs"><?php echo $total_servicios ?></span> Alertas</p>
                     </a>
 
