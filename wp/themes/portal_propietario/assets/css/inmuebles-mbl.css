@@ -233,18 +233,3 @@ text-align: left;
 .descripcion .fila label {
     white-space: nowrap;
 }
-.posicion {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.posicion button {
-  position: relative;
-  background: grey;
-  border: 2px solid orange;
-  width: 120px;
-  padding: 5px;
-  margin: 15px;
-  color: white;
-  text-decoration: none;
-}

@@ -272,7 +272,7 @@ if (!current_user_can("administrator")) {
       <a id="servicios" href="/servicios+"><i class="fas fa-briefcase"></i>SERVICIOS + </a>
       <a id="perfil" href="/perfil"><i class="fas fa-user-circle"></i>PERFIL</a>
       <hr />
-      <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>CITAS</a>
+      <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>AGENDA</a>
       <hr />
       <a id="asesor" href="/alerta-asesor"><i class="fas fa-hands-helping"></i>ASESOR</a>
       <hr />
@@ -284,7 +284,7 @@ if (!current_user_can("administrator")) {
       </button>
       <div class="dropdown-container">
         <a id="inmuebles" href="/inmuebles"><i class="fas fa-building"></i>INMUEBLES</a>
-        <a id="documentacion" href="/mis-documentos"><i class="fas fa-folder"></i>DOCUMENTACIÓN</a>
+        <a id="documentacion" href="/mis-documentos"><i class="fas fa-folder"></i>DOCUMENTOS</a>
         <a id="documentacion" href="/ofertas-recibidas"><i class="fas fa-money-check-alt"></i>OFERTAS</a>
       </div>
       <hr />
@@ -305,7 +305,7 @@ if (!current_user_can("administrator")) {
 
     </button>
     <div class="dropdown-container">
-      <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN CITAS</a>
+      <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN AGENDA</a>
       <a id="admin-usuarios" href="/admin-usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
       <a id="admin-alertas" href="/admin-alertas"><i class="fas fa-exclamation-triangle"></i>ADMIN ALERTAS</a>
       <?php

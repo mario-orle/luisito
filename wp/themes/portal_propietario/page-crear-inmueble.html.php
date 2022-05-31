@@ -104,6 +104,7 @@ get_header();
             <option value="Venta">Venta</option>
             <option value="Alquiler">Alquiler</option>           
             </select></p>
+          <p><input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
         </div>
         <div class="tab">Superficie y características inmueble:
           <p><input validators="numeric" placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>

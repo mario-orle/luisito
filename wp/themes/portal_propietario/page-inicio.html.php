@@ -90,17 +90,16 @@ get_header();
                         <button onclick="location.href='/ofertas-recibidas'">
                         <a href="#">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
-                        <h2>Ofertas Recibidas</h2>
-                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas</p>
+                        <h2>Ofertas</h2>
+                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas  Recibidas</p>
                         </a>
                         </button>
                     </div>
                     <div class="contacto-email">
                         <button onclick="location.href='/mensajes'">
-                        <a href="/mensajes">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
-                        <h2>Mensajes sin Leer</h2>
-                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes Sin Leer</p>
+                        <a href="https://wa.me/34">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsappmenu.png" width="100%">
+                        <h2>Chat</h2>
                         </a>
                         </button>
                     </div>
@@ -108,8 +107,8 @@ get_header();
                         <button onclick="location.href='/citas'">
                         <a href="/citas">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
-                        <h2>Citas por Confirmar</h2>
-                        <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas sin Confirmar</p>
+                        <h2>Citas</h2>
+                        <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas pendientes</p>
                         </a>
                         </button>
                     </div>
@@ -117,7 +116,7 @@ get_header();
                         <button onclick="location.href='/mis-documentos'">
                         <a href="/mis-documentos">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
-                        <h2>Doc Requeridos</h2>
+                        <h2>Documentos</h2>
                         <p><span id="pending_documents"><?php echo $pending_documents ?></span> Doc Requeridos</p>
                         </a>
                         </button>
@@ -126,7 +125,7 @@ get_header();
             </div>
 
         <div class="main-container-sub">
-            <h2>Evolución de la Vivienda</h2>
+            <h2>Acesso Inmuebles</h2>
 
             <hr>
             <div class="estadisticas-sub">
@@ -330,8 +329,8 @@ get_header();
             <button onclick="location.href='/admin-doc'">
               <a href="/admin-doc">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
-              <h2>Doc Pendientes</h2>
-              <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
+              <h2>Documentos</h2>
+              <p><span id="pending_documents"><?php echo $pending_documents ?></span> Doc pendientes</p>
               </a>
             </button>
           </div>

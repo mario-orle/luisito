@@ -127,7 +127,6 @@ if ($_GET['action'] == 'inicio_data') {
         $pending_documents = 0;
         $review_documents = 0;
         $pending_citas = 0;
-        $total_servicios = 0;
 
         $ofertas_recibidas = 0;
         $ofertas = get_all_ofertas();
@@ -161,27 +160,9 @@ if ($_GET['action'] == 'inicio_data') {
                 }
                 }
             }
-
-            $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
-            $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
-            $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
-            $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
-
-            if ($servicio_notario === "solicitado") {
-                $total_servicios++;
-            }
-            if ($servicio_certificado === "solicitado") {
-                $total_servicios++;
-            }
-            if ($servicio_nota_simple === "solicitado") {
-                $total_servicios++;
-            }
-            if ($servicio_reportaje === "solicitado") {
-                $total_servicios++;
-            }
         }
         echo json_encode([
-            "total_servicios" => $total_servicios,
+            "unread_msgs" => $unread_msgs,
             "pending_documents" => $pending_documents,
             "pending_citas" => $pending_citas,
             "review_documents" => $review_documents,

@@ -9,15 +9,9 @@
     margin: 0 auto;
 }
 
-.img-perfil-asesor {
-    width: 150px;
-    padding: 40px;
-    margin-top: 50px;
-}
-
 .form-perfil {
-    margin-top: 10px;
-    width: calc(100% - 270px);
+    margin: 25px;
+    width: 100%;
 }
 
 .form-perfil h2 {
@@ -29,12 +23,17 @@
     color: black;
     text-align: left;
 }
-.form-perfil p{
+
+.form-perfil p {
     color: grey;
 }
 
 .container {
     display: flex;
+}
+
+.container hr {
+    color: grey;
 }
 
 .documentacion-puntual {
@@ -54,7 +53,7 @@
     margin-bottom: 20px;
     border-radius: 13px;
     width: 100%;
-    max-width: 690px;
+    max-width: 947px;
     min-width: 450px;
 }
 
@@ -74,16 +73,14 @@
     margin-top: 15px;
     text-align: center;
     margin-left: 20px;
-box-shadow: 0px 0px 0px 2px #777;
-background: linear-gradient(to bottom, rgb(128, 123, 123) 5%, rgb(65, 54, 54) 100%);
-background-color: #4c5463;
-border-radius: 5px;
-font-size: 13px;
-padding: 5px 15px;
-text-shadow: 0px 1px 0px #283966;
+    box-shadow: 0px 0px 0px 2px #777;
+    background: linear-gradient(to bottom, rgb(128, 123, 123) 5%, rgb(65, 54, 54) 100%);
+    background-color: #4c5463;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 5px 15px;
+    text-shadow: 0px 1px 0px #283966;
 }
-
-
 
 .botons:hover {
     background: linear-gradient(to bottom, rgb(252, 205, 119) 5%, rgb(252, 205, 119)100%);
@@ -93,20 +90,22 @@ text-shadow: 0px 1px 0px #283966;
 
 form {
     display: inline-block;
+    width: 100%;
 }
+
 .botons:active {
     position: relative;
     top: 1px;
 }
-.scroll-text{
+
+.scroll-text {
     overflow-x: hidden;
     height: 265px;
     width: calc(100% - 0px);
 }
 
 .text-documentos {
-    width: 650px;
-
+    width: 100%;
 }
 
 .fila-documento {

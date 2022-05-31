@@ -21,9 +21,9 @@ get_header();
 <main id="primary" class="site-main">
     <div class="main">
         <div class="main-container">
-            <h2>SERVICIOS PLUS</h2>
+            <h2>Servicios +</h2>
 
-            <br>
+            <hr>
             <div class="servicios-plus">
                 <div>
                     <button onclick="alerta('notario')" class="notario">
