@@ -265,21 +265,21 @@ get_header();
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("valor", $inmueble, "text");
+  fieldPerfilCreate("preciorecomendado", $inmueble, "text");
 ?>
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("superficie-util", $inmueble, "text", "Superficie Útil");
+  fieldPerfilCreate("m2utiles", $inmueble, "text", "Superficie Útil");
 ?>
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("superficie-construida", $inmueble, "text", "Superficie Construida");
+  fieldPerfilCreate("m2construidos", $inmueble, "text", "Superficie Construida");
 ?>
                         </div>
                         <!-- div class terreno solo si es un chalet de cualquiera de los 3 tipos -->
-                        <div class="terreno">
+                        <div class="terreno solochalet">
 <?php 
   fieldPerfilCreate("superficie-parcela", $inmueble, "text", "Superficie Parcela");
 ?>
@@ -302,16 +302,6 @@ get_header();
                         <div>
 <?php 
   fieldPerfilCreate("terrazas", $inmueble, "text", "Terrazas");
-?>
-                        </div>
-                        <div>
-<?php 
-  fieldPerfilCreate("garaje", $inmueble, "text", "Garaje");
-?>
-                        </div>
-                        <div>
-<?php 
-  fieldPerfilCreate("trastero", $inmueble, "text", "Trastero");
 ?>
                         </div>
                         <div class="fila descripcion">
