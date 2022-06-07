@@ -34,8 +34,8 @@ function myCss() {
 
 
     echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js"></script>';
-    echo '<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>';
-    echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">';
+    echo '<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>';
+    echo '<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">';
 }
 
 function selectPerfilCreate($field, $inmueble, $values, $label = '', $fn = "editar") {
@@ -168,9 +168,8 @@ get_header();
   <div class="resumen-inmueble">
     <h3>Resumen Inmueble</h3>
     <div class="derecha">
-      <div class="slider splide">
-        <div class="splide__track">
-          <ul class="splide__list">
+      <div class="swiper" style="width: 600px;">
+        <div class="swiper-wrapper">
 <?php
 
 
@@ -180,17 +179,22 @@ $photos = json_decode(wp_unslash($photosRaw), true);
 
 foreach ($photos as $key => $photo) {
 ?>
-          <li class="splide__slide">
+          <div class="swiper-slide">
             <img
               src="<?php echo $photo['url']?>"
-              style="width: 350px; height: auto; max-height: 250px"
+              style="max-height; 250px; margin: 0 auto;"
             />
-          </li>
+          </div>
 <?php
 }
 ?>
-            </ul>
           </div>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination"></div>
+
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
 
 
@@ -224,7 +228,7 @@ foreach ($photos as $key => $photo) {
 
   <div class="izquierda">
     <div class="precio">
-      <h3><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 0, ',', '.'); ?>€</h3>
+      <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?>€</h3>
       <p>PRECIO DE VENTA</p>
     </div>
 <?php 
@@ -243,7 +247,7 @@ if (current_user_can("administrator")) {
 ?>
     <?php if (!empty(get_post_meta($inmueble->ID, 'meta-inmueble-preciorecomendado', true))) { ?>
     
-      <h3><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-preciorecomendado', true), 0, ',', '.'); ?>€</h3>
+      <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-preciorecomendado', true); ?>€</h3>
       <p>PRECIO RECOMENDADO</p>
 
     <?php } else { ?>
@@ -769,10 +773,6 @@ foreach ($photos as $key => $photo) {
 
     pond.onprocessfiles = updateImgs;
 
-    new Splide( '.splide', {
-      rewind: true,
-      autoplay: true
-    } ).mount();
 
 
     function setPrecioRecomendado() {
@@ -870,6 +870,28 @@ function removeUndoSelect(e, field) {
   document.querySelector("[name='inmueble-" + field + "']").dispatchEvent(new Event("change"));
 
 }
+
+const swiper = new Swiper('.swiper', {
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+
 </script>
 <?php
 get_footer();

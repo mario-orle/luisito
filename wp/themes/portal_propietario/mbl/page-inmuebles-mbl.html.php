@@ -37,9 +37,15 @@ get_header();
 <main id="primary" class="site-main">
     <div class="main">
         <div class="inm-mbl">
+<?php 
+    if (!current_user_can('administrator')) {
+?>
             <div class="posicion">
                 <button onclick="location.href='/crear-inmueble-mbl'">Nuevo inmueble</button>
             </div>
+<?php
+    }
+?>
             <h2>Inmuebles <i class="fas fa-house-user"></i></h2>
             <hr>
 <?php

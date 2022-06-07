@@ -155,7 +155,7 @@ get_header();
         <div class="posicion">
             <div class="caja-volver">
                 <div class="volver">
-                    <a href="/inmuebles-mbl">Volver inmuebles</a>
+                    <a href="<?php if (current_user_can("administrator")) { ?>javascript:history.back();<?php } else { ?>/inmuebles-mbl<?php } ?>">Volver inmuebles</a>
                 </div>
             </div>
         </div>
@@ -265,7 +265,7 @@ get_header();
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("preciorecomendado", $inmueble, "text");
+  fieldPerfilCreate("precioestimado", $inmueble, "text", "Valor");
 ?>
                         </div>
                         <div>
@@ -284,22 +284,22 @@ get_header();
   fieldPerfilCreate("superficie-parcela", $inmueble, "text", "Superficie Parcela");
 ?>
                         </div>
-                        <div>
+                        <div class="solochalet solopiso">
 <?php 
   fieldPerfilCreate("habitaciones", $inmueble, "text", "Habitaciones");
 ?>
                         </div>
-                        <div>
+                        <div class="solochalet solopiso">
 <?php 
   fieldPerfilCreate("baños", $inmueble, "text", "Baños");
 ?>
                         </div>
-                        <div>
+                        <div class="solochalet solopiso">
 <?php 
   fieldPerfilCreate("salones", $inmueble, "text", "Salones");
 ?>
                         </div>
-                        <div>
+                        <div class="solochalet solopiso">
 <?php 
   fieldPerfilCreate("terrazas", $inmueble, "text", "Terrazas");
 ?>
@@ -439,6 +439,9 @@ function menu(section) {
         document.querySelector(".fotos").style.display = "block";
 
     }
+    var tipoPiso = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>";
+    updateTipoPiso(tipoPiso);
+
 }
 
 var tipoPiso = "<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-tipo', true) ?>";
