@@ -289,6 +289,7 @@ get_header();
       $pending_documents = 0;
       $review_documents = 0;
       $pending_citas = 0;
+      $total_servicios = 0;
       foreach ($users_of_admin as $user_of_admin) {
         foreach (get_user_meta($user_of_admin->ID, 'meta-messages-chat') as $chat_str) {
           $chat = json_decode(wp_unslash($chat_str), true);
@@ -318,6 +319,24 @@ get_header();
             }
           }
         }
+
+        $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
+        $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
+        $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
+        $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
+
+        if ($servicio_notario === "solicitado") {
+          $total_servicios++;
+        }
+        if ($servicio_certificado === "solicitado") {
+          $total_servicios++;
+        }
+        if ($servicio_nota_simple === "solicitado") {
+          $total_servicios++;
+        }
+        if ($servicio_reportaje === "solicitado") {
+          $total_servicios++;
+        }
       }
 ?>
    <div class="main">
@@ -346,11 +365,11 @@ get_header();
             </button>
           </div>
           <div class="chat-pendientes">
-            <button onclick="location.href='/mensajes'">
-              <a href="/mensajes">
-              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/email2.png" width="100%">
-              <h2>Chat Pendientes</h2>
-              <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes sin leer</p>
+            <button onclick="location.href='/admin-alertas'">
+              <a href="/admin-alertas">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/notario.png" width="100%">
+              <h2>Servicios +</h2>
+              <p><span id="total_servicios"><?php echo $total_servicios ?></span> Alertas</p>
               </a>
             </button>
           </div>
