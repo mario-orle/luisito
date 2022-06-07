@@ -98,8 +98,8 @@ get_header();
                         </button>
                     </div>
                     <div class="contacto-email">
-                        <button onclick="location.href='/mensajes'">
-                        <a href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>">
+                        <button onclick="window.open('https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>"')">
+                        <a target="_blank" href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsappmenu.png" width="100%">
                         <h2>Chat</h2>
                         </a>
