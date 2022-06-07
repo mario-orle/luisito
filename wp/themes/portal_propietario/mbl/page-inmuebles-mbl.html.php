@@ -37,6 +37,9 @@ get_header();
 <main id="primary" class="site-main">
     <div class="main">
         <div class="inm-mbl">
+            <div class="posicion">
+                <button onclick="location.href='/crear-inmueble-mbl'">Nuevo inmueble</button>
+            </div>
             <h2>Inmuebles <i class="fas fa-house-user"></i></h2>
             <hr>
 <?php

@@ -152,7 +152,9 @@ if (!current_user_can("administrator")) {
   $pending_documents = 0;
   $review_documents = 0;
   $num_documents = 0;
-  $pending_citas = 0;
+  $pending_citas = 0;   
+  $servicios = [];
+  $total_servicios = 0;
 
   $ofertas_recibidas = 0;
   $ofertas = get_all_ofertas();
@@ -189,6 +191,23 @@ if (!current_user_can("administrator")) {
         }
       }
     }
+    $servicio_notario = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-notario', true);
+    $servicio_certificado = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-certificado-energetico', true);
+    $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
+    $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
+
+    if ($servicio_notario === "solicitado") {
+      $total_servicios++;
+    }
+    if ($servicio_certificado === "solicitado") {
+      $total_servicios++;
+    }
+    if ($servicio_nota_simple === "solicitado") {
+      $total_servicios++;
+    }
+    if ($servicio_reportaje === "solicitado") {
+      $total_servicios++;
+    }
   }
 ?>
 
@@ -219,15 +238,14 @@ if (!current_user_can("administrator")) {
                 </div>
                 <div class="btn chat">
                 </div>
-            </button><button>
-                <a href="/mensajes-mbl">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>email2.png" width="100%">
+            </button><button>                 
+              <a href="/admin-alertas-mbl">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
                 </a>
-                <div class="btn-text"><a href="/mensajes-mbl">
-                        <h2>Mensajes</h2>
-                        <p><span id="unread_msgs"><?php echo $unread_msgs ?></span> Mensajes</p>
+                <div class="btn-text"><a href="/admin-alertas-mbl">
+                        <h2>Servicios +</h2>
+                        <p><span id="total_servicios"><?php echo $total_servicios ?></span> Alertas</p>
                     </a>
-
                 </div>
                 <div class="btn ofertas">
                 </div>

@@ -77,7 +77,6 @@ if (!current_user_can("administrator")) {
 ?>
       <div class="overlay-content">
         <a href="/">INICIO</a>
-        <a href="/mensajes-mbl">CHAT</a>
         <a href="/citas-mbl">CITAS</a>
         <a href="/ofertas-mbl">OFERTAS</a>
         <a href="/inmuebles-mbl">INMUEBLES</a>
@@ -90,7 +89,6 @@ if (!current_user_can("administrator")) {
 ?>
       <div class="overlay-content">
         <a href="/">INICIO</a>
-        <a href="/mensajes-mbl">CHAT</a>
         <a href="/citas-admin-mbl">CITAS</a>
         <a href="/ofertas-admin-mbl">OFERTAS</a>
         <a href="/doc-mbl-admin">DOCUMENTOS</a>

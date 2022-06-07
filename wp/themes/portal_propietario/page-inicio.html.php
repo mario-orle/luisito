@@ -37,6 +37,8 @@ get_header();
     <?php
     if (!current_user_can('administrator')){
       $unread_msgs = 0;
+      $asesor_id = get_user_meta(get_current_user_id(), 'meta-gestor-asignado', true);
+
       foreach (get_user_meta(get_current_user_id(), 'meta-messages-chat') as $chat_str) {
         $chat = json_decode(wp_unslash($chat_str), true);
         if (!$chat['readed'] && $chat["user"] == "admin") {
@@ -91,13 +93,13 @@ get_header();
                         <a href="#">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>lupa.png" width="100%">
                         <h2>Ofertas</h2>
-                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas  Recibidas</p>
+                        <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas Recibidas</p>
                         </a>
                         </button>
                     </div>
                     <div class="contacto-email">
                         <button onclick="location.href='/mensajes'">
-                        <a href="https://wa.me/34">
+                        <a href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsappmenu.png" width="100%">
                         <h2>Chat</h2>
                         </a>
