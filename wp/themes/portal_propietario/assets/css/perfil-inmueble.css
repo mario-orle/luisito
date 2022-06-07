@@ -20,7 +20,7 @@
   display: flex;
 }
 .info{
-  width: 100%;
+  width: 50%;
 }
 .info .fila-res > div{
   height: 20px;

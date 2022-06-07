@@ -182,7 +182,7 @@ foreach ($photos as $key => $photo) {
           <div class="swiper-slide">
             <img
               src="<?php echo $photo['url']?>"
-              style="max-height; 250px; margin: 0 auto;"
+              style="width: 100%;"
             />
           </div>
 <?php
