@@ -16,7 +16,11 @@ if (current_user_can('administrator') && !empty($_GET['user'])) {
   $user = get_user_by('ID', $_GET['user']);
 
 }
-
+if ($user->ID === 1) {
+  $super_admin = true;
+} else {
+  $super_admin = false;
+}
 $creator_of_user = get_user_meta($user->ID, 'meta-creator-of-user', true);
 //si ha sido creado por otro usuario, al inicio
 
@@ -309,7 +313,7 @@ if (!current_user_can("administrator")) {
       <a id="admin-usuarios" href="/admin-usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
       <a id="admin-alertas" href="/admin-alertas"><i class="fas fa-exclamation-triangle"></i>ADMIN ALERTAS</a>
       <?php
-if (!$creator_of_user) {
+if ($super_admin) {
       ?>
       <a id="perfil" href="/admin-asesor"><i class="fas fa-user-circle"></i>ADMIN ASESOR</a>
       <a id="prices" href="/price-edition"><i class="fas fa-coins"></i>ADMIN PRECIOS</a>
