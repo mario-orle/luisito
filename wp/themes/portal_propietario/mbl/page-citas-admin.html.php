@@ -18,83 +18,85 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = get_user_by('id', $_POST['usuario']);
     $data = array();
     if ($_POST['action'] == "crear") {
-        $data['id'] = generateRandomString(30);
         $data['nombre'] = $_POST['nombre'];
         $data['inicio'] = $_POST['inicio'];
         $data['fin'] = $_POST['fin'];
         $data['status'] = $_POST['status'];
         $data['comments'] = $_POST['comments'];
         $data['usuario'] = $user->display_name;
+
+        $cita_id = wp_insert_post(array(
+            'post_type' => 'cita',
+            'post_title' => 'cita-' . $user->ID,
+            'post_status' => 'publish',
+            'post_author' => get_current_user_id()
+        ));
+        add_post_meta($cita_id, 'meta-usuario-asignado', $user->ID);
+        add_post_meta($cita_id, 'meta-info-cita', wp_slash(json_encode($data)));
         
-        delete_user_meta( $user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
-        add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
     }
     if ($_POST['action'] == "actualizar") {
-        $data['id'] = $_POST['cita-id'];
-        $data['nombre'] = $_POST['nombre'];
-        $data['inicio'] = $_POST['inicio'];
-        $data['fin'] = $_POST['fin'];
-        $data['status'] = $_POST['status'];
-        $data['comments'] = $_POST['comments'];
-        $data['usuario'] = $user->display_name;
+        $cita_id = $_POST['cita-id'];
 
-        $old_user = get_user_by('id', $_POST['old-usuario']);
-        $old_data['id'] = $_POST['cita-id'];
-        $old_data['nombre'] = $_POST['old-nombre'];
-        $old_data['inicio'] = $_POST['old-inicio'];
-        $old_data['fin'] = $_POST['old-fin'];
-        $old_data['status'] = $_POST['old-status'];
-        $old_data['comments'] = $_POST['old-comments'];
-        $old_data['usuario'] = $old_user->display_name;
-
-        foreach (get_user_meta($user->ID, 'meta-citas-usuario') as $old_meta_encoded) {
-            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
-            if ($old_meta["id"] == $old_data["id"]) {
-                delete_user_meta($user->ID, 'meta-citas-usuario', wp_slash($old_meta_encoded));
-            }
-        }
-        if ($_POST['status'] != 'eliminada') {
-            add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($data)));
+        if ($_POST['status'] == 'eliminada') {
+            wp_delete_post($cita_id, true);
+        } else {
+            $data['nombre'] = $_POST['nombre'];
+            $data['inicio'] = $_POST['inicio'];
+            $data['fin'] = $_POST['fin'];
+            $data['status'] = $_POST['status'];
+            $data['comments'] = $_POST['comments'];
+            $data['usuario'] = $user->display_name;
+    
+            update_post_meta($cita_id, 'meta-usuario-asignado', $user->ID);
+            update_post_meta($cita_id, 'meta-info-cita', wp_slash(json_encode($data)));
         }
     }
     if ($_POST['action'] == "confirmar" && !current_user_can("administrator")) {
-        $user = wp_get_current_user();
+        $cita_id = $_POST['cita-id'];
 
-        $data['id'] = $_POST['cita-id'];
-        
-        $data['status'] = $_POST['status'];
-        
-
-        foreach (get_user_meta($user->ID, 'meta-citas-usuario') as $old_meta_encoded) {
-            $old_meta = json_decode(wp_unslash(($old_meta_encoded)), true);
-            if ($old_meta["id"] == $data["id"]) {
-                delete_user_meta($user->ID, 'meta-citas-usuario', wp_slash($old_meta_encoded));
-            }
-        }
-        $old_meta['status'] = $_POST['status'];
-        add_user_meta($user->ID, 'meta-citas-usuario', wp_slash(json_encode($old_meta)));
-        
+        $cita_info = get_post_meta($cita_id, 'meta-info-cita', true);
+        $cita_encoded = json_decode(wp_unslash($cita_info), true);
+        $cita_encoded['status'] = $_POST['status'];
+    
+        update_post_meta($cita_id, 'meta-info-cita', wp_slash(json_encode($cita_encoded)));        
     }
     wp_redirect("/citas");
 }
 $array_citas = array();
 
 function get_all_citas() {
+
     $arr = array();
-    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-        if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
-            foreach (get_user_meta($user->ID, 'meta-citas-usuario') as $key => $meta) {
-                $arr[$user->ID][] = json_decode(wp_unslash($meta));
-            }
+    $citas = get_posts(array(
+        'post_type' => 'cita'
+    ));
+    foreach ($citas as $cita) {
+        $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
+        $cita_info = get_post_meta($cita->ID, 'meta-info-cita', true);
+
+        if (get_user_meta($user_of_cita, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
+            $cita_encoded = json_decode(wp_unslash($cita_info), true);
+            $cita_encoded['id'] = $cita->ID;
+            $arr[$user_of_cita][] = $cita_encoded;
         }
     }
     return $arr;
 }
 function get_own_citas() {
     $arr = array();
-    
-    foreach (get_user_meta(get_current_user_id(), 'meta-citas-usuario') as $key => $meta) {
-        $arr[get_current_user_id()][] = json_decode(wp_unslash($meta));
+    $citas = get_posts(array(
+        'post_type' => 'cita'
+    ));
+    foreach ($citas as $cita) {
+        $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
+        $cita_info = get_post_meta($cita->ID, 'meta-info-cita', true);
+
+        if (get_current_user_id() == $user_of_cita) {
+            $cita_encoded = json_decode(wp_unslash($cita_info), true);
+            $cita_encoded['id'] = $cita->ID;
+            $arr[$user_of_cita][] = $cita_encoded;
+        }
     }
     return $arr;
 }
@@ -221,20 +223,10 @@ if (current_user_can('administrator')) {
 <?php
 if (current_user_can('administrator')) {
 ?>
-                        <select class="controls js-choices" type="text" name="usuario">
-                            <?php
-    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
-                            ?>
-                            <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
-                            <?php
-    }
-                            ?>
-                        </select>
+                        <input type="hidden" name="usuario">
+                        <input class="controls" type="text" readonly name="usuario_displayname">
+                        
                         <select class="controls js-choices" name="status">
-                            <option value="creada">Creada</option>
-                            <option value="fecha-cambiada">Fecha cambiada</option>
-                            <option value="aceptada-cliente">Aceptada por cliente</option>
-                            <option value="rechazada-cliente">Rechazada por cliente</option>
                             <option value="realizada">Realizada</option>
                             <option value="descartada">Descartada</option>
                             <option value="eliminada">Eliminada</option>
@@ -251,12 +243,6 @@ if (current_user_can('administrator')) {
 }
 ?>
                         <textarea class="controls" placeholder="Comentarios..." name="comments"></textarea>
-                        <input class="controls" type="hidden" name="old-nombre">
-                        <input class="controls" type="hidden" name="old-inicio">
-                        <input class="controls" type="hidden" name="old-fin" >
-                        <input class="controls" type="hidden" name="old-usuario">
-                        <input class="controls" type="hidden" name="old-status">
-                        <input class="controls" type="hidden" name="old-comments">
 
                         <input style="display: none" name="action" value="actualizar" />
                         <input class="botons" type="submit" value="Actualizar" />
@@ -326,7 +312,8 @@ if (!current_user_can('administrator')) {
                         id: k,
                         status: citas[k][i].status,
                         comments: citas[k][i].comments,
-                        cita_id: citas[k][i].id
+                        cita_id: citas[k][i].id,
+                        user_name: citas[k][i].usuario
                     }
                 });
 
@@ -337,7 +324,7 @@ if (!current_user_can('administrator')) {
                 var td2 = document.createElement("td");
                 td2.textContent = citas[k][i].nombre;
                 var td3 = document.createElement("td");
-                td3.innerHTML = '<i class="fas fa-circle" style="color:green"></i> ' + citas[k][i].status;
+                td3.innerHTML = '<i class="fas fa-circle" style="color:green"></i> ' + (citas[k][i].status || 'creada');
 
                 tr.appendChild(td1);
                 tr.appendChild(td2);
@@ -347,7 +334,7 @@ if (current_user_can('administrator')) {
                 ?>
 
                 var td4 = document.createElement("td");
-                td4.innerHTML = document.querySelector("#modal-actualizar-cita-content").querySelector("[name='usuario']").querySelector("option[value='" + k + "']").innerHTML;
+                td4.innerHTML = citas[k][i].usuario;
                 tr.appendChild(td4);
 
                 <?php
@@ -384,19 +371,15 @@ if (current_user_can('administrator')) {
             eventClick: function(info) {
                 // change the border color just for fun
 <?php if (current_user_can('administrator')) { ?>
-
+    
                 document.querySelector("#modal-actualizar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
                 document.querySelector("#modal-actualizar-cita [name=nombre]").value = info.event.title;
-                document.querySelector("#modal-actualizar-cita [name=old-nombre]").value = info.event.title;
                 document.querySelector("#modal-actualizar-cita [name=usuario]").value = info.event.extendedProps.id;
-                document.querySelector("#modal-actualizar-cita [name=old-usuario]").value = info.event.extendedProps.id;
+                document.querySelector("#modal-actualizar-cita [name=usuario_displayname]").value = info.event.extendedProps.user_name;
+                
                 document.querySelector("#modal-actualizar-cita [name=inicio]").value = info.event.startStr;
-                document.querySelector("#modal-actualizar-cita [name=old-inicio]").value = info.event.startStr;
-                document.querySelector("#modal-actualizar-cita [name=old-fin]").value = info.event.endStr;
                 document.querySelector("#modal-actualizar-cita [name=fin]").value = info.event.endStr;
-                document.querySelector("#modal-actualizar-cita [name=old-status]").value = info.event.extendedProps.status;
                 document.querySelector("#modal-actualizar-cita [name=status]").value = info.event.extendedProps.status;
-                document.querySelector("#modal-actualizar-cita [name=old-comments]").value = info.event.extendedProps.comments;
                 document.querySelector("#modal-actualizar-cita [name=comments]").value = info.event.extendedProps.comments;
                 document.querySelector("#modal-actualizar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
                 MicroModal.show('modal-actualizar-cita'); 

@@ -91,12 +91,18 @@ if ($_GET['action'] == 'inicio_data') {
         }
 
         $pending_citas = 0;
-        $array_citas = get_own_citas();
 
-        foreach ($array_citas as $i => $cita) {
-            $cita = json_decode(wp_unslash($cita), true);
-            if (wp_unslash($cita["status"]) != 'aceptada-cliente' && wp_unslash($cita["status"]) != 'rechazada-cliente' && wp_unslash($cita["status"]) != 'realizada' && wp_unslash($cita["status"]) != 'descartada') {
-                $pending_citas++;
+        $citas = get_posts(array(
+            'post_type' => 'cita'
+        ));
+        foreach ($citas as $cita) {
+            $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
+            $cita_info = get_post_meta($cita->ID, 'meta-info-cita', true);
+            if ($user_of_cita == get_current_user_id()) {
+                $cita_encoded = json_decode(wp_unslash($cita_info), true);
+                if (wp_unslash($cita_encoded["status"]) != 'realizada' && wp_unslash($cita_encoded["status"]) == 'descartada') {
+                    $pending_citas++;
+                }
             }
         }
 
@@ -153,12 +159,18 @@ if ($_GET['action'] == 'inicio_data') {
                 }
             }
 
-            foreach (get_user_meta($user_of_admin->ID, 'meta-citas-usuario') as $meta) {
-                $cita = json_decode(wp_unslash($meta), true);
-                if (strtotime(wp_unslash($cita["fin"])) < time()) {
-                if (wp_unslash($cita["status"]) == 'creada' || wp_unslash($cita["status"]) == 'fecha-cambiada') {
-                    $pending_citas++;
-                }
+
+            $citas = get_posts(array(
+                'post_type' => 'cita'
+            ));
+            foreach ($citas as $cita) {
+                $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
+                $cita_info = get_post_meta($cita->ID, 'meta-info-cita', true);
+                if ($user_of_cita == $user_of_admin->ID) {
+                    $cita_encoded = json_decode(wp_unslash($cita_info), true);
+                    if (wp_unslash($cita_encoded["status"]) != 'realizada' && wp_unslash($cita_encoded["status"]) == 'descartada') {
+                        $pending_citas++;
+                    }
                 }
             }
 

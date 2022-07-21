@@ -401,12 +401,6 @@ get_header();
 
       });
 
-      if (res.unread_msgs > 0) {
-        document.querySelector('.mensajes-wrapper').classList.add('unread');
-      } else {
-        document.querySelector('.mensajes-wrapper').classList.remove('unread');
-
-      }
 
       setTimeout(() => {
         update();
