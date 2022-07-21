@@ -93,14 +93,15 @@ if ($_GET['action'] == 'inicio_data') {
         $pending_citas = 0;
 
         $citas = get_posts(array(
-            'post_type' => 'cita'
+            'post_type' => 'cita',
+            'post_status' => 'publish'
         ));
         foreach ($citas as $cita) {
             $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
             $cita_info = get_post_meta($cita->ID, 'meta-info-cita', true);
             if ($user_of_cita == get_current_user_id()) {
                 $cita_encoded = json_decode(wp_unslash($cita_info), true);
-                if (wp_unslash($cita_encoded["status"]) != 'realizada' && wp_unslash($cita_encoded["status"]) == 'descartada') {
+                if (wp_unslash($cita_encoded["status"]) != 'realizada' && wp_unslash($cita_encoded["status"]) != 'descartada') {
                     $pending_citas++;
                 }
             }
@@ -161,14 +162,15 @@ if ($_GET['action'] == 'inicio_data') {
 
 
             $citas = get_posts(array(
-                'post_type' => 'cita'
+                'post_type' => 'cita',
+                'post_status' => 'publish'
             ));
             foreach ($citas as $cita) {
                 $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
                 $cita_info = get_post_meta($cita->ID, 'meta-info-cita', true);
                 if ($user_of_cita == $user_of_admin->ID) {
                     $cita_encoded = json_decode(wp_unslash($cita_info), true);
-                    if (wp_unslash($cita_encoded["status"]) != 'realizada' && wp_unslash($cita_encoded["status"]) == 'descartada') {
+                    if (wp_unslash($cita_encoded["status"]) != 'realizada' && wp_unslash($cita_encoded["status"]) != 'descartada') {
                         $pending_citas++;
                     }
                 }

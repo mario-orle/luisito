@@ -16,7 +16,7 @@ if (current_user_can('administrator') && !empty($_GET['user'])) {
   $user = get_user_by('ID', $_GET['user']);
 
 }
-if ($user->ID === 1) {
+if (get_current_user_id() === 1) {
   $super_admin = true;
 } else {
   $super_admin = false;
