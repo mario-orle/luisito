@@ -31,6 +31,12 @@ if ( ! function_exists( 'portal_propietario_setup' ) ) :
 		));
 
 
+		register_post_type('cita', array(
+			'label' => 'Citas', 
+			'public' => true
+		));
+
+
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
