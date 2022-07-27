@@ -347,11 +347,11 @@ if (current_user_can('administrator')) {
 
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridWeek',
+            initialView: 'listYear',
             headerToolbar: {
                 left: 'prev,next today',
                 center: '',
-                right: 'dayGridMonth,dayGridWeek,timeGridDay'
+                right: ''
             },
             locale: 'es',
             <?php
