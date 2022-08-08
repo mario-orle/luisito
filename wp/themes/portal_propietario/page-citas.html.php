@@ -320,7 +320,7 @@ if (!current_user_can('administrator')) {
                 
                 var tr = document.createElement("tr");
                 var td1 = document.createElement("td");
-                td1.innerHTML = moment(citas[k][i].inicio).format('D MMMM YYYY, hh:mm') + " -"  +moment(citas[k][i].fin).format('D MMMM YYYY, hh:mm');
+                td1.innerHTML = moment(citas[k][i].inicio).format('D MMMM YYYY, HH:mm') + " - "  +moment(citas[k][i].fin).format('D MMMM YYYY, HH:mm');
                 var td2 = document.createElement("td");
                 td2.textContent = citas[k][i].nombre;
                 var td3 = document.createElement("td");
