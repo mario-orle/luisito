@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
         update_post_meta($cita_id, 'meta-info-cita', wp_slash(json_encode($cita_encoded)));        
     }
-    wp_redirect("/citas");
+    wp_redirect("/citas-mbl");
 }
 $array_citas = array();
 

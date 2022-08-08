@@ -265,7 +265,12 @@ get_header();
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("precioestimado", $inmueble, "text", "Valor");
+  fieldPerfilCreate("precioestimado", $inmueble, "text", "Precio de venta");
+?>
+                        </div>
+                        <div>
+<?php 
+  fieldPerfilCreate("preciorecomendado", $inmueble, "text", "Precio recomendado");
 ?>
                         </div>
                         <div>

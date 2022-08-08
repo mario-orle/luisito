@@ -94,6 +94,14 @@ if (!current_user_can("administrator")) {
         <a href="/doc-mbl-admin">DOCUMENTOS</a>
         <a href="/usuarios-mbl">USUARIOS</a>
         <a href="/admin-alertas-mbl">ALERTAS</a>
+<?php 
+if (get_current_user_id() == 1) {
+?>
+        <a href="/admin-asesor-mbl">ASESORES</a>
+
+<?php
+}
+?>
         <a href="/logout">LOGOUT</a>
       </div>
 

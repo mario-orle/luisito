@@ -193,6 +193,11 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+function revisado(docId, userId) {
+
+fetch("/file-upload?action=revisa-documento&doc_id=" + docId + "&user_id=" + userId).then(res => {});
+}
     </script>
 </main><!-- #main -->
 

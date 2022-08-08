@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
         update_post_meta($cita_id, 'meta-info-cita', wp_slash(json_encode($cita_encoded)));        
     }
-    wp_redirect("/citas");
+    wp_redirect("/citas-admin-mbl");
 }
 $array_citas = array();
 
@@ -128,6 +128,7 @@ get_header();
             <div class="main-calendar">
                 <div id="calendar"></div>
             </div>
+            <div class="crear-cita"><button class="botons" onclick="showCitaCrear()">Crear cita</button></div>
             <div class="main-gestiones-calendar">
                 <div class="citas-programadas">
                     <div class="icono-citas">
@@ -169,9 +170,11 @@ if (current_user_can('administrator')) {
                 <div id="modal-crear-cita-content">
                     <form method="POST">
                         <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese pequeña descripción para la cita">
-                        <input class="controls" type="text" readonly name="fechas-str">
-                        <input class="controls" type="hidden" readonly name="inicio" id="inicio" placeholder="Ingrese fecha y hora de inicio">
-                        <input class="controls" type="hidden" readonly name="fin" id="fin" placeholder="Ingrese fecha y hora de fin">
+                        <input class="controls" type="date" id="dia" placeholder="Ingrese fecha" onchange="setFechas()">
+                        <input class="controls" type="time" id="horaini" placeholder="Ingrese hora de inicio" onchange="setFechas()">
+                        <input class="controls" type="time" id="horafin" placeholder="Ingrese hora de fin" onchange="setFechas()">
+                        <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
+                        <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
@@ -410,6 +413,19 @@ if (current_user_can('administrator')) {
                 itemSelectText: 'Click para seleccionar',
                 searchEnabled: false
             }));
+        }
+
+        function showCitaCrear() {
+            MicroModal.show('modal-crear-cita'); 
+        }
+
+
+        function setFechas() {
+            const fechaIni = new Date(document.querySelector('#modal-crear-cita #dia').value + " " + document.querySelector('#modal-crear-cita #horaini').value);
+            const fechaFin = new Date(document.querySelector('#modal-crear-cita #dia').value + " " + document.querySelector('#modal-crear-cita #horafin').value);
+            
+            document.querySelector("#modal-crear-cita [name=inicio]").value = fechaIni.toISOString();
+            document.querySelector("#modal-crear-cita [name=fin]").value = fechaFin.toISOString();
         }
     </script>
 </main><!-- #main -->

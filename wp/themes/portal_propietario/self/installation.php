@@ -344,6 +344,14 @@ function create_our_pages() {
             'page_template' => 'mbl/page-admin-alertas.html.php'
         ));
     }
+    if (!get_page_by_title('admin-asesor-mbl')) {
+        wp_insert_post(array(
+            'post_title' => 'admin-asesor-mbl',
+            'post_status' => 'publish',
+            'post_type' => 'page',
+            'page_template' => 'mbl/page-admin-asesor-mbl.html.php'
+        ));
+    }
     if (!get_page_by_title('servicios+-mbl')) {
         wp_insert_post(array(
             'post_title' => 'servicios+-mbl',

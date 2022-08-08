@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
             }
         }
     }
-    wp_redirect("/admin-ofertas");
+    wp_redirect("/ofertas-admin-mbl");
 
 }
 get_header();
