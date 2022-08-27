@@ -351,16 +351,16 @@ get_header();
               <a href="/admin-doc">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
               <h2>Documentos</h2>
-              <p><span id="pending_documents"><?php echo $pending_documents ?></span> Doc pendientes</p>
+              <p><span id="pending_documents"><?php echo $pending_documents ?></span>Pendientes</p>
               </a>
             </button>
           </div>
           <div class="doc-revisar">
-            <button onclick="location.href='/admin-doc'">
-              <a href="/admin-doc">
-              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/docs.png" width="100%">
-              <h2>Doc Revisar</h2>
-              <p><span id="review_documents"><?php echo $review_documents ?></span> Documentos</p>
+            <button onclick="location.href='/admin-usuarios'">
+              <a href="/admin-usuarios">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/agregar-usuario.png" width="100%">
+              <h2>Usuario</h2>
+              <p><span id="review_documents"><?php echo $review_documents ?></span> usuarios</p>
               </a>
             </button>
           </div>
@@ -377,7 +377,7 @@ get_header();
             <button onclick="location.href='/citas'">
               <a href="/citas">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/cita.png" width="100%">
-              <h2>Citas Sin Actualizar</h2>
+              <h2>Citas</h2>
               <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas pendientes</p>
               </a>
             </button>
