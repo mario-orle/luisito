@@ -70,9 +70,10 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                         <td><?php echo $user_admin->display_name; ?></td>
                         <td>
                             <a id="changeasesor" onclick="changeUsersOfAsesor(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-random"></i></a>
+                            <a id="eliminaasesor" onclick="eliminaUser(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
-
+                    
                     <?php
 
 }
@@ -113,6 +114,15 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
 
 MicroModal.init();
 
+function eliminaUser(userId) {
+    if (userId && confirm("Esta acción no se puede deshacer. ¿Está seguro?")) {
+        fetch("/usuarios-xhr?action=delete-user&user_id=" + userId)
+            .then(res => {
+                window.location.reload();
+        })
+
+    }
+}
 function changeUsersOfAsesor(userId) {
     document.querySelector("#modal-cambiar-usuario-asesor-content").querySelector("[name='viejoasesor']").value = userId;
     MicroModal.show("modal-cambiar-usuario-asesor");

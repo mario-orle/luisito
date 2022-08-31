@@ -349,7 +349,7 @@ if (current_user_can('administrator')) {
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'listYear',
             headerToolbar: {
-                left: 'prev,next today',
+                left: '',
                 center: '',
                 right: ''
             },

@@ -77,6 +77,7 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                         <td>
                             <a id="editar" href="/perfiladmin?user=<?php echo $user_admin->ID ?>"><i class="fas fa-edit"></i></a>
                             <a id="changeasesor" onclick="changeUsersOfAsesor(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-random"></i></a>
+                            <a id="eliminaasesor" onclick="eliminaUser(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
 
@@ -133,6 +134,15 @@ const dataTable = new simpleDatatables.DataTable("table", {
     },
 
 });
+function eliminaUser(userId) {
+    if (userId && confirm("Esta acción no se puede deshacer. ¿Está seguro?")) {
+        fetch("/usuarios-xhr?action=delete-user&user_id=" + userId)
+            .then(res => {
+                window.location.reload();
+        })
+
+    }
+}
     </script>
 </main><!-- #main -->
 

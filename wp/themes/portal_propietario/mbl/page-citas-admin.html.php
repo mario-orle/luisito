@@ -171,8 +171,10 @@ if (current_user_can('administrator')) {
                     <form method="POST">
                         <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese pequeña descripción para la cita">
                         <input class="controls" type="date" id="dia" placeholder="Ingrese fecha" onchange="setFechas()">
-                        <input class="controls" type="time" id="horaini" placeholder="Ingrese hora de inicio" onchange="setFechas()">
-                        <input class="controls" type="time" id="horafin" placeholder="Ingrese hora de fin" onchange="setFechas()">
+                        <div style="display:flex;">
+                            <input class="controls" type="time" id="horaini" placeholder="Ingrese hora de inicio" onchange="setFechas()">
+                            <input class="controls" type="time" id="horafin" placeholder="Ingrese hora de fin" onchange="setFechas()">
+                        </div>
                         <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
                         <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
@@ -307,7 +309,7 @@ if (!current_user_can('administrator')) {
                 if (!citas[k][i]) continue
                 citasCalendar.push({
                     id: citas[k][i].inicio + citas.fin,
-                    title: citas[k][i].nombre,
+                    title: citas[k][i].nombre + "-" + citas[k][i].status,
                     start: citas[k][i].inicio,
                     end: citas[k][i].fin,
                     color: colors[k % colors.length],// + (citas[k][i].status === 'rechazada-cliente' ? "66": "ff"),
@@ -316,7 +318,8 @@ if (!current_user_can('administrator')) {
                         status: citas[k][i].status,
                         comments: citas[k][i].comments,
                         cita_id: citas[k][i].id,
-                        user_name: citas[k][i].usuario
+                        user_name: citas[k][i].usuario,
+                        name: citas[k][i].nombre
                     }
                 });
 
@@ -353,7 +356,7 @@ if (current_user_can('administrator')) {
         var calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'listYear',
             headerToolbar: {
-                left: 'prev,next today',
+                left: '',
                 center: '',
                 right: ''
             },
@@ -376,7 +379,7 @@ if (current_user_can('administrator')) {
 <?php if (current_user_can('administrator')) { ?>
     
                 document.querySelector("#modal-actualizar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
-                document.querySelector("#modal-actualizar-cita [name=nombre]").value = info.event.title;
+                document.querySelector("#modal-actualizar-cita [name=nombre]").value = info.event.extendedProps.name;
                 document.querySelector("#modal-actualizar-cita [name=usuario]").value = info.event.extendedProps.id;
                 document.querySelector("#modal-actualizar-cita [name=usuario_displayname]").value = info.event.extendedProps.user_name;
                 
@@ -390,7 +393,7 @@ if (current_user_can('administrator')) {
 } else {
 ?>
                 document.querySelector("#modal-confirmar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
-                document.querySelector("#modal-confirmar-cita [name=nombre]").value = info.event.title;
+                document.querySelector("#modal-confirmar-cita [name=nombre]").value = info.event.extendedProps.name;
                 document.querySelector("#modal-confirmar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
                 document.querySelector("#modal-confirmar-cita [name=comments]").value = info.event.extendedProps.comments;
 

@@ -102,6 +102,7 @@ if (get_current_user_id() === 1) {
                             <a id="Archivo" href="/admin-doc?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
                             <a id="changeasesor" onclick="changeAsesorOfUser(<?php echo $user_of_admin->ID ?>)" href="#"><i class="fas fa-random"></i></a>
                             <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
+                            <a id="eliminauser" onclick="eliminaUser(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
 
@@ -161,6 +162,15 @@ const dataTable = new simpleDatatables.DataTable("table", {
 
 });
 
+function eliminaUser(userId) {
+    if (userId && confirm("Esta acción no se puede deshacer. ¿Está seguro?")) {
+        fetch("/usuarios-xhr?action=delete-user&user_id=" + userId)
+            .then(res => {
+                window.location.reload();
+        })
+
+    }
+}
 
     </script>
 </main><!-- #main -->
