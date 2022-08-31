@@ -360,7 +360,7 @@ get_header();
               <a href="/admin-usuarios">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/agregar-usuario.png" width="100%">
               <h2>Usuario</h2>
-              <p><span id="review_documents"><?php echo $review_documents ?></span> usuarios</p>
+              <p><span id="review_documents"><?php echo count($users_of_admin) ?></span> usuarios</p>
               </a>
             </button>
           </div>
