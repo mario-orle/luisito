@@ -55,7 +55,7 @@ get_header();
                 <thead>
                     <tr>
                         <th>Asesor </th>
-                        <th>Gestionar</th>
+                        <th style="width: 20px">Gestionar</th>
                     </tr>
                 </thead>
                 <tbody>
