@@ -216,17 +216,17 @@ a {
     body, html {
         height: 100%;
         margin: 0;
-        font-family: "ralewey";
+        font-family: "raleway";
       }
       .main{
         color: black;
-        font-weight: bold;
         position: fixed;
         top: 110px;
         left: 0px;
         right: 0;
         bottom: 0;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
       }
       
       .header{

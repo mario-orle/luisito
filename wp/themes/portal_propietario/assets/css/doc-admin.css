@@ -128,9 +128,8 @@ height: 30px;
     width: calc(100% - 740px);
 }
 .funciones i{
-    font-size: 25px;
+    font-size: 20px;
     margin-top: 5px;
-
     cursor: pointer;
 }
 
@@ -157,8 +156,8 @@ height: 30px;
 [type="checkbox"]:checked+label:before {
     content: '';
     position: absolute;
-    left: 0;
-    top: 0;
+    left: -1px;
+    top: -12px;
     width: 27px;
     height: 29px;
     border: 1px solid #aaa;
@@ -180,8 +179,8 @@ height: 30px;
 [type="checkbox"]:checked+label:after {
     content: '\01F44D';
     position: absolute;
-    top: 14PX;
-    left: 1PX;
+    top: 5px;
+    left: 1px;
     font-size: 1.375em;
     color: black;
     line-height: 0;

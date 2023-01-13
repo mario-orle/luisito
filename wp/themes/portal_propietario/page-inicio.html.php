@@ -97,14 +97,6 @@ get_header();
                         </a>
                         </button>
                     </div>
-                    <div class="contacto-email">
-                        <button onclick="window.open('https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>"')">
-                        <a target="_blank" href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsappmenu.png" width="100%">
-                        <h2>Chat</h2>
-                        </a>
-                        </button>
-                    </div>
                     <div class="calendario">
                         <button onclick="location.href='/citas'">
                         <a href="/citas">
@@ -117,13 +109,32 @@ get_header();
                     <div class="citas">
                         <button onclick="location.href='/mis-documentos'">
                         <a href="/mis-documentos">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                         <h2>Documentos</h2>
-                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> Doc Requeridos</p>
+                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> documentos</p>
+                        </a>
+                        </button>
+                    </div>
+                    <div class="servicios-plus">
+                        <button onclick="location.href='/servicios+'">
+                        <a href="/servicios+">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
+                        <h2>Servicios+</h2>
+                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> servicios</p>
+                        </a>
+                        </button>
+                    </div>
+                    <div class="inmuebles">
+                        <button onclick="location.href='/inmuebles'">
+                        <a href="/inmuebles">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asequible.png" width="100%">
+                        <h2>Inmuebles</h2>
+                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> inmuebles</p>
                         </a>
                         </button>
                     </div>
                 </div>
+
             </div>
 
         <div class="main-container-sub">
@@ -358,7 +369,7 @@ get_header();
           <div class="doc-revisar">
             <button onclick="location.href='/admin-usuarios'">
               <a href="/admin-usuarios">
-              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/agregar-usuario.png" width="100%">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/man.png" width="100%">
               <h2>Usuario</h2>
               <p><span id="review_documents"><?php echo count($users_of_admin) ?></span> usuarios</p>
               </a>
@@ -378,10 +389,20 @@ get_header();
               <a href="/citas">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/cita.png" width="100%">
               <h2>Citas</h2>
-              <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas pendientes</p>
+              <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas</p>
               </a>
             </button>
           </div>
+          <div class="ofertas">
+            <button onclick="location.href='/admin-ofertas'">
+              <a href="/admin-ofertas">
+              <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/etiquetas-de-precio.png" width="100%">
+              <h2>Ofertas</h2>
+              <p><span id="pending_ofertas"><?php echo $pending_ofertas ?></span> Ofertas</p>
+              </a>
+            </button>
+          </div>
+          
         </div>
       </div>
     </div>

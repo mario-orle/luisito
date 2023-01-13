@@ -43,7 +43,7 @@ if ($detect->isMobile()) {
 	<?php wp_head(); ?>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
   <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
-
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
 </head>
 
 <body <?php body_class(); ?>>

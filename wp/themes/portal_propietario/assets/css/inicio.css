@@ -25,6 +25,7 @@
 
 .estadisticas {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;
@@ -73,53 +74,80 @@
 .estadisticas a:visited {
     text-decoration: none;
 }
+.estadisticas > div{
+    width: 20%;
 
-.visualizaciones img {
-    width: 30%;
-    padding: 10px;
-    margin-top: 10px;
 }
+
 
 .visualizaciones button {
     border-bottom: 5px solid orange;
     box-shadow: 0 4px 8px 0 black;
 }
+.visualizaciones img {
+    width: 45%;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
 
 .contacto-email img {
-    width: 30%;
+    width: 45%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 
 .contacto-email button {
     border-bottom: 5px solid yellow;
-    box-shadow: 0 4px 8px 0 black;
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.77);
 }
 
 .calendario img {
-    width: 30%;
+    width: 45%;
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 
 .calendario button {
     border-bottom: 5px solid red;
-    box-shadow: 0 4px 8px 0 black;
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.77);
 }
 
-.porcentaje-perfil img {
-    width: 34%;
-    padding: 10px;
-}
 
 .citas img {
-    width: 34%;
+    width: 45%;
     padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
 }
 
 .citas button {
     border-bottom: 5px solid blue;
-    box-shadow: 0 4px 8px 0 black;
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.77);
+}
+
+.servicios-plus img {
+    width: 45%;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+.servicios-plus button {
+    border-bottom: 5px solid pink;
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.77);
+}
+.inmuebles img{
+    width: 45%;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+.inmuebles button{
+    border-bottom: 5px solid #acab;
+    box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.77);
 }
 
 .main-container-sub p {

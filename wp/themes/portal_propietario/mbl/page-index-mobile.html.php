@@ -75,13 +75,22 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/citas-mbl">
-                        <h2>Agenda de Citas</h2>
+                        <h2>Citas</h2>
                         <p><span id="pending_citas"><?php echo $pending_citas; ?></span> citas</p>
                     </a>
 
                 </div>
-                <div class="btn pendientes">
+            </button>
+            <button>
+            <a id="mensajes" href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>" target="_blank">
+            <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsapp.png">
+          </a>
+                <div class="btn-text"><a href="/citas-mbl">
+                        <h2>Chat</h2>
+                    </a>
+
                 </div>
+    
             </button><button>
                 <a href="/servicios-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
@@ -95,25 +104,23 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/doc-mbl">
-                        <h2>Doc Pendientes</h2>
+                        <h2>Documentos</h2>
                         <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
                     </a>
 
                 </div>
-                <div class="btn chat">
-                </div>
+  
             </button><button>
                 <a href="/ofertas-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>etiquetas-de-precio.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/ofertas-mbl">
-                        <h2>Ofertas Recibidas</h2>
+                        <h2>Ofertas</h2>
                         <p><span id="ofertas_recibidas"><?php echo $ofertas_recibidas ?></span> Ofertas</p>
                     </a>
 
                 </div>
-                <div class="btn inmueble">
-                </div>
+              
             </button><button>
                 <a href="/inmuebles-mbl">
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asequible.png" width="100%">
@@ -219,7 +226,7 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>schedule.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/citas-admin-mbl">
-                        <h2>Citas pendientes</h2>
+                        <h2>Citas</h2>
                         <p><span id="pending_citas"><?php echo $pending_citas ?></span> Citas</p>
                     </a>
 
@@ -231,7 +238,7 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/doc-mbl-admin">
-                        <h2>Doc Pendientes</h2>
+                        <h2>Documentos</h2>
                         <p><span id="pending_documents"><?php echo $pending_documents ?></span> Documentos</p>
                     </a>
 
@@ -273,7 +280,20 @@ if (!current_user_can("administrator")) {
                 </div>
 
 
+            </button><button>
+                <a href="/admin-asesor-mbl">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asesoramiento.png" width="100%">
+                </a>
+                <div class="btn-text"><a href="/admin-asesor-mbl">
+                        <h2>Asesores</h2>
+                        <p><span id="num_usuarios"><?php echo count($users_of_admin) ?></span> asesores</p>
+                    </a>
+
+                </div>
+
+
             </button>
+            
         </div>
 
     </main>

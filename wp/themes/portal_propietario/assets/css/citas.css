@@ -6,6 +6,14 @@ h2 {
     font-family: "roboto";
     text-align: center;
 }
+h2#modal-crear-cita-title{
+    color:#fff;
+
+}
+h2#modal-confirmar-cita-title{
+    color: #fff;
+}
+
 
 .main-gestiones-calendar {
     margin-top: 30px;
