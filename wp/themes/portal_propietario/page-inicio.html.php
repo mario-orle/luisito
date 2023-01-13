@@ -351,7 +351,7 @@ get_header();
               <a href="/admin-doc">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>docs.png" width="100%">
               <h2>Documentos</h2>
-              <p><span id="pending_documents"><?php echo $pending_documents ?></span>Pendientes</p>
+              <p><span id="pending_documents"><?php echo $pending_documents ?></span> Pendientes</p>
               </a>
             </button>
           </div>

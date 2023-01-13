@@ -102,7 +102,7 @@ if (get_current_user_id() === 1) {
                             <a id="Archivo" href="/admin-doc?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-folder"></i></a>
                             <a id="changeasesor" onclick="changeAsesorOfUser(<?php echo $user_of_admin->ID ?>)" href="#"><i class="fas fa-random"></i></a>
                             <a id="editar" href="/perfil?user=<?php echo $user_of_admin->ID ?>"><i class="fas fa-edit"></i></a>
-                            <a id="eliminauser" onclick="eliminaUser(<?php echo $user_admin->ID; ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
+                            <a id="eliminauser" onclick="eliminaUser(<?php echo $user_of_admin->ID; ?>)" href="#"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
 
