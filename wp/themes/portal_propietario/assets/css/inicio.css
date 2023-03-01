@@ -46,7 +46,7 @@
     display: inline-block;
     cursor: pointer;
     font-weight: bold;
-    padding: 6px 24px;
+    padding: 6px;
     text-decoration: none !important;
     text-shadow: 0px 1px 0px #ffffff;
     height: 250px;
@@ -85,7 +85,7 @@
     box-shadow: 0 4px 8px 0 black;
 }
 .visualizaciones img {
-    width: 45%;
+    width: 35%;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -93,7 +93,7 @@
 
 
 .contacto-email img {
-    width: 45%;
+    width: 35%;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -105,7 +105,7 @@
 }
 
 .calendario img {
-    width: 45%;
+    width: 35%;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -118,7 +118,7 @@
 
 
 .citas img {
-    width: 45%;
+    width: 35%;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -130,7 +130,7 @@
 }
 
 .servicios-plus img {
-    width: 45%;
+    width: 35%;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -140,7 +140,7 @@
     box-shadow: 0px 2px 7px 1px rgba(0, 0, 0, 0.77);
 }
 .inmuebles img{
-    width: 45%;
+    width: 35%;
     padding: 10px;
     margin-top: 15px;
     margin-bottom: 0;
@@ -267,3 +267,60 @@ p {
 .precio-medio canvas {
     margin: 20px;
 }
+@media only screen and (max-width: 1500) {
+    .estadisticas div > img {
+        width: 40%;
+    }
+    .estadisticas button {
+        height: 200px;
+        width: calC(100% - 20px);
+    }
+  }
+
+@media only screen and (max-width: 1430px) {
+    .estadisticas div > img {
+        width: 35%;
+    }
+    .estadisticas button {
+        height: 200px;
+        width: calC(100% - 20px);
+    }
+  }
+@media only screen and (max-width: 1340px) {
+    .estadisticas div > img {
+        width: 35%;
+    }
+    .estadisticas button {
+        height: 200px;
+        width: calC(100% - 20px);
+    }
+  }
+@media only screen and (max-width: 1280px) {
+    .estadisticas div > img {
+        width: 35%;
+    }
+    .estadisticas button{
+        height: 200px;
+        width: calC(100% - 20px);
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .estadisticas div > img {
+        width: 35%;
+    }
+    .estadisticas button{
+        height: 200px;
+        width: calC(100% - 20px);
+    }
+  }
+  @media only screen and (max-width: 1150px) {
+    
+    .estadisticas div > img {
+        width: 50%;
+    }
+    .estadisticas button{
+     height: 200px;
+        width: calC(100% - 8px);
+    }
+  }

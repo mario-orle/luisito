@@ -370,7 +370,7 @@ get_header();
             <button onclick="location.href='/admin-usuarios'">
               <a href="/admin-usuarios">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/man.png" width="100%">
-              <h2>Usuario</h2>
+              <h2>Propietarios</h2>
               <p><span id="review_documents"><?php echo count($users_of_admin) ?></span> usuarios</p>
               </a>
             </button>

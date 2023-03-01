@@ -34,7 +34,7 @@ get_header();
             <a href="/perfil">
               <div class="img-agregar">
                 <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>plus.png" alt="" style="width:10%">
-                <h3><b>AGREGAR USUARIO</b></h3>
+                <h3><b>AGREGAR PROPIETARIO</b></h3>
               </div>
             </a>
           </button>
@@ -44,7 +44,7 @@ get_header();
             <table class="default">
                 <thead>
                     <tr>
-                        <th>Usuario </th>
+                        <th>Propietario </th>
                         <th>E-mail </th>
                         <th>Nº Inmuebles </th>
                         <th>Documentación </th>
@@ -120,7 +120,7 @@ if (get_current_user_id() === 1) {
                 <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-cambiar-usuario-asesor">
                     <header class="modal__header">
                         <h2 id="modal-cambiar-usuario-asesor-title">
-                            Cambiar usuario al asesor
+                            Cambiar propietario de asesor
                         </h2>
                         <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
                     </header>
