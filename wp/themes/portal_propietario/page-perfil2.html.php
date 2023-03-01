@@ -62,11 +62,11 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                 <hr>
                 <h4 style="color:orange;">Información personal </h4>
                 <p>
-                    <input type="text" placeholder="Nombre y Apellidos..." name="owner-display-name" class="editor" value="<?php echo $user->display_name ?>" onchange="editar(event)" />
+                    <input type="text" placeholder="Nombre y Apellidos..." style="width: 100%;"name="owner-display-name" class="editor" value="<?php echo $user->display_name ?>" onchange="editar(event)" />
                     
                 </p>
                 <p id="fecha-nacimiento">
-                    <input type="text"placeholder="Fecha de Nacimiento..." id="datepicker" class="editor">
+                    <input type="text"placeholder="Fecha de Nacimiento..."style="width: 100%;" id="datepicker" class="editor">
                     <input type="hidden" name="owner-birth-date" value="<?php echo get_user_meta($user->ID, 'meta-owner-birth-date', true) ?>">
                     
                 </p>
@@ -76,7 +76,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI" || get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "") { echo "selected"; } ?> value="DNI">DNI</option>
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
-                    <input type="text" name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editarDni(event)" >
+                    <input type="text"placeholder="DNI O NIE..." name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editarDni(event)" >
                     <?php } else { ?>
                         <label><?php echo get_user_meta($user->ID, 'meta-owner-tipodocumento', true) ?: "DNI" ?>
                         <label><?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?: "-" ?>
@@ -88,7 +88,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                     <input type="text" placeholder="Telefono" name="owner-phone" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-phone', true) ?>" onchange="editar(event)" />
                 </p>
                 <p>Email: 
-                    <input type="text" placeholder="Email" name="owner-email" style="width: 75%;" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-email', true) ?>" readonly />    
+                    <input type="text" placeholder="Email" name="owner-email" style="width: 95%;" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-email', true) ?>" readonly />    
                 </p>
                 <hr>
                 <h4 style="color:orange;">Contraseña </h4>

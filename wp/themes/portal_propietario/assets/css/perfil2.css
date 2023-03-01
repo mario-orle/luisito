@@ -411,6 +411,7 @@ input.editor {
     width: 45px;
     background: transparent;
     border: none;
+    color: white;
 }
 
 #dni .choices .choices__list {
