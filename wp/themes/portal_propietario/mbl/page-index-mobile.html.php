@@ -273,8 +273,8 @@ if (!current_user_can("administrator")) {
                     <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>perfil.png" width="100%">
                 </a>
                 <div class="btn-text"><a href="/usuarios-mbl">
-                        <h2>Usuarios</h2>
-                        <p><span id="num_usuarios"><?php echo count($users_of_admin) ?></span> usuarios</p>
+                        <h2>Propietarios</h2>
+                        <p><span id="num_usuarios"><?php echo count($users_of_admin) ?></span> propietarios</p>
                     </a>
 
                 </div>

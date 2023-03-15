@@ -310,7 +310,7 @@ if (!current_user_can("administrator")) {
     </button>
     <div class="dropdown-container">
       <a id="citas" href="/citas"><i class="fas fa-calendar-alt"></i>ADMIN AGENDA</a>
-      <a id="admin-usuarios" href="/admin-usuarios"><i class="fas fa-users"></i>ADMIN USUARIOS</a>
+      <a id="admin-usuarios" href="/admin-usuarios"><i class="fas fa-users"></i>PROPIETARIOS</a>
       <a id="admin-alertas" href="/admin-alertas"><i class="fas fa-exclamation-triangle"></i>ADMIN ALERTAS</a>
       <?php
 if ($super_admin) {

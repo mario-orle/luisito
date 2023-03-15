@@ -92,7 +92,7 @@ if (!current_user_can("administrator")) {
         <a href="/citas-admin-mbl">CITAS</a>
         <a href="/ofertas-admin-mbl">OFERTAS</a>
         <a href="/doc-mbl-admin">DOCUMENTOS</a>
-        <a href="/usuarios-mbl">USUARIOS</a>
+        <a href="/usuarios-mbl">PROPIETARIOS</a>
         <a href="/admin-alertas-mbl">ALERTAS</a>
 <?php 
 if (get_current_user_id() == 1) {

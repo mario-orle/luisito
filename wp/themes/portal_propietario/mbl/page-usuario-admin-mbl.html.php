@@ -50,7 +50,7 @@ get_header();
 <main id="primary" class="site-main">
     <div class="main">
         <div class="inm-mbl">
-            <h2>Gestión Usuarios <i class="fas fa-users"></i></h2>
+            <h2>Propietarios <i class="fas fa-users"></i></h2>
             <hr>
 
 
