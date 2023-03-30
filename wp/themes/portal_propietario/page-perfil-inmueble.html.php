@@ -227,7 +227,20 @@ foreach ($photos as $key => $photo) {
   </div>
 
   <div class="izquierda">
+  <?php 
+if (current_user_can("administrator")) {
+?>
+    <div class="precio" onclick="setPrecio()" style="cursor: pointer;">
+
+<?php
+} else {
+
+?>
     <div class="precio">
+
+<?php
+}
+?>
       <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true); ?>€</h3>
       <p>PRECIO DE VENTA</p>
     </div>
@@ -359,6 +372,11 @@ if (current_user_can("administrator")) {
       <div>
 <?php 
   fieldPerfilCreate("escalera", $inmueble, "text");
+?>
+      </div>
+      <div>
+<?php 
+  fieldPerfilCreate("bloque", $inmueble, "text");
 ?>
       </div>
       <div>
@@ -775,7 +793,7 @@ foreach ($photos as $key => $photo) {
 
 
 
-    function setPrecioRecomendado() {
+    function setPrecio() {
       var newValue = prompt("Introduzca valoración");
       if (!isNaN(newValue)) {
 
@@ -784,7 +802,7 @@ foreach ($photos as $key => $photo) {
 
         var formData = new FormData();
 
-        formData.append('metaname', 'inmueble-preciorecomendado');
+        formData.append('metaname', 'inmueble-precioestimado');
         formData.append('metavalue', newValue);
 
 
@@ -804,6 +822,36 @@ foreach ($photos as $key => $photo) {
         xhr.send(formData);
       }
     }
+
+function setPrecioRecomendado() {
+  var newValue = prompt("Introduzca precio");
+  if (!isNaN(newValue)) {
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/inmueble-xhr?action=update_metadata&inmueble_id=<?php echo $inmueble->ID ?>");
+
+    var formData = new FormData();
+
+    formData.append('metaname', 'inmueble-preciorecomendado');
+    formData.append('metavalue', newValue);
+
+
+    xhr.onload = function() {
+        window.location.reload();
+        Toastify({
+            text: "Dato actualizado",
+            duration: 3000,
+            gravity: "bottom", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            backgroundColor: "rgb(254, 152, 0)",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            onClick: function(){} // Callback after click
+        }).showToast();
+
+    }
+    xhr.send(formData);
+  }
+}
 
     const draggable = new Sortable.create(document.querySelector('.bg-fotos'), {
       draggable: '.card-ft',

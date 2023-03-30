@@ -443,12 +443,10 @@ html {
 }
 #modal-sobrenosotros .modal__container{
     height: 499px;
-width: 460px;
+width: calc(100% - 40px);
 padding: 10px;
 top: calc(50% - 241px);
 bottom: calc(50% - 160px);
-left: calc(50% - 230px);
-right: calc(50% - 250px);
 position: fixed;
 }
 

@@ -221,6 +221,11 @@ get_header();
                         </div>
                         <div>
 <?php 
+  fieldPerfilCreate("bloque", $inmueble, "text");
+?>
+                        </div>
+                        <div>
+<?php 
   fieldPerfilCreate("escalera", $inmueble, "text");
 ?>
                         </div>
@@ -310,7 +315,16 @@ get_header();
 ?>
                         </div>
                         <div class="fila descripcion">
-                            <textarea>Describa su Inmueble</textarea>
+                        <textarea
+          name="inmueble-descripcion"
+          rows="2"
+          class="question"
+          placeholder="Describa su inmueble"
+          id="msg"
+          required
+          autocomplete="off"
+          onchange="editar(event)"
+        ><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true); ?></textarea>
                         </div>
                         <div class="check">
                             <div class="solochalet solopiso">

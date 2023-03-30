@@ -128,7 +128,7 @@ function changeUsersOfAsesor(userId) {
 const dataTable = new simpleDatatables.DataTable("table", {
     labels: {
         placeholder: "Buscar...",
-        perPage: "Mostrar {select} elementos por página",
+        perPage: " elementos por página",
         noRows: "Sin elementos para mostrar",
         info: "Mostrando {start} a {end} de {rows} elementos (Pág {page} de {pages})",
     },

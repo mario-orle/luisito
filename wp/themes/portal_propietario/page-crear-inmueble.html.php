@@ -70,7 +70,8 @@ get_header();
         <div class="tab">Localización Inmueble:
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
           <p><input placeholder="Número..." oninput="this.className = ''" name="inmueble-numero" ></p>
-          <p><input placeholder="Escalera..." oninput="this.className = ''" name="inmueble-escalera" ></p>
+          <p><input placeholder="Escalera..." class="not-required" name="inmueble-escalera" ></p>
+          <p><input placeholder="Bloque..." class="not-required" name="inmueble-bloque" ></p>
           <p><input placeholder="Piso/planta..." oninput="this.className = ''" name="inmueble-piso-planta"></p>
           <p><input placeholder="Puerta..." oninput="this.className = ''" name="inmueble-puerta"></p>
         </div>
@@ -107,7 +108,7 @@ get_header();
         </div>
         <div class="tab">Superficie y características inmueble:
           <p><input validators="numeric" placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
-          <p><input validators="numeric" placeholder="Metros2 Utiles..." oninput="this.className = ''" name="inmueble-m2utiles" type="number"></p>
+          <p><input validators="numeric" placeholder="Metros2 Utiles..." class="not-required" name="inmueble-m2utiles" ></p>
           <p class="solochalet solopiso"><input class="not-required" placeholder="Habitaciones..." oninput="this.className = ''" name="inmueble-habitaciones" type="number" min="1" max="10"></p>
           <p class="solochalet"><input class="not-required" placeholder="Superficie Parcela ..." oninput="this.className = ''" name="inmueble-superficie-parcela" type="number"></p>
           <p><label for="garaje">Garaje</label><input name="inmueble-garaje" id="garaje" class="not-required" type="checkbox"></p>
