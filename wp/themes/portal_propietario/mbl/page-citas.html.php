@@ -138,7 +138,7 @@ get_header();
                             <tbody>
                                 <tr>
                                     <th>Fecha y hora</th>
-                                    <th>Nombre</th>
+                                    <th>Asunto</th>
                                     <th>Estado</th>
                                     <?php
 if (current_user_can('administrator')) {
@@ -184,7 +184,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                         </select>
                         <input style="display: none" name="status" value="creada" />
                         <input style="display: none" name="action" value="crear" />
-                        <input style="display: none" name="comments" value="">
+                        <textarea class="controls" placeholder="Comentarios..." name="comments"></textarea>
                         <input class="botons" type="submit" value="Guardar" />
                     </form>
                 </div>
@@ -250,7 +250,106 @@ if (current_user_can('administrator')) {
             </div>
         </div>
     </div>
+    <div id="modal-crear-cita" aria-hidden="true" class="modal modal-cita">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-crear-cita">
+                <header class="modal__header">
+                    <h2 id="modal-crear-cita-title">
+                        Crear cita
+                    </h2>
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-crear-cita-content">
+                    <form method="POST">
+                        <label for="nombre">Asunto</label>
+                        <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese pequeña descripción para la cita">
+                        <label for="fecha-gorda">Fecha</label>
+                        <input class="controls" id="fecha-gorda" type="text" readonly name="fechas-str">
+                        <input class="controls" type="hidden" readonly name="inicio" id="inicio" placeholder="Ingrese fecha y hora de inicio">
+                        <input class="controls" type="hidden" readonly name="fin" id="fin" placeholder="Ingrese fecha y hora de fin">
+                        <label for="usuario">Propietario</label>
+                        <select class="controls js-choices" type="text" name="usuario" id="usuario">
+                            <?php
+foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
+                            ?>
+                            <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
+                            <?php
+    }
+}
+                            ?>
+                        </select>
+                        <input style="display: none" name="status" value="creada" />
+                        <input style="display: none" name="action" value="crear" />
+                        <label for="comments">Comentarios</label>
+                        <textarea id="comments" class="controls" placeholder="Comentarios..." name="comments"></textarea>
+                        <input class="botons" type="submit" value="Guardar" />
+                    </form>
+                </div>
 
+            </div>
+        </div>
+    </div>
+    <div id="modal-actualizar-cita" aria-hidden="true" class="modal modal-cita">
+        <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-actualizar-cita">
+                <header class="modal__header">
+                    <h2 id="modal-actualizar-cita-title">
+<?php
+if (current_user_can('administrator')) {
+?>                        
+                        Actualizar cita
+<?php
+} else {
+?>
+                        Confirmar cita
+<?php
+}
+?>
+                    </h2>
+                    <button aria-label="Cerrar" data-micromodal-close class="modal__close"></button>
+                </header>
+                <div id="modal-actualizar-cita-content">
+                    <form method="POST">
+                        <label for="nombre-actualizar">Asunto</label>
+                        <input class="controls" type="text" id="nombre-actualizar" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
+                        <label for="fecha-actualizar">Fecha</label>
+                        <input class="controls" type="text" readonly id="fecha-actualizar" name="fechas-str">
+                        <input class="controls" type="hidden" readonly name="cita-id">
+                        <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
+                        <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
+ 
+<?php
+if (current_user_can('administrator')) {
+?>
+                        <input type="hidden" name="usuario">
+                        <input class="controls" type="text" readonly name="usuario_displayname">
+                        
+                        <select class="controls js-choices" name="status">
+                            <option value="descartada">Descartar</option>
+                            <option value="eliminada">Eliminar</option>
+                        </select>
+<?php
+} else {
+?>
+                        <input type="hidden" name="usuario">
+                        <select class="controls js-choices" name="status">
+                            <option value="aceptada-cliente">Aceptar</option>
+                            <option value="rechazada-cliente">Rechazar</option>
+                        </select>
+<?php
+}
+?>
+                        <textarea class="controls" placeholder="Comentarios..." name="comments"></textarea>
+
+                        <input style="display: none" name="action" value="actualizar" />
+                        <input class="botons" type="submit" value="Actualizar" />
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <div id="modal-confirmar-cita" aria-hidden="true" class="modal modal-cita">
         <div class="modal__overlay" tabindex="-1" data-micromodal-close>
             <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-confirmar-cita">
@@ -262,9 +361,12 @@ if (current_user_can('administrator')) {
                 </header>
                 <div id="modal-confirmar-cita-content">
                     <form method="POST">
-                        <input class="controls" type="text" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
-                        <input class="controls" type="text" readonly name="fechas-str">
-                        <textarea class="controls" readonly name="comments"></textarea>
+                        <label for="nombre-confirmar">Asunto</label>
+                        <input class="controls" type="text" id="nombre-confirmar" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
+                        <label for="fechas-confirmar">Fecha</label>
+                        <input class="controls" type="text" id="fechas-confirmar" readonly name="fechas-str">
+                        <label for="comments-confirmar">Comentarios</label>
+                        <textarea class="controls" id="comments-confirmar" readonly name="comments"></textarea>
 
                         <input type="hidden" name="cita-id">
                         <input type="hidden" name="action" value="confirmar">

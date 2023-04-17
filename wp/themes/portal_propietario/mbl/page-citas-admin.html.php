@@ -140,7 +140,7 @@ get_header();
                             <tbody>
                                 <tr>
                                     <th>Fecha y hora</th>
-                                    <th>Nombre</th>
+                                    <th>Asunto</th>
                                     <th>Estado</th>
                                     <?php
 if (current_user_can('administrator')) {
@@ -169,14 +169,13 @@ if (current_user_can('administrator')) {
                 </header>
                 <div id="modal-crear-cita-content">
                     <form method="POST">
+                        <label for="nombre">Asunto</label>
                         <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese pequeña descripción para la cita">
-                        <input class="controls" type="date" id="dia" placeholder="Ingrese fecha" onchange="setFechas()">
-                        <div style="display:flex;">
-                            <input class="controls" type="time" id="horaini" placeholder="Ingrese hora de inicio" onchange="setFechas()">
-                            <input class="controls" type="time" id="horafin" placeholder="Ingrese hora de fin" onchange="setFechas()">
-                        </div>
-                        <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
-                        <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
+                        <label for="fecha-gorda">Fecha</label>
+                        <input class="controls" id="fecha-gorda" type="text" readonly name="fechas-str">
+                        <input class="controls" type="hidden" readonly name="inicio" id="inicio" placeholder="Ingrese fecha y hora de inicio">
+                        <input class="controls" type="hidden" readonly name="fin" id="fin" placeholder="Ingrese fecha y hora de fin">
+                        <label for="usuario">Propietario</label>
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php
 foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
@@ -190,7 +189,8 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
                         </select>
                         <input style="display: none" name="status" value="creada" />
                         <input style="display: none" name="action" value="crear" />
-                        <input style="display: none" name="comments" value="">
+                        <label for="comments">Comentarios</label>
+                        <textarea id="comments" class="controls" placeholder="Comentarios..." name="comments"></textarea>
                         <input class="botons" type="submit" value="Guardar" />
                     </form>
                 </div>
@@ -219,8 +219,10 @@ if (current_user_can('administrator')) {
                 </header>
                 <div id="modal-actualizar-cita-content">
                     <form method="POST">
-                        <input class="controls" type="text" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
-                        <input class="controls" type="text" readonly name="fechas-str">
+                        <label for="nombre-actualizar">Asunto</label>
+                        <input class="controls" type="text" id="nombre-actualizar" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
+                        <label for="fecha-actualizar">Fecha</label>
+                        <input class="controls" type="text" readonly id="fecha-actualizar" name="fechas-str">
                         <input class="controls" type="hidden" readonly name="cita-id">
                         <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
                         <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
@@ -268,9 +270,12 @@ if (current_user_can('administrator')) {
                 </header>
                 <div id="modal-confirmar-cita-content">
                     <form method="POST">
-                        <input class="controls" type="text" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
-                        <input class="controls" type="text" readonly name="fechas-str">
-                        <textarea class="controls" readonly name="comments"></textarea>
+                        <label for="nombre-confirmar">Asunto</label>
+                        <input class="controls" type="text" id="nombre-confirmar" name="nombre" placeholder="Ingrese pequeña descripción para la cita">
+                        <label for="fechas-confirmar">Fecha</label>
+                        <input class="controls" type="text" id="fechas-confirmar" readonly name="fechas-str">
+                        <label for="comments-confirmar">Comentarios</label>
+                        <textarea class="controls" id="comments-confirmar" readonly name="comments"></textarea>
 
                         <input type="hidden" name="cita-id">
                         <input type="hidden" name="action" value="confirmar">
