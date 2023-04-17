@@ -229,7 +229,7 @@ if (current_user_can('administrator')) {
                         <select class="controls js-choices" name="status">
                             <option value="realizada">Realizada</option>
                             <option value="descartada">Descartada</option>
-                            <option value="eliminada">Eliminada</option>
+                            <option value="eliminada">Eliminar</option>
                         </select>
 <?php
 } else {
@@ -362,7 +362,7 @@ if (current_user_can('administrator')) {
             select: function (data) {
                 document.querySelector("#modal-crear-cita [name=inicio]").value = data.startStr;
                 document.querySelector("#modal-crear-cita [name=fin]").value = data.endStr;
-                document.querySelector("#modal-crear-cita [name=fechas-str]").value = moment(data.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(data.endStr).format('D MMMM YYYY, hh:mm');
+                document.querySelector("#modal-crear-cita [name=fechas-str]").value = moment(data.startStr).format('D MMMM YYYY, HH:mm') + " -"  +moment(data.endStr).format('D MMMM YYYY, HH:mm');
                 MicroModal.show('modal-crear-cita'); 
             },
             <?php
@@ -381,14 +381,14 @@ if (current_user_can('administrator')) {
                 document.querySelector("#modal-actualizar-cita [name=fin]").value = info.event.endStr;
                 document.querySelector("#modal-actualizar-cita [name=status]").value = info.event.extendedProps.status;
                 document.querySelector("#modal-actualizar-cita [name=comments]").value = info.event.extendedProps.comments;
-                document.querySelector("#modal-actualizar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
+                document.querySelector("#modal-actualizar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, HH:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, HH:mm');
                 MicroModal.show('modal-actualizar-cita'); 
 <?php
 } else {
 ?>
                 document.querySelector("#modal-confirmar-cita [name=cita-id]").value = info.event.extendedProps.cita_id;
                 document.querySelector("#modal-confirmar-cita [name=nombre]").value = info.event.title;
-                document.querySelector("#modal-confirmar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, hh:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, hh:mm');
+                document.querySelector("#modal-confirmar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, HH:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, HH:mm');
                 document.querySelector("#modal-confirmar-cita [name=comments]").value = info.event.extendedProps.comments;
 
                 MicroModal.show('modal-confirmar-cita'); 
