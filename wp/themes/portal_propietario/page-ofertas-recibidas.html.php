@@ -154,7 +154,7 @@ if ($oferta['status'] === 'creada') {
     }
 } else if ($oferta['status'] === 'cita-propuesta') {
 ?>
-    <p>Aceptada oferta, cita el día <?php echo $oferta["cita"] ?></p>
+    <p>Aceptada oferta</p>
 
 <?php
 

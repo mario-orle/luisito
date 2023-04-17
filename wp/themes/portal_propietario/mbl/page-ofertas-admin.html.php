@@ -56,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
 
                 delete_post_meta($inmuebleid, 'meta-oferta-al-cliente', wp_slash($old_meta_encoded));
 
-                $old_meta["cita"] = $date . " " . $time;
                 $old_meta['status'] = "cita-propuesta";
                 add_post_meta($inmuebleid, 'meta-oferta-al-cliente', wp_slash(json_encode($old_meta)));
 
@@ -124,12 +123,8 @@ if ($oferta['status'] === 'creada') {
                                 <td>Oferta aceptada, cita propuesta</td>
                             </tr>
                             <tr>
-                                <th>Cita:</th>
-                                <td><?php if ($oferta["cita"]) {echo date_format(new DateTime($oferta['cita']), 'd/m/Y');}?></td>
                             </tr>
                             <tr>
-                                <th>Hora:</th>
-                                <td><?php if ($oferta["cita"]) {echo date_format(new DateTime($oferta['cita']), 'H:i');}?></td>
                             </tr>
 
 <?php 
@@ -263,35 +258,6 @@ function ver(id) {
             <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
             <input type="hidden" name="action" value="proponer-cita">
             <input type="hidden" name="inmueble_id" value="${oferta.inmueble_id}">
-            <div id="date">
-            </div>
-            <select name='hora-cita' id='timepicker'>
-                <option value="09:00">09:00</option>
-                <option value="09:30">09:30</option>
-                <option value="10:00">10:00</option>
-                <option value="10:30">10:30</option>
-                <option value="11:00">11:00</option>
-                <option value="11:30">11:30</option>
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-                <option value="14:30">14:30</option>
-                <option value="15:00">15:00</option>
-                <option value="15:30">15:30</option>
-                <option value="16:00">16:00</option>
-                <option value="16:30">16:30</option>
-                <option value="17:00">17:00</option>
-                <option value="17:30">17:30</option>
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-                <option value="20:30">20:30</option>
-                <option value="21:00">21:30</option>
-            </select>
             <button type="submit" id="crear-cita">
             ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta y citar" : "Proponer cita"}
             </button>

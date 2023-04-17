@@ -113,12 +113,8 @@ if ($oferta['status'] === 'creada') {
                                 <td>Oferta aceptada, cita propuesta</td>
                             </tr>
                             <tr>
-                                <th>Cita:</th>
-                                <td><?php if ($oferta["cita"]) {echo date_format(new DateTime($oferta['cita']), 'd/m/Y');}?></td>
                             </tr>
                             <tr>
-                                <th>Hora:</th>
-                                <td><?php if ($oferta["cita"]) {echo date_format(new DateTime($oferta['cita']), 'H:i');}?></td>
                             </tr>
 
 <?php 

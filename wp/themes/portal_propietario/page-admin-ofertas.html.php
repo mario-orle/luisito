@@ -156,7 +156,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin
 <?php
 } else if ($oferta["status"] == "cita-propuesta") {
 ?>
-                            <span>Cita propuesta día <?php echo $oferta["cita"]?></span>
+                            <span>Cita propuesta</span>
 <?php
 } else if ($oferta["status"] == "respondida-cita") {
     $respuesta = $oferta["respuesta"];
