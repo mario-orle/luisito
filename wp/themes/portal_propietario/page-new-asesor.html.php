@@ -71,7 +71,7 @@ get_header();
 
             <div class="tab">Información del Asesor:
                 <p><input placeholder="Puesto..." oninput="this.className = ''" name="puesto"></p>
-                <p><input validators="numeric" placeholder="Telefono..." oninput="this.className = ''" name="telefono"></p>
+                <p><input validators="numeric" placeholder="Telefono..." oninput="this.className = ''" name="phone"></p>
                 <p><input placeholder="Disponibilidad Horaria..." oninput="this.className = ''" name="disponibilidad"></p>
             </div>
             <div style="overflow:auto;">
