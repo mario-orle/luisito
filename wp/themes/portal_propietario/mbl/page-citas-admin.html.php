@@ -233,6 +233,8 @@ if (current_user_can('administrator')) {
                         <input type="hidden" name="usuario">
                         <input class="controls" type="text" readonly name="usuario_displayname">
                         
+                        <label for="status-admin-actualizar">Estado actual</label>
+                        <input class="controls" id="status-admin-actualizar" type="text" readonly name="status">
                         <select class="controls js-choices" name="status">
                             <option value="descartada">Descartar</option>
                             <option value="eliminada">Eliminar</option>
@@ -389,7 +391,7 @@ if (current_user_can('administrator')) {
                 
                 document.querySelector("#modal-actualizar-cita [name=inicio]").value = info.event.startStr;
                 document.querySelector("#modal-actualizar-cita [name=fin]").value = info.event.endStr;
-                document.querySelector("#modal-actualizar-cita [name=status]").value = info.event.extendedProps.status;
+                document.querySelectorAll("#modal-actualizar-cita [name=status]").forEach(e => e.value = info.event.extendedProps.status);
                 document.querySelector("#modal-actualizar-cita [name=comments]").value = info.event.extendedProps.comments;
                 document.querySelector("#modal-actualizar-cita [name=fechas-str]").value = moment(info.event.startStr).format('D MMMM YYYY, HH:mm') + " -"  +moment(info.event.endStr).format('D MMMM YYYY, HH:mm');
                 MicroModal.show('modal-actualizar-cita'); 
