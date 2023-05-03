@@ -229,6 +229,11 @@ if (current_user_can("administrator")) {
 ?>
         <li><a href="/admin-alertas"><?php echo $name_user ?> ha solicitado <?php echo $name ?></a></li>
 <?php
+      } else if ($solicitado === "leido") {
+?>
+        <li><a href="/admin-alertas"><?php echo $name_user ?> solicitó <?php echo $name ?></a></li>
+<?php
+
       }
     }
   }

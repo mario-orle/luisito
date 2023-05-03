@@ -181,16 +181,16 @@ if ($_GET['action'] == 'inicio_data') {
             $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
             $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
 
-            if ($servicio_notario === "solicitado") {
+            if ($servicio_notario === "solicitado" || $servicio_notario === "leido") {
                 $total_servicios++;
             }
-            if ($servicio_certificado === "solicitado") {
+            if ($servicio_certificado === "solicitado" || $servicio_certificado === "leido") {
                 $total_servicios++;
             }
-            if ($servicio_nota_simple === "solicitado") {
+            if ($servicio_nota_simple === "solicitado" || $servicio_nota_simple === "leido") {
                 $total_servicios++;
             }
-            if ($servicio_reportaje === "solicitado") {
+            if ($servicio_reportaje === "solicitado" || $servicio_reportaje === "leido") {
                 $total_servicios++;
             }
         }
