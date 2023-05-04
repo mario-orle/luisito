@@ -259,3 +259,6 @@ Demo Animation Style
 .modal .choices__inner {
     width: calc(100% - 15px);
 }
+.modal textarea {
+    width: 100%;
+}
