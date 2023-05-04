@@ -265,3 +265,7 @@ Demo Animation Style
 .modal textarea {
     width: 100%;
 }
+
+.modal label {
+    color: white;
+}
