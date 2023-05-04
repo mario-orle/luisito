@@ -114,7 +114,7 @@ foreach ($users_of_admin as $user_of_admin) {
 
 function lee(userId, meta) {
     if (!confirm('Se descartará la notificación. ¿Está seguro?')) return;
-    fetch("/usuarios-xhr?action=read-servicio&user_id=" + userId + "&usermeta=" + meta)
+    fetch("/usuarios-xhr?action=delete-servicio&user_id=" + userId + "&usermeta=" + meta)
         .then(res => window.location.reload())
 
 }
