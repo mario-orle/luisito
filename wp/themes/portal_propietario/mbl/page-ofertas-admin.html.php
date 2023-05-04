@@ -259,7 +259,7 @@ function ver(id) {
             <input type="hidden" name="action" value="proponer-cita">
             <input type="hidden" name="inmueble_id" value="${oferta.inmueble_id}">
             <button type="submit" id="crear-cita">
-            ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta y citar" : "Proponer cita"}
+            ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta" : "Proponer"}
             </button>
             </form>
         </div>
