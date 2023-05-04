@@ -272,13 +272,6 @@ function ver(id) {
             <textarea style="width:100%">${oferta.motivo}</textarea>
         </div>
         `;
-    } else if (oferta.respuesta == 'contraoferta') {
-        container.innerHTML = `
-        <div class="oferta ${oferta.respuesta}">
-            <p>Contraoferta realizada</p>
-            <textarea style="width:100%">${oferta.propuesta}</textarea>
-        </div>
-        `;
     }
 
     console.log(oferta);
