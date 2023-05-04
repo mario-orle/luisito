@@ -347,14 +347,6 @@ function ver(id) {
             </form>
         </div>
         `;
-        container.querySelector("#date").addEventListener("changeDate", function (e) {
-            document.querySelector("#fecha").value = moment(e.detail.date).format("YYYY-MM-DD");
-        });
-        datepicker = new Datepicker(container.querySelector("#date"), {
-            autohide: true,
-            language: 'es',
-            weekStart: 1,
-        }); 
     } else if (oferta.respuesta == 'denegar') {
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
