@@ -69,7 +69,8 @@ function get_all_citas() {
 
     $arr = array();
     $citas = get_posts(array(
-        'post_type' => 'cita'
+        'post_type' => 'cita',
+        'nopaging' => true
     ));
     foreach ($citas as $cita) {
         $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
@@ -86,7 +87,8 @@ function get_all_citas() {
 function get_own_citas() {
     $arr = array();
     $citas = get_posts(array(
-        'post_type' => 'cita'
+        'post_type' => 'cita',
+        'nopaging' => true
     ));
     foreach ($citas as $cita) {
         $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
