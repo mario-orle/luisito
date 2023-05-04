@@ -136,10 +136,6 @@ get_header();
 
             <hr>
             <div class="estadisticas-sub">
-                <div class="precio-medio">
-                    <p>Precio Medio de Venta en la Zona</p>
-                    <canvas id="main-graph"></canvas>
-                </div>
                        <div class="main-up-inmuebles">
 <?php 
     $inmuebles_of_user = getInmueblesOfUser(wp_get_current_user());
