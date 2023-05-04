@@ -336,16 +336,16 @@ get_header();
         $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
         $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
 
-        if ($servicio_notario === "solicitado") {
+        if ($servicio_notario === "solicitado" || $servicio_notario === "leido") {
           $total_servicios++;
         }
-        if ($servicio_certificado === "solicitado") {
+        if ($servicio_certificado === "solicitado" || $servicio_certificado === "leido") {
           $total_servicios++;
         }
-        if ($servicio_nota_simple === "solicitado") {
+        if ($servicio_nota_simple === "solicitado" || $servicio_nota_simple === "leido") {
           $total_servicios++;
         }
-        if ($servicio_reportaje === "solicitado") {
+        if ($servicio_reportaje === "solicitado" || $servicio_reportaje === "leido") {
           $total_servicios++;
         }
       }
@@ -398,7 +398,7 @@ get_header();
               <a href="/admin-ofertas">
               <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>/etiquetas-de-precio.png" width="100%">
               <h2>Ofertas</h2>
-              <p><span id="pending_ofertas"><?php echo $pending_ofertas ?></span> Ofertas</p>
+              <p><span id="ofertas_recibidas"><?php echo $pending_ofertas ?></span> Ofertas</p>
               </a>
             </button>
           </div>
