@@ -203,16 +203,16 @@ if (!current_user_can("administrator")) {
     $servicio_nota_simple = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-nota-simple', true);
     $servicio_reportaje = get_user_meta($user_of_admin->ID, 'meta-servicio-plus-reportaje-fotografico', true);
 
-    if ($servicio_notario === "solicitado") {
+    if ($servicio_notario === "solicitado" || $servicio_notario === "leido") {
       $total_servicios++;
     }
-    if ($servicio_certificado === "solicitado") {
+    if ($servicio_certificado === "solicitado" || $servicio_certificado === "leido") {
       $total_servicios++;
     }
-    if ($servicio_nota_simple === "solicitado") {
+    if ($servicio_nota_simple === "solicitado" || $servicio_nota_simple === "leido") {
       $total_servicios++;
     }
-    if ($servicio_reportaje === "solicitado") {
+    if ($servicio_reportaje === "solicitado" || $servicio_reportaje === "leido") {
       $total_servicios++;
     }
   }
@@ -275,18 +275,6 @@ if (!current_user_can("administrator")) {
                 <div class="btn-text"><a href="/usuarios-mbl">
                         <h2>Propietarios</h2>
                         <p><span id="num_usuarios"><?php echo count($users_of_admin) ?></span> propietarios</p>
-                    </a>
-
-                </div>
-
-
-            </button><button>
-                <a href="/admin-asesor-mbl">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asesoramiento.png" width="100%">
-                </a>
-                <div class="btn-text"><a href="/admin-asesor-mbl">
-                        <h2>Asesores</h2>
-                        <p><span id="num_usuarios"><?php echo count($users_of_admin) ?></span> asesores</p>
                     </a>
 
                 </div>
