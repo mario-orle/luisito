@@ -253,7 +253,7 @@ function ver(id) {
         <div class="oferta ${oferta.respuesta}">
             <form method="POST" onsubmit="onsubmitCita(event)">
             <p>${oferta.respuesta == 'aceptar' ? "Aceptada" : (oferta.respuesta == 'denegar' ? "Cita rechazada el " + moment(oferta.cita).format("DD/MM/YYYY HH:mm") : "Contraoferta realizada")}</p>
-            ${oferta.respuesta == 'contraoferta' ? "<textarea readonly>" + oferta.propuesta + "</textarea>" : ""}
+            ${oferta.respuesta == 'contraoferta' ? "<textarea  style=\"width:100%\" readonly>" + oferta.propuesta + "</textarea>" : ""}
             <input type="hidden" value="${id}" name="oferta-id">
             <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
             <input type="hidden" name="action" value="proponer-cita">
@@ -276,14 +276,14 @@ function ver(id) {
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
             <p>Oferta rechazada</p>
-            <textarea>${oferta.motivo}</textarea>
+            <textarea style="width:100%">${oferta.motivo}</textarea>
         </div>
         `;
     } else if (oferta.respuesta == 'contraoferta') {
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
             <p>Contraoferta realizada</p>
-            <textarea>${oferta.propuesta}</textarea>
+            <textarea style="width:100%">${oferta.propuesta}</textarea>
         </div>
         `;
     }

@@ -388,14 +388,14 @@ function ver(id) {
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
             <p>Oferta rechazada</p>
-            <textarea>${oferta.motivo}</textarea>
+            <textarea style="width:100%">${oferta.motivo}</textarea>
         </div>
         `;
     } else if (oferta.respuesta == 'contraoferta') {
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
             <p>Contraoferta realizada</p>
-            <textarea>${oferta.propuesta}</textarea>
+            <textarea style="width:100%">${oferta.propuesta}</textarea>
         </div>
         `;
     }
