@@ -171,10 +171,14 @@ if (current_user_can('administrator')) {
                     <form method="POST">
                         <label for="nombre">Asunto</label>
                         <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese pequeña descripción para la cita">
-                        <label for="fecha-gorda">Fecha</label>
-                        <input class="controls" id="fecha-gorda" type="text" readonly name="fechas-str">
-                        <input class="controls" type="hidden" readonly name="inicio" id="inicio" placeholder="Ingrese fecha y hora de inicio">
-                        <input class="controls" type="hidden" readonly name="fin" id="fin" placeholder="Ingrese fecha y hora de fin">
+                        <label for="dia">Fecha</label>
+                        <input class="controls" type="date" id="dia" placeholder="Ingrese fecha" onchange="setFechas()">
+                        <div style="display:flex;">
+                            <input class="controls" type="time" id="horaini" placeholder="Ingrese hora de inicio" onchange="setFechas()">
+                            <input class="controls" type="time" id="horafin" placeholder="Ingrese hora de fin" onchange="setFechas()">
+                        </div>
+                        <input class="controls" type="hidden" readonly name="inicio" placeholder="Ingrese fecha y hora de inicio">
+                        <input class="controls" type="hidden" readonly name="fin" placeholder="Ingrese fecha y hora de fin">
                         <label for="usuario">Propietario</label>
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php

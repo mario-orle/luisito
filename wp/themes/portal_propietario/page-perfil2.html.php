@@ -76,7 +76,7 @@ if (get_user_meta($user->ID, 'meta-foto-perfil', true)) {
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "DNI" || get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "") { echo "selected"; } ?> value="DNI">DNI</option>
                         <option <?php if (get_user_meta($user->ID, 'meta-owner-tipodocumento', true) == "NIE") { echo "selected"; } ?> value="NIE">NIE</option>           
                     </select>
-                    <input type="text"placeholder="DNI O NIE..." name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editarDni(event)" >
+                    <input type="text" placeholder="DNI O NIE..." name="owner-numdocumento" class="editor" value="<?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?>" onchange="editarDni(event)" >
                     <?php } else { ?>
                         <label><?php echo get_user_meta($user->ID, 'meta-owner-tipodocumento', true) ?: "DNI" ?>
                         <label><?php echo get_user_meta($user->ID, 'meta-owner-numdocumento', true) ?: "-" ?>
