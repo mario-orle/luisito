@@ -24,7 +24,7 @@ function getInmueblesOfUserID($id) {
 
 function getAllUsersForAdmin() {
     $users = [];
-    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+    foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user_of_admin) {
         if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
             $users[] = $user_of_admin;
         }
@@ -50,7 +50,7 @@ function get_own_ofertas_recibidas($user) {
 
 function get_all_ofertas() {
     $ofertas = [];
-    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+    foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user_of_admin) {
         if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
             $asesor = get_user_by('id', get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true));
             $inmuebles_del_cliente = getInmueblesOfUser($user_of_admin);

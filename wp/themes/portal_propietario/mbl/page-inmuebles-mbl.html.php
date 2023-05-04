@@ -16,7 +16,8 @@ add_action('wp_head', 'myCss');
 
 $inmuebles = get_posts(array(
     'post_type' => 'inmueble',
-    'author' => get_current_user_id()
+    'author' => get_current_user_id(),
+    'nopaging' => true
 ));
 
 $user = wp_get_current_user();
@@ -24,7 +25,8 @@ $user = wp_get_current_user();
 if (current_user_can('administrator') && !empty($_GET['user'])) {
     $inmuebles = get_posts(array(
       'post_type' => 'inmueble',
-      'author' => $_GET['user']
+      'author' => $_GET['user'],
+      'nopaging' => true
     ));
 
     $user = get_user_by('ID', $_GET['user']);

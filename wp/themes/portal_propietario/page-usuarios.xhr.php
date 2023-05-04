@@ -94,7 +94,8 @@ if ($_GET['action'] == 'inicio_data') {
 
         $citas = get_posts(array(
             'post_type' => 'cita',
-            'post_status' => 'publish'
+            'post_status' => 'publish',
+            'nopaging' => true
         ));
         foreach ($citas as $cita) {
             $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);
@@ -115,7 +116,8 @@ if ($_GET['action'] == 'inicio_data') {
 
         $inmuebles = get_posts(array(
             'post_type' => 'inmueble',
-            'author' => get_current_user_id()
+            'author' => get_current_user_id(),
+            'nopaging' => true
         ));
 
         echo json_encode([
@@ -128,12 +130,12 @@ if ($_GET['action'] == 'inicio_data') {
     } else {
         if (get_current_user_id() === 1) {
         $users_of_admin = get_users(array(
-            "role" => "subscriber"
+            "role" => "subscriber", 'nopaging' => true
         ));
         } else {
         $users_of_admin = get_users(array(
             'meta_key' => 'meta-gestor-asignado',
-            'meta_value' => get_current_user_id()
+            'meta_value' => get_current_user_id(), 'nopaging' => true
         ));
         }
         $unread_msgs = 0;
@@ -169,7 +171,8 @@ if ($_GET['action'] == 'inicio_data') {
 
             $citas = get_posts(array(
                 'post_type' => 'cita',
-                'post_status' => 'publish'
+                'post_status' => 'publish',
+                'nopaging' => true
             ));
             foreach ($citas as $cita) {
                 $user_of_cita = get_post_meta($cita->ID, 'meta-usuario-asignado', true);

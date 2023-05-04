@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
     $nuevoasesor = $_POST["nuevoasesor"];
     $users_to_change = get_users(array(
         'meta_key' => 'meta-gestor-asignado',
-        'meta_value' => $viejoasesor
+        'meta_value' => $viejoasesor,
+        'nopaging' => true
     ));
 
     foreach ($users_to_change as $user) {
@@ -63,10 +64,11 @@ get_header();
                 </thead>
                 <tbody>
                     <?php
-foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin) {
+foreach (get_users(array('role__in' => array( 'administrator' ), 'nopaging' => true)) as $user_admin) {
     $users_of_admin = get_users(array(
         'meta_key' => 'meta-gestor-asignado',
-        'meta_value' => $user_admin->ID
+        'meta_value' => $user_admin->ID,
+        'nopaging' => true
     ));
                     ?>
                     <tr>
@@ -102,7 +104,7 @@ foreach (get_users(array('role__in' => array( 'administrator' ))) as $user_admin
                             <input type="hidden" name="viejoasesor">
                             <select class="controls js-choices" type="text" name="nuevoasesor" id="nuevoasesor">
                                 <?php
-foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'administrator' ), 'nopaging' => true)) as $user) {
                                 ?>
                                 <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
                                 <?php

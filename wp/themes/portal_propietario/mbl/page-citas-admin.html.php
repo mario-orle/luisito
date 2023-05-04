@@ -184,7 +184,7 @@ if (current_user_can('administrator')) {
                         <label for="usuario">Propietario</label>
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
     if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
                             ?>
                             <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
@@ -309,7 +309,7 @@ if (!current_user_can('administrator')) {
 }
 ?>
         moment.locale("es");
-        var users = <?php echo json_encode(get_users(array('role__in' => array( 'subscriber' )))) ?>;
+        var users = <?php echo json_encode(get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true))) ?>;
         var citas = <?php echo json_encode($array_citas) ?>;
 
         var colors = ["#007bff","#6610f2", "#6f42c1","#e83e8c","#dc3545","#fd7e14"," #ffc107"," #28a745","#20c997", "#17a2b8","#fff","#6c757d","#343a40"," #007bff","#6c757d", "#343a40","#007bff","#6c757d","#28a745","#17a2b8","#dc3545"," #f8f9fa"," #343a40"];

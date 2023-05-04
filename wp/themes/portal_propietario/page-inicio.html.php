@@ -81,7 +81,8 @@ get_header();
       }
       $inmuebles = get_posts(array(
         'post_type' => 'inmueble',
-        'author' => get_current_user_id()
+        'author' => get_current_user_id(),
+        'nopaging' => true
       ));
 ?>
     <div class="main">
@@ -278,12 +279,12 @@ get_header();
     } else {
       if (get_current_user_id() === 1) {
         $users_of_admin = get_users(array(
-          "role" => "subscriber"
+          "role" => "subscriber", 'nopaging' => true
         ));
       } else {
         $users_of_admin = get_users(array(
           'meta_key' => 'meta-gestor-asignado',
-          'meta_value' => get_current_user_id()
+          'meta_value' => get_current_user_id(), 'nopaging' => true
         ));
       }
       $unread_msgs = 0;

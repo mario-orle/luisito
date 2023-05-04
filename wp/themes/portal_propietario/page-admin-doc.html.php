@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && current_user_can('administrator')) {
 $possible_user = $_GET["user"];
 function get_all_documentos_solicitados($possible_user) {
     $arr = array();
-    foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+    foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
         if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
             if ($possible_user == $user->ID || !isset($possible_user)) {
                 if (get_user_meta($user->ID, 'meta-documento-solicitado-al-cliente')) {
@@ -284,7 +284,7 @@ foreach ($array_documentos as $user => $documentos) {
                         <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese nombre del documento solicitado">
                         <select class="controls js-choices" type="text" name="usuario" id="usuario">
                             <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
     if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
                             ?>
                             <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>

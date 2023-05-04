@@ -12,7 +12,7 @@ require_once "self/security.php";
 if ($_GET['action'] == 'get_messages') {
     if (current_user_can("administrator")) {
         $messages = [];
-        foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+        foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
             if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
                 $messages[$user->ID] = array();
                 foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
@@ -54,7 +54,7 @@ if ($_GET['action'] == 'read_messages') {
     if (current_user_can("administrator")) {
         $userId = $_GET["user-id"];
         $messages = [];
-        foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+        foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
             if ($user->ID == $userId) {
             foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {
                     $chat = json_decode(($chat_str), true);

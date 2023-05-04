@@ -105,7 +105,7 @@ if (get_current_user_id() === 1) {
                     <?php
 
 $ofertas = [];
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user_of_admin) {
     if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
         $asesor = get_user_by('id', get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true));
         $inmuebles_del_cliente = getInmueblesOfUser($user_of_admin);
@@ -222,7 +222,7 @@ if (get_current_user_id() === 1) {
                             <select class="controls js-choices" type="text" name="usuario" id="usuario" onchange="getInmueblesOfUser(event)">
                                 <option value="" style="color: #ccc">Elija propietario...</option>
                                 <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
     if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
         $inmuebles = getInmueblesOfUserID($user->ID);
         if (count($inmuebles) > 0) {

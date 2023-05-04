@@ -16,7 +16,7 @@ require_once __DIR__ . "/../self/security.php";
         <div class="main-contact">
 
         <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user) {
     if (get_user_meta($user->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
         $unread_msgs = 0;
         foreach (get_user_meta($user->ID, 'meta-messages-chat') as $chat_str) {

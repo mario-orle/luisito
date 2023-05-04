@@ -60,7 +60,7 @@ if (get_current_user_id() === 1) {
                 </thead>
                 <tbody>
                     <?php
-foreach (get_users(array('role__in' => array( 'subscriber' ))) as $user_of_admin) {
+foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true)) as $user_of_admin) {
     if (get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() === 1) {
         $asesor = get_user_by('id', get_user_meta($user_of_admin->ID, 'meta-gestor-asignado', true));
         $inmuebles = get_posts([
@@ -129,7 +129,7 @@ if (get_current_user_id() === 1) {
                             <input type="hidden" name="usuario">
                             <select class="controls js-choices" type="text" name="nuevoasesor" id="nuevoasesor">
                                 <?php
-foreach (get_users(array('role__in' => array( 'administrator' ))) as $user) {
+foreach (get_users(array('role__in' => array( 'administrator' ), 'nopaging' => true)) as $user) {
                                 ?>
                                 <option value="<?php echo $user->ID ?>"><?php echo $user->display_name ?></option>
                                 <?php

@@ -20,12 +20,12 @@ add_action('wp_head', 'myCss');
 
 if (get_current_user_id() === 1) {
     $users_of_admin = get_users(array(
-        "role" => "subscriber"
+        "role" => "subscriber", 'nopaging' => true
     ));
 } else {
     $users_of_admin = get_users(array(
         'meta_key' => 'meta-gestor-asignado',
-        'meta_value' => get_current_user_id()
+        'meta_value' => get_current_user_id(), 'nopaging' => true
     ));
 }
 
