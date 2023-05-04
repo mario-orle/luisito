@@ -199,6 +199,9 @@ Demo Animation Style
     font-size: 18px;
     color: black;
 }
+.modal textarea.controls {
+    width: calc(100% - 20px)!important;
+}
 
 .modal p {
     height: 52px;
