@@ -34,11 +34,13 @@ h2#modal-confirmar-cita-title{
     box-shadow: inset 0px 0px 8px -1px rgba(0, 0, 0, 0.75);
     border-radius: 6px;
     border-bottom: 5px solid orange;
-    overflow-y: auto;
+    display: flex;
+    flex-flow: column;
 }
 
 .text-programadas {
     font-size: 13px;
+    overflow-y: auto;
 }
 
 .text-programadas span {
