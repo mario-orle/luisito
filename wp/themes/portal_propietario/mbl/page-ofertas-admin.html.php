@@ -253,8 +253,8 @@ function ver(id) {
         <div class="oferta ${oferta.respuesta}">
             <form method="POST" onsubmit="onsubmitCita(event)">
             <p>${oferta.respuesta == 'aceptar' ? "Aceptada" : (oferta.respuesta == 'denegar' ? "Cita rechazada el " + moment(oferta.cita).format("DD/MM/YYYY HH:mm") : "Contraoferta realizada")}</p>
-            ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtprop'>Cantidad</label><textarea id='txtprop' readonly>" + oferta.propuesta + "</textarea>" : ""}
-            ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtmotivo'>Motivo</label><textarea id='txtmotivo' readonly>" + oferta.motivo + "</textarea>" : ""}
+            ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtprop'>Cantidad</label><br><textarea id='txtprop' readonly>" + oferta.propuesta + "</textarea>" : ""}
+            ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtmotivo'>Motivo</label><br><textarea id='txtmotivo' readonly>" + oferta.motivo + "</textarea>" : ""}
             <input type="hidden" value="${id}" name="oferta-id">
             <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
             <input type="hidden" name="action" value="proponer-cita">
