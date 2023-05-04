@@ -122,7 +122,7 @@ function lee(userId, meta) {
 const dataTable = new simpleDatatables.DataTable("table", {
     labels: {
         placeholder: "Buscar...",
-        perPage: " elementos por página",
+        perPage: " Elementos",
         noRows: "Sin elementos para mostrar",
         info: "Mostrando {start} a {end} de {rows} elementos (Pág {page} de {pages})",
     },
