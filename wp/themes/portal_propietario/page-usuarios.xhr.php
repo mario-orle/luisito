@@ -113,10 +113,16 @@ if ($_GET['action'] == 'inicio_data') {
             $ofertas_recibidas += count($ofertas_arr);
         }
 
+        $inmuebles = get_posts(array(
+            'post_type' => 'inmueble',
+            'author' => get_current_user_id()
+        ));
+
         echo json_encode([
             "unread_msgs" => $unread_msgs,
             "pending_documents" => $pending_documents,
             "pending_citas" => $pending_citas,
+            "inmuebles" => count($inmuebles),
             "ofertas_recibidas" => $ofertas_recibidas
         ]);
     } else {

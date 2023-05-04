@@ -79,7 +79,10 @@ get_header();
       foreach ($ofertas as $user => $ofertas_arr) {
         $ofertas_recibidas += count($ofertas_arr);
       }
-
+      $inmuebles = get_posts(array(
+        'post_type' => 'inmueble',
+        'author' => get_current_user_id()
+      ));
 ?>
     <div class="main">
         <div class="main-container">
@@ -115,21 +118,12 @@ get_header();
                         </a>
                         </button>
                     </div>
-                    <div class="servicios-plus">
-                        <button onclick="location.href='/servicios+'">
-                        <a href="/servicios+">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>notario.png" width="100%">
-                        <h2>Servicios+</h2>
-                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> servicios</p>
-                        </a>
-                        </button>
-                    </div>
                     <div class="inmuebles">
                         <button onclick="location.href='/inmuebles'">
                         <a href="/inmuebles">
                         <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>asequible.png" width="100%">
                         <h2>Inmuebles</h2>
-                        <p><span id="pending_documents"><?php echo $pending_documents ?></span> inmuebles</p>
+                        <p><span id="inmuebles"><?php echo count($inmuebles) ?></span> inmuebles</p>
                         </a>
                         </button>
                     </div>
