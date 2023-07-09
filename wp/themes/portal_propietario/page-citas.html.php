@@ -78,7 +78,7 @@ function get_all_citas() {
 
         if (get_user_meta($user_of_cita, 'meta-gestor-asignado', true) == get_current_user_id() || get_current_user_id() == 1) {
             var_dump($cita_info);
-            $cita_encoded = json_decode(wp_unslash($cita_info), true);
+            $cita_encoded = json_decode(($cita_info), true);
             var_dump($cita_encoded);
             $cita_encoded['id'] = $cita->ID;
             $arr[$user_of_cita][] = $cita_encoded;
