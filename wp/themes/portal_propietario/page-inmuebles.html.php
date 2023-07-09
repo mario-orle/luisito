@@ -60,7 +60,7 @@ foreach ($inmuebles as $inmueble) {
           <button>
             <a href="/perfil-inmueble?inmueble_id=<?php echo $inmueble->ID ?>">
               <img src="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-foto-principal', true); ?>">
-              <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban"></i></h3>
+              <h3><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-destino', true); ?> <i class="fas fa-edit"></i> <i class="fas fa-ban" onclick="deleteInmueble(event, <?php echo $inmueble->ID ?>)"></i></h3>
               <h4><b><?php echo number_format(get_post_meta($inmueble->ID, 'meta-inmueble-precioestimado', true), 2, ",", "."); ?> €</b></h4>
               <p><?php echo get_post_meta($inmueble->ID, 'meta-inmueble-descripcion', true) ?:  "Sin descripción"; ?></p>
             </a>
@@ -74,6 +74,16 @@ foreach ($inmuebles as $inmueble) {
 
     </div>
 </main><!-- #main -->
+<script>
 
+function deleteInmueble(e, inmuebleId) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    if (confirm("¿Seguro que quieres eliminar el inmueble?")) {
+        fetch("/inmueble-xhr?action=elimina-inmueble&inmueble_id=" + inmuebleId).then(res => {window.location.reload()});
+    }
+}
+</script>
 <?php
 get_footer();
