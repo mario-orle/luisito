@@ -1,6 +1,6 @@
 .agregar-wrapper {
-    display: flex;
-    justify-content: flex-end;
+    position: fixed;
+    right: 20px;
 }
 
 .card-agregar {
@@ -95,6 +95,7 @@ p {
     padding: 20px;
     display: flex;
     font-family: "roboto ";
+    margin-top: 60px;
 }
 
 .card-wrapper button a:active {
