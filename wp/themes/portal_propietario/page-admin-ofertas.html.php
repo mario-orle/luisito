@@ -156,7 +156,7 @@ foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true
 <?php
 } else if ($oferta["status"] == "cita-propuesta") {
 ?>
-                            <span>Cita propuesta</span>
+                            <span>Completada</span>
 <?php
 } else if ($oferta["status"] == "respondida-cita") {
     $respuesta = $oferta["respuesta"];

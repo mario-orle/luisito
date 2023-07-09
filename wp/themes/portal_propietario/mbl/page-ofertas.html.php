@@ -110,7 +110,7 @@ if ($oferta['status'] === 'creada') {
     
                             <tr>
                                 <th>Estado:</th>
-                                <td>Oferta aceptada, cita propuesta</td>
+                                <td>Oferta aceptada</td>
                             </tr>
                             <tr>
                             </tr>
