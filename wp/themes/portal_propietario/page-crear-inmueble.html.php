@@ -72,8 +72,8 @@ get_header();
           <p><input placeholder="Número..." oninput="this.className = ''" name="inmueble-numero" ></p>
           <p><input placeholder="Escalera..." class="not-required" name="inmueble-escalera" ></p>
           <p><input placeholder="Bloque..." class="not-required" name="inmueble-bloque" ></p>
-          <p><input placeholder="Piso/planta..." oninput="this.className = ''" name="inmueble-piso-planta"></p>
-          <p><input placeholder="Puerta..." oninput="this.className = ''" name="inmueble-puerta"></p>
+          <p><input placeholder="Piso/planta..." class="not-required" oninput="this.className = ''" name="inmueble-piso-planta"></p>
+          <p><input placeholder="Puerta..." class="not-required" oninput="this.className = ''" name="inmueble-puerta"></p>
         </div>
         <div class="tab" >Situación Inmueble:
           <p><select onchange="changeTipo(event)" class="js-choice" name="inmueble-tipo">
