@@ -246,8 +246,14 @@ function ver(id) {
     popup.classList.add(oferta.respuesta);
     
     var container = document.querySelector("#modal-ver-oferta-asesor-content");
+    if (oferta.respuesta == "aceptar") {
 
-    if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+            <p>Aceptada</p>
+            <button type="button" onclick="location.href='/citas-mbl'" id="crear-cita">Ir a citas</button>
+        </div>`;
+    } else if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
 
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">

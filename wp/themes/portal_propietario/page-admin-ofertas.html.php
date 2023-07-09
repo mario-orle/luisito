@@ -329,25 +329,31 @@ function ver(id) {
     
     var container = document.querySelector("#modal-ver-oferta-asesor-content");
 
-    if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
+    if (oferta.respuesta == "aceptar") {
 
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
-            <form method="POST" onsubmit="onsubmitCita(event)">
-            <p>${oferta.respuesta == 'aceptar' ? "Aceptada" : (oferta.respuesta == 'denegar' ? "Cita rechazada el " + moment(oferta.cita).format("DD/MM/YYYY HH:mm") : "Contraoferta realizada")}</p>
-            ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtprop'>Cantidad</label><textarea id='txtprop' readonly>" + oferta.propuesta + "</textarea>" : ""}
-            ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtmotivo'>Motivo</label><textarea id='txtmotivo' readonly>" + oferta.motivo + "</textarea>" : ""}
-            <input type="hidden" value="${id}" name="oferta-id">
-            <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
-            <input type="hidden" name="action" value="proponer-cita">
-            <input type="hidden" name="inmueble_id" value="${oferta.inmueble_id}">
-            <button type="submit" id="crear-cita">
-            ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta" : "Proponer"}
-            </button>
-            </form>
-        </div>
-        `;
-    } else if (oferta.respuesta == 'denegar') {
+            <p>Aceptada</p>
+            <button type="button" onclick="location.href='/citas'" id="crear-cita">Ir a citas</button>
+        </div>`;
+    } else if (oferta.respuesta == "aceptar" || oferta.respuesta == 'contraoferta' || (oferta.status == 'respondida-cita' && oferta.respuesta == 'denegar')) {
+
+        container.innerHTML = `
+        <div class="oferta ${oferta.respuesta}">
+        <form method="POST" onsubmit="onsubmitCita(event)">
+        <p>${oferta.respuesta == 'aceptar' ? "Aceptada" : (oferta.respuesta == 'denegar' ? "Cita rechazada el " + moment(oferta.cita).format("DD/MM/YYYY HH:mm") : "Contraoferta realizada")}</p>
+        ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtprop'>Cantidad</label><textarea id='txtprop' readonly>" + oferta.propuesta + "</textarea>" : ""}
+        ${oferta.respuesta == 'contraoferta' ? "<label style='color: white' for='txtmotivo'>Motivo</label><textarea id='txtmotivo' readonly>" + oferta.motivo + "</textarea>" : ""}
+        <input type="hidden" value="${id}" name="oferta-id">
+        <input type="hidden" id="fecha" name="fecha-cita" value="${moment().format("YYYY-MM-DD")}">
+        <input type="hidden" name="action" value="proponer-cita">
+        <input type="hidden" name="inmueble_id" value="${oferta.inmueble_id}">
+        <button type="submit" id="crear-cita">
+        ${oferta.respuesta == 'contraoferta' ? "Aceptar contraoferta" : "Proponer"}
+        </button>
+        </form>
+    </div>`;
+} else if (oferta.respuesta == 'denegar') {
         container.innerHTML = `
         <div class="oferta ${oferta.respuesta}">
             <p>Oferta rechazada</p>
