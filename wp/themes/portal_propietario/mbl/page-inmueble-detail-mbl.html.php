@@ -122,29 +122,12 @@ function selectPerfilCreate($field, $inmueble, $values, $label = '', $fn = "edit
     }
   }
   
-  function fieldPerfilCreate($field, $inmueble, $type, $label = '') {
-    if (current_user_can("administrator") && get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true)) {
+  function fieldPerfilCreate($field, $inmueble, $type, $label = '', $readonly = false) {
   
   ?>
   <label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
-  <input placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="<?php echo $field; ?>" name="inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true);?>">
-  <div class="undoer">
-    <label for="old-<?php echo $field; ?>">
-        Valor anterior
-    </label>
-    <input placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="old-<?php echo $field; ?>" name="old-inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true);?>">
-    <i onclick="undo(event, '<?php echo $field ?>', '<?php echo get_post_meta($inmueble->ID, 'old-meta-inmueble-' . $field, true);?>')" class="fas fa-undo" title="Recuperar valor anterior"></i>
-    <i onclick="removeUndo(event, '<?php echo $field ?>')" class="fas fa-trash" title="Descartar valor anterior"></i>
-  </div>
+  <input <?php if ($readonly) {echo ' readonly=readonly '; } ?> placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="<?php echo $field; ?>" name="inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true);?>">
   <?php
-    } else {
-  
-  ?>
-  <label for="<?php echo $field; ?>"><?php echo $label ?: $field; ?></label>
-  <input placeholder="<?php echo $label ?: $field; ?>" type="<?php echo $type; ?>" id="<?php echo $field; ?>" name="inmueble-<?php echo $field; ?>" onchange="editar(event)" value="<?php echo get_post_meta($inmueble->ID, 'meta-inmueble-' . $field, true);?>">
-  <?php
-    }
-  
   }
   
 get_header();
@@ -270,12 +253,12 @@ get_header();
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("precioestimado", $inmueble, "text", "Precio de venta");
+  fieldPerfilCreate("precioestimado", $inmueble, "text", "Precio de venta", !current_user_can("administrator"));
 ?>
                         </div>
                         <div>
 <?php 
-  fieldPerfilCreate("preciorecomendado", $inmueble, "text", "Precio recomendado");
+  fieldPerfilCreate("preciorecomendado", $inmueble, "text", "Precio recomendado", !current_user_can("administrator"));
 ?>
                         </div>
                         <div>
