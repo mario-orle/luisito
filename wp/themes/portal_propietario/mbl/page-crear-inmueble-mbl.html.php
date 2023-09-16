@@ -68,6 +68,14 @@ get_header();
           <p><input validators="numeric" placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
         </div>
+        <div class="tab">Localización Inmueble:
+          <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
+          <p><input placeholder="Número..." oninput="this.className = ''" name="inmueble-numero" ></p>
+          <p><input placeholder="Escalera..." class="not-required" name="inmueble-escalera" ></p>
+          <p><input placeholder="Bloque..." class="not-required" name="inmueble-bloque" ></p>
+          <p><input placeholder="Piso/planta..." class="not-required" oninput="this.className = ''" name="inmueble-piso-planta"></p>
+          <p><input placeholder="Puerta..." class="not-required" oninput="this.className = ''" name="inmueble-puerta"></p>
+        </div>
         <div class="tab" >Situación Inmueble:
           <p><select onchange="changeTipo(event)" class="js-choice" name="inmueble-tipo">
             <option value="">Tipo de inmueble</option>
@@ -120,6 +128,7 @@ get_header();
         </div>
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
           <span class="step"></span>
