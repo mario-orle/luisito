@@ -84,18 +84,18 @@ foreach (get_users(array('role__in' => array( 'subscriber' ), 'nopaging' => true
 
                         <tbody>
                             <tr>
-                                <th>Inmuebles</th>
+                                <th style="text-align: left">Inmuebles:</th>
                                 <td><?php echo count($inmuebles); ?></td>
                             </tr>
                             <tr>
-                                <th>Documentación:</th>
+                                <th style="text-align: left">Documentación:</th>
                                 <td><?php if ($doc_ok) {echo "Completa";} else {echo "Incompleta";} ?></td>
                             </tr>
 <?php 
 if (get_current_user_id() === 1) {
 ?>
                             <tr>
-                                <th>Asesor:</th>
+                                <th style="text-align: left">Asesor:</th>
                                 <td><?php echo $asesor->display_name ?></td>
                             </tr>
 <?php
