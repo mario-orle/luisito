@@ -86,7 +86,7 @@ if (!current_user_can("administrator")) {
             <a id="mensajes" href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>" target="_blank">
             <img src="<?php echo get_template_directory_uri() . '/assets/img/'?>whatsapp.png">
           </a>
-                <div class="btn-text"><a href="/citas-mbl">
+                <div class="btn-text"><a href="https://wa.me/34<?php echo get_user_meta($asesor_id, 'meta-phone', true); ?>" target="_blank">
                         <h2>Chat</h2>
                     </a>
 
