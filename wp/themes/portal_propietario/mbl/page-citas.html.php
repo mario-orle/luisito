@@ -228,7 +228,6 @@ if (current_user_can('administrator')) {
                         <input class="controls" type="text" readonly name="usuario_displayname">
                         
                         <select class="controls js-choices" name="status">
-                            <option value="descartada">Descartar</option>
                             <option value="eliminada">Eliminar</option>
                         </select>
 <?php
@@ -328,7 +327,6 @@ if (current_user_can('administrator')) {
                         <input class="controls" type="text" readonly name="usuario_displayname">
                         
                         <select class="controls js-choices" name="status">
-                            <option value="descartada">Descartar</option>
                             <option value="eliminada">Eliminar</option>
                         </select>
 <?php

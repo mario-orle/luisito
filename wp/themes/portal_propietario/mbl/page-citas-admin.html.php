@@ -242,7 +242,6 @@ if (current_user_can('administrator')) {
                         <label for="status-admin-actualizar">Estado actual</label>
                         <input class="controls" id="status-admin-actualizar" type="text" readonly name="status">
                         <select class="controls js-choices" name="status">
-                            <option value="descartada">Descartar</option>
                             <option value="eliminada">Eliminar</option>
                         </select>
 <?php
