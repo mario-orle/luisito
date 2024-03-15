@@ -35,6 +35,9 @@ a {
     text-align: center; 
     color:white;
     }
+    h2.fc-toolbar-title {
+      color: #2C3E50;
+    }
     .menu span{
     color:white;
     }
