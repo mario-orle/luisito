@@ -251,6 +251,11 @@ get_header();
   selectPerfilCreate("estado", $inmueble, ["Buen estado", "A Estrenar", "A Reformar", "Reformado"], "Estado");
 ?>
                         </div>
+                            <div>
+<?php 
+  selectPerfilCreate("equipamiento", $inmueble, ["Amueblado", "Semi-Amueblado", "Sin Amueblar"], "Equipamiento");
+?>
+                        </div>
                         <div>
 <?php 
   fieldPerfilCreate("precioestimado", $inmueble, "text", "Precio de venta", !current_user_can("administrator"));

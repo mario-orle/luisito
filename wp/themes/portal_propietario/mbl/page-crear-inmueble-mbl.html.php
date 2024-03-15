@@ -66,7 +66,6 @@ get_header();
           <p><select placeholder="Municipio..." oninput="this.className = ''" name="inmueble-municipio"></select></p>
           <p><select class="not-required" placeholder="Población..." oninput="this.className = ''" name="inmueble-poblacion"></select></p>
           <p><input validators="numeric" placeholder="Codigo postal..." oninput="this.className = ''" name="inmueble-codigopostal" type="number"></p>
-          <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
         </div>
         <div class="tab">Localización Inmueble:
           <p><input placeholder="Dirección..." oninput="this.className = ''" name="inmueble-direccion"></p>
@@ -106,7 +105,6 @@ get_header();
             <option value="Venta">Venta</option>
             <option value="Alquiler">Alquiler</option>           
             </select></p>
-          <p><input placeholder="Otros..." class="not-required" name="inmueble-otros"></p>
         </div>
         <div class="tab">Superficie y características inmueble:
           <p><input validators="numeric" placeholder="Metros2 Construidos..." oninput="this.className = ''" name="inmueble-m2construidos" type="number"></p>
